@@ -1,8 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
 project(MandelBrot2D)
+add_executable(proto.MandelBrot2D main.cpp MandelBrot.cpp MandelBrot.hpp)
 
-set(CMAKE_CXX_STANDARD 17)
-
-add_executable(proto.MandelBrot2D main.cpp)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lSDL2")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lSDL2 -pthread")
