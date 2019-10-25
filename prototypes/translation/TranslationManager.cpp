@@ -9,33 +9,25 @@
 
 TranslationManager* TranslationManager::instance = nullptr;
 
-const std::string* TranslationManager::get(const char* id) const {
+void TranslationManager::loadLang(){
 
-    auto iterator = strings.find(std::string(id));
+    std::vector<std::string> fileNames = {"../lang.yml"};
 
-    return iterator == strings.end() ? nullptr : &iterator->second;
+    if (!lang.empty()){
 
-}
+        fileNames.push_back("../lang-" + lang + ".yml");
 
-TranslationManager* TranslationManager::getInstance(){
+    }
 
-    if (instance == nullptr){
-
-        instance = new TranslationManager();
-        std::string fileName("../lang.yml");
+    for (const std::string& fileName : fileNames){
 
         try {
 
-            YAML::Node lang = YAML::LoadFile(fileName);
+            YAML::Node translations = YAML::LoadFile(fileName);
 
-            for (auto it = lang.begin(); it != lang.end(); ++it) {
+            for (auto it = translations.begin(); it != translations.end(); ++it){
 
-                auto key = it->first.as<std::string>();
-                auto value = it->second.as<std::string>();
-
-                instance->strings.insert(std::make_pair(key, value));
-
-                std::cout << key << ":" << value << std::endl;
+                strings[it->first.as<std::string>()] = it->second.as<std::string>();
 
             }
 
@@ -47,7 +39,46 @@ TranslationManager* TranslationManager::getInstance(){
 
         }
     }
+}
+
+const std::string* TranslationManager::get(const char* id) const {
+
+    auto iterator = strings.find(std::string(id));
+
+    return iterator == strings.end() ? nullptr : &iterator->second;
+
+}
+
+TranslationManager* TranslationManager::getInstance(Langs lang){
+
+    if (instance == nullptr){
+
+        instance = new TranslationManager();
+
+        instance->setLang(lang);
+
+    }
 
     return instance;
+
+}
+
+void TranslationManager::setLang(Langs newLang) {
+
+    std::string langId;
+
+    switch (newLang){
+
+        case FR:
+            TranslationManager::lang = "fr";
+            break;
+
+        case EN:
+        default:
+            TranslationManager::lang = "";
+
+    }
+
+    loadLang();
 
 }

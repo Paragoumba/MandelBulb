@@ -9,13 +9,20 @@
 
 int main(){
 
-    TranslationManager* translationManager = TranslationManager::getInstance();
+    TranslationManager* translationManager = TranslationManager::getInstance(TranslationManager::FR);
 
-    if (translationManager != nullptr) {
+    if (translationManager != nullptr){
 
-        const std::string* s = translationManager->get("test");
+        const std::string* s = translationManager->get("horse");
 
-        if (s != nullptr) std::cout << *s << std::endl;
+        if (s != nullptr) std::cout << "horse -> " << *s << std::endl;
+        else std::cout << "Null" << std::endl;
+
+        translationManager->setLang(TranslationManager::EN);
+
+        const std::string* s2 = translationManager->get("milky-way");
+
+        if (s2 != nullptr) std::cout << "milky-way -> " << *s2 << std::endl;
         else std::cout << "Null" << std::endl;
 
         delete (translationManager);
