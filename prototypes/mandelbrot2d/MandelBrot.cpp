@@ -4,6 +4,7 @@
 
 #include <SDL2/SDL_events.h>
 #include <thread>
+#include <cmath>
 #include <SDL2/SDL.h>
 
 #include "MandelBrot.hpp"
@@ -71,6 +72,15 @@ void MandelBrot::calculate(){
                     gridMutex.unlock();
 
                 }
+                else {
+
+                    gridMutex.lock();
+                    grid[x][y].r = (int)((i>=50)?255:(255/2)*(1-cos(M_PI*i/50)));
+                    grid[x][y].g = (int)((i<=50)?0:(255/2)*(1+cos(M_PI*i/50)));
+                    grid[x][y].b = (int)((i<=25)?0:((i>=75)?255:(255/2)*(1-sin(M_PI*i/50))));
+                    gridMutex.unlock();
+
+                }
             }
         }
     }
@@ -83,7 +93,6 @@ void MandelBrot::display(){
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         clear();
         SDL_RenderClear(renderer);
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
         gridMutex.lock();
 

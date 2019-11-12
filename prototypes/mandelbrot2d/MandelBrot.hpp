@@ -34,7 +34,7 @@ private:
     SDL_Color grid[WIDTH][HEIGHT]{};
     bool running = true;
     int zoom = 100;
-    int iteration_max = 50;
+    int iteration_max = 100;
     float x1 = -2.1f;
     float x2 = 0.6f;
     float y1 = -1.2f;
