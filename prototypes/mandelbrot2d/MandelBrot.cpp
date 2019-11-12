@@ -66,18 +66,19 @@ void MandelBrot::calculate(){
                 if (i == iteration_max) {
 
                     gridMutex.lock();
-                    grid[x][y].r = 255;
-                    grid[x][y].g = 255;
-                    grid[x][y].b = 255;
+                    grid[x][y].r = 0;
+                    grid[x][y].g = 0;
+                    grid[x][y].b = 0;
                     gridMutex.unlock();
 
                 }
                 else {
 
                     gridMutex.lock();
-                    grid[x][y].r = (int)((i>=50)?255:(255/2)*(1-cos(M_PI*i/50)));
-                    grid[x][y].g = (int)((i<=50)?0:(255/2)*(1+cos(M_PI*i/50)));
-                    grid[x][y].b = (int)((i<=25)?0:((i>=75)?255:(255/2)*(1-sin(M_PI*i/50))));
+                    float r = M_PI*i/50;
+                    grid[x][y].r = (int)((i>=50)?0:(255/2)*(1+cos(-r)));
+                    grid[x][y].g = (int)((i<=25)?255:((i>=75)?0:(255/2)*(1+sin(r))));
+                    grid[x][y].b = (int)((i<=50)?255:(255/2)*(1-cos(-r)));
                     gridMutex.unlock();
 
                 }
