@@ -170,6 +170,12 @@ void MandelBrot::controls(){
                         calculateImage_x();
                         calculateImage_y();
 
+                    } else if (event.key.keysym.sym == SDLK_DOWN){
+
+                        zoom -= 10;
+                        calculateImage_x();
+                        calculateImage_y();
+
                     }
 
                     break;
