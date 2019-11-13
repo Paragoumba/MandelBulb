@@ -15,6 +15,8 @@ MandelBrot::MandelBrot(){
     window = SDL_CreateWindow("MandelBrot", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, MandelBrot::WIDTH, MandelBrot::HEIGHT, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
+    SDL_SetWindowResizable(window, SDL_TRUE);
+
     pixel.w = pixel.h = 1;
 
     clear();
