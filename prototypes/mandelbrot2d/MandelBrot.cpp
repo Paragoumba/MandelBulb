@@ -6,6 +6,7 @@
 #include <thread>
 #include <cmath>
 #include <SDL2/SDL.h>
+#include <iostream>
 
 #include "MandelBrot.hpp"
 
@@ -88,6 +89,9 @@ void MandelBrot::calculate(){
 
 void MandelBrot::display(){
 
+    int i = 0;
+    long start = SDL_GetTicks();
+
     while (running){
 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -111,8 +115,18 @@ void MandelBrot::display(){
 
         SDL_RenderPresent(renderer);
 
-    }
+        ++i;
 
+        long time = SDL_GetTicks();
+
+        if (time - start > 1000){
+
+            start = time;
+            SDL_SetWindowTitle(window, ("MandelBrot - " + std::to_string(i) + "FPS").c_str());
+            i = 0;
+
+        }
+    }
 }
 
 void MandelBrot::clear(){
