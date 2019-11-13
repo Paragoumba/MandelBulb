@@ -5,6 +5,7 @@
 #include <SDL2/SDL_events.h>
 #include <thread>
 #include <cmath>
+#include <string>
 #include <SDL2/SDL.h>
 #include <iostream>
 
@@ -69,19 +70,81 @@ void MandelBrot::calculate(){
                 if (i == iteration_max) {
 
                     gridMutex.lock();
-                    grid[x][y].r = 255;
-                    grid[x][y].g = 255;
-                    grid[x][y].b = 255;
+                    grid[x][y].r = 0;
+                    grid[x][y].g = 0;
+                    grid[x][y].b = 0;
                     gridMutex.unlock();
 
                 }
                 else {
 
                     gridMutex.lock();
-                    grid[x][y].r = (int)((i>=50)?255:(255/2)*(1-cos(M_PI*i/50)));
-                    grid[x][y].g = (int)((i<=50)?0:(255/2)*(1+cos(M_PI*i/50)));
-                    grid[x][y].b = (int)((i<=25)?0:((i>=75)?255:(255/2)*(1-sin(M_PI*i/50))));
-                    gridMutex.unlock();
+					
+					grid[x][y].r = (int)((i>=10)?255:(255/2)*(1-cos(M_PI*i/10)));
+					grid[x][y].g = (int)((i<=10)?0:(255/2)*(1+cos(M_PI*i/10)));
+					grid[x][y].b = (int)((i<=5)?0:((i>=15)?255:(255/2)*(1-sin(M_PI*i/10))));
+				
+					/*
+					grid[x][y].r = (int)(255 / 1 + exp(-(i - MandelBrot::iteration_max / 4) / sqrt(MandelBrot::iteration_max)));
+					grid[x][y].g = (int)(255 / 1 + exp(-(i - MandelBrot::iteration_max / 2) / sqrt(MandelBrot::iteration_max)));
+					grid[x][y].b = (int)(255 / 1 + exp(-(i - 3*MandelBrot::iteration_max / 4) / sqrt(MandelBrot::iteration_max)));
+					*/
+					/*
+					int m;
+					m = i + 1 - log(log2(z_i));
+
+					int hue = (int)((360 * i) / MandelBrot::iteration_max);
+					//std::cout << hue << std::endl;
+
+					int c = 1;
+					int x_ = ((hue / 60) % 2);
+					int red, green, blue;
+
+					if (0 <= hue && hue < 60) {
+						red = c * 255;
+						green = x_ * 255;
+						blue = 0;
+					}
+					else {
+						if (60 <= hue && hue < 120) {
+							red = x_ * 255;
+							green = c * 255;
+							blue = 0;
+						}
+						else {
+							if (120 <= hue && hue < 180) {
+								red = 0;
+								green = c * 255;
+								blue = x_ * 255;
+							}
+							else {
+								if (180 <= hue && hue < 240) {
+									red = 0;
+									green = x_ * 255;
+									blue = c * 255;
+								}
+								else {
+									if (240 <= hue && hue < 300) {
+										red = x_ * 255;
+										green = 0;
+										blue = c * 255;
+									}
+									else {
+										red = c * 255;
+										green = 0;
+										blue = x_ * 255;
+									}
+								}
+							}
+						}
+					}
+
+					grid[x][y].r = red;
+					grid[x][y].g = green;
+					grid[x][y].b = blue;
+					*/
+
+					gridMutex.unlock();
 
                 }
             }
@@ -97,7 +160,7 @@ void MandelBrot::display(){
     while (running){
 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        clear();
+        //clear();
         SDL_RenderClear(renderer);
 
         gridMutex.lock();
