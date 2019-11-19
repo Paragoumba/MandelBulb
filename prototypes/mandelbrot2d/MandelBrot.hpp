@@ -10,8 +10,8 @@
 
 class MandelBrot {
 public:
-    static const int WIDTH = 1000;
-    static const int HEIGHT = 1000;
+    static const int WIDTH = 300;
+    static const int HEIGHT = 300;
 
     MandelBrot();
 
@@ -24,6 +24,7 @@ public:
     void controls();
     void calculateImage_x();
     void calculateImage_y();
+	void coloring(int, SDL_Color&);
 
     ~MandelBrot();
 
@@ -34,7 +35,7 @@ private:
     SDL_Color grid[WIDTH][HEIGHT]{};
     bool running = true;
     int zoom = 100;
-    int iteration_max = 100;
+    int iteration_max = 64;
     float x1 = -2.1f;
     float x2 = 0.6f;
     float y1 = -1.2f;
