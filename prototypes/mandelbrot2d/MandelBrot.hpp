@@ -40,6 +40,8 @@ private:
     float x2 = 0.6f;
     float y1 = -1.2f;
     float y2 = 1.2f;
+    float bias_x = 0.0f;
+    float bias_y = 0.0f;
     float image_x{};
     float image_y{};
     SDL_Rect pixel{};
