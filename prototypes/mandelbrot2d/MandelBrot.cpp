@@ -48,8 +48,8 @@ void MandelBrot::calculate(){
         for (int x = 0; (float) x < image_x && x < WIDTH; ++x) {
             for (int y = 0; (float) y < image_y && y < HEIGHT; ++y) {
 
-                float c_r = (float) x / (float) zoom + x1;
-                float c_i = (float) y / (float) zoom + y1;
+                float c_r = (float) x / (float) zoom + x1 + bias_x;
+                float c_i = (float) y / (float) zoom + y1 + bias_y;
 
                 float z_r = 0;
                 float z_i = 0;
@@ -177,7 +177,31 @@ void MandelBrot::controls(){
                         calculateImage_x();
                         calculateImage_y();
 
-                    }
+                    } else if (event.key.keysym.sym == SDLK_a){
+
+		            	bias_x += 0.1;
+		            	calculateImage_x();
+                        calculateImage_y();
+
+		            } else if (event.key.keysym.sym == SDLK_q){
+
+		            	bias_x -= 0.1;
+		            	calculateImage_x();
+                        calculateImage_y();
+
+		            } else if (event.key.keysym.sym == SDLK_z){
+
+			            bias_y += 0.1;
+			            calculateImage_x();
+                        calculateImage_y();
+
+		            } else if (event.key.keysym.sym == SDLK_s){
+
+			            bias_y -= 0.1;
+			            calculateImage_x();
+                        calculateImage_y();
+
+		            }
 
                     break;
 
