@@ -15,10 +15,11 @@ public:
 
     MandelBrot();
 
-    void setupThread();
+    void setupThreads(int);
     void setupControls();
 
-    void calculate();
+	void computeBounds(int, int, float&, float&);
+    void calculate(int, int);
     void display();
     void clear();
     void controls();
@@ -42,8 +43,8 @@ private:
     float y2 = 1.2f;
     float bias_x = 0.0f;
     float bias_y = 0.0f;
-    float image_x{};
-    float image_y{};
+    float image_x = 1.0f;
+    float image_y = 1.0f;
     SDL_Rect pixel{};
     std::mutex gridMutex;
 };

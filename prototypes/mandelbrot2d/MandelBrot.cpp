@@ -26,10 +26,14 @@ MandelBrot::MandelBrot(){
 
 }
 
-void MandelBrot::setupThread(){
+void MandelBrot::setupThreads(int nbThreads){
 
-    std::thread nouveauThread(&MandelBrot::calculate, this);
-    nouveauThread.detach();
+	for (int i = 0 ; i < nbThreads ; i++) {
+
+		std::thread nouveauThread(&MandelBrot::calculate, this, i, nbThreads);
+		nouveauThread.detach();
+
+	}
 
 }
 
@@ -41,15 +45,32 @@ void MandelBrot::setupControls() {
 
 }
 
-void MandelBrot::calculate(){
+void MandelBrot::computeBounds(int indexThread, int nbThreads, float& start_x, float& stop_x) {
+
+	int width = (int)(image_x / nbThreads);
+	start_x = (indexThread)*width;
+
+	if (indexThread < nbThreads - 1) {
+		stop_x = (indexThread+1)*width;
+	}
+	else {
+		stop_x = image_x;
+	}
+
+}
+
+void MandelBrot::calculate(int indexThread, int nbThreads) {
 
     while (running){
 
-        for (int x = 0; (float) x < image_x && x < WIDTH; ++x) {
-            for (int y = 0; (float) y < image_y && y < HEIGHT; ++y) {
+		float start_x, stop_x;
+		computeBounds(indexThread, nbThreads, start_x, stop_x);
 
-                float c_r = (float) x / (float) zoom + x1 + bias_x;
-                float c_i = (float) y / (float) zoom + y1 + bias_y;
+        for (float x = start_x; x < stop_x && x < WIDTH; ++x) {
+            for (float y = 0; y < image_y && y < HEIGHT; ++y) {
+
+                float c_r = x / (float) zoom + x1 + bias_x;
+                float c_i = y / (float) zoom + y1 + bias_y;
 
                 float z_r = 0;
                 float z_i = 0;
@@ -68,24 +89,14 @@ void MandelBrot::calculate(){
 
                 gridMutex.lock();
 					
-				/*
-				grid[x][y].r = (int)((i>=10)?255:(255/2)*(1-cos(M_PI*i/10)));
-				grid[x][y].g = (int)((i<=10)?0:(255/2)*(1+cos(M_PI*i/10)));
-				grid[x][y].b = (int)((i<=5)?0:((i>=15)?255:(255/2)*(1-sin(M_PI*i/10))));
-				*/
-				/*
-				grid[x][y].r = (int)(255 / 1 + exp(-(i - MandelBrot::iteration_max / 4) / sqrt(MandelBrot::iteration_max)));
-				grid[x][y].g = (int)(255 / 1 + exp(-(i - MandelBrot::iteration_max / 2) / sqrt(MandelBrot::iteration_max)));
-				grid[x][y].b = (int)(255 / 1 + exp(-(i - 3*MandelBrot::iteration_max / 4) / sqrt(MandelBrot::iteration_max)));
-				*/
-					
-
-				coloring(i, grid[x][y]);
-					
+				coloring(i, grid[(int)x][(int)y]);
 
 				gridMutex.unlock();
 
             }
+
+			computeBounds(indexThread, nbThreads, start_x, stop_x);
+
         }
     }
 }
@@ -177,33 +188,33 @@ void MandelBrot::controls(){
                         calculateImage_x();
                         calculateImage_y();
 
-                    } else if (event.key.keysym.sym == SDLK_a){
+                    } else if (event.key.keysym.sym == SDLK_q){
 
-		            	bias_x += 0.1;
-		            	calculateImage_x();
-                        calculateImage_y();
+						bias_x += 0.1;
+						calculateImage_x();
+				        calculateImage_y();
 
-		            } else if (event.key.keysym.sym == SDLK_q){
+					} else if (event.key.keysym.sym == SDLK_d){
 
-		            	bias_x -= 0.1;
-		            	calculateImage_x();
-                        calculateImage_y();
+						bias_x -= 0.1;
+						calculateImage_x();
+						calculateImage_y();
 
-		            } else if (event.key.keysym.sym == SDLK_z){
+					} else if (event.key.keysym.sym == SDLK_z){
 
-			            bias_y += 0.1;
-			            calculateImage_x();
-                        calculateImage_y();
+						bias_y += 0.1;
+						calculateImage_x();
+						calculateImage_y();
 
-		            } else if (event.key.keysym.sym == SDLK_s){
+					} else if (event.key.keysym.sym == SDLK_s){
 
-			            bias_y -= 0.1;
-			            calculateImage_x();
-                        calculateImage_y();
+						bias_y -= 0.1;
+						calculateImage_x();
+						calculateImage_y();
 
-		            }
+					}
 
-                    break;
+					break;
 
                 default:
                     break;
@@ -233,6 +244,16 @@ MandelBrot::~MandelBrot(){
 
 }
 
+/*
+grid[x][y].r = (int)((i>=10)?255:(255/2)*(1-cos(M_PI*i/10)));
+grid[x][y].g = (int)((i<=10)?0:(255/2)*(1+cos(M_PI*i/10)));
+grid[x][y].b = (int)((i<=5)?0:((i>=15)?255:(255/2)*(1-sin(M_PI*i/10))));
+*/
+/*
+grid[x][y].r = (int)(255 / 1 + exp(-(i - MandelBrot::iteration_max / 4) / sqrt(MandelBrot::iteration_max)));
+grid[x][y].g = (int)(255 / 1 + exp(-(i - MandelBrot::iteration_max / 2) / sqrt(MandelBrot::iteration_max)));
+grid[x][y].b = (int)(255 / 1 + exp(-(i - 3*MandelBrot::iteration_max / 4) / sqrt(MandelBrot::iteration_max)));
+*/
 void MandelBrot::coloring(int m, SDL_Color& out) {
 	int value;
 	if (m >= MandelBrot::iteration_max) {
