@@ -12,17 +12,13 @@ int main(){
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
         return 1;
 
-    int nbthread = 4;
+    int nbThreads = 6;
 
     MandelBrot mandelBrot;
 
     mandelBrot.setupControls();
 
-    for (int i = 1; i <= nbthread; i++){
-
-        mandelBrot.setupThread();
-
-    }
+    mandelBrot.setupThreads(nbThreads);
 
     mandelBrot.display();
 
