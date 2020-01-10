@@ -22,6 +22,6 @@ public:
     void setMat4f(const char* name, glm::mat4 value) const;
 
 private:
-    static void checkCompileErrors(unsigned int shader, const std::string& type);
+    static void checkCompileErrors(unsigned int shader, const char*, const std::string& type);
 };
 #endif

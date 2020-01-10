@@ -41,19 +41,19 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath){
     vertex = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertex, 1, &vShaderCode, nullptr);
     glCompileShader(vertex);
-    checkCompileErrors(vertex, "VERTEX");
+    checkCompileErrors(vertex, vertexPath, "VERTEX");
 
     fragment = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragment, 1, &fShaderCode, nullptr);
     glCompileShader(fragment);
-    checkCompileErrors(fragment, "FRAGMENT");
+    checkCompileErrors(fragment, fragmentPath, "FRAGMENT");
 
     ID = glCreateProgram();
 
     glAttachShader(ID, vertex);
     glAttachShader(ID, fragment);
     glLinkProgram(ID);
-    checkCompileErrors(ID, "PROGRAM");
+    checkCompileErrors(ID, "", "PROGRAM");
 
     glDeleteShader(vertex);
     glDeleteShader(fragment);
@@ -90,7 +90,7 @@ void Shader::setMat4f(const char* name, glm::mat4 value) const {
 
 }
 
-void Shader::checkCompileErrors(unsigned int shader, const std::string& type){
+void Shader::checkCompileErrors(unsigned int shader, const char* path, const std::string& type){
 
     int success;
     char infoLog[1024];
@@ -102,7 +102,7 @@ void Shader::checkCompileErrors(unsigned int shader, const std::string& type){
         if (!success){
 
             glGetShaderInfoLog(shader, 1024, nullptr, infoLog);
-            std::cout << "Shader compilation error (" << type << "): " << infoLog << std::endl;
+            std::cout << "Shader compilation error for " << path << " (" << type << "): " << infoLog << std::endl;
 
         }
 
