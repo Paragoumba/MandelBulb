@@ -4,7 +4,7 @@
 
 Renderer::Renderer() :
 sceneShader("../res/shaders/scene_shader.vs", "../res/shaders/scene_shader.fs"),
-hudShader("../res/shaders/hud_shader.vs", "../res/shaders/hud_shader.vs"){}
+hudShader("../res/shaders/hud_shader.vs", "../res/shaders/hud_shader.fs"){}
 
 void Renderer::renderScene(Scene& scene, Camera &camera){
 
