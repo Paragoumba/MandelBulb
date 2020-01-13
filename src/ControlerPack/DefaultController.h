@@ -12,7 +12,7 @@ class DefaultController : public Controller{
 private:
     //Menu Controlleur
 public:
-    DefaultController(Fractal _fractal);
+    DefaultController(Data data);
     ~DefaultController();
     void compute() override;
 };

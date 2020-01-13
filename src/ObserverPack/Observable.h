@@ -5,7 +5,6 @@
 #ifndef MANDELBULB_OBSERVABLE_H
 #define MANDELBULB_OBSERVABLE_H
 
-
 #include <vector>
 #include "Observer.h"
 

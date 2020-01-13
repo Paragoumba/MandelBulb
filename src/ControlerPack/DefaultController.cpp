@@ -4,7 +4,7 @@
 
 #include "DefaultController.h"
 
-DefaultController::DefaultController(Fractal _fractal):Controller(_fractal){}
+DefaultController::DefaultController(Data data):Controller(data){}
 
 DefaultController::~DefaultController() {}
 

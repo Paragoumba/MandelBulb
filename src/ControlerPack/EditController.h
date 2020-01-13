@@ -12,7 +12,7 @@ class EditController : public Controller{
 private:
     //Menu Controlleur
 public:
-    EditController(Fractal _fractal);
+    EditController(Data data);
     ~EditController();
     void compute() override;
 };

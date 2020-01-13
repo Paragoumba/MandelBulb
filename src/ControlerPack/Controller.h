@@ -2,19 +2,20 @@
 // Created by daniel on 10/01/2020.
 //
 
+#include "../ModelPack/Data.hpp"
+
 #ifndef MANDELBULB_CONTROLLER_H
 #define MANDELBULB_CONTROLLER_H
 
 
 class Controller {
 protected:
-    Fractal fractal;
+    Data data;
 
 public:
-    Controller(Fractal _fractal);
+    Controller(Data data);
     ~Controller();
-    void setFractal(Fractal _fractal);
-    Fractal getFractal();
+    Data getData();
     virtual void compute() = 0;
 };
 

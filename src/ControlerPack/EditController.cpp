@@ -4,7 +4,7 @@
 
 #include "EditController.h"
 
-EditController::EditController(Fractal _fractal):Controller(_fractal){}
+EditController::EditController(Data data):Controller(data){}
 
 EditController::~EditController() {}
 
