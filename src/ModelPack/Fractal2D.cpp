@@ -4,16 +4,10 @@
 
 #include "Fractal2D.hpp"
 
-Fractal2D::Fractal2D():Fractal() {
+Fractal2D::Fractal2D():Fractal() {}
 
-}
+Fractal2D::Fractal2D(string e) :Fractal(e){}
 
-Fractal2D::Fractal2D(string e) :Fractal(e){
-}
+Fractal2D::~Fractal2D() {}
 
-Fractal2D::~Fractal2D() {
-
-}
-void Fractal2D::compute() {
-
-}
+void Fractal2D::compute() {}

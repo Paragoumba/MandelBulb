@@ -5,14 +5,9 @@
 #include "Fractal.hpp"
 
 
- Fractal::Fractal() {
+ Fractal::Fractal() {}
 
-
-}
-
-Fractal::~Fractal() {
-
-}
+Fractal::~Fractal() {}
 
 Fractal::Fractal(string e) {
     this->equation = e;
@@ -27,6 +22,5 @@ void Fractal::compute() {
 }
 
 void Fractal::affiche() {
-
     cout<<this->equation<<endl;
 }
