@@ -8,6 +8,6 @@ EditController::EditController(Fractal _fractal):Controller(_fractal){}
 
 EditController::~EditController() {}
 
-void EditController::compute(Fractal _fractal) {
+void EditController::compute() {
     //fonction compute
 }

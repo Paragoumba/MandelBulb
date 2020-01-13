@@ -14,7 +14,7 @@ private:
 public:
     EditController(Fractal _fractal);
     ~EditController();
-    void compute(Fractal _fractal) override;
+    void compute() override;
 };
 
 

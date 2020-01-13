@@ -15,7 +15,7 @@ public:
     ~Controller();
     void setFractal(Fractal _fractal);
     Fractal getFractal();
-    virtual void compute(Fractal fractal) = 0;
+    virtual void compute() = 0;
 };
 
 
