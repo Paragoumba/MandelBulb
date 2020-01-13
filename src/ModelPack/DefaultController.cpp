@@ -8,6 +8,6 @@ DefaultController::DefaultController(Fractal _fractal):Controller(_fractal){}
 
 DefaultController::~DefaultController() {}
 
-void DefaultController::compute(Fractal _fractal) {
+void DefaultController::compute() {
     //fonction compute
 }

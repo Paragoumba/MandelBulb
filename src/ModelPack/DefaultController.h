@@ -14,7 +14,7 @@ private:
 public:
     DefaultController(Fractal _fractal);
     ~DefaultController();
-    void compute(Fractal _fractal) override;
+    void compute() override;
 };
 
 
