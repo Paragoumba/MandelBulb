@@ -14,6 +14,7 @@ public:
     void swapBuffers();
     bool shouldClose();
     int getKey(int keyCode);
+    void setCursor(const char* path);
     void close();
 
     ~Window();
