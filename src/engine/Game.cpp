@@ -11,6 +11,7 @@ void Game::input(){
 void Game::update(){
 
     scene.getCube()->addRotation(0, 0.3f, 0);
+    scene.getSquare()->addRotation(0,0.3f,0);
 
 }
 

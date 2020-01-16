@@ -10,6 +10,7 @@ class Scene {
 private:
     std::vector<MeshPtr> meshes;
     MeshPtr cube;
+    MeshPtr square;
 
 public:
     Scene();
@@ -17,6 +18,8 @@ public:
     void addMesh(MeshPtr& mesh);
     [[nodiscard]] std::vector<MeshPtr> getMeshes() const;
     [[nodiscard]] MeshPtr getCube() const;
+    [[nodiscard]] MeshPtr getSquare() const;
+
 };
 
 #endif //PTUT_SCENE_HPP
