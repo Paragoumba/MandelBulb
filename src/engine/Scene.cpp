@@ -118,10 +118,8 @@ Scene::Scene(){
             1, 3, 2
     };
 
-    MeshPtr square(new Mesh(
-            squareVertices, sizeof(squareVertices),
-            squareTexCoords, sizeof(squareTexCoords),
-            squareIndices, sizeof(squareIndices)));
+    square = std::make_shared<Mesh>(squareVertices, sizeof(squareVertices), squareTexCoords, sizeof(squareTexCoords), squareIndices, sizeof(squareIndices));
+
 
     meshes.push_back(square);
 
@@ -150,5 +148,11 @@ std::vector<MeshPtr> Scene::getMeshes() const {
 MeshPtr Scene::getCube() const {
 
     return cube;
+
+}
+
+MeshPtr Scene::getSquare() const {
+
+    return square;
 
 }
