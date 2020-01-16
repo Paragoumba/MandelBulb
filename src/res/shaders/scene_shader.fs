@@ -8,7 +8,7 @@ uniform sampler2D texture1;
 
 void main(){
 
-    if (gl_FragCoord.x > 1920 / 2){
+    if (gl_FragCoord.x < 1920 / 3.25 || gl_FragCoord.x > 1920 - 1920 / 3.25){
 
         if (gl_FragCoord.y > 1080 / 2){
 
