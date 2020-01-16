@@ -25,24 +25,28 @@ Window::Window(const char* title, int width, int height){
     }
 
     glViewport(0, 0, width, height);
-    glClearColor(0.5f, 0.3f, 0.1f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glEnable(GL_DEPTH_TEST);
 
-    glfwSetFramebufferSizeCallback(handle, [](GLFWwindow* _handle, int width, int height){
+    glfwSetFramebufferSizeCallback(handle, [](GLFWwindow* _handle, int newWidth, int newHeight){
 
         Transformation::setProjectionMatrix(
-                60,
-                (float) width / (float) height,
+                glm::radians(60.0f),
+                (float) newWidth / (float) newHeight,
                 0.1f,
                 100.0f
         );
+
     });
 
     Transformation::setProjectionMatrix(
-            60,
+            glm::radians(60.0f),
             (float) width / (float) height,
             0.1f,
             100.0f
             );
+
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 }
 
