@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stb/stb_image.h>
 
 #include "Window.hpp"
 #include "Transformation.hpp"
@@ -36,7 +37,6 @@ Window::Window(const char* title, int width, int height){
                 0.1f,
                 100.0f
         );
-
     });
 
     Transformation::setProjectionMatrix(
@@ -47,6 +47,8 @@ Window::Window(const char* title, int width, int height){
             );
 
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+    setCursor("../res/imgs/cursor.png");
 
 }
 
@@ -66,6 +68,29 @@ int Window::getKey(int keyCode){
 
     return glfwGetKey(handle, keyCode);
 
+}
+
+void Window::setCursor(const char* path){
+
+    stbi_set_flip_vertically_on_load(false);
+
+    GLFWimage cursorImage;
+
+    cursorImage.pixels = stbi_load(path, &cursorImage.width, &cursorImage.height, nullptr, 0);
+
+    GLFWcursor* cursor = glfwCreateCursor(&cursorImage, 0, 0);
+
+    stbi_image_free(cursorImage.pixels);
+
+    if (cursor != nullptr){
+
+        glfwSetCursor(handle, cursor);
+
+    } else {
+
+        std::cerr << "Could not create cursor from image located at " << path << '.' << std::endl;
+
+    }
 }
 
 void Window::close(){
