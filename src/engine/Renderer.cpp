@@ -6,42 +6,28 @@ Renderer::Renderer() :
 sceneShader("../res/shaders/scene_shader.vs", "../res/shaders/scene_shader.fs"),
 hudShader("../res/shaders/hud_shader.vs", "../res/shaders/hud_shader.fs"){}
 
-void Renderer::renderScene(Scene& scene, Camera &camera){
+void Renderer::renderScene(Scene& scene, Camera& camera){
 
     sceneShader.use();
 
     sceneShader.setMat4f("view", Transformation::getViewMatrix(camera));
     sceneShader.setMat4f("projection", Transformation::getProjectionMatrix());
 
-    float vertices[] = {
-            0.0f, 0.0f, 1.0f,
-            1.0f, 0.0f, 1.0f,
-            0.0f, 1.0f, 1.0f,
-            1.0f, 1.0f, 1.0f
-    };
+    std::vector<MeshPtr> meshes = scene.getMeshes();
 
-    float texCoords[] = {
-            0.0f, 0.0f,
-            1.0f, 0.0f,
-            0.0f, 1.0f,
-            1.0f, 1.0f
-    };
+    for (auto& mesh : meshes){
 
-    unsigned int indices[] = {
-            0, 1, 2,
-            1, 3, 2
-    };
+        sceneShader.setMat4f("model", Transformation::getModelMatrix(mesh.get()));
 
-    Mesh mesh(vertices, sizeof(vertices), texCoords, sizeof(texCoords), indices, sizeof(indices));
+        mesh->render();
 
-    mesh.render();
-
+    }
 }
 
 void Renderer::renderHUD(HUD& hud){
 
     hudShader.use();
 
-    sceneShader.setMat4f("projection", Transformation::getProjectionMatrix());
+    //sceneShader.setMat4f("projection", Transformation::getProjectionMatrix());
 
 }
