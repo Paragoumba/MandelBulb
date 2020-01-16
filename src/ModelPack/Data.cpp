@@ -11,27 +11,27 @@ Data::Data() {
 
 Data::~Data() {}
 
-void Data::AddFractal(FractalPtr f) {
-    this->list_of_fractal.push_front(f);
+void Data::addFractalPtr(FractalPtr fractal) {
+    this->listOfFractal.push_front(fractal);
 }
 
-void Data::setActiveFractal(FractalPtr f) {
-    this->active_fractal = f;
+void Data::setActiveFractalPtr(FractalPtr fractal) {
+    this->activeFractal = fractal;
 }
 
 void Data::addObserver() {
 
 }
-FractalPtr& Data::getActiveFractal() {
-    return active_fractal;
+FractalPtr Data::getActiveFractalPtr() const{
+    return activeFractal;
 }
 
-list<FractalPtr> Data::getListOfFractal() {
-    return this->list_of_fractal;
+list<FractalPtr> Data::getListOfFractalPtr() const  {
+    return this->listOfFractal;
 }
 
 void Data::printListOfFractal() {
-    for(auto it = this->list_of_fractal.begin(); it != this->list_of_fractal.end(); ++it)
+    for(auto it = this->listOfFractal.begin(); it != this->listOfFractal.end(); ++it)
         (*it)->affiche();
 
 

@@ -6,7 +6,7 @@
 #include "Fractal3D.hpp"
 
 
-void Loader::load(Data &data, string file_) {
+void Loader::load(Data &data, const string& file_) {
     ifstream file (file_);
     string ligne;
     string equation;
@@ -18,10 +18,10 @@ void Loader::load(Data &data, string file_) {
             equation = ligne.substr(0, ligne.find(";"));
             dimension = ligne.substr(equation.length()+1,2);
             if(dimension.compare( "2D")==0 ){
-                data.AddFractal(FractalPtr(new Fractal2D("z-i² = z")));
-                //data.AddFractal(FractalPtr(new Fractal2D(equation)));
+                data.addFractalPtr(FractalPtr(new Fractal2D("z-i² = z")));
+                //data.addFractalPtr(FractalPtr(new Fractal2D(equation)));
             }else if(dimension.compare("3D") == 0){
-                data.AddFractal(FractalPtr(new Fractal3D("test")));
+                data.addFractalPtr(FractalPtr(new Fractal3D("test")));
             }
 
         }

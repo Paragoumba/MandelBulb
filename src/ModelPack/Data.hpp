@@ -14,16 +14,16 @@
 class Data {
 
 private:
-    list<FractalPtr> list_of_fractal;
-    FractalPtr active_fractal;
+    list<FractalPtr> listOfFractal;
+    FractalPtr activeFractal;
 public:
     Data();
     ~Data();
     void addObserver();
-    void AddFractal(FractalPtr fractal);
-    void setActiveFractal(FractalPtr fractal);
-    FractalPtr& getActiveFractal();
-    list<FractalPtr> getListOfFractal();
+    void addFractalPtr(FractalPtr fractal);
+    void setActiveFractalPtr(FractalPtr fractal);
+    FractalPtr getActiveFractalPtr() const;
+    list<FractalPtr> getListOfFractalPtr() const;
     void printListOfFractal();
 };
 

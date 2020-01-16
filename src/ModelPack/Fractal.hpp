@@ -19,7 +19,7 @@ public:
     explicit Fractal(string e);
     virtual ~Fractal();
     void setEquation(string e);
-    string getEquation();
+    string getEquation() const;
     virtual void compute();
     void affiche();
 };

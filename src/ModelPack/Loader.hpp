@@ -12,7 +12,7 @@
 
 class Loader {
 public:
-    void load(Data &data, string file);
+    static void load(Data &data, const string& file);
     void write(Data data);
     void edit(Data data);
 
