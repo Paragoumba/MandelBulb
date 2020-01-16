@@ -1,3 +1,6 @@
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 #include <cstdlib>
 
 #define STB_IMAGE_IMPLEMENTATION
