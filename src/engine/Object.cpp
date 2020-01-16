@@ -1,5 +1,7 @@
 #include "Object.hpp"
 
+Object::Object() : position(0, 0, 0), rotation(0, 0, 0), scale(1, 1, 1){}
+
 glm::vec3 Object::getPosition() const {
 
     return position;
@@ -45,5 +47,13 @@ void Object::setScale(float scaleX, float scaleY, float scaleZ){
     scale.x = scaleX;
     scale.y = scaleY;
     scale.z = scaleZ;
+
+}
+
+void Object::addRotation(float rotX, float rotY, float rotZ){
+
+    rotation.x += rotX;
+    rotation.y += rotY;
+    rotation.z += rotZ;
 
 }
