@@ -16,6 +16,7 @@ public:
 
     void renderScene(Scene& scene, Camera& camera);
     void renderHUD(HUD& hud);
+
 };
 
 #endif //PTUT_RENDERER_HPP

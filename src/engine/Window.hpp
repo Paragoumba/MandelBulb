@@ -17,6 +17,7 @@ public:
     void close();
 
     ~Window();
+
 };
 
 #endif //PTUT_WINDOW_HPP

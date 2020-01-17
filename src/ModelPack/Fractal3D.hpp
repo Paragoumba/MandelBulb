@@ -1,10 +1,5 @@
-//
-// Created by val-duss on 10/01/2020.
-//
-
 #ifndef PTUT_FRACTAL3D_HPP
 #define PTUT_FRACTAL3D_HPP
-
 
 #include "Fractal.hpp"
 
@@ -14,7 +9,7 @@ public:
     ~Fractal3D() override;
     explicit Fractal3D(string e);
     void compute() override;
-};
 
+};
 
 #endif //PTUT_FRACTAL3D_HPP

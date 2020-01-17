@@ -2,7 +2,7 @@
 
 #include "Window.hpp"
 
-Window::Window(const char* title, int width, int height){
+Window::Window(const char* title, int width, int height) {
 
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -26,7 +26,7 @@ Window::Window(const char* title, int width, int height){
     glViewport(0, 0, width, height);
     glClearColor(0.5f, 0.3f, 0.1f, 1.0f);
 
-    glfwSetFramebufferSizeCallback(handle, [](GLFWwindow* _handle, int width, int height){
+    glfwSetFramebufferSizeCallback(handle, [](GLFWwindow* _handle, int width, int height) {
 
         Transformation::setProjectionMatrix(
                 60,
@@ -34,6 +34,7 @@ Window::Window(const char* title, int width, int height){
                 0.1f,
                 100.0f
         );
+
     });
 
     Transformation::setProjectionMatrix(
@@ -41,7 +42,7 @@ Window::Window(const char* title, int width, int height){
             (float) width / (float) height,
             0.1f,
             100.0f
-            );
+    );
 
 }
 
@@ -57,7 +58,7 @@ bool Window::shouldClose(){
 
 }
 
-int Window::getKey(int keyCode){
+int Window::getKey(int keyCode) const {
 
     return glfwGetKey(handle, keyCode);
 

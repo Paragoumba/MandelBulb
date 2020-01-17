@@ -2,7 +2,7 @@
 
 glm::mat4 Transformation::projectionMatrix;
 
-glm::mat4 &Transformation::getProjectionMatrix(){
+glm::mat4 &Transformation::getProjectionMatrix() {
 
     return projectionMatrix;
 
@@ -20,7 +20,7 @@ void Transformation::setProjectionMatrix(float left, float right, float bottom, 
 
 }
 
-glm::mat4 Transformation::getModelMatrix(Object* object){
+glm::mat4 Transformation::getModelMatrix(Object* object) {
 
     glm::mat4 modelMatrix = glm::translate(glm::mat4(1.0f), object->getPosition());
 

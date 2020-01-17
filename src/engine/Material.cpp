@@ -17,7 +17,8 @@ void Material::addTexture(Texture* texture){
 
 void Material::use(){
 
-    for (int i = 0; i < (int) textures.size(); ++i){
+    int size = (int)textures.size();
+    for (int i = 0; i < size; ++i){
 
         glActiveTexture(GL_TEXTURE0 + i);
         glBindTexture(GL_TEXTURE_2D, textures[i]->getId());
@@ -32,4 +33,5 @@ Material::~Material(){
         delete texture;
 
     }
+
 }

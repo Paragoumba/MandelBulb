@@ -18,6 +18,7 @@ public:
     void input();
     void update();
     void render();
+
 };
 
 #endif //PTUT_GAME_HPP

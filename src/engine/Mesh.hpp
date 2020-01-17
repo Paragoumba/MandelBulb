@@ -19,6 +19,7 @@ public:
     void render() const;
 
     ~Mesh();
+
 };
 
 typedef std::shared_ptr<Mesh> MeshPtr;

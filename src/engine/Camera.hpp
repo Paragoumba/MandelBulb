@@ -14,6 +14,7 @@ public:
 
     void setPosition(float x, float y, float z);
     void setRotation(float rotX, float rotY, float rotZ);
+
 };
 
 #endif //PTUT_CAMERA_HPP

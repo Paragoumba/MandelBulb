@@ -1,10 +1,8 @@
-//
-// Created by val-duss on 13/01/2020.
-//
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <cstdlib>
+
 #include "Data.hpp"
 
 #ifndef PTUT_LOADER_HPP
