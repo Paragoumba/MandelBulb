@@ -1,5 +1,5 @@
-#ifndef SERRARIEN_MESH_HPP
-#define SERRARIEN_MESH_HPP
+#ifndef PTUT_MESH_HPP
+#define PTUT_MESH_HPP
 
 #include <vector>
 #include <memory>
@@ -28,4 +28,4 @@ public:
 
 typedef std::shared_ptr<Mesh> MeshPtr;
 
-#endif //SERRARIEN_MESH_HPP
+#endif //PTUT_MESH_HPP
