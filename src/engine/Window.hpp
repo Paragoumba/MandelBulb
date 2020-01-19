@@ -21,6 +21,7 @@ public:
     [[nodiscard]] int getKey(int keyCode) const;
     [[nodiscard]] Resolution getSize() const;
     void setCursor(const char* path);
+    void setTitle(const char* title);
     void close();
 
     ~Window();

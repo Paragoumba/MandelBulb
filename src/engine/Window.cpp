@@ -114,3 +114,9 @@ Window::~Window(){
     glfwTerminate();
 
 }
+
+void Window::setTitle(const char* title){
+
+    glfwSetWindowTitle(handle, title);
+
+}
