@@ -4,8 +4,31 @@ void Game::init(){
 
 }
 
-void Game::input(){
+void Game::input(Window& window){
 
+    if (window.getKey(GLFW_KEY_W) == GLFW_PRESS){
+
+        camera.addPosition(0, 0, -0.1);
+
+    }
+
+    if (window.getKey(GLFW_KEY_A) == GLFW_PRESS){
+
+        camera.addPosition(-0.1, 0, 0);
+
+    }
+
+    if (window.getKey(GLFW_KEY_S) == GLFW_PRESS){
+
+        camera.addPosition(0, 0, 0.1);
+
+    }
+
+    if (window.getKey(GLFW_KEY_D) == GLFW_PRESS){
+
+        camera.addPosition(0.1, 0, 0);
+
+    }
 }
 
 void Game::update(){

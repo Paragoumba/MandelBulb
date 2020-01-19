@@ -26,7 +26,7 @@ void GameEngine::loop(){
 
         }
 
-        game.input();
+        game.input(window);
         game.update();
         game.render();
 
