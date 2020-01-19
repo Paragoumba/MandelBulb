@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Tests"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\prototypes\;CMake Files\prototypes\mandelbrot2d\;CMake Files\prototypes\opengl\;CMake Files\prototypes\translation\;CMake Files\src\;CMake Files\tests\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Tests">
+				<Option output="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Tests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 Tests"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Tests/fast">
+				<Option output="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Tests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 Tests/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/lib/glad.c">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/src/engine/Camera.cpp">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/src/engine/Camera.hpp">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/src/engine/Object.cpp">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/src/engine/Object.hpp">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/src/engine/Transformation.cpp">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/src/engine/Transformation.hpp">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/src/engine/Window.cpp">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/src/engine/Window.hpp">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/src/engine/exceptions/WindowException.cpp">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/src/engine/exceptions/WindowException.hpp">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/main.cpp">
+			<Option target="Tests"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/prototypes/mandelbrot2d/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\prototypes\mandelbrot2d\"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/prototypes/opengl/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\prototypes\opengl\"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/prototypes/translation/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\prototypes\translation\"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/paragoumba/Documents/Dev/C++/Code/Programs/MandelBulb/tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

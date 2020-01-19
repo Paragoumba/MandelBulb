@@ -7,3 +7,4 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/src" "${PROJECT_SOURCE_DIR}/src/cmake-bu
 add_subdirectory("${PROJECT_SOURCE_DIR}/prototypes/mandelbrot2d" "${PROJECT_SOURCE_DIR}/prototypes/mandelbrot2d/cmake-build-debug")
 add_subdirectory("${PROJECT_SOURCE_DIR}/prototypes/opengl" "${PROJECT_SOURCE_DIR}/prototypes/opengl/cmake-build-debug")
 add_subdirectory("${PROJECT_SOURCE_DIR}/prototypes/translation" "${PROJECT_SOURCE_DIR}/prototypes/translation/cmake-build-debug")
+add_subdirectory("${PROJECT_SOURCE_DIR}/tests" "${PROJECT_SOURCE_DIR}/tests/cmake-build-debug")
