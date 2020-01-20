@@ -7,7 +7,7 @@ class Fractal3D : public Fractal {
 public:
     Fractal3D();
     ~Fractal3D() override;
-    explicit Fractal3D(string e);
+    explicit Fractal3D(std::string& e);
     void compute() override;
 
 };

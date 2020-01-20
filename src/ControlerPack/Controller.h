@@ -8,7 +8,7 @@ protected:
     Data data;
 
 public:
-    Controller(Data data);
+    explicit Controller(Data& data);
     ~Controller();
     Data getData();
     virtual void compute() = 0;

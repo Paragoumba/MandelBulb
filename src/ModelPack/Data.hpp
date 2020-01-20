@@ -2,8 +2,6 @@
 #define PTUT_DATA_HPP
 
 #include <list>
-#include <iostream>
-#include <cstring>
 
 #include "Fractal.hpp"
 
@@ -16,11 +14,11 @@ private:
 public:
     Data();
     ~Data();
-    void addObserver();
-    void addFractalPtr(FractalPtr fractal);
-    void setActiveFractalPtr(FractalPtr fractal);
-    FractalPtr getActiveFractalPtr() const;
-    std::list<FractalPtr> getListOfFractalPtr() const;
+    static void addObserver();
+    void addFractalPtr(FractalPtr& fractal);
+    void setActiveFractalPtr(FractalPtr& fractal);
+    [[nodiscard]] FractalPtr getActiveFractalPtr() const;
+    [[nodiscard]] std::list<FractalPtr> getListOfFractalPtr() const;
     void printListOfFractal();
 
 };

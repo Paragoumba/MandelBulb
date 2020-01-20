@@ -2,7 +2,7 @@
 
 EditController::EditController(Data data) : Controller(data) {}
 
-EditController::~EditController() {}
+EditController::~EditController() = default;
 
 void EditController::compute() {
     //fonction compute

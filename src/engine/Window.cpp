@@ -55,7 +55,7 @@ void Window::swapBuffers(){
 
 bool Window::shouldClose(){
 
-    return glfwWindowShouldClose(handle);
+    return (bool)glfwWindowShouldClose(handle);
 
 }
 

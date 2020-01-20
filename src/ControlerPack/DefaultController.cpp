@@ -2,7 +2,7 @@
 
 DefaultController::DefaultController(Data data) : Controller(data) {}
 
-DefaultController::~DefaultController() {}
+DefaultController::~DefaultController() = default;
 
 void DefaultController::compute() {
     //fonction compute

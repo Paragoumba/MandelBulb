@@ -1,17 +1,15 @@
 #include "Data.hpp"
 
+Data::Data() = default;
+Data::~Data() = default;
 
-Data::Data() {}
-
-Data::~Data() {}
-
-void Data::addFractalPtr(FractalPtr fractal) {
+void Data::addFractalPtr(FractalPtr &fractal) {
 
     listOfFractal.push_front(fractal);
 
 }
 
-void Data::setActiveFractalPtr(FractalPtr fractal) {
+void Data::setActiveFractalPtr(FractalPtr& fractal) {
 
     activeFractal = fractal;
 
@@ -35,9 +33,10 @@ std::list<FractalPtr> Data::getListOfFractalPtr() const  {
 
 void Data::printListOfFractal() {
 
-    for (auto it = listOfFractal.begin(); it != listOfFractal.end(); ++it) {
+    auto end = listOfFractal.end();
+    for (auto it = listOfFractal.begin(); it != end; ++it) {
 
-        (*it)->affiche();
+        (*it)->print();
 
     }
 

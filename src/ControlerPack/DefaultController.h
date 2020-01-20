@@ -8,7 +8,7 @@ private:
     //Menu Controlleur
 
 public:
-    DefaultController(Data data);
+    explicit DefaultController(Data data);
     ~DefaultController();
     void compute() override;
 

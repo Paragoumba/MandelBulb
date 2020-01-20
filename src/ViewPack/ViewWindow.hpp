@@ -3,9 +3,11 @@
 
 #include "Window.hpp"
 
-class ViewWindow : Window {
-    
-};
+class ViewWindow : public Window {
+public:
+    ViewWindow();
+    ~ViewWindow();
 
+};
 
 #endif //PTUT_VIEWWINDOW_HPP

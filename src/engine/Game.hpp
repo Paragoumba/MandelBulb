@@ -14,9 +14,9 @@ private:
     Camera camera;
 
 public:
-    void init();
-    void input();
-    void update();
+    static void init();
+    static void input();
+    static void update();
     void render();
 
 };

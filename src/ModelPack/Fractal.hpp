@@ -1,26 +1,24 @@
 #ifndef PTUT_FRACTAL_HPP
 #define PTUT_FRACTAL_HPP
-#include "DataManager.hpp"
 
-
-#include <iostream>
-#include <cstring>
 #include <memory>
+
+#include "DataManager.hpp"
 
 class Fractal {
 protected:
-    string equation; //type string
+    std::string equation;
     std::map<std::string, std::string> equationParameter;
-    DataManager jsonManager = new DataManager("/hello");
+    DataManager *jsonManager = new DataManager("/hello");
 
 public:
     Fractal();
-    explicit Fractal(string e);
+    explicit Fractal(std::string& e);
     virtual ~Fractal();
-    void setEquation(string e);
-    string getEquation() const;
+    void setEquation(std::string& e);
+    [[nodiscard]] std::string getEquation() const;
     virtual void compute();
-    void affiche();
+    void print();
     void createEquation(nlohmann::json jsonObject);
 
 };
