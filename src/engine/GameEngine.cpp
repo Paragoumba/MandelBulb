@@ -2,7 +2,7 @@
 
 #include "GameEngine.hpp"
 
-GameEngine::GameEngine() : window(appName, 1920, 1080){
+GameEngine::GameEngine() : game(), window(appName, 1920, 1080){
 
     game.init();
 
