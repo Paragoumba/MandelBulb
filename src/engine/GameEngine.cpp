@@ -2,6 +2,8 @@
 
 #include "GameEngine.hpp"
 
+#define FPS 60
+
 GameEngine::GameEngine() : game(), window(appName, 1920, 1080){
 
     game.init();
@@ -11,7 +13,7 @@ GameEngine::GameEngine() : game(), window(appName, 1920, 1080){
 void GameEngine::loop(){
 
     timespec waitingTime{0, 0};
-    long waitingTimeNano = (long) (1.0 / 60 * 1'000'000'000.0);
+    long waitingTimeNano = (long) (1.0 / FPS * 1'000'000'000.0);
     int i = 0;
     double start = glfwGetTime();
 
