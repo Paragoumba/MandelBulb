@@ -1,17 +1,11 @@
 #ifndef PTUT_WINDOWEXCEPTION_HPP
 #define PTUT_WINDOWEXCEPTION_HPP
 
-#include <exception>
-#include <string>
+#include "Exception.hpp"
 
-class WindowException : std::exception {
-private:
-    std::string message;
-
+class WindowException : public Exception {
 public:
-    explicit WindowException(std::string message);
-
-    virtual const char* what();
+    explicit WindowException(const char* message) : Exception(message){};
 };
 
 #endif //PTUT_WINDOWEXCEPTION_HPP

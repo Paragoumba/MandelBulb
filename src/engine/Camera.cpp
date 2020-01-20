@@ -1,3 +1,5 @@
+#include <cmath>
+#include <glm/glm.hpp>
 #include "Camera.hpp"
 
 Camera::Camera() : position(0.0f), rotation(0.0f){}
@@ -32,9 +34,21 @@ void Camera::setRotation(float rotX, float rotY, float rotZ){
 
 void Camera::addPosition(float x, float y, float z){
 
-    position.x += x;
+    if (z != 0){
+
+        position.x += (float) std::sin(glm::radians(rotation.y)) * -z;
+        position.z += (float) std::cos(glm::radians(rotation.y)) *  z;
+
+    }
+
+    if (x != 0){
+
+        position.x += (float) std::sin(glm::radians(rotation.y - 90)) * -x;
+        position.z += (float) std::cos(glm::radians(rotation.y - 90)) *  x;
+
+    }
+
     position.y += y;
-    position.z += z;
 
 }
 

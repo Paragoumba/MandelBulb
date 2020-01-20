@@ -9,15 +9,26 @@
 #include "ModelPack/Data.hpp"
 #include "ModelPack/DataManager.hpp"
 
-int main() {
+int main(){
 
-    /*--------DATA-------*/
-    Data data;
-    //DataManager dataManager("../../data/data.csv");
-    data.printListOfFractal();
-    /*--------VIEW-------*/
-    GameEngine graphicsEngine;
-    graphicsEngine.loop();
+    try {
+
+        GameEngine gameEngine;
+
+        gameEngine.loop();
+
+    } catch (const std::exception& e){
+
+        std::cerr << e.what() << std::endl;
+        std::cerr << "Exiting due to a fatal unrecoverable error." << std::endl;
+        return EXIT_FAILURE;
+
+    } catch (...){
+
+        std::cerr << "Exiting due to unknown fatal unrecoverable error." << std::endl;
+        return EXIT_FAILURE;
+
+    }
 
     return EXIT_SUCCESS;
 

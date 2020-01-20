@@ -1,6 +1,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "Shader.hpp"
+#include "exceptions/ShaderException.hpp"
 
 Shader::Shader(const char* vertexPath, const char* fragmentPath){
 
@@ -15,22 +16,34 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath){
     try {
 
         vShaderFile.open(vertexPath);
-        fShaderFile.open(fragmentPath);
-        std::stringstream vShaderStream, fShaderStream;
+
+        std::stringstream vShaderStream;
 
         vShaderStream << vShaderFile.rdbuf();
-        fShaderStream << fShaderFile.rdbuf();
-
         vShaderFile.close();
-        fShaderFile.close();
 
         vertexCode   = vShaderStream.str();
+
+    } catch (const std::ifstream::failure& e){
+
+        throw ShaderException((std::string("Cannot load shader file ") + vertexPath + ".").c_str());
+
+    }
+
+    try {
+
+        fShaderFile.open(fragmentPath);
+
+        std::stringstream fShaderStream;
+
+        fShaderStream << fShaderFile.rdbuf();
+        fShaderFile.close();
+
         fragmentCode = fShaderStream.str();
 
-    } catch (std::ifstream::failure& e){
+    } catch (const std::ifstream::failure& e){
 
-        std::cerr << "ERROR: Could not read shader." << std::endl;
-        throw;
+        throw ShaderException((std::string("Cannot load shader file ") + fragmentPath + ".").c_str());
 
     }
 
