@@ -1,4 +1,3 @@
-project(MandelBulb)
 add_executable(MandelBulb main.cpp ../lib/glad.c engine/Shader.cpp engine/Transformation.cpp engine/Object.cpp
         engine/Camera.cpp engine/Renderer.cpp engine/GameEngine.cpp engine/Window.cpp engine/Game.cpp engine/Scene.cpp
         engine/HUD.cpp engine/Mesh.cpp engine/Material.cpp engine/Texture.cpp)
