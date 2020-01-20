@@ -1,5 +1,4 @@
 #include <glad/glad.h>
-
 #include <utility>
 
 #include "Mesh.hpp"
