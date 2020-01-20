@@ -3,25 +3,21 @@
 
 #include <cstdlib>
 
-
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb/stb_image.h>
 #include "engine/GameEngine.hpp"
 #include "ModelPack/Data.hpp"
 #include "ModelPack/DataManager.hpp"
 
-
-int main(){
-
+int main() {
 
     /*--------DATA-------*/
     Data data;
-    Loader loader;
-    loader.load(data,"../../data/data.csv");
+    //DataManager dataManager("../../data/data.csv");
     data.printListOfFractal();
     /*--------VIEW-------*/
-
-    /*GameEngine graphicsEngine;
-    graphicsEngine.loop();*/
-
+    GameEngine graphicsEngine;
+    graphicsEngine.loop();
 
     return EXIT_SUCCESS;
 
