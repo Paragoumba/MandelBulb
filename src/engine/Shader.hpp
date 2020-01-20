@@ -20,6 +20,7 @@ public:
     void setInt(const char* name, int value) const;
     void setFloat(const char* name, float value) const;
     void setMat4f(const char* name, glm::mat4 value) const;
+    void setVec2f(const char* name, glm::vec2 value) const;
 
 private:
     static void checkCompileErrors(unsigned int shader, const char*, const std::string& type);

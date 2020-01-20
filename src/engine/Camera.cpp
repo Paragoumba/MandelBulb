@@ -29,3 +29,19 @@ void Camera::setRotation(float rotX, float rotY, float rotZ){
     rotation.z = rotZ;
 
 }
+
+void Camera::addPosition(float x, float y, float z){
+
+    position.x += x;
+    position.y += y;
+    position.z += z;
+
+}
+
+void Camera::addRotation(float rotX, float rotY, float rotZ){
+
+    rotation.x += rotX;
+    rotation.y += rotY;
+    rotation.z += rotZ;
+
+}

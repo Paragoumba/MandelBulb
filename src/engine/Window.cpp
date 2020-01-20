@@ -58,15 +58,25 @@ void Window::swapBuffers(){
 
 }
 
-bool Window::shouldClose(){
+bool Window::shouldClose() const {
 
     return glfwWindowShouldClose(handle);
 
 }
 
-int Window::getKey(int keyCode){
+int Window::getKey(int keyCode) const {
 
     return glfwGetKey(handle, keyCode);
+
+}
+
+Resolution Window::getSize() const {
+
+    Resolution resolution{};
+
+    glfwGetFramebufferSize(handle, &resolution.width, &resolution.height);
+
+    return resolution;
 
 }
 

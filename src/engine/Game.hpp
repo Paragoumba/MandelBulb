@@ -5,6 +5,7 @@
 #include "Scene.hpp"
 #include "HUD.hpp"
 #include "Renderer.hpp"
+#include "Window.hpp"
 
 class Game {
 private:
@@ -15,7 +16,7 @@ private:
 
 public:
     void init();
-    void input();
+    void input(Window& window);
     void update();
     void render();
 };
