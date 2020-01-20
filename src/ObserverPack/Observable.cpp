@@ -1,16 +1,12 @@
 #include "Observable.h"
 
-Observable::Observable(){
+Observable::Observable() = default;
 
-}
+Observable::~Observable() = default;
 
-Observable::~Observable(){
+void Observable::addObserver(Observer& observer) {
 
-}
-
-void Observable::addObserver(Observer _observer) {
-
-    listObservable.push_back(_observer);
+    listObservable.push_back(observer);
 
 }
 
@@ -29,8 +25,8 @@ void Observable::deleteObserver(Observer _observer) {
 
 void Observable::notifyObservers() {
 
-    int size = listObservable.size();
-    for (int i = 0; i < size; ++i) {
+   int size = (int)(listObservable.size());
+    for (unsigned int i = 0; i < size; ++i) {
 
         listObservable.at(i).update();
 

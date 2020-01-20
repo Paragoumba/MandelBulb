@@ -42,11 +42,11 @@ void MandelBrot::setupControls() {
 
 void MandelBrot::computeBounds(int indexThread, int nbThreads, float& start_x, float& stop_x) {
 
-	int width = (int)(image_x / nbThreads);
-	start_x = (indexThread)*width;
+	int width = (int)(image_x / (float)nbThreads);
+	start_x = (float)(indexThread*width);
 
 	if (indexThread < nbThreads - 1) {
-		stop_x = (indexThread+1)*width;
+		stop_x = (float)((indexThread+1)*width);
 	}
 	else {
 		stop_x = image_x;
@@ -61,8 +61,8 @@ void MandelBrot::calculate(int indexThread, int nbThreads) {
 		float start_x, stop_x;
 		computeBounds(indexThread, nbThreads, start_x, stop_x);
 
-        for (float x = start_x; x < stop_x && x < WIDTH; ++x) {
-            for (float y = 0; y < image_y && y < HEIGHT; ++y) {
+        for (float x = start_x; x < stop_x && x < WIDTH; x += 1.0f) {
+            for (float y = 0; y < image_y && y < HEIGHT; y += 1.0f) {
 
                 float c_r = x / (float) zoom + x1 + bias_x;
                 float c_i = y / (float) zoom + y1 + bias_y;
@@ -258,7 +258,7 @@ void MandelBrot::coloring(int m, SDL_Color& out) {
 	else
 		value = 1;
 
-	double hue = (int)(360 * m / MandelBrot::iteration_max), r = 0, g = 0, b = 0;
+	double hue = (double)(360 * m / MandelBrot::iteration_max), r = 0, g = 0, b = 0;
 
 	int i;
 	double f, p, q, t;

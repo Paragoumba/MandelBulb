@@ -1,13 +1,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 
 #include <cstdlib>
-#include <iostream>
-#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <stb/stb_image.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 #include <chrono>
 #include <thread>
 
@@ -220,7 +215,7 @@ int main(){
 
         stats[i] = rand() % height;
 
-        for (int j = 0; j < i; j += nrChannels){
+        if (data != nullptr) for (int j = 0; j < i; j += nrChannels){
 
             data[(height - stats[j]) * 3 + j] = 0;
             data[(height - stats[j]) * 3 + j + 1] = 0;

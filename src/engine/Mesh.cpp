@@ -6,6 +6,7 @@
 Mesh::Mesh(const float* vertices, unsigned long verticesNumber, const float texCoords[], unsigned long texCoordsNumber,
         const unsigned int* indices, unsigned long indicesNumber) : Object(){
 
+
     this->verticesNumber = (int)(indicesNumber / sizeof(indices[0]));
 
     glGenVertexArrays(1, &vaoId);
@@ -60,7 +61,7 @@ Mesh::~Mesh(){
 
     // Delete the VBOs
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glDeleteBuffers(vboIds.size(), &vboIds[0]);
+    glDeleteBuffers((GLsizei)vboIds.size(), &vboIds[0]);
 
     // Delete the VAO
     glBindVertexArray(0);

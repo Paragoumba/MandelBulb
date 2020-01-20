@@ -8,7 +8,7 @@ private:
     //Menu Controlleur
 
 public:
-    EditController(Data data);
+    explicit EditController(Data data);
     ~EditController();
     void compute() override;
 

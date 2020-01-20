@@ -1,11 +1,11 @@
 #ifndef PTUT_WINDOW_HPP
 #define PTUT_WINDOW_HPP
 
+#include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include "../engine/Transformation.hpp"
-
 
 class Window {
 private:
@@ -16,7 +16,7 @@ public:
 
     void swapBuffers();
     bool shouldClose();
-    int getKey(int keyCode) const;
+    [[nodiscard]] int getKey(int keyCode) const;
     void close();
 
     ~Window();

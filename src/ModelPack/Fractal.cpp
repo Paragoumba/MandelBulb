@@ -2,19 +2,19 @@
 
 Fractal::Fractal() {
 
-    createEquation(jsonManager.load("MandelBulb"));
+    createEquation(jsonManager->load((std::string &) "MandelBulb"));
 
 }
 
 Fractal::~Fractal() = default;
 
-Fractal::Fractal(string e) {
+Fractal::Fractal(std::string& e) {
 
     equation = e;
 
 }
 
-void Fractal::setEquation(string e) {
+void Fractal::setEquation(std::string& e) {
 
     equation = e;
 
@@ -24,8 +24,10 @@ void Fractal::compute() {
     //inherit fonction
 }
 
-void Fractal::affiche() {
-    cout<<this->equation<<endl;
+void Fractal::print() {
+
+    std::cout << equation << std::endl;
+
 }
 
 void Fractal::createEquation(nlohmann::json jsonObject){
@@ -36,10 +38,9 @@ void Fractal::createEquation(nlohmann::json jsonObject){
     equationParameter["c"] = jsonObject["variables"]["c"];
     equation = equationParameter.at("a") + "^" + equationParameter.at("$a") + " + " + equationParameter.at("c") + "^" + equationParameter.at("$c");
 
-
 }
 
-string Fractal::getEquation() const {
+std::string Fractal::getEquation() const {
 
     return equation;
 

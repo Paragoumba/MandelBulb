@@ -10,20 +10,23 @@ void Material::addTexture(Texture* texture){
 
     } else {
 
+        //TODO: create exception to avoid throwing const char*
         throw "Maximum 32 textures are supported.";
 
     }
+
 }
 
 void Material::use(){
 
-    int size = textures.size();
-    for (int i = 0; i < size; ++i){
+    int size = (int)(textures.size());
+    for (unsigned int i = 0; i < size; ++i){
 
         glActiveTexture(GL_TEXTURE0 + i);
         glBindTexture(GL_TEXTURE_2D, textures[i]->getId());
 
     }
+
 }
 
 Material::~Material(){

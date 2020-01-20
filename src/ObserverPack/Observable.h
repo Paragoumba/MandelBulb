@@ -12,8 +12,8 @@ private:
 public:
     Observable();
     ~Observable();
-    void addObserver(Observer _observer);
-    void deleteObserver(Observer _observer);
+    void addObserver(Observer& observer);
+    static void deleteObserver(Observer _observer);
     void notifyObservers();
 
 };

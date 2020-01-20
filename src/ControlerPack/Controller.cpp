@@ -1,12 +1,12 @@
 #include "Controller.h"
 
-Controller::Controller(Data data) {
+Controller::Controller(Data& data) {
 
     this->data = data;
 
 }
 
-Controller::~Controller() {}
+Controller::~Controller() = default;
 
 Data Controller::getData() {
 

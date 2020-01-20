@@ -9,7 +9,7 @@ private:
 public:
     Fractal2D();
     ~Fractal2D() override;
-    explicit Fractal2D(string e);
+    explicit Fractal2D(std::string& e);
     void compute() override;
 
 };
