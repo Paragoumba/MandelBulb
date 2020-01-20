@@ -10,8 +10,8 @@
 
 class MandelBrot {
 public:
-    static int WIDTH;
-    static int HEIGHT;
+    static const int WIDTH = 1920;
+    static const int HEIGHT = 1080;
 
     MandelBrot();
 

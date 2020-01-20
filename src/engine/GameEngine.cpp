@@ -24,4 +24,5 @@ void GameEngine::loop(){
         window.swapBuffers();
 
     }
+
 }

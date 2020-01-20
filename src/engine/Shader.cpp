@@ -29,7 +29,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath){
 
     } catch (std::ifstream::failure& e){
 
-        std::cout << "ERROR: Could not read shader." << std::endl;
+        std::cerr << "ERROR: Could not read shader." << std::endl;
         throw;
 
     }
@@ -102,7 +102,7 @@ void Shader::checkCompileErrors(unsigned int shader, const char* path, const std
         if (!success){
 
             glGetShaderInfoLog(shader, 1024, nullptr, infoLog);
-            std::cout << "Shader compilation error for " << path << " (" << type << "): " << infoLog << std::endl;
+            std::cerr << "Shader compilation error for " << path << " (" << type << "): " << infoLog << std::endl;
 
         }
 
@@ -113,8 +113,10 @@ void Shader::checkCompileErrors(unsigned int shader, const char* path, const std
         if (!success){
 
             glGetProgramInfoLog(shader, 1024, nullptr, infoLog);
-            std::cout << "Linking error (" << type << "): " << infoLog << std::endl;
+            std::cerr << "Linking error (" << type << "): " << infoLog << std::endl;
 
         }
+
     }
+
 }

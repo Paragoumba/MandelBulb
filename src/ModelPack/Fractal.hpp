@@ -1,16 +1,11 @@
-
-#include <iostream>
-#include <cstring>
-#include <memory>
-#include <complex>
-
-using namespace std;
-
 #ifndef PTUT_FRACTAL_HPP
 #define PTUT_FRACTAL_HPP
 #include "DataManager.hpp"
 
 
+#include <iostream>
+#include <cstring>
+#include <memory>
 
 class Fractal {
 protected:
@@ -23,12 +18,13 @@ public:
     explicit Fractal(string e);
     virtual ~Fractal();
     void setEquation(string e);
-    string getEquation();
+    string getEquation() const;
     virtual void compute();
     void affiche();
     void createEquation(nlohmann::json jsonObject);
 
 };
 
-typedef shared_ptr<Fractal> FractalPtr;
+typedef std::shared_ptr<Fractal> FractalPtr;
+
 #endif //PTUT_FRACTAL_HPP

@@ -1,38 +1,44 @@
-//
-// Created by val-duss on 10/01/2020.
-//
-
 #include "Data.hpp"
 
 
-Data::Data() {
-
-}
+Data::Data() {}
 
 Data::~Data() {}
 
-void Data::AddFractal(FractalPtr f) {
-    this->list_of_fractal.push_front(f);
+void Data::addFractalPtr(FractalPtr fractal) {
+
+    listOfFractal.push_front(fractal);
+
 }
 
-void Data::setActiveFractal(FractalPtr f) {
-    this->active_fractal = f;
+void Data::setActiveFractalPtr(FractalPtr fractal) {
+
+    activeFractal = fractal;
+
 }
 
 void Data::addObserver() {
 
 }
-FractalPtr& Data::getActiveFractal() {
-    return active_fractal;
+
+FractalPtr Data::getActiveFractalPtr() const {
+
+    return activeFractal;
+
 }
 
-list<FractalPtr> Data::getListOfFractal() {
-    return this->list_of_fractal;
+std::list<FractalPtr> Data::getListOfFractalPtr() const  {
+
+    return listOfFractal;
+
 }
 
 void Data::printListOfFractal() {
-    for(auto it = this->list_of_fractal.begin(); it != this->list_of_fractal.end(); ++it)
+
+    for (auto it = listOfFractal.begin(); it != listOfFractal.end(); ++it) {
+
         (*it)->affiche();
 
+    }
 
 }

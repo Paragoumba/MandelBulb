@@ -15,6 +15,7 @@ public:
     void use();
 
     ~Material();
+
 };
 
 typedef std::shared_ptr<Material> MaterialPtr;

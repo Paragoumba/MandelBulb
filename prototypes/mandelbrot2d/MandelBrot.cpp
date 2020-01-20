@@ -1,16 +1,9 @@
-//
-// Created by paragoumba on 08/10/2019.
-//
-
 #include <SDL2/SDL_events.h>
 #include <thread>
 #include <string>
 #include <SDL2/SDL.h>
 
 #include "MandelBrot.hpp"
-
-int MandelBrot::WIDTH = 1000;
-int MandelBrot::HEIGHT = 1000;
 
 MandelBrot::MandelBrot(){
 

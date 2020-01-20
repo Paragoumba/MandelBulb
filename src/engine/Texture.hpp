@@ -17,6 +17,7 @@ public:
     [[nodiscard]] int getHeight() const;
 
     ~Texture();
+
 };
 
 #endif //SERRARIEN_TEXTURE_HPP

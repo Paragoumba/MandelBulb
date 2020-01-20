@@ -13,6 +13,7 @@ public:
     GameEngine();
 
     void loop();
+
 };
 
 #endif //PTUT_GAMEENGINE_HPP

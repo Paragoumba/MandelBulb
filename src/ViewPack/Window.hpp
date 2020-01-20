@@ -4,6 +4,9 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "../engine/Transformation.hpp"
+
+
 class Window {
 private:
     GLFWwindow* handle;
@@ -13,7 +16,7 @@ public:
 
     void swapBuffers();
     bool shouldClose();
-    int getKey(int keyCode);
+    int getKey(int keyCode) const;
     void close();
 
     ~Window();

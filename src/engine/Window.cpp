@@ -35,6 +35,7 @@ Window::Window(const char* title, int width, int height){
                 0.1f,
                 100.0f
         );
+
     });
 
     Transformation::setProjectionMatrix(

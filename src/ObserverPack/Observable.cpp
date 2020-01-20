@@ -1,7 +1,3 @@
-//
-// Created by daniel on 13/01/2020.
-//
-
 #include "Observable.h"
 
 Observable::Observable(){
@@ -13,7 +9,9 @@ Observable::~Observable(){
 }
 
 void Observable::addObserver(Observer _observer) {
+
     listObservable.push_back(_observer);
+
 }
 
 void Observable::deleteObserver(Observer _observer) {
@@ -30,7 +28,12 @@ void Observable::deleteObserver(Observer _observer) {
 }
 
 void Observable::notifyObservers() {
-    for (int i = 0; i < listObservable.size(); ++i) {
+
+    int size = listObservable.size();
+    for (int i = 0; i < size; ++i) {
+
         listObservable.at(i).update();
+
     }
+
 }

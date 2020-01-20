@@ -1,3 +1,5 @@
+#ifndef PTUT_LOADER_HPP
+#define PTUT_LOADER_HPP
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -5,8 +7,6 @@
 #include<json/json.hpp>
 #include "Data.hpp"
 
-#ifndef PTUT_LOADER_HPP
-#define PTUT_LOADER_HPP
 
 class DataManager {
 private:
@@ -16,7 +16,6 @@ private:
 public:
     DataManager(const char* _path);
     nlohmann::json load(std::string nomEquation);
-    void write(Fractal& fractal);
 
 };
 

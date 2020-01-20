@@ -23,5 +23,6 @@ public:
 
 private:
     static void checkCompileErrors(unsigned int shader, const char*, const std::string& type);
+
 };
 #endif

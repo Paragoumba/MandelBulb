@@ -6,6 +6,6 @@ add_executable(MandelBulb main.cpp ../lib/glad.c
         ModelPack/DataManager.cpp
         ControlerPack/Controller.cpp ControlerPack/DefaultController.cpp ControlerPack/EditController.cpp
         ObserverPack/Observable.cpp ObserverPack/Observer.cpp
-        ViewPack/ViewWindow.cpp )
+        ViewPack/ViewWindow.cpp)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lglfw -lGL -ldl")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ldl -lglfw -lGL")

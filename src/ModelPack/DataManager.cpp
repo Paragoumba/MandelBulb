@@ -37,7 +37,3 @@ nlohmann::json DataManager::load(std::string nomEquation) {
     equationJson = json["formulas"][nomEquation];
     return equationJson;
 }
-
-void DataManager::write(Fractal& fractal) {
-
-}

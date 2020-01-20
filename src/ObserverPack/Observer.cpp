@@ -1,10 +1,6 @@
-//
-// Created by daniel on 13/01/2020.
-//
-
 #include "Observer.h"
 
-Observer::Observer(){
+Observer::Observer() {
 
 }
 
