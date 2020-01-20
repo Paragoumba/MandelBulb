@@ -20,6 +20,7 @@ public:
     void setRotation(float rotX, float rotY, float rotZ);
     void setScale(float _scale);
     void setScale(float scaleX, float scaleY, float scaleZ);
+    void addRotation(float rotX, float rotY, float rotZ);
 };
 
 #endif //PTUT_OBJECT_HPP
