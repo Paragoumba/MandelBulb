@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/daniel/Documents/clion-2019.3/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/lucas/Bureau/clion-2019.3.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/daniel/Documents/clion-2019.3/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/lucas/Bureau/clion-2019.3.2/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daniel/Documents/mandelbulb
+CMAKE_SOURCE_DIR = /home/lucas/CLionProjects/mandelbulb
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daniel/Documents/mandelbulb/cmake-build-debug
+CMAKE_BINARY_DIR = /home/lucas/CLionProjects/mandelbulb/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/daniel/Documents/mandelbulb/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/daniel/Documents/clion-2019.3/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/lucas/Bureau/clion-2019.3.2/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/daniel/Documents/clion-2019.3/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/lucas/Bureau/clion-2019.3.2/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/Documents/mandelbulb/cmake-build-debug/CMakeFiles /home/daniel/Documents/mandelbulb/tests/cmake-build-debug/CMakeFiles/progress.marks
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 ../tests/cmake-build-debug/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/Documents/mandelbulb/cmake-build-debug/CMakeFiles 0
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug/CMakeFiles/progress.marks
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 ../tests/cmake-build-debug/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 ../tests/cmake-build-debug/clean
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 ../tests/cmake-build-debug/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 ../tests/cmake-build-debug/preinstall
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 ../tests/cmake-build-debug/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 ../tests/cmake-build-debug/preinstall
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 ../tests/cmake-build-debug/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/rule:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/rule
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/rule
 .PHONY : ../tests/cmake-build-debug/CMakeFiles/Tests.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/rule
 
 # fast build rule for target.
 Tests/fast:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build
 .PHONY : Tests/fast
 
 __/lib/glad.o: __/lib/glad.c.o
@@ -131,7 +131,7 @@ __/lib/glad.o: __/lib/glad.c.o
 
 # target to build an object file
 __/lib/glad.c.o:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.o
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.o
 .PHONY : __/lib/glad.c.o
 
 __/lib/glad.i: __/lib/glad.c.i
@@ -140,7 +140,7 @@ __/lib/glad.i: __/lib/glad.c.i
 
 # target to preprocess a source file
 __/lib/glad.c.i:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.i
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.i
 .PHONY : __/lib/glad.c.i
 
 __/lib/glad.s: __/lib/glad.c.s
@@ -149,7 +149,7 @@ __/lib/glad.s: __/lib/glad.c.s
 
 # target to generate assembly for a file
 __/lib/glad.c.s:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.s
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.s
 .PHONY : __/lib/glad.c.s
 
 __/src/engine/Camera.o: __/src/engine/Camera.cpp.o
@@ -158,7 +158,7 @@ __/src/engine/Camera.o: __/src/engine/Camera.cpp.o
 
 # target to build an object file
 __/src/engine/Camera.cpp.o:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o
 .PHONY : __/src/engine/Camera.cpp.o
 
 __/src/engine/Camera.i: __/src/engine/Camera.cpp.i
@@ -167,7 +167,7 @@ __/src/engine/Camera.i: __/src/engine/Camera.cpp.i
 
 # target to preprocess a source file
 __/src/engine/Camera.cpp.i:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.i
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.i
 .PHONY : __/src/engine/Camera.cpp.i
 
 __/src/engine/Camera.s: __/src/engine/Camera.cpp.s
@@ -176,7 +176,7 @@ __/src/engine/Camera.s: __/src/engine/Camera.cpp.s
 
 # target to generate assembly for a file
 __/src/engine/Camera.cpp.s:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.s
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.s
 .PHONY : __/src/engine/Camera.cpp.s
 
 __/src/engine/Object.o: __/src/engine/Object.cpp.o
@@ -185,7 +185,7 @@ __/src/engine/Object.o: __/src/engine/Object.cpp.o
 
 # target to build an object file
 __/src/engine/Object.cpp.o:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o
 .PHONY : __/src/engine/Object.cpp.o
 
 __/src/engine/Object.i: __/src/engine/Object.cpp.i
@@ -194,7 +194,7 @@ __/src/engine/Object.i: __/src/engine/Object.cpp.i
 
 # target to preprocess a source file
 __/src/engine/Object.cpp.i:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.i
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.i
 .PHONY : __/src/engine/Object.cpp.i
 
 __/src/engine/Object.s: __/src/engine/Object.cpp.s
@@ -203,7 +203,7 @@ __/src/engine/Object.s: __/src/engine/Object.cpp.s
 
 # target to generate assembly for a file
 __/src/engine/Object.cpp.s:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.s
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.s
 .PHONY : __/src/engine/Object.cpp.s
 
 __/src/engine/Transformation.o: __/src/engine/Transformation.cpp.o
@@ -212,7 +212,7 @@ __/src/engine/Transformation.o: __/src/engine/Transformation.cpp.o
 
 # target to build an object file
 __/src/engine/Transformation.cpp.o:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o
 .PHONY : __/src/engine/Transformation.cpp.o
 
 __/src/engine/Transformation.i: __/src/engine/Transformation.cpp.i
@@ -221,7 +221,7 @@ __/src/engine/Transformation.i: __/src/engine/Transformation.cpp.i
 
 # target to preprocess a source file
 __/src/engine/Transformation.cpp.i:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.i
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.i
 .PHONY : __/src/engine/Transformation.cpp.i
 
 __/src/engine/Transformation.s: __/src/engine/Transformation.cpp.s
@@ -230,7 +230,7 @@ __/src/engine/Transformation.s: __/src/engine/Transformation.cpp.s
 
 # target to generate assembly for a file
 __/src/engine/Transformation.cpp.s:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.s
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.s
 .PHONY : __/src/engine/Transformation.cpp.s
 
 __/src/engine/Window.o: __/src/engine/Window.cpp.o
@@ -239,7 +239,7 @@ __/src/engine/Window.o: __/src/engine/Window.cpp.o
 
 # target to build an object file
 __/src/engine/Window.cpp.o:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o
 .PHONY : __/src/engine/Window.cpp.o
 
 __/src/engine/Window.i: __/src/engine/Window.cpp.i
@@ -248,7 +248,7 @@ __/src/engine/Window.i: __/src/engine/Window.cpp.i
 
 # target to preprocess a source file
 __/src/engine/Window.cpp.i:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.i
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.i
 .PHONY : __/src/engine/Window.cpp.i
 
 __/src/engine/Window.s: __/src/engine/Window.cpp.s
@@ -257,35 +257,8 @@ __/src/engine/Window.s: __/src/engine/Window.cpp.s
 
 # target to generate assembly for a file
 __/src/engine/Window.cpp.s:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.s
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.s
 .PHONY : __/src/engine/Window.cpp.s
-
-__/src/engine/exceptions/WindowException.o: __/src/engine/exceptions/WindowException.cpp.o
-
-.PHONY : __/src/engine/exceptions/WindowException.o
-
-# target to build an object file
-__/src/engine/exceptions/WindowException.cpp.o:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.o
-.PHONY : __/src/engine/exceptions/WindowException.cpp.o
-
-__/src/engine/exceptions/WindowException.i: __/src/engine/exceptions/WindowException.cpp.i
-
-.PHONY : __/src/engine/exceptions/WindowException.i
-
-# target to preprocess a source file
-__/src/engine/exceptions/WindowException.cpp.i:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.i
-.PHONY : __/src/engine/exceptions/WindowException.cpp.i
-
-__/src/engine/exceptions/WindowException.s: __/src/engine/exceptions/WindowException.cpp.s
-
-.PHONY : __/src/engine/exceptions/WindowException.s
-
-# target to generate assembly for a file
-__/src/engine/exceptions/WindowException.cpp.s:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.s
-.PHONY : __/src/engine/exceptions/WindowException.cpp.s
 
 main.o: main.cpp.o
 
@@ -293,7 +266,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -302,7 +275,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.i
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -311,7 +284,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.s
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -338,9 +311,6 @@ help:
 	@echo "... __/src/engine/Window.o"
 	@echo "... __/src/engine/Window.i"
 	@echo "... __/src/engine/Window.s"
-	@echo "... __/src/engine/exceptions/WindowException.o"
-	@echo "... __/src/engine/exceptions/WindowException.i"
-	@echo "... __/src/engine/exceptions/WindowException.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -355,6 +325,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,12 +1,16 @@
 #define STB_IMAGE_IMPLEMENTATION
 
 #include <cstdlib>
-#include <GLFW/glfw3.h>
-#include <stb/stb_image.h>
 #include <chrono>
 #include <thread>
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <stb/stb_image.h>
+
 #include "Shader.hpp"
+
+
 
 int winWidth = 800;
 int winHeight = 600;
@@ -27,6 +31,7 @@ void input(GLFWwindow *window){
         glfwSetWindowShouldClose(window, true);
 
     }
+
 }
 
 int main(){
@@ -42,7 +47,7 @@ int main(){
 
     if (window == nullptr){
 
-        std::cout << "Failed to create window." << std::endl;
+        std::cerr << "Failed to create window." << std::endl;
         glfwTerminate();
         return 1;
 

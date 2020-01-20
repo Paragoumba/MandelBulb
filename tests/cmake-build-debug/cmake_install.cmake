@@ -1,4 +1,4 @@
-# Install script for directory: /home/daniel/Documents/mandelbulb/tests
+# Install script for directory: /home/lucas/CLionProjects/mandelbulb/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

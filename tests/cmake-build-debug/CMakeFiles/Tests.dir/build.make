@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/daniel/Documents/clion-2019.3/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/lucas/Bureau/clion-2019.3.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/daniel/Documents/clion-2019.3/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/lucas/Bureau/clion-2019.3.2/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daniel/Documents/mandelbulb
+CMAKE_SOURCE_DIR = /home/lucas/CLionProjects/mandelbulb
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daniel/Documents/mandelbulb/cmake-build-debug
+CMAKE_BINARY_DIR = /home/lucas/CLionProjects/mandelbulb/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include ../tests/cmake-build-debug/CMakeFiles/Tests.dir/depend.make
@@ -59,94 +59,81 @@ include ../tests/cmake-build-debug/CMakeFiles/Tests.dir/flags.make
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/flags.make
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o: ../tests/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/main.cpp.o -c /home/daniel/Documents/mandelbulb/tests/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o"
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/main.cpp.o -c /home/lucas/CLionProjects/mandelbulb/tests/main.cpp
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Tests.dir/main.cpp.i"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/daniel/Documents/mandelbulb/tests/main.cpp > CMakeFiles/Tests.dir/main.cpp.i
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/CLionProjects/mandelbulb/tests/main.cpp > CMakeFiles/Tests.dir/main.cpp.i
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests.dir/main.cpp.s"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/Documents/mandelbulb/tests/main.cpp -o CMakeFiles/Tests.dir/main.cpp.s
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/CLionProjects/mandelbulb/tests/main.cpp -o CMakeFiles/Tests.dir/main.cpp.s
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.o: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/flags.make
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.o: ../lib/glad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.o"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Tests.dir/__/lib/glad.c.o   -c /home/daniel/Documents/mandelbulb/lib/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.o"
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Tests.dir/__/lib/glad.c.o   -c /home/lucas/CLionProjects/mandelbulb/lib/glad.c
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Tests.dir/__/lib/glad.c.i"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/daniel/Documents/mandelbulb/lib/glad.c > CMakeFiles/Tests.dir/__/lib/glad.c.i
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lucas/CLionProjects/mandelbulb/lib/glad.c > CMakeFiles/Tests.dir/__/lib/glad.c.i
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/lib/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Tests.dir/__/lib/glad.c.s"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/daniel/Documents/mandelbulb/lib/glad.c -o CMakeFiles/Tests.dir/__/lib/glad.c.s
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lucas/CLionProjects/mandelbulb/lib/glad.c -o CMakeFiles/Tests.dir/__/lib/glad.c.s
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/flags.make
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o: ../src/engine/Camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o -c /home/daniel/Documents/mandelbulb/src/engine/Camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o"
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o -c /home/lucas/CLionProjects/mandelbulb/src/engine/Camera.cpp
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.i"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/daniel/Documents/mandelbulb/src/engine/Camera.cpp > CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.i
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/CLionProjects/mandelbulb/src/engine/Camera.cpp > CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.i
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.s"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/Documents/mandelbulb/src/engine/Camera.cpp -o CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.s
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/CLionProjects/mandelbulb/src/engine/Camera.cpp -o CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.s
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/flags.make
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o: ../src/engine/Transformation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o -c /home/daniel/Documents/mandelbulb/src/engine/Transformation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o"
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o -c /home/lucas/CLionProjects/mandelbulb/src/engine/Transformation.cpp
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.i"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/daniel/Documents/mandelbulb/src/engine/Transformation.cpp > CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.i
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/CLionProjects/mandelbulb/src/engine/Transformation.cpp > CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.i
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.s"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/Documents/mandelbulb/src/engine/Transformation.cpp -o CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.s
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/CLionProjects/mandelbulb/src/engine/Transformation.cpp -o CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.s
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/flags.make
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o: ../src/engine/Object.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o -c /home/daniel/Documents/mandelbulb/src/engine/Object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o"
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o -c /home/lucas/CLionProjects/mandelbulb/src/engine/Object.cpp
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Tests.dir/__/src/engine/Object.cpp.i"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/daniel/Documents/mandelbulb/src/engine/Object.cpp > CMakeFiles/Tests.dir/__/src/engine/Object.cpp.i
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/CLionProjects/mandelbulb/src/engine/Object.cpp > CMakeFiles/Tests.dir/__/src/engine/Object.cpp.i
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests.dir/__/src/engine/Object.cpp.s"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/Documents/mandelbulb/src/engine/Object.cpp -o CMakeFiles/Tests.dir/__/src/engine/Object.cpp.s
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/CLionProjects/mandelbulb/src/engine/Object.cpp -o CMakeFiles/Tests.dir/__/src/engine/Object.cpp.s
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/flags.make
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o: ../src/engine/Window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o -c /home/daniel/Documents/mandelbulb/src/engine/Window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o"
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o -c /home/lucas/CLionProjects/mandelbulb/src/engine/Window.cpp
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Tests.dir/__/src/engine/Window.cpp.i"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/daniel/Documents/mandelbulb/src/engine/Window.cpp > CMakeFiles/Tests.dir/__/src/engine/Window.cpp.i
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/CLionProjects/mandelbulb/src/engine/Window.cpp > CMakeFiles/Tests.dir/__/src/engine/Window.cpp.i
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests.dir/__/src/engine/Window.cpp.s"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/Documents/mandelbulb/src/engine/Window.cpp -o CMakeFiles/Tests.dir/__/src/engine/Window.cpp.s
-
-../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.o: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/flags.make
-../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.o: ../src/engine/exceptions/WindowException.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/daniel/Documents/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.o"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.o -c /home/daniel/Documents/mandelbulb/src/engine/exceptions/WindowException.cpp
-
-../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.i"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/daniel/Documents/mandelbulb/src/engine/exceptions/WindowException.cpp > CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.i
-
-../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.s"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/daniel/Documents/mandelbulb/src/engine/exceptions/WindowException.cpp -o CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.s
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/CLionProjects/mandelbulb/src/engine/Window.cpp -o CMakeFiles/Tests.dir/__/src/engine/Window.cpp.s
 
 # Object files for target Tests
 Tests_OBJECTS = \
@@ -155,8 +142,7 @@ Tests_OBJECTS = \
 "CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o" \
 "CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o" \
 "CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o" \
-"CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o" \
-"CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.o"
+"CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o"
 
 # External object files for target Tests
 Tests_EXTERNAL_OBJECTS =
@@ -167,11 +153,10 @@ Tests_EXTERNAL_OBJECTS =
 ../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o
 ../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o
 ../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o
-../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.o
 ../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make
 ../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/daniel/Documents/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Tests"
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Tests.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Tests"
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Tests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build: ../tests/cmake-build-debug/Tests
@@ -179,10 +164,10 @@ Tests_EXTERNAL_OBJECTS =
 .PHONY : ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/clean:
-	cd /home/daniel/Documents/mandelbulb/tests/cmake-build-debug && $(CMAKE_COMMAND) -P CMakeFiles/Tests.dir/cmake_clean.cmake
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && $(CMAKE_COMMAND) -P CMakeFiles/Tests.dir/cmake_clean.cmake
 .PHONY : ../tests/cmake-build-debug/CMakeFiles/Tests.dir/clean
 
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/depend:
-	cd /home/daniel/Documents/mandelbulb/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daniel/Documents/mandelbulb /home/daniel/Documents/mandelbulb/tests /home/daniel/Documents/mandelbulb/cmake-build-debug /home/daniel/Documents/mandelbulb/tests/cmake-build-debug /home/daniel/Documents/mandelbulb/tests/cmake-build-debug/CMakeFiles/Tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lucas/CLionProjects/mandelbulb /home/lucas/CLionProjects/mandelbulb/tests /home/lucas/CLionProjects/mandelbulb/cmake-build-debug /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug/CMakeFiles/Tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ../tests/cmake-build-debug/CMakeFiles/Tests.dir/depend
 
