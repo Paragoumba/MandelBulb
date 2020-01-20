@@ -6,13 +6,13 @@ Fractal::~Fractal() = default;
 
 Fractal::Fractal(string e) {
 
-    this->equation = e;
+    equation = e;
 
 }
 
 void Fractal::setEquation(string e) {
 
-    this->equation = e;
+    equation = e;
 
 }
 
@@ -22,12 +22,12 @@ void Fractal::compute() {
 
 void Fractal::affiche() {
 
-    std::cout << this->equation << endl;
+    std::cout << equation << endl;
 
 }
 
 string Fractal::getEquation() const {
 
-    return this->equation;
+    return equation;
 
 }

@@ -3,7 +3,7 @@
 #include "Mesh.hpp"
 
 Mesh::Mesh(const float* vertices, unsigned long verticesNumber, const float texCoords[], unsigned long texCoordsNumber,
-        const unsigned int* indices, unsigned long indicesNumber){
+        const unsigned int* indices, unsigned long indicesNumber) {
 
     this->verticesNumber = indicesNumber / sizeof(indices[0]); // NOLINT(bugprone-narrowing-conversions,
                                                                   // cppcoreguidelines-narrowing-conversions)

@@ -17,7 +17,7 @@ void Material::addTexture(Texture* texture){
 
 void Material::use(){
 
-    int size = (int)textures.size();
+    int size = textures.size();
     for (int i = 0; i < size; ++i){
 
         glActiveTexture(GL_TEXTURE0 + i);

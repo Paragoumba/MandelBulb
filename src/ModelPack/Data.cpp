@@ -7,13 +7,13 @@ Data::~Data() {}
 
 void Data::addFractalPtr(FractalPtr fractal) {
 
-    this->listOfFractal.push_front(fractal);
+    listOfFractal.push_front(fractal);
 
 }
 
 void Data::setActiveFractalPtr(FractalPtr fractal) {
 
-    this->activeFractal = fractal;
+    activeFractal = fractal;
 
 }
 
@@ -29,13 +29,13 @@ FractalPtr Data::getActiveFractalPtr() const {
 
 std::list<FractalPtr> Data::getListOfFractalPtr() const  {
 
-    return this->listOfFractal;
+    return listOfFractal;
 
 }
 
 void Data::printListOfFractal() {
 
-    for (auto it = this->listOfFractal.begin(); it != this->listOfFractal.end(); ++it) {
+    for (auto it = listOfFractal.begin(); it != listOfFractal.end(); ++it) {
 
         (*it)->affiche();
 

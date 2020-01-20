@@ -2,7 +2,7 @@
 
 Controller::Controller(Data data) {
 
-    this->data=data;
+    this->data = data;
 
 }
 
@@ -10,6 +10,6 @@ Controller::~Controller() {}
 
 Data Controller::getData() {
 
-    return this->data;
+    return data;
 
 }

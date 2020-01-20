@@ -8,4 +8,4 @@ add_executable(MandelBulb main.cpp ../lib/glad.c
         ObserverPack/Observable.cpp ObserverPack/Observer.cpp
         ViewPack/ViewWindow.cpp)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lglfw -lGL -ldl")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ldl -lglfw -lGL")

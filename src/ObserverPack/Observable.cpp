@@ -35,4 +35,5 @@ void Observable::notifyObservers() {
         listObservable.at(i).update();
 
     }
+
 }
