@@ -6,6 +6,9 @@
 
 class GameEngine {
 private:
+    const char* appName = "MandelBulb Renderer";
+    const char* separator = " - ";
+
     Window window;
     Game game;
 
