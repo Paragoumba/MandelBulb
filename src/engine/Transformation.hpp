@@ -1,5 +1,5 @@
-#ifndef SERRARIEN_TRANSFORMATION_HPP
-#define SERRARIEN_TRANSFORMATION_HPP
+#ifndef PTUT_TRANSFORMATION_HPP
+#define PTUT_TRANSFORMATION_HPP
 
 #include <glm/mat4x4.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -20,4 +20,4 @@ public:
 
 };
 
-#endif //SERRARIEN_TRANSFORMATION_HPP
+#endif //PTUT_TRANSFORMATION_HPP

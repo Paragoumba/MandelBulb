@@ -1,5 +1,5 @@
-#ifndef SERRARIEN_MATERIAL_HPP
-#define SERRARIEN_MATERIAL_HPP
+#ifndef PTUT_MATERIAL_HPP
+#define PTUT_MATERIAL_HPP
 
 #include <vector>
 #include <memory>
@@ -20,4 +20,4 @@ public:
 
 typedef std::shared_ptr<Material> MaterialPtr;
 
-#endif //SERRARIEN_MATERIAL_HPP
+#endif //PTUT_MATERIAL_HPP

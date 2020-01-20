@@ -90,6 +90,12 @@ void Shader::setMat4f(const char* name, glm::mat4 value) const {
 
 }
 
+void Shader::setVec2f(const char* name, glm::vec2 value) const {
+
+    glUniform2fv(glGetUniformLocation(ID, name), 1, glm::value_ptr(value));
+
+}
+
 void Shader::checkCompileErrors(unsigned int shader, const char* path, const std::string& type){
 
     int success;

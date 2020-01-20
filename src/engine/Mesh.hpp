@@ -1,16 +1,19 @@
-#ifndef SERRARIEN_MESH_HPP
-#define SERRARIEN_MESH_HPP
+#ifndef PTUT_MESH_HPP
+#define PTUT_MESH_HPP
 
 #include <vector>
 #include <memory>
 
 #include "Material.hpp"
+#include "Object.hpp"
 
-class Mesh {
+class Mesh : public Object {
 private:
     unsigned int vaoId{};
     std::vector<unsigned int> vboIds;
     int verticesNumber{};
+
+    MaterialPtr material = nullptr;
 
 public:
     Mesh(const float vertices[], unsigned long verticesNumber, const float texCoords[], unsigned long texCoordsNumber,
@@ -18,10 +21,12 @@ public:
 
     void render() const;
 
+    void setMaterial(MaterialPtr _material);
+
     ~Mesh();
 
 };
 
 typedef std::shared_ptr<Mesh> MeshPtr;
 
-#endif //SERRARIEN_MESH_HPP
+#endif //PTUT_MESH_HPP

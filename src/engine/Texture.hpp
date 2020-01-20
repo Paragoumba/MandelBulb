@@ -1,5 +1,5 @@
-#ifndef SERRARIEN_TEXTURE_HPP
-#define SERRARIEN_TEXTURE_HPP
+#ifndef PTUT_TEXTURE_HPP
+#define PTUT_TEXTURE_HPP
 
 #include <string>
 
@@ -20,4 +20,4 @@ public:
 
 };
 
-#endif //SERRARIEN_TEXTURE_HPP
+#endif //PTUT_TEXTURE_HPP

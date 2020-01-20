@@ -10,6 +10,8 @@ private:
     glm::vec3 scale;
 
 public:
+    Object();
+
     [[nodiscard]] glm::vec3 getPosition() const;
     [[nodiscard]] glm::vec3 getRotation() const;
     [[nodiscard]] glm::vec3 getScale() const;
@@ -18,7 +20,6 @@ public:
     void setRotation(float rotX, float rotY, float rotZ);
     void setScale(float _scale);
     void setScale(float scaleX, float scaleY, float scaleZ);
-
 };
 
 #endif //PTUT_OBJECT_HPP
