@@ -1,7 +1,4 @@
-#include <glm/gtc/type_ptr.hpp>
-
 #include "Shader.hpp"
-#include "exceptions/ShaderException.hpp"
 
 Shader::Shader(const char* vertexPath, const char* fragmentPath){
 

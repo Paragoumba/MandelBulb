@@ -1,6 +1,3 @@
-#include <glad/glad.h>
-#include <utility>
-
 #include "Mesh.hpp"
 
 Mesh::Mesh(const float* vertices, unsigned long verticesNumber, const float texCoords[], unsigned long texCoordsNumber,

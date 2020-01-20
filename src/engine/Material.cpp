@@ -1,5 +1,3 @@
-#include <glad/glad.h>
-
 #include "Material.hpp"
 
 void Material::addTexture(Texture* texture){

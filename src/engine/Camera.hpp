@@ -1,6 +1,8 @@
 #ifndef PTUT_CAMERA_HPP
 #define PTUT_CAMERA_HPP
 
+#include <cmath>
+#include <glm/glm.hpp>
 #include <glm/vec3.hpp>
 
 class Camera {

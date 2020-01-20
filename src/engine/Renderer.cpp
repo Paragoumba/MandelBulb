@@ -1,6 +1,4 @@
 #include "Renderer.hpp"
-#include "Transformation.hpp"
-#include "Mesh.hpp"
 
 Renderer::Renderer() :
 sceneShader("../res/shaders/scene_shader.vs", "../res/shaders/scene_shader.fs"),

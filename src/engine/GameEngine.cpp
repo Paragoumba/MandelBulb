@@ -1,5 +1,3 @@
-#include <chrono>
-
 #include "GameEngine.hpp"
 
 GameEngine::GameEngine() : game(), window(appName, 1920, 1080){

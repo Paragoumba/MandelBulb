@@ -6,73 +6,75 @@
 
 #IncludeRegexTransform: 
 
-/home/daniel/Documents/mandelbulb/src/engine/Camera.cpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Camera.cpp
 Camera.hpp
-/home/daniel/Documents/mandelbulb/src/engine/Camera.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Camera.hpp
 
-/home/daniel/Documents/mandelbulb/src/engine/Camera.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Camera.hpp
+cmath
+-
+glm/glm.hpp
+-
 glm/vec3.hpp
 -
 
-/home/daniel/Documents/mandelbulb/src/engine/Object.cpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Object.cpp
 Object.hpp
-/home/daniel/Documents/mandelbulb/src/engine/Object.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Object.hpp
 
-/home/daniel/Documents/mandelbulb/src/engine/Object.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Object.hpp
 glm/vec3.hpp
 -
 
-/home/daniel/Documents/mandelbulb/src/engine/Transformation.cpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Transformation.cpp
 Transformation.hpp
-/home/daniel/Documents/mandelbulb/src/engine/Transformation.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Transformation.hpp
 
-/home/daniel/Documents/mandelbulb/src/engine/Transformation.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Transformation.hpp
 glm/mat4x4.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
 Camera.hpp
-/home/daniel/Documents/mandelbulb/src/engine/Camera.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Camera.hpp
 Object.hpp
-/home/daniel/Documents/mandelbulb/src/engine/Object.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Object.hpp
 
-/home/daniel/Documents/mandelbulb/src/engine/Window.cpp
-iostream
--
+/home/lucas/CLionProjects/mandelbulb/src/engine/Window.cpp
 stb/stb_image.h
 -
 Window.hpp
-/home/daniel/Documents/mandelbulb/src/engine/Window.hpp
-Transformation.hpp
-/home/daniel/Documents/mandelbulb/src/engine/Transformation.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Window.hpp
 
-/home/daniel/Documents/mandelbulb/src/engine/Window.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Window.hpp
+iostream
+-
 glad/glad.h
 -
 GLFW/glfw3.h
 -
+Transformation.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Transformation.hpp
 
-/home/daniel/Documents/mandelbulb/src/engine/exceptions/WindowException.cpp
-WindowException.hpp
-/home/daniel/Documents/mandelbulb/src/engine/exceptions/WindowException.hpp
-utility
--
-
-/home/daniel/Documents/mandelbulb/src/engine/exceptions/WindowException.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/exceptions/Exception.hpp
 exception
 -
 string
 -
 
-/home/daniel/Documents/mandelbulb/tests/main.cpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/exceptions/WindowException.hpp
+Exception.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/exceptions/Exception.hpp
+
+/home/lucas/CLionProjects/mandelbulb/tests/main.cpp
 gtest/gtest.h
 -
 stb/stb_image.h
 -
 ../src/engine/Transformation.hpp
-/home/daniel/Documents/mandelbulb/src/engine/Transformation.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Transformation.hpp
 ../src/engine/Window.hpp
-/home/daniel/Documents/mandelbulb/src/engine/Window.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/Window.hpp
 ../src/engine/exceptions/WindowException.hpp
-/home/daniel/Documents/mandelbulb/src/engine/exceptions/WindowException.hpp
+/home/lucas/CLionProjects/mandelbulb/src/engine/exceptions/WindowException.hpp
 

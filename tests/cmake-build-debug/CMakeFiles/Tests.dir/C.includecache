@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/daniel/Documents/mandelbulb/lib/glad.c
+/home/lucas/CLionProjects/mandelbulb/lib/glad.c
 stdio.h
 -
 stdlib.h

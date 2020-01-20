@@ -1,10 +1,9 @@
 #ifndef PTUT_RENDERER_HPP
 #define PTUT_RENDERER_HPP
 
-#include "Shader.hpp"
 #include "Scene.hpp"
 #include "HUD.hpp"
-#include "Camera.hpp"
+#include "Transformation.hpp"
 
 class Renderer {
 private:

@@ -1,6 +1,7 @@
 #ifndef PTUT_TEXTURE_HPP
 #define PTUT_TEXTURE_HPP
 
+#include <iostream>
 #include <string>
 
 class Texture {

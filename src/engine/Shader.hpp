@@ -5,8 +5,11 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <glm/gtc/type_ptr.hpp>
 #include <glm/mat4x4.hpp>
 #include <glad/glad.h>
+
+#include "exceptions/ShaderException.hpp"
 
 class Shader {
 public:

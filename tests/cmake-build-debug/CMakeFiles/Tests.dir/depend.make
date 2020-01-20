@@ -20,13 +20,11 @@
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o: ../src/engine/Window.cpp
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o: ../src/engine/Window.hpp
 
-../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.o: ../src/engine/exceptions/WindowException.cpp
-../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/exceptions/WindowException.cpp.o: ../src/engine/exceptions/WindowException.hpp
-
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o: ../src/engine/Camera.hpp
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o: ../src/engine/Object.hpp
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o: ../src/engine/Transformation.hpp
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o: ../src/engine/Window.hpp
+../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o: ../src/engine/exceptions/Exception.hpp
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o: ../src/engine/exceptions/WindowException.hpp
 ../tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o: ../tests/main.cpp
 

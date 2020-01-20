@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <memory>
+#include <glad/glad.h>
 
 #include "Texture.hpp"
 

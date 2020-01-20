@@ -1,6 +1,8 @@
 #ifndef PTUT_GAMEENGINE_HPP
 #define PTUT_GAMEENGINE_HPP
 
+#include <chrono>
+
 #include "Window.hpp"
 #include "Game.hpp"
 

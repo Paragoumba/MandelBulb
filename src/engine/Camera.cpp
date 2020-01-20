@@ -1,5 +1,3 @@
-#include <cmath>
-#include <glm/glm.hpp>
 #include "Camera.hpp"
 
 Camera::Camera() : position(0.0f), rotation(0.0f){}

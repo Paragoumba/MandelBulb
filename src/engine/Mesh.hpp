@@ -1,8 +1,7 @@
 #ifndef PTUT_MESH_HPP
 #define PTUT_MESH_HPP
 
-#include <vector>
-#include <memory>
+#include <utility>
 
 #include "Material.hpp"
 #include "Object.hpp"

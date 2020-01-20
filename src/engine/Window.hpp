@@ -1,8 +1,11 @@
 #ifndef PTUT_WINDOW_HPP
 #define PTUT_WINDOW_HPP
 
+#include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+#include "Transformation.hpp"
 
 struct Resolution {
     int width;

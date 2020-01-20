@@ -1,8 +1,6 @@
-#include <iostream>
 #include <stb/stb_image.h>
 
 #include "Window.hpp"
-#include "Transformation.hpp"
 
 Window::Window(const char* title, int width, int height){
 
