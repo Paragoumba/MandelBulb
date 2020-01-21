@@ -23,11 +23,3 @@ void Renderer::renderScene(Scene& scene, Camera& camera){
 
     }
 }
-
-void Renderer::renderHUD(HUD& hud){
-
-    hudShader.use();
-
-    //sceneShader.setMat4f("projection", Transformation::getProjectionMatrix());
-
-}

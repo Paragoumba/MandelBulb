@@ -3,7 +3,6 @@
 
 #include "Shader.hpp"
 #include "Scene.hpp"
-#include "HUD.hpp"
 #include "Renderer.hpp"
 #include "Window.hpp"
 
@@ -11,7 +10,6 @@ class Game {
 private:
     Renderer renderer;
     Scene scene;
-    HUD hud;
     Camera camera;
 
 public:

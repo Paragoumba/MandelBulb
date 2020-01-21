@@ -77,6 +77,5 @@ void Game::update(){
 void Game::render(){
 
     renderer.renderScene(scene, camera);
-    renderer.renderHUD(hud);
 
 }
