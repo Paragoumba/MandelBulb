@@ -8,11 +8,14 @@
 class Renderer {
 private:
     Shader sceneShader;
-    Shader hudShader;
+    Shader fractalShader;
+
+    MeshPtr fractal;
 
 public:
     Renderer();
 
+    void renderFractal(Camera& camera);
     void renderScene(Scene& scene, Camera& camera);
 };
 

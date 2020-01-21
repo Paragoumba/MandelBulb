@@ -76,6 +76,7 @@ void Game::update(){
 
 void Game::render(){
 
+    renderer.renderFractal(camera);
     renderer.renderScene(scene, camera);
 
 }
