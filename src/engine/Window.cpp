@@ -8,7 +8,7 @@ Window::Window(const char* title, int width, int height){
 
     if (title == nullptr){
 
-        title = "MandelBulb";
+        title = "";
 
     }
 
