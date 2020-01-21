@@ -1,5 +1,4 @@
 #include <glad/glad.h>
-
 #include <utility>
 
 #include "Mesh.hpp"
@@ -7,8 +6,7 @@
 Mesh::Mesh(const float* vertices, unsigned long verticesNumber, const float texCoords[], unsigned long texCoordsNumber,
         const unsigned int* indices, unsigned long indicesNumber) : Object(){
 
-    this->verticesNumber = indicesNumber / sizeof(indices[0]); // NOLINT(bugprone-narrowing-conversions,
-                                                                  // cppcoreguidelines-narrowing-conversions)
+    this->verticesNumber = (int)(indicesNumber / sizeof(indices[0]));
 
     glGenVertexArrays(1, &vaoId);
     glBindVertexArray(vaoId);

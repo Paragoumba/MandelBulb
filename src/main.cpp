@@ -10,9 +10,24 @@
 
 int main(){
 
-    GameEngine gameEngine;
+    try {
 
-    gameEngine.loop();
+        GameEngine gameEngine;
+
+        gameEngine.loop();
+
+    } catch (const std::exception& e){
+
+        std::cerr << e.what() << std::endl;
+        std::cerr << "Exiting due to a fatal unrecoverable error." << std::endl;
+        return EXIT_FAILURE;
+
+    } catch (...){
+
+        std::cerr << "Exiting due to unknown fatal unrecoverable error." << std::endl;
+        return EXIT_FAILURE;
+
+    }
 
     return EXIT_SUCCESS;
 
