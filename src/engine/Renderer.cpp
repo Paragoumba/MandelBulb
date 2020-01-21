@@ -10,14 +10,14 @@ void Renderer::renderScene(Scene& scene, Camera& camera){
 
     sceneShader.use();
 
-    sceneShader.setMat4f("view", Transformation::getViewMatrix(camera));
-    sceneShader.setMat4f("projection", Transformation::getProjectionMatrix());
+    sceneShader.setMat4("view", Transformation::getViewMatrix(camera));
+    sceneShader.setMat4("projection", Transformation::getProjectionMatrix());
 
     std::vector<MeshPtr> meshes = scene.getMeshes();
 
     for (auto& mesh : meshes){
 
-        sceneShader.setMat4f("model", Transformation::getModelMatrix(mesh.get()));
+        sceneShader.setMat4("model", Transformation::getModelMatrix(mesh.get()));
 
         mesh->render();
 
