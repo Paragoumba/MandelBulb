@@ -1,6 +1,7 @@
 #include <glad/glad.h>
 
 #include "Material.hpp"
+#include "exceptions/Exception.hpp"
 
 void Material::addTexture(Texture* texture){
 
@@ -10,7 +11,7 @@ void Material::addTexture(Texture* texture){
 
     } else {
 
-        throw "Maximum 32 textures are supported.";
+        throw Exception("Maximum 32 textures are supported.");
 
     }
 }
