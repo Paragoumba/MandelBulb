@@ -3,7 +3,6 @@
 
 #include "Shader.hpp"
 #include "Scene.hpp"
-#include "HUD.hpp"
 #include "Camera.hpp"
 
 class Renderer {
