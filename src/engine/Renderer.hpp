@@ -6,6 +6,11 @@
 #include "Camera.hpp"
 #include "Window.hpp"
 
+/**
+ * \class Renderer
+ *
+ * In this class there are serval functions that can be used in order to managed the render
+ */
 class Renderer {
 private:
     Shader sceneShader;

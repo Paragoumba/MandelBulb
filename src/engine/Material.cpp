@@ -13,7 +13,7 @@
 
 /**
  * \fn addTexture
- * \brief Add a texture in the vector that contain all the texture
+ * Add a texture in the vector that contain all the texture
  *
  * @param texture
  */
@@ -32,7 +32,7 @@ void Material::addTexture(Texture* texture){
 
 /**
  * \fn use
- * \brief apply the texture to objects
+ * apply the texture to objects
  *
  */
 void Material::use(){
@@ -47,7 +47,7 @@ void Material::use(){
 
 /**
  *\fn ~Material
- * \brief Destructor of Material, destroy all the Texture object in the vector
+ * Destructor of Material, destroy all the Texture object in the vector
  *
  */
 Material::~Material(){

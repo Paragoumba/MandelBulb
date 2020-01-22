@@ -1,6 +1,6 @@
 /**
  * \file Camera.cpp
- * \brief Manager of the Camera
+ * Manager of the Camera
  * \author DUSSERVAIX V., OVEJERO D., TESSON L., VIOLLET R.
  * \date 22 January 2020
  *
@@ -12,7 +12,7 @@
 
 /**
  * \fn Camera
- * \brief The default constructor of the Camera
+ * The default constructor of the Camera
  *
  */
 Camera::Camera() : position(0.0f, 0.0f, 3.0f), rotation(0.0f){}
@@ -20,7 +20,7 @@ Camera::Camera() : position(0.0f, 0.0f, 3.0f), rotation(0.0f){}
 
 /**
  * \fn getPosition
- * \brief Return the current position of the Camera
+ * Return the current position of the Camera
  *
  * @return glm::vec3 position
  */
@@ -32,7 +32,7 @@ glm::vec3 Camera::getPosition() const {
 
 /**
  * \fn getRotation
- * \brief Return the current rotation of the Camera
+ * Return the current rotation of the Camera
  *
  * @return glm::vec3 rotation
  */
@@ -44,7 +44,7 @@ glm::vec3 Camera::getRotation() const {
 
 /**
  * \fn setPosition
- * \brief Define the position of the Camera
+ * Define the position of the Camera
  *
  * @param x
  * @param y
@@ -60,7 +60,7 @@ void Camera::setPosition(float x, float y, float z){
 
 /**
  * \fn setPosition
- * \brief Define the rotation of the Camera
+ * Define the rotation of the Camera
  *
  * @param x
  * @param y
@@ -76,7 +76,7 @@ void Camera::setRotation(float rotX, float rotY, float rotZ){
 
 /**
  * \fn addPosition
- * \brief add to the current position those parameter
+ * add to the current position those parameter
  *
  * @param x
  * @param y
@@ -104,7 +104,7 @@ void Camera::addPosition(float x, float y, float z){
 
 /**
  * \fn addPosition
- * \brief add to the current rotation those parameter
+ * add to the current rotation those parameter
  *
  * @param x
  * @param y

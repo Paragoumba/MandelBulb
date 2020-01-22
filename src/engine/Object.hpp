@@ -3,6 +3,11 @@
 
 #include <glm/vec3.hpp>
 
+/**
+ * \class Object
+ *
+ * In this class there are serval functions that can be used in order to managed Objects
+ */
 class Object {
 private:
     glm::vec3 position;

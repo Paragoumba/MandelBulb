@@ -4,6 +4,11 @@
 #include "Window.hpp"
 #include "Game.hpp"
 
+/**
+ * \class GameEngine
+ *
+ * In this class we instantiate everything, and we control the main loop
+ */
 class GameEngine {
 private:
     const char* appName = "MandelBulb Renderer";
