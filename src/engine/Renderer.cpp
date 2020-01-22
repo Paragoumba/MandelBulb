@@ -20,12 +20,5 @@ void Renderer::renderScene(Scene& scene, Camera& camera){
         mesh->render();
 
     }
-}
-
-void Renderer::renderHUD(HUD& hud){
-
-    hudShader.use();
-
-    //sceneShader.setMat4f("projection", Transformation::getProjectionMatrix());
 
 }

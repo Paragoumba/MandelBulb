@@ -65,6 +65,7 @@ void Game::input(WindowOpenGL& window){
         camera.addRotation(0, 1, 0);
 
     }
+
 }
 
 void Game::update(){
@@ -77,6 +78,5 @@ void Game::update(){
 void Game::render(){
 
     renderer.renderScene(scene, camera);
-    renderer.renderHUD(hud);
 
 }
