@@ -1,8 +1,22 @@
+/**
+ * \file Material.cpp
+ * \brief Manage the material
+ * \author DUSSERVAIX V., OVEJERO D., TESSON L., VIOLLET R.
+ * \date 22 January 2020
+ *
+ * In this class there are serval functions that can be used in order to managed the Material
+ */
 #include <glad/glad.h>
 
 #include "Material.hpp"
 #include "exceptions/Exception.hpp"
 
+/**
+ * \fn addTexture
+ * \brief Add a texture in the vector that contain all the texture
+ *
+ * @param texture
+ */
 void Material::addTexture(Texture* texture){
 
     if (textures.size() < 32){
@@ -16,6 +30,11 @@ void Material::addTexture(Texture* texture){
     }
 }
 
+/**
+ * \fn use
+ * \brief apply the texture to objects
+ *
+ */
 void Material::use(){
 
     for (int i = 0; i < (int) textures.size(); ++i){
@@ -26,6 +45,11 @@ void Material::use(){
     }
 }
 
+/**
+ *\fn ~Material
+ * \brief Destructor of Material, destroy all the Texture object in the vector
+ *
+ */
 Material::~Material(){
 
     for (auto texture : textures){

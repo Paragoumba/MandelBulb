@@ -1,8 +1,27 @@
+/**
+ * \file Mesh.cpp
+ * \brief Manage the vertices
+ * \author DUSSERVAIX V., OVEJERO D., TESSON L., VIOLLET R.
+ * \date 22 January 2020
+ *
+ * In this class there are serval functions that can be used in order to managed mesh
+ */
 #include <glad/glad.h>
 #include <utility>
 
 #include "Mesh.hpp"
 
+/**
+ * \fn Mesh
+ * \brief Constructor of Mesh
+ *
+ * @param vertices
+ * @param verticesNumber
+ * @param texCoords
+ * @param texCoordsNumber
+ * @param indices
+ * @param indicesNumber
+ */
 Mesh::Mesh(const float* vertices, unsigned long verticesNumber, const float texCoords[], unsigned long texCoordsNumber,
         const unsigned int* indices, unsigned long indicesNumber) : Object(){
 
@@ -37,6 +56,11 @@ Mesh::Mesh(const float* vertices, unsigned long verticesNumber, const float texC
 
 }
 
+/**
+ * \fn render
+ * \brief we use the use function of the material to apply it in our mesh
+ *
+ */
 void Mesh::render() const {
 
     if (material != nullptr){
@@ -50,12 +74,23 @@ void Mesh::render() const {
 
 }
 
+/**
+ * \fn setMaterial
+ * \brief Select the material to use
+ *
+ * @param _material
+ */
 void Mesh::setMaterial(MaterialPtr _material){
 
     material = std::move(_material);
 
 }
 
+/**
+ * \fn ~Mesh
+ * \brief Destructor of Mesh
+ *
+ */
 Mesh::~Mesh(){
 
     // Delete the VBOs

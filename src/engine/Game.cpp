@@ -1,9 +1,27 @@
+/**
+ * \file Game.cpp
+ * \brief Manager of the Game
+ * \author DUSSERVAIX V., OVEJERO D., TESSON L., VIOLLET R.
+ * \date 22 January 2020
+ *
+ * In this class there are serval functions that can be used in order to managed the Game
+ */
 #include "Game.hpp"
 
+/**
+ * \fn init
+ * \brief
+ *
+ */
 void Game::init(){
 
 }
 
+/**
+ * \fn input
+ * \brief Manage the event in the main window
+ * @param window
+ */
 void Game::input(Window& window){
 
     if (window.getKey(GLFW_KEY_W) == GLFW_PRESS){
@@ -67,6 +85,11 @@ void Game::input(Window& window){
     }
 }
 
+/**
+ * \fn update
+ * \brief Make rotate the different Object o the Y axis
+ *
+ */
 void Game::update(){
 
     scene.getCube()->addRotation(0, 0.3f, 0);
@@ -74,6 +97,11 @@ void Game::update(){
 
 }
 
+/**
+ * \fn render
+ * \brief Instantiate the Camera
+ *
+ */
 void Game::render(){
 
     renderer.renderFractal(camera);

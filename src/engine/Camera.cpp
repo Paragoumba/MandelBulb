@@ -1,21 +1,53 @@
+/**
+ * \file Camera.cpp
+ * \brief Manager of the Camera
+ * \author DUSSERVAIX V., OVEJERO D., TESSON L., VIOLLET R.
+ * \date 22 January 2020
+ *
+ * In this class there are serval functions that can be used in order to managed the Camera
+ */
 #include <cmath>
 #include <glm/glm.hpp>
 #include "Camera.hpp"
 
+/**
+ * \fn Camera
+ * \brief The default constructor of the Camera
+ */
 Camera::Camera() : position(0.0f), rotation(0.0f){}
 
+/**
+ * \fn getPosition
+ * \brief Return the current position of the Camera
+ *
+ * @return glm::vec3 position
+ */
 glm::vec3 Camera::getPosition() const {
 
     return position;
 
 }
 
+/**
+ * \fn getRotation
+ * \brief Return the current rotation of the Camera
+ *
+ * @return glm::vec3 rotation
+ */
 glm::vec3 Camera::getRotation() const {
 
     return rotation;
 
 }
 
+/**
+ * \fn setPosition
+ * \brief Define the position of the Camera
+ *
+ * @param x
+ * @param y
+ * @param z
+ */
 void Camera::setPosition(float x, float y, float z){
 
     position.x = x;
@@ -24,6 +56,14 @@ void Camera::setPosition(float x, float y, float z){
 
 }
 
+/**
+ * \fn setPosition
+ * \brief Define the rotation of the Camera
+ *
+ * @param x
+ * @param y
+ * @param z
+ */
 void Camera::setRotation(float rotX, float rotY, float rotZ){
 
     rotation.x = rotX;
@@ -32,6 +72,14 @@ void Camera::setRotation(float rotX, float rotY, float rotZ){
 
 }
 
+/**
+ * \fn addPosition
+ * \brief add to the current position those parameter
+ *
+ * @param x
+ * @param y
+ * @param z
+ */
 void Camera::addPosition(float x, float y, float z){
 
     if (z != 0){
@@ -52,6 +100,14 @@ void Camera::addPosition(float x, float y, float z){
 
 }
 
+/**
+ * \fn addPosition
+ * \brief add to the current rotation those parameter
+ *
+ * @param x
+ * @param y
+ * @param z
+ */
 void Camera::addRotation(float rotX, float rotY, float rotZ){
 
     rotation.x += rotX;
