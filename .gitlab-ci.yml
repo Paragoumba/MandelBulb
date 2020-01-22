@@ -11,7 +11,7 @@ pages:
     - doxygen
   artifacts:
     paths:
-      - doc
+      - public
   only:
     - master
 
