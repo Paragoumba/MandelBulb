@@ -1,4 +1,4 @@
-image: cpp-ci-cd-opengl:latest
+image: paragoumba/cpp-ci-cd-opengl:latest
 
 cache:
   paths:
