@@ -1,25 +1,22 @@
-#ifndef PTUT_WINDOW_HPP
-#define PTUT_WINDOW_HPP
+#ifndef WINDOW_H
+#define WINDOW_H
 
-#include <iostream>
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include <QMainWindow>
+//#include "moc_window.cpp"
 
-#include "../engine/Transformation.hpp"
+QT_BEGIN_NAMESPACE
+namespace Ui { class Window; }
+QT_END_NAMESPACE
 
-class Window {
-private:
-    GLFWwindow* handle;
+class Window : public QMainWindow
+{
+    Q_OBJECT
 
 public:
-    Window(const char* title, int width, int height);
-
-    void swapBuffers();
-    bool shouldClose();
-    [[nodiscard]] int getKey(int keyCode) const;
-    void close();
-
+    Window(QWidget *parent = nullptr);
     ~Window();
-};
 
-#endif //PTUT_WINDOW_HPP
+private:
+    Ui::Window *ui;
+};
+#endif // MANDELBULB_H

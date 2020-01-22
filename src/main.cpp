@@ -8,28 +8,12 @@
 #include "engine/GameEngine.hpp"
 #include "ModelPack/Data.hpp"
 #include "ModelPack/DataManager.hpp"
+#include "ViewPack/Application.hpp"
 
-int main(){
+int main(int argc, char **argv){
 
-    try {
+    Application app(argc, argv);
 
-        GameEngine gameEngine;
-
-        gameEngine.loop();
-
-    } catch (const std::exception& e){
-
-        std::cerr << e.what() << std::endl;
-        std::cerr << "Exiting due to a fatal unrecoverable error." << std::endl;
-        return EXIT_FAILURE;
-
-    } catch (...){
-
-        std::cerr << "Exiting due to unknown fatal unrecoverable error." << std::endl;
-        return EXIT_FAILURE;
-
-    }
-
-    return EXIT_SUCCESS;
+    return app.exec();
 
 }

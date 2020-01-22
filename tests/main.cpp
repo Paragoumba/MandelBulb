@@ -4,7 +4,7 @@
 #include <stb/stb_image.h>
 
 #include "../src/engine/Transformation.hpp"
-#include "../src/engine/Window.hpp"
+#include "../src/engine/WindowOpenGL.hpp"
 #include "../src/engine/exceptions/WindowException.hpp"
 
 bool operator==(glm::mat4 mat1, glm::mat4 mat2){
@@ -71,13 +71,13 @@ TEST(MandelBulb, TransformationTest){
 
 TEST(MandelBulb, WindowTest){
 
-    std::cout << "- Testing Window constructor -" << std::endl;
+    std::cout << "- Testing WindowOpenGL constructor -" << std::endl;
 
     try {
 
-        Window window(nullptr, 1920, 1080);
+        WindowOpenGL window(nullptr, 1920, 1080);
 
-        FAIL() << "Window should return an exception when title is null.";
+        FAIL() << "WindowOpenGL should return an exception when title is null.";
 
     } catch (WindowException& e){}
 

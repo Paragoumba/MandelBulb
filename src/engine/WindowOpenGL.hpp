@@ -1,5 +1,5 @@
-#ifndef PTUT_WINDOW_HPP
-#define PTUT_WINDOW_HPP
+#ifndef PTUT_WINDOWOPENGL_HPP
+#define PTUT_WINDOWOPENGL_HPP
 
 #include <iostream>
 #include <glad/glad.h>
@@ -12,12 +12,13 @@ struct Resolution {
     int height;
 };
 
-class Window {
+class WindowOpenGL {
 private:
     GLFWwindow* handle;
 
 public:
-    Window(const char* title, int width, int height);
+    WindowOpenGL();
+    WindowOpenGL(const char* title, int width, int height);
 
     void swapBuffers();
     [[nodiscard]] bool shouldClose() const;
@@ -27,8 +28,8 @@ public:
     void setTitle(const char* title);
     void close();
 
-    ~Window();
+    ~WindowOpenGL();
 
 };
 
-#endif //PTUT_WINDOW_HPP
+#endif //PTUT_WINDOWOPENGL_HPP

@@ -3,7 +3,7 @@
 
 #include <chrono>
 
-#include "Window.hpp"
+#include "WindowOpenGL.hpp"
 #include "Game.hpp"
 
 class GameEngine {
@@ -11,7 +11,7 @@ private:
     const char* appName = "MandelBulb Renderer";
     const char* separator = " - ";
 
-    Window window;
+    WindowOpenGL window;
     Game game;
 
 public:

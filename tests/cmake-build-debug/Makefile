@@ -233,32 +233,32 @@ __/src/engine/Transformation.cpp.s:
 	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.s
 .PHONY : __/src/engine/Transformation.cpp.s
 
-__/src/engine/Window.o: __/src/engine/Window.cpp.o
+__/src/engine/WindowOpenGL.o: __/src/engine/WindowOpenGL.cpp.o
 
-.PHONY : __/src/engine/Window.o
+.PHONY : __/src/engine/WindowOpenGL.o
 
 # target to build an object file
-__/src/engine/Window.cpp.o:
-	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o
-.PHONY : __/src/engine/Window.cpp.o
+__/src/engine/WindowOpenGL.cpp.o:
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.o
+.PHONY : __/src/engine/WindowOpenGL.cpp.o
 
-__/src/engine/Window.i: __/src/engine/Window.cpp.i
+__/src/engine/WindowOpenGL.i: __/src/engine/WindowOpenGL.cpp.i
 
-.PHONY : __/src/engine/Window.i
+.PHONY : __/src/engine/WindowOpenGL.i
 
 # target to preprocess a source file
-__/src/engine/Window.cpp.i:
-	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.i
-.PHONY : __/src/engine/Window.cpp.i
+__/src/engine/WindowOpenGL.cpp.i:
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.i
+.PHONY : __/src/engine/WindowOpenGL.cpp.i
 
-__/src/engine/Window.s: __/src/engine/Window.cpp.s
+__/src/engine/WindowOpenGL.s: __/src/engine/WindowOpenGL.cpp.s
 
-.PHONY : __/src/engine/Window.s
+.PHONY : __/src/engine/WindowOpenGL.s
 
 # target to generate assembly for a file
-__/src/engine/Window.cpp.s:
-	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.s
-.PHONY : __/src/engine/Window.cpp.s
+__/src/engine/WindowOpenGL.cpp.s:
+	cd /home/lucas/CLionProjects/mandelbulb/cmake-build-debug && $(MAKE) -f ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.s
+.PHONY : __/src/engine/WindowOpenGL.cpp.s
 
 main.o: main.cpp.o
 
@@ -308,9 +308,9 @@ help:
 	@echo "... __/src/engine/Transformation.o"
 	@echo "... __/src/engine/Transformation.i"
 	@echo "... __/src/engine/Transformation.s"
-	@echo "... __/src/engine/Window.o"
-	@echo "... __/src/engine/Window.i"
-	@echo "... __/src/engine/Window.s"
+	@echo "... __/src/engine/WindowOpenGL.o"
+	@echo "... __/src/engine/WindowOpenGL.i"
+	@echo "... __/src/engine/WindowOpenGL.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

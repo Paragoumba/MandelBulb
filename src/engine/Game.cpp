@@ -4,7 +4,7 @@ void Game::init(){
 
 }
 
-void Game::input(Window& window){
+void Game::input(WindowOpenGL& window){
 
     if (window.getKey(GLFW_KEY_W) == GLFW_PRESS){
 

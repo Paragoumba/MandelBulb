@@ -5,7 +5,7 @@
 #include "Scene.hpp"
 #include "HUD.hpp"
 #include "Renderer.hpp"
-#include "Window.hpp"
+#include "WindowOpenGL.hpp"
 
 class Game {
 private:
@@ -16,7 +16,7 @@ private:
 
 public:
     void init();
-    void input(Window& window);
+    void input(WindowOpenGL& window);
     void update();
     void render();
 

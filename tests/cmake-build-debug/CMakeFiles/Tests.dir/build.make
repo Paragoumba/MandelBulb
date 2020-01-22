@@ -122,18 +122,18 @@ include ../tests/cmake-build-debug/CMakeFiles/Tests.dir/flags.make
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests.dir/__/src/engine/Object.cpp.s"
 	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/CLionProjects/mandelbulb/src/engine/Object.cpp -o CMakeFiles/Tests.dir/__/src/engine/Object.cpp.s
 
-../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/flags.make
-../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o: ../src/engine/Window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o"
-	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o -c /home/lucas/CLionProjects/mandelbulb/src/engine/Window.cpp
+../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.o: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/flags.make
+../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.o: ../src/engine/WindowOpenGL.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.o"
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.o -c /home/lucas/CLionProjects/mandelbulb/src/engine/WindowOpenGL.cpp
 
-../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Tests.dir/__/src/engine/Window.cpp.i"
-	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/CLionProjects/mandelbulb/src/engine/Window.cpp > CMakeFiles/Tests.dir/__/src/engine/Window.cpp.i
+../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.i"
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucas/CLionProjects/mandelbulb/src/engine/WindowOpenGL.cpp > CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.i
 
-../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests.dir/__/src/engine/Window.cpp.s"
-	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/CLionProjects/mandelbulb/src/engine/Window.cpp -o CMakeFiles/Tests.dir/__/src/engine/Window.cpp.s
+../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.s"
+	cd /home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucas/CLionProjects/mandelbulb/src/engine/WindowOpenGL.cpp -o CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.s
 
 # Object files for target Tests
 Tests_OBJECTS = \
@@ -142,7 +142,7 @@ Tests_OBJECTS = \
 "CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o" \
 "CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o" \
 "CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o" \
-"CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o"
+"CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.o"
 
 # External object files for target Tests
 Tests_EXTERNAL_OBJECTS =
@@ -152,7 +152,7 @@ Tests_EXTERNAL_OBJECTS =
 ../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o
 ../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o
 ../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o
-../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o
+../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.o
 ../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/build.make
 ../tests/cmake-build-debug/Tests: ../tests/cmake-build-debug/CMakeFiles/Tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lucas/CLionProjects/mandelbulb/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Tests"

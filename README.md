@@ -15,15 +15,17 @@ Then you can launch it with `./build/MandelBulb`
 - [GLM][3]
 - [STB][4]
 - [JSON for Modern C++][5]
+- [QT Creator][6]
 ### Tests
-- [gtest][6]
+- [gtest][7]
 
 [1]: https://github.com/glfw/glfw
 [2]: https://github.com/Dav1dde/glad
 [3]: https://github.com/g-truc/glm
 [4]: https://github.com/nothings/stb
 [5]: https://github.com/nlohmann/json
-[6]: https://github.com/google/googletest
+[6]: https://www.qt.io/download
+[7]: https://github.com/google/googletest
 
 ## How to compile
 After cloning the repo, run:

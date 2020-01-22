@@ -16,7 +16,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lucas/CLionProjects/mandelbulb/src/engine/Camera.cpp" "/home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Camera.cpp.o"
   "/home/lucas/CLionProjects/mandelbulb/src/engine/Object.cpp" "/home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Object.cpp.o"
   "/home/lucas/CLionProjects/mandelbulb/src/engine/Transformation.cpp" "/home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Transformation.cpp.o"
-  "/home/lucas/CLionProjects/mandelbulb/src/engine/Window.cpp" "/home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/Window.cpp.o"
+  "/home/lucas/CLionProjects/mandelbulb/src/engine/WindowOpenGL.cpp" "/home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug/CMakeFiles/Tests.dir/__/src/engine/WindowOpenGL.cpp.o"
   "/home/lucas/CLionProjects/mandelbulb/tests/main.cpp" "/home/lucas/CLionProjects/mandelbulb/tests/cmake-build-debug/CMakeFiles/Tests.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")

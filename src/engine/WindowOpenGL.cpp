@@ -1,8 +1,10 @@
 #include <stb/stb_image.h>
 
-#include "Window.hpp"
+#include "WindowOpenGL.hpp"
 
-Window::Window(const char* title, int width, int height){
+WindowOpenGL::WindowOpenGL() : WindowOpenGL("MandelBulb", 1920, 1080) {}
+
+WindowOpenGL::WindowOpenGL(const char* title, int width, int height) {
 
     if (title == nullptr){
 
@@ -57,25 +59,25 @@ Window::Window(const char* title, int width, int height){
 
 }
 
-void Window::swapBuffers(){
+void WindowOpenGL::swapBuffers(){
 
     glfwSwapBuffers(handle);
 
 }
 
-bool Window::shouldClose() const {
+bool WindowOpenGL::shouldClose() const {
 
     return (bool)glfwWindowShouldClose(handle);
 
 }
 
-int Window::getKey(int keyCode) const {
+int WindowOpenGL::getKey(int keyCode) const {
 
     return glfwGetKey(handle, keyCode);
 
 }
 
-Resolution Window::getSize() const {
+Resolution WindowOpenGL::getSize() const {
 
     Resolution resolution{};
 
@@ -85,7 +87,7 @@ Resolution Window::getSize() const {
 
 }
 
-void Window::setCursor(const char* path){
+void WindowOpenGL::setCursor(const char* path){
 
     stbi_set_flip_vertically_on_load(false);
 
@@ -108,19 +110,19 @@ void Window::setCursor(const char* path){
     }
 }
 
-void Window::close(){
+void WindowOpenGL::close(){
 
     glfwSetWindowShouldClose(handle, true);
 
 }
 
-Window::~Window(){
+WindowOpenGL::~WindowOpenGL(){
 
     glfwTerminate();
 
 }
 
-void Window::setTitle(const char* title){
+void WindowOpenGL::setTitle(const char* title){
 
     glfwSetWindowTitle(handle, title);
 
