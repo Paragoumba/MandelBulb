@@ -1,8 +1,27 @@
+/**
+ * \file Window.cpp
+ * \brief Program to manage window.
+ * \author R.VIOLET, L.TESSON, D.OVEJERO, V.DUSSERVAIX
+ * \version 0.1
+ * \date 22 january 2020
+ *
+ * Program to manage the window of the program
+ *
+ */
+
 #include <iostream>
 #include <stb/stb_image.h>
-
 #include "Window.hpp"
 #include "Transformation.hpp"
+
+/**
+ * \fn Window(const char* title, int width, int height)
+ * \brief Constructor the class Window
+ *
+ * @param title, name of the window
+ * @param width, the width of the window
+ * @param height, the height of the window
+ */
 
 Window::Window(const char* title, int width, int height){
 
@@ -60,24 +79,51 @@ Window::Window(const char* title, int width, int height){
 
 }
 
+
+/**
+ * \fn void swapBuffers(void)
+ * \brief complete
+ *
+ *
+ */
 void Window::swapBuffers(){
 
     glfwSwapBuffers(handle);
 
 }
 
+/**
+ * \fn bool shouldClose(void)
+ * \brief complete
+ *
+ *
+ * @return glfwWindowShouldClose
+ */
 bool Window::shouldClose() const {
 
     return glfwWindowShouldClose(handle);
 
 }
 
+/**
+ * \fn int getKey(int keyCode) const
+ * \brief give the key by the keyCode
+ *
+ * @param keyCode
+ * @return the key
+ */
 int Window::getKey(int keyCode) const {
 
     return glfwGetKey(handle, keyCode);
 
 }
 
+/**
+ * \fn Resolution getSize(void) const
+ * \brief give the resolution of this window
+ *
+ * @return the resolution
+ */
 Resolution Window::getSize() const {
 
     Resolution resolution{};
@@ -88,6 +134,13 @@ Resolution Window::getSize() const {
 
 }
 
+
+/**
+ * \fn void setCursor(const char* path)
+ * \brief define the cursor of this windows
+ *
+ * @param path name of cursor's file
+ */
 void Window::setCursor(const char* path){
 
     stbi_set_flip_vertically_on_load(false);
@@ -111,18 +164,34 @@ void Window::setCursor(const char* path){
     }
 }
 
+/**
+ * \fn void close(void)
+ * \brief close this window
+ *
+ */
 void Window::close(){
 
     glfwSetWindowShouldClose(handle, true);
 
 }
 
+/**
+ * \fn ~Window(void)
+ * \brief Destructor of the class window
+ */
 Window::~Window(){
 
     glfwTerminate();
 
 }
 
+/**
+ * \fn void setTitle(const char* title)
+ * \brief define the title of this window
+ *
+ *
+ * @param title, the string
+ */
 void Window::setTitle(const char* title){
 
     glfwSetWindowTitle(handle, title);
