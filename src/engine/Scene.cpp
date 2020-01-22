@@ -1,19 +1,15 @@
 /**
- * \file Scene.cpp
- * \brief Program to manage scene.
  * \author R.VIOLET, L.TESSON, D.OVEJERO, V.DUSSERVAIX
  * \version 0.1
  * \date 22 january 2020
  *
- * Program to manage the scene of the program
+ * Program to manage the scenes of the program
  **/
-
-
 #include "Scene.hpp"
+
 /**
  * \fn Scene()
- * \brief Constructor of the class Scene
- *
+ * Constructor of the class scene
  */
 Scene::Scene(){
 
@@ -109,7 +105,6 @@ Scene::Scene(){
     cube = std::make_shared<Mesh>(cubeVertices, sizeof(cubeVertices), cubeTexCoords, sizeof(cubeTexCoords), cubeIndices, sizeof(cubeIndices));
 
     //meshes.push_back(cube);
-
     cube->setPosition(-2, 0, -5);
     cube->setRotation(35, 0, 45);
     cube->setScale(1.5);
@@ -135,7 +130,6 @@ Scene::Scene(){
 
     square = std::make_shared<Mesh>(squareVertices, sizeof(squareVertices), squareTexCoords, sizeof(squareTexCoords), squareIndices, sizeof(squareIndices));
 
-
     //meshes.push_back(square);
 
     square->setPosition(2, 0, -4);
@@ -147,12 +141,11 @@ Scene::Scene(){
     square->setMaterial(squareMaterial);
 
 }
-
 /**
  * \fn void addMesh(MeshPtr& mesh)
- * \brief add mesh into the vector "meshes"
+ * Add mesh into the vector of meshes
  *
- * @param mesh, the mesh to add
+ * @param mesh
  */
 void Scene::addMesh(MeshPtr& mesh){
 
@@ -161,11 +154,10 @@ void Scene::addMesh(MeshPtr& mesh){
 }
 /**
  * \fn std::vector<MeshPtr> getMeshes() const
- * \brief get the vector of all meshes in this scene
+ * get the vector of meshes
  *
- * @return meshes, vector of meshes
+ * @return meshes
  */
-
 std::vector<MeshPtr> Scene::getMeshes() const {
 
     return meshes;
@@ -174,21 +166,19 @@ std::vector<MeshPtr> Scene::getMeshes() const {
 
 /**
  * \fn MeshPtr getCube()const
- * \brief get the mesh cube
- *
- * @return Mesh
+ * Get the mesh of cube
+ * @return
  */
-
 MeshPtr Scene::getCube() const {
 
     return cube;
 
 }
 /**
- * \fn MeshPtr getSquare()const
- * \brief get the mesh square
+ * \fn MeshPtr getSquare() const
+ * get the mesh of square
  *
- * @return Mesh
+ * @return
  */
 MeshPtr Scene::getSquare() const {
 

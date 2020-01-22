@@ -1,11 +1,9 @@
 /**
- * \file Texture.cpp
- * \brief Program to manage texture.
  * \author R.VIOLET, L.TESSON, D.OVEJERO, V.DUSSERVAIX
  * \version 0.1
  * \date 22 january 2020
  *
- * Program to manage the texture of the program
+ * Program to manage the textures of the program
  **/
 #include <glad/glad.h>
 #include <stb/stb_image.h>
@@ -15,7 +13,7 @@
 
 /**
  * \fn Texture(const char* path)
- * \brief load texture
+ *  load texture
  * @param path, the file
  */
 Texture::Texture(const char* path){
@@ -55,7 +53,7 @@ Texture::Texture(const char* path){
 
 /**
  * \fn unsigned int getId(void)
- * \brief return the id of texture
+ *  return the id of texture
  *
  * @return int, id of the texture
  */
@@ -67,7 +65,7 @@ unsigned int Texture::getId() const {
 
 /**
  * \fn int getWidth() const
- * \brief return the width of this texture
+ *  return the width of this texture
  *
  * @return int
  */
@@ -79,7 +77,7 @@ int Texture::getWidth() const {
 
 /**
  * \fn int getHeight() const
- * \brief return the height of this texture
+ *  return the height of this texture
  *
  * @return int
  */
@@ -90,7 +88,7 @@ int Texture::getHeight() const {
 }
 /**
  * \fn ~Texture()
- * \brief Destructor of class Texture
+ *  Destructor of class Texture
  */
 Texture::~Texture(){
 
