@@ -10,7 +10,7 @@
 
 /**
  * \fn Object
- * \brief Constructor of Object, instantiate a Object by default in 0,0,0, with a rotation of 0,0,0 and a scale of 1,1,1
+ * Constructor of Object, instantiate a Object by default in 0,0,0, with a rotation of 0,0,0 and a scale of 1,1,1
  *
  */
 Object::Object() : position(0, 0, 0), rotation(0, 0, 0), scale(1, 1, 1){}
@@ -23,7 +23,7 @@ glm::vec3 Object::getPosition() const {
 
 /**
  * \fn getRotation
- * \brief return the current rotation of the object
+ * return the current rotation of the object
  *
  * @return glm::vec3 rotation
  */
@@ -35,7 +35,7 @@ glm::vec3 Object::getRotation() const {
 
 /**
  * \fn getScale
- * \brief return the current scale of the object
+ * return the current scale of the object
  *
  * @return glm::vec3 scale
  */
@@ -47,7 +47,7 @@ glm::vec3 Object::getScale() const {
 
 /**
  * \fn setPosition
- * \brief Set the position of the object to the parameters value
+ * Set the position of the object to the parameters value
  *
  * @param x
  * @param y
@@ -63,7 +63,7 @@ void Object::setPosition(float x, float y, float z){
 
 /**
  * \fn setRotation
- * \brief Set the rotation of the object to the parameters value
+ * Set the rotation of the object to the parameters value
  *
  * @param rotX
  * @param rotY
@@ -79,7 +79,7 @@ void Object::setRotation(float rotX, float rotY, float rotZ){
 
 /**
  * \fn setScale
- * \brief Set the general scale of the object to the parameter value
+ * Set the general scale of the object to the parameter value
  *
  * @param _scale
  */
@@ -91,7 +91,7 @@ void Object::setScale(float _scale){
 
 /**
  * \fn setScale
- * \brief Set the scale of the object on each axis to the parameters value
+ * Set the scale of the object on each axis to the parameters value
  *
  * @param scaleX
  * @param scaleY
@@ -107,7 +107,7 @@ void Object::setScale(float scaleX, float scaleY, float scaleZ){
 
 /**
  * \fn addRotation
- * \brief Increase the current rotation from the parameters value
+ * Increase the current rotation from the parameters value
  *
  * @param rotX
  * @param rotY

@@ -14,7 +14,7 @@
 
 /**
  * \fn Renderer
- * \brief Constructor of Renderer
+ * Constructor of Renderer
  *
  */
 Renderer::Renderer() :
@@ -44,7 +44,7 @@ fractalShader("../res/shaders/mandel_raymarch.vs", "../res/shaders/mandel_raymar
 
 /**
  * \fn renderFractal
- * \brief With this function we render a MandelBulb
+ * With this function we render a MandelBulb
  *
  * @param camera
  */
@@ -122,7 +122,7 @@ void Renderer::renderFractal(Window& window, Camera& camera, float lightAngle){
 
 /**
  * \fn renderScene
- * \brief Call the Shader to use it and render it
+ * Call the Shader to use it and render it
  *
  * @param scene
  * @param camera

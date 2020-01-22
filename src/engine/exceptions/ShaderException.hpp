@@ -3,6 +3,13 @@
 
 #include "Exception.hpp"
 
+
+/**
+ * !\class ShaderException
+ *
+ * Class who allowed us to manage shader exception
+ */
+
 class ShaderException : public Exception {
 public:
     explicit ShaderException(const char* message) : Exception(message){}

@@ -3,6 +3,11 @@
 
 #include <glm/vec3.hpp>
 
+/**
+ * !\class Camera
+ *
+ * In this class there are serval functions that can be used in order to managed the Camera
+ */
 class Camera {
 private:
     glm::vec3 position;

@@ -10,7 +10,7 @@
 
 /**
  * \fn init
- * \brief
+ *
  *
  */
 void Game::init(){
@@ -19,7 +19,7 @@ void Game::init(){
 
 /**
  * \fn input
- * \brief Manage the event in the main window
+ *  Manage the event in the main window
  * @param window
  */
 void Game::input(Window& window){
@@ -99,7 +99,7 @@ void Game::input(Window& window){
 
 /**
  * \fn update
- * \brief Make rotate the different Object o the Y axis
+ * Make rotate the different Object o the Y axis
  *
  */
 void Game::update(){
@@ -111,7 +111,7 @@ void Game::update(){
 
 /**
  * \fn render
- * \brief Instantiate the Camera
+ * Instantiate the Camera
  *
  */
 void Game::render(Window& window){

@@ -6,6 +6,11 @@
 #include "Renderer.hpp"
 #include "Window.hpp"
 
+/**
+ * \class Game
+ *
+ * In this class there are serval functions that can be used in order to managed the Game
+ */
 class Game {
 private:
     Renderer renderer;

@@ -13,7 +13,7 @@
 
 /**
  * \fn Mesh
- * \brief Constructor of Mesh
+ * Constructor of Mesh
  *
  * @param vertices
  * @param verticesNumber
@@ -58,7 +58,7 @@ Mesh::Mesh(const float* vertices, unsigned long verticesNumber, const float texC
 
 /**
  * \fn render
- * \brief we use the use function of the material to apply it in our mesh
+ * we use the use function of the material to apply it in our mesh
  *
  */
 void Mesh::render() const {
@@ -76,7 +76,7 @@ void Mesh::render() const {
 
 /**
  * \fn setMaterial
- * \brief Select the material to use
+ * Select the material to use
  *
  * @param _material
  */
@@ -88,7 +88,7 @@ void Mesh::setMaterial(MaterialPtr _material){
 
 /**
  * \fn ~Mesh
- * \brief Destructor of Mesh
+ * Destructor of Mesh
  *
  */
 Mesh::~Mesh(){

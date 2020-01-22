@@ -3,6 +3,11 @@
 
 #include "Exception.hpp"
 
+/**
+ * !\class WindowException
+ *
+ * Class who allowed us to manage window exception
+ */
 class WindowException : public Exception {
 public:
     explicit WindowException(const char* message) : Exception(message){};

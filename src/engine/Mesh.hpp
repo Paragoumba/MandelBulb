@@ -7,6 +7,11 @@
 #include "Material.hpp"
 #include "Object.hpp"
 
+/**
+ * \class Mesh
+ *
+ * In this class there are serval functions that can be used in order to managed mesh
+ */
 class Mesh : public Object {
 private:
     unsigned int vaoId{};

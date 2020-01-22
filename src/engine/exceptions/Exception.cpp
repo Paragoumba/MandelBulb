@@ -1,3 +1,9 @@
+/*!
+ * \file Exception.hpp
+ * \brief Class who allowed us to manage exception
+ * \author DUSSERVAIX V., OVEJERO D., TESSON L., VIOLLET R.
+ *
+ */
 #include "Exception.hpp"
 
 /**
