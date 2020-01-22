@@ -1,8 +1,25 @@
+/**
+ * \file Shader.cpp
+ * \brief Program to manage texture.
+ * \author R.VIOLET, L.TESSON, D.OVEJERO, V.DUSSERVAIX
+ * \version 0.1
+ * \date 22 january 2020
+ *
+ * Program to manage the texture of the program
+ **/
+
 #include <glm/gtc/type_ptr.hpp>
 
 #include "Shader.hpp"
 #include "exceptions/ShaderException.hpp"
 
+/**
+ * \fn Shader(const char* vertexPath, const char* fragmentPath)
+ * \brief Constructor of the class sherder
+ *
+ * @param vertexPath
+ * @param fragmentPath
+ */
 Shader::Shader(const char* vertexPath, const char* fragmentPath){
 
     std::string vertexCode;
@@ -73,23 +90,48 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath){
 
 }
 
+/**
+ * \fn void use(void)
+ * \brief
+ *
+ *
+ */
 void Shader::use(){
 
     glUseProgram(ID);
 
 }
-
+/**
+ * \fn void setBool(const char* name, bool value)
+ * \brief define the bool
+ *
+ * @param name
+ * @param value
+ */
 void Shader::setBool(const char* name, bool value){
 
     glUniform1i(glGetUniformLocation(ID, name), (int) value);
 
 }
-
+/**
+ * \fn setInt(const char* name, int vaue)
+ * \brief
+ *
+ * @param name
+ * @param value
+ */
 void Shader::setInt(const char* name, int value){
 
     glUniform1i(glGetUniformLocation(ID, name), value);
 
 }
+/**
+ * \fn void setFloat(const char* name, float value)
+ * \brief
+ *
+ * @param name
+ * @param value
+ */
 
 void Shader::setFloat(const char* name, float value){
 
@@ -97,30 +139,63 @@ void Shader::setFloat(const char* name, float value){
 
 }
 
+/**
+ * \fn void setMat4(const char* name, glm::mat4 value)
+ * \brief set the matrix 4
+ *
+ * @param name , name of the matrix
+ * @param value , value of the matrix
+ */
 void Shader::setMat4(const char* name, glm::mat4 value){
 
     glUniformMatrix4fv(glGetUniformLocation(ID, name), 1, GL_FALSE, glm::value_ptr(value));
 
 }
-
+/**
+ * \fn void setVect2(const char* name, glm::vect2 value)
+ * \brief set the vector 2
+ *
+ * @param name , name of the vector
+ * @param value , value of the vector
+ */
 void Shader::setVec2(const char* name, glm::vec2 value){
 
     glUniform2fv(glGetUniformLocation(ID, name), 1, glm::value_ptr(value));
 
 }
 
+/**
+ * \fn void setVect3(const char* name, glm::vect3 value)
+ * \brief set the vector 3
+ *
+ * @param name , name of the vector
+ * @param value , value of the vector
+ */
 void Shader::setVec3(const char* name, glm::vec3 value){
 
     glUniform3fv(glGetUniformLocation(ID, name), 1, glm::value_ptr(value));
 
 }
-
+/**
+ * \fn void setVect4(const char* name, glm::vect4 value)
+ * \brief set the vector 4
+ *
+ * @param name , name of the vector
+ * @param value , value of the vector
+ */
 void Shader::setVec4(const char* name, glm::vec4 value){
 
     glUniform4fv(glGetUniformLocation(ID, name), 1, glm::value_ptr(value));
 
 }
-
+/**
+ * \fn void checkCompileErrors(unsigned int shader, const char* path, const std::string& type)
+ * \brief Check if have the error during the compilation *
+ *
+ * @param shader
+ * @param path
+ * @param type
+ */
 void Shader::checkCompileErrors(unsigned int shader, const char* path, const std::string& type){
 
     int success;
