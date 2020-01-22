@@ -1,15 +1,33 @@
+/**
+ * \file GameEngine.cpp
+ * \brief The main loop of the program is located here
+ * \author DUSSERVAIX V., OVEJERO D., TESSON L., VIOLLET R.
+ * \date 22 January 2020
+ *
+ * In this class we instantiate everything, and we control the main loop
+ */
 #include <chrono>
 
 #include "GameEngine.hpp"
 
 #define FPS 60
 
+/**
+ *\fn GameEngine
+ * \brief Constructor of GameEngine, Instantiate game, window
+ *
+ */
 GameEngine::GameEngine() : game(), window(appName, 1920, 1080){
 
     game.init();
 
 }
 
+/**
+ * \fn loop
+ * \brief Manage the main loop
+ *
+ */
 void GameEngine::loop(){
 
     timespec waitingTime{0, 0};

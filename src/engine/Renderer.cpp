@@ -1,9 +1,22 @@
+/**
+ * \file Renderer.cpp
+ * \brief Manage the render
+ * \author DUSSERVAIX V., OVEJERO D., TESSON L., VIOLLET R.
+ * \date 22 January 2020
+ *
+ * In this class there are serval functions that can be used in order to managed the render
+ */
 #include "Renderer.hpp"
 
 #include <memory>
 #include "Transformation.hpp"
 #include "Mesh.hpp"
 
+/**
+ * \fn Renderer
+ * \brief Constructor of Renderer
+ *
+ */
 Renderer::Renderer() :
 sceneShader("../res/shaders/scene_shader.vs", "../res/shaders/scene_shader.fs"),
 fractalShader("../res/shaders/mandel_raymarch.vs", "../res/shaders/mandel_raymarch.fs"){
@@ -29,6 +42,12 @@ fractalShader("../res/shaders/mandel_raymarch.vs", "../res/shaders/mandel_raymar
 
 }
 
+/**
+ * \fn renderFractal
+ * \brief With this function we render a MandelBulb
+ *
+ * @param camera
+ */
 void Renderer::renderFractal(Camera& camera){
 
     fractalShader.use();
@@ -71,7 +90,7 @@ void Renderer::renderFractal(Camera& camera){
     fractalShader.setFloat("u_otDist3to0", 0.20);
     fractalShader.setFloat("u_otPaletteOffset", 0.00);
     fractalShader.setFloat("u_phongShadingMixFactor", 1.00);
-    fractalShader.setFloat("u_power", 8);
+    fractalShader.setFloat("u_power", 4);
     fractalShader.setVec2("u_screenSize", glm::vec2(800.00, 640.00));
     fractalShader.setFloat("u_shadowBrightness", 0.20);
     fractalShader.setInt("u_shadowRayMinStepsTaken", 5);
@@ -94,6 +113,13 @@ void Renderer::renderFractal(Camera& camera){
 
 }
 
+/**
+ * \fn renderScene
+ * \brief Call the Shader to use it and render it
+ *
+ * @param scene
+ * @param camera
+ */
 void Renderer::renderScene(Scene& scene, Camera& camera){
 
     sceneShader.use();
