@@ -1,11 +1,9 @@
 /**
- * \file Shader.cpp
- * \brief Program to manage texture.
  * \author R.VIOLET, L.TESSON, D.OVEJERO, V.DUSSERVAIX
  * \version 0.1
  * \date 22 january 2020
  *
- * Program to manage the texture of the program
+ * Program to manage the shaders of the program
  **/
 
 #include <glm/gtc/type_ptr.hpp>
@@ -15,7 +13,7 @@
 
 /**
  * \fn Shader(const char* vertexPath, const char* fragmentPath)
- * \brief Constructor of the class sherder
+ *  Constructor of the class sherder
  *
  * @param vertexPath
  * @param fragmentPath
@@ -92,7 +90,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath){
 
 /**
  * \fn void use(void)
- * \brief
+ *
  *
  *
  */
@@ -103,7 +101,7 @@ void Shader::use(){
 }
 /**
  * \fn void setBool(const char* name, bool value)
- * \brief define the bool
+ *  define the bool
  *
  * @param name
  * @param value
@@ -115,7 +113,6 @@ void Shader::setBool(const char* name, bool value){
 }
 /**
  * \fn setInt(const char* name, int vaue)
- * \brief
  *
  * @param name
  * @param value
@@ -127,7 +124,6 @@ void Shader::setInt(const char* name, int value){
 }
 /**
  * \fn void setFloat(const char* name, float value)
- * \brief
  *
  * @param name
  * @param value
@@ -141,7 +137,7 @@ void Shader::setFloat(const char* name, float value){
 
 /**
  * \fn void setMat4(const char* name, glm::mat4 value)
- * \brief set the matrix 4
+ *  set the matrix 4
  *
  * @param name , name of the matrix
  * @param value , value of the matrix
@@ -153,7 +149,7 @@ void Shader::setMat4(const char* name, glm::mat4 value){
 }
 /**
  * \fn void setVect2(const char* name, glm::vect2 value)
- * \brief set the vector 2
+ *  set the vector 2
  *
  * @param name , name of the vector
  * @param value , value of the vector
@@ -166,7 +162,7 @@ void Shader::setVec2(const char* name, glm::vec2 value){
 
 /**
  * \fn void setVect3(const char* name, glm::vect3 value)
- * \brief set the vector 3
+ *  set the vector 3
  *
  * @param name , name of the vector
  * @param value , value of the vector
@@ -178,7 +174,7 @@ void Shader::setVec3(const char* name, glm::vec3 value){
 }
 /**
  * \fn void setVect4(const char* name, glm::vect4 value)
- * \brief set the vector 4
+ *  set the vector 4
  *
  * @param name , name of the vector
  * @param value , value of the vector
@@ -190,7 +186,7 @@ void Shader::setVec4(const char* name, glm::vec4 value){
 }
 /**
  * \fn void checkCompileErrors(unsigned int shader, const char* path, const std::string& type)
- * \brief Check if have the error during the compilation *
+ *  Check if have the error during the compilation *
  *
  * @param shader
  * @param path

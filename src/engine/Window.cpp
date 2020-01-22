@@ -1,6 +1,4 @@
 /**
- * \file Window.cpp
- * \brief Program to manage window.
  * \author R.VIOLET, L.TESSON, D.OVEJERO, V.DUSSERVAIX
  * \version 0.1
  * \date 22 january 2020
@@ -16,7 +14,7 @@
 
 /**
  * \fn Window(const char* title, int width, int height)
- * \brief Constructor the class Window
+ *  Constructor the class Window
  *
  * @param title, name of the window
  * @param width, the width of the window
@@ -82,9 +80,7 @@ Window::Window(const char* title, int width, int height){
 
 /**
  * \fn void swapBuffers(void)
- * \brief complete
- *
- *
+ *  swap the buffers
  */
 void Window::swapBuffers(){
 
@@ -94,7 +90,7 @@ void Window::swapBuffers(){
 
 /**
  * \fn bool shouldClose(void)
- * \brief complete
+ *  complete
  *
  *
  * @return glfwWindowShouldClose
@@ -107,7 +103,7 @@ bool Window::shouldClose() const {
 
 /**
  * \fn int getKey(int keyCode) const
- * \brief give the key by the keyCode
+ *  give the key by the keyCode
  *
  * @param keyCode
  * @return the key
@@ -120,7 +116,7 @@ int Window::getKey(int keyCode) const {
 
 /**
  * \fn Resolution getSize(void) const
- * \brief give the resolution of this window
+ *  give the resolution of this window
  *
  * @return the resolution
  */
@@ -137,7 +133,7 @@ Resolution Window::getSize() const {
 
 /**
  * \fn void setCursor(const char* path)
- * \brief define the cursor of this windows
+ *  define the cursor of this windows
  *
  * @param path name of cursor's file
  */
@@ -166,7 +162,7 @@ void Window::setCursor(const char* path){
 
 /**
  * \fn void close(void)
- * \brief close this window
+ *  close this window
  *
  */
 void Window::close(){
@@ -177,7 +173,7 @@ void Window::close(){
 
 /**
  * \fn ~Window(void)
- * \brief Destructor of the class window
+ *  Destructor of the class window
  */
 Window::~Window(){
 
@@ -187,8 +183,7 @@ Window::~Window(){
 
 /**
  * \fn void setTitle(const char* title)
- * \brief define the title of this window
- *
+ *  define the title of this window
  *
  * @param title, the string
  */

@@ -1,6 +1,4 @@
 /**
- * \file Window.cpp
- * \brief .
  * \author R.VIOLET, L.TESSON, D.OVEJERO, V.DUSSERVAIX
  * \version 0.1
  * \date 22 january 2020
@@ -14,7 +12,7 @@ glm::mat4 Transformation::projectionMatrix;
 
 /**
  * \fn glm::mat4 getProjectionMatrix(void)
- * \brief return the projectionMatrix
+ *  return the projectionMatrix
  *
  * @return Matrix
  */
@@ -26,7 +24,7 @@ glm::mat4 &Transformation::getProjectionMatrix(){
 }
 /**
  * \fn void setProjectionMatrix(float fov, float aspect, float zNear, float zFar)
- * \brief define the projection matrix
+ *  define the projection matrix
  *
  * @param fov,
  * @param aspect
@@ -43,7 +41,7 @@ void Transformation::setProjectionMatrix(float fov, float aspect, float zNear, f
 
 /**
  * \fn void setProjectionMatrix(float fov, float aspect, float zNear, float zFar)
- * \brief define the projection matrix
+ *  define the projection matrix
  *
  * @param left
  * @param right
@@ -60,7 +58,7 @@ void Transformation::setProjectionMatrix(float left, float right, float bottom, 
 
 /**
  * \fn glmgetModelMatrix(Object* object)
- * \brief return the model of matrix
+ * return the model of matrix
  *
  * @param object
  * @return
@@ -83,7 +81,7 @@ glm::mat4 Transformation::getModelMatrix(Object* object){
 
 /**
  * \fn glm::mat4 getViewMatrix(Camera& camera)
- * \brief return the matrix view
+ *  return the matrix view
  *
  * @param camera
  * @return
