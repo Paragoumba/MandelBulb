@@ -1,15 +1,9 @@
 # MandelBulb
-MandelBulb is a software
-
-## Compiling
-In order to compile the software, run the following command after cloning the repo:
-```shell
-cmake -B build && cmake --build build
-```
-Then you can launch it with `./build/MandelBulb`
+MandelBulb is a software that renders fractals in 3D by raymarching
+them.
 
 ## Dependencies
-### Mandelbulb:
+### MandelBulb:
 - [GLFW][1]
 - [GLAD][2]
 - [GLM][3]
@@ -32,5 +26,6 @@ pushd <repoDir>
 cmake -S . -B cmake-build-debug
 pushd cmake-build-debug
 cmake --build . --target MandelBulb
+pushd ../src/cmake-build-debug
 ```
 Execute `./MandelBulb` to run the program.
