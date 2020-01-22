@@ -2,7 +2,7 @@
 #include <glm/glm.hpp>
 #include "Camera.hpp"
 
-Camera::Camera() : position(0.0f), rotation(0.0f){}
+Camera::Camera() : position(0.0f, 0.0f, 3.0f), rotation(0.0f){}
 
 glm::vec3 Camera::getPosition() const {
 
