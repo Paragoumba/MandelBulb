@@ -130,6 +130,11 @@ Resolution Window::getSize() const {
 
 }
 
+Color Window::getColor() const {
+
+    return color;
+
+}
 
 /**
  * \fn void setCursor(const char* path)
@@ -158,6 +163,30 @@ void Window::setCursor(const char* path){
         std::cerr << "Could not create cursor from image located at " << path << '.' << std::endl;
 
     }
+}
+
+/**
+ * \fn void setTitle(const char* title)
+ * define the title of this window
+ *
+ *
+ * @param title, the string
+ */
+void Window::setTitle(const char* title){
+
+    glfwSetWindowTitle(handle, title);
+
+}
+
+void Window::setColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a){
+
+    glClearColor(r, g, b, a);
+
+    color.r = r;
+    color.g = g;
+    color.b = b;
+    color.a = a;
+
 }
 
 /**

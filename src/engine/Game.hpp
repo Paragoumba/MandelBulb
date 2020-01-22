@@ -12,11 +12,13 @@ private:
     Scene scene;
     Camera camera;
 
+    float lightAngle = 0;
+
 public:
     void init();
     void input(Window& window);
     void update();
-    void render();
+    void render(Window& window);
 };
 
 #endif //PTUT_GAME_HPP

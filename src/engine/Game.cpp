@@ -83,6 +83,18 @@ void Game::input(Window& window){
         camera.addRotation(0, 1, 0);
 
     }
+
+    if (window.getKey(GLFW_KEY_KP_ADD) == GLFW_PRESS){
+
+        lightAngle += 0.1f;
+
+    }
+
+    if (window.getKey(GLFW_KEY_KP_SUBTRACT) == GLFW_PRESS){
+
+        lightAngle -= 0.1f;
+
+    }
 }
 
 /**
@@ -102,9 +114,9 @@ void Game::update(){
  * \brief Instantiate the Camera
  *
  */
-void Game::render(){
+void Game::render(Window& window){
 
-    renderer.renderFractal(camera);
+    renderer.renderFractal(window, camera, lightAngle);
     renderer.renderScene(scene, camera);
 
 }

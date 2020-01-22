@@ -48,15 +48,19 @@ fractalShader("../res/shaders/mandel_raymarch.vs", "../res/shaders/mandel_raymar
  *
  * @param camera
  */
-void Renderer::renderFractal(Camera& camera){
+void Renderer::renderFractal(Window& window, Camera& camera, float lightAngle){
 
     fractalShader.use();
 
     fractalShader.setFloat("u_ambientIntensity", 1.00);
     fractalShader.setFloat("u_bailLimit", 5.00);
     fractalShader.setFloat("u_baseColorStrength", 0.50);
-    fractalShader.setVec3("u_bgColor", glm::vec3(0.80, 0.85, 1.00));
-    fractalShader.setVec3("u_bgColor", glm::vec3(0.80, 0.85, 1.00));
+
+    Color color = window.getColor();
+
+    //fractalShader.setVec3("u_bgColor", glm::vec3(0.80, 0.85, 1.00));
+    fractalShader.setVec3("u_bgColor", glm::vec3(color.r, color.g, color.b));
+
     fractalShader.setInt("u_boxFoldFactor", 0);
     fractalShader.setFloat("u_boxFoldingLimit", 1.00);
     fractalShader.setVec3("u_color0", glm::vec3(0.30, 0.50, 0.20));
@@ -74,7 +78,10 @@ void Renderer::renderFractal(Camera& camera){
     fractalShader.setFloat("u_glowFactor", 1.00);
     fractalShader.setInt("u_julia", 0);
     fractalShader.setVec3("u_juliaC", glm::vec3(0.86, 0.23, -0.50));
-    fractalShader.setVec3("u_lightPos", glm::vec3(3.00, 3.00, 10.00));
+
+    //fractalShader.setVec3("u_lightPos", glm::vec3(3.00, 3.00, 10.00));
+    fractalShader.setVec3("u_lightPos", glm::vec3(std::cos(lightAngle) * 10, 3.00, std::sin(lightAngle) * 10));
+
     fractalShader.setInt("u_lightSource", 1);
     fractalShader.setInt("u_mandelBoxOn", 0);
     fractalShader.setFloat("u_mandelBoxScale", 1.20);

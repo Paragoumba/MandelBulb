@@ -104,10 +104,9 @@ Scene::Scene(){
 
     cube = std::make_shared<Mesh>(cubeVertices, sizeof(cubeVertices), cubeTexCoords, sizeof(cubeTexCoords), cubeIndices, sizeof(cubeIndices));
 
-    meshes.push_back(cube);
-
+    //meshes.push_back(cube);
     cube->setPosition(-2, 0, -5);
-    cube->setRotation(45, 45, 0);
+    cube->setRotation(35, 0, 45);
     cube->setScale(1.5);
 
     float squareVertices[] = {
@@ -131,8 +130,7 @@ Scene::Scene(){
 
     square = std::make_shared<Mesh>(squareVertices, sizeof(squareVertices), squareTexCoords, sizeof(squareTexCoords), squareIndices, sizeof(squareIndices));
 
-
-    meshes.push_back(square);
+    //meshes.push_back(square);
 
     square->setPosition(2, 0, -4);
 

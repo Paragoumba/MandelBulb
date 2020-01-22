@@ -4,6 +4,7 @@
 #include "Shader.hpp"
 #include "Scene.hpp"
 #include "Camera.hpp"
+#include "Window.hpp"
 
 class Renderer {
 private:
@@ -15,7 +16,7 @@ private:
 public:
     Renderer();
 
-    void renderFractal(Camera& camera);
+    void renderFractal(Window& window, Camera& camera, float lightAngle);
     void renderScene(Scene& scene, Camera& camera);
 };
 

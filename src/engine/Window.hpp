@@ -18,13 +18,21 @@ struct Resolution {
     int width;
     int height;
 };
+struct Color {
+    GLfloat r;
+    GLfloat g;
+    GLfloat b;
+    GLfloat a;
+};
+
 /**
  * \class Window
  * Class to manage window of the program
  */
 class Window {
 private:
-    GLFWwindow* handle;/*!< Window */
+    GLFWwindow* handle;
+    Color color{0, 0, 0, 0};
 
 public:
     /**
@@ -56,6 +64,8 @@ public:
      * @return the resolution
      */
     [[nodiscard]] Resolution getSize() const;
+
+    [[nodiscard]] Color getColor() const;
     /**
      *  define the cursor of this windows
      *
@@ -68,9 +78,12 @@ public:
     * @param title, the string
      */
     void setTitle(const char* title);
+
+    void setColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a);
+
     /**
-     * close this window
-     */
+    * close this window
+    */
     void close();
     /**
      *  Destructor of the class window

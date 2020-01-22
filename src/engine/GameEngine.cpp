@@ -37,7 +37,7 @@ void GameEngine::loop(){
 
     while (!window.shouldClose()){
 
-        glClearColor(std::cos(glfwGetTime()), 255, std::sin(glfwGetTime()), 1.0f);
+        window.setColor(std::cos(glfwGetTime()), 255, std::sin(glfwGetTime()), 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         auto loopStart = std::chrono::high_resolution_clock::now();
@@ -50,7 +50,7 @@ void GameEngine::loop(){
 
         game.input(window);
         game.update();
-        game.render();
+        game.render(window);
 
         waitingTime.tv_nsec = waitingTimeNano -
                 std::chrono::duration_cast<std::chrono::nanoseconds>(
