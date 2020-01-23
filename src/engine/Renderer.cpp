@@ -97,7 +97,7 @@ void Renderer::renderFractal(Window& window, Camera& camera, float lightAngle){
     fractalShader.setFloat("u_otDist3to0", 0.20);
     fractalShader.setFloat("u_otPaletteOffset", 0.00);
     fractalShader.setFloat("u_phongShadingMixFactor", 1.00);
-    fractalShader.setFloat("u_power", 4);
+    fractalShader.setFloat("u_power", 8);
     fractalShader.setVec2("u_screenSize", glm::vec2(800.00, 640.00));
     fractalShader.setFloat("u_shadowBrightness", 0.20);
     fractalShader.setInt("u_shadowRayMinStepsTaken", 5);
