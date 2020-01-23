@@ -18,8 +18,9 @@ void Game::init(){
 }
 
 /**
- * \fn input
- *  Manage the event in the main window
+ * input
+ * Manage the event in the main window
+ *
  * @param window
  */
 void Game::input(Window& window){
@@ -98,7 +99,6 @@ void Game::input(Window& window){
 }
 
 /**
- * \fn update
  * Make rotate the different Object o the Y axis
  *
  */
@@ -110,7 +110,6 @@ void Game::update(){
 }
 
 /**
- * \fn render
  * Instantiate the Camera
  *
  */

@@ -12,7 +12,7 @@
 #include "exceptions/Exception.hpp"
 
 /**
- * \fn addTexture
+ * addTexture
  * Add a texture in the vector that contain all the texture
  *
  * @param texture
@@ -31,7 +31,6 @@ void Material::addTexture(Texture* texture){
 }
 
 /**
- * \fn use
  * apply the texture to objects
  *
  */
@@ -46,7 +45,6 @@ void Material::use(){
 }
 
 /**
- *\fn ~Material
  * Destructor of Material, destroy all the Texture object in the vector
  *
  */

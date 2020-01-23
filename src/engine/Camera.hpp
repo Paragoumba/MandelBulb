@@ -4,7 +4,7 @@
 #include <glm/vec3.hpp>
 
 /**
- * !\class Camera
+ * \class Camera
  *
  * In this class there are serval functions that can be used in order to managed the Camera
  */

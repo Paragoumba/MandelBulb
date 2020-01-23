@@ -13,7 +13,6 @@
 #include "Mesh.hpp"
 
 /**
- * \fn Renderer
  * Constructor of Renderer
  *
  */
@@ -43,7 +42,6 @@ fractalShader("../res/shaders/mandel_raymarch.vs", "../res/shaders/mandel_raymar
 }
 
 /**
- * \fn renderFractal
  * With this function we render a MandelBulb
  *
  * @param camera
@@ -121,7 +119,6 @@ void Renderer::renderFractal(Window& window, Camera& camera, float lightAngle){
 }
 
 /**
- * \fn renderScene
  * Call the Shader to use it and render it
  *
  * @param scene

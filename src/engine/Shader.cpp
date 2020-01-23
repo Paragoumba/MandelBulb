@@ -12,7 +12,6 @@
 #include "exceptions/ShaderException.hpp"
 
 /**
- * \fn Shader(const char* vertexPath, const char* fragmentPath)
  *  Constructor of the class sherder
  *
  * @param vertexPath
@@ -89,9 +88,6 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath){
 }
 
 /**
- * \fn void use(void)
- *
- *
  *
  */
 void Shader::use(){
@@ -100,7 +96,6 @@ void Shader::use(){
 
 }
 /**
- * \fn void setBool(const char* name, bool value)
  *  define the bool
  *
  * @param name
@@ -112,7 +107,7 @@ void Shader::setBool(const char* name, bool value){
 
 }
 /**
- * \fn setInt(const char* name, int vaue)
+ * Set int
  *
  * @param name
  * @param value
@@ -123,7 +118,7 @@ void Shader::setInt(const char* name, int value){
 
 }
 /**
- * \fn void setFloat(const char* name, float value)
+ * Set float
  *
  * @param name
  * @param value
@@ -136,7 +131,6 @@ void Shader::setFloat(const char* name, float value){
 }
 
 /**
- * \fn void setMat4(const char* name, glm::mat4 value)
  *  set the matrix 4
  *
  * @param name , name of the matrix
@@ -148,7 +142,6 @@ void Shader::setMat4(const char* name, glm::mat4 value){
 
 }
 /**
- * \fn void setVect2(const char* name, glm::vect2 value)
  *  set the vector 2
  *
  * @param name , name of the vector
@@ -161,7 +154,6 @@ void Shader::setVec2(const char* name, glm::vec2 value){
 }
 
 /**
- * \fn void setVect3(const char* name, glm::vect3 value)
  *  set the vector 3
  *
  * @param name , name of the vector
@@ -173,7 +165,6 @@ void Shader::setVec3(const char* name, glm::vec3 value){
 
 }
 /**
- * \fn void setVect4(const char* name, glm::vect4 value)
  *  set the vector 4
  *
  * @param name , name of the vector
@@ -185,7 +176,6 @@ void Shader::setVec4(const char* name, glm::vec4 value){
 
 }
 /**
- * \fn void checkCompileErrors(unsigned int shader, const char* path, const std::string& type)
  *  Check if have the error during the compilation *
  *
  * @param shader

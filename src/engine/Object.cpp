@@ -9,7 +9,6 @@
 #include "Object.hpp"
 
 /**
- * \fn Object
  * Constructor of Object, instantiate a Object by default in 0,0,0, with a rotation of 0,0,0 and a scale of 1,1,1
  *
  */
@@ -22,7 +21,6 @@ glm::vec3 Object::getPosition() const {
 }
 
 /**
- * \fn getRotation
  * return the current rotation of the object
  *
  * @return glm::vec3 rotation
@@ -34,7 +32,6 @@ glm::vec3 Object::getRotation() const {
 }
 
 /**
- * \fn getScale
  * return the current scale of the object
  *
  * @return glm::vec3 scale
@@ -46,7 +43,6 @@ glm::vec3 Object::getScale() const {
 }
 
 /**
- * \fn setPosition
  * Set the position of the object to the parameters value
  *
  * @param x
@@ -62,7 +58,6 @@ void Object::setPosition(float x, float y, float z){
 }
 
 /**
- * \fn setRotation
  * Set the rotation of the object to the parameters value
  *
  * @param rotX
@@ -78,7 +73,6 @@ void Object::setRotation(float rotX, float rotY, float rotZ){
 }
 
 /**
- * \fn setScale
  * Set the general scale of the object to the parameter value
  *
  * @param _scale
@@ -90,7 +84,6 @@ void Object::setScale(float _scale){
 }
 
 /**
- * \fn setScale
  * Set the scale of the object on each axis to the parameters value
  *
  * @param scaleX
@@ -106,7 +99,6 @@ void Object::setScale(float scaleX, float scaleY, float scaleZ){
 }
 
 /**
- * \fn addRotation
  * Increase the current rotation from the parameters value
  *
  * @param rotX
