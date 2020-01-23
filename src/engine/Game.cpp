@@ -15,6 +15,8 @@
  */
 void Game::init(){
 
+    camera.setPosition(0, 0, 3);
+
 }
 
 /**

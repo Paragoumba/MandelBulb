@@ -14,7 +14,7 @@
  * The default constructor of the Camera
  *
  */
-Camera::Camera() : position(0.0f, 0.0f, 3.0f), rotation(0.0f){}
+Camera::Camera() : position(0.0f), rotation(0.0f){}
 
 
 /**
