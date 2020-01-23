@@ -209,15 +209,3 @@ Window::~Window(){
     glfwTerminate();
 
 }
-
-/**
- * \fn void setTitle(const char* title)
- *  define the title of this window
- *
- * @param title, the string
- */
-void Window::setTitle(const char* title){
-
-    glfwSetWindowTitle(handle, title);
-
-}
