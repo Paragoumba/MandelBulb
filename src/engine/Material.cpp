@@ -15,7 +15,7 @@ void Material::addTexture(Texture* texture){
 
 }
 
-void Material::use(){
+void Material::use() {
 
     int size = (int)(textures.size());
     for (unsigned int i = 0; i < size; ++i){
@@ -29,7 +29,7 @@ void Material::use(){
 
 Material::~Material(){
 
-    for (auto texture : textures){
+    for (auto texture : textures) {
 
         delete texture;
 

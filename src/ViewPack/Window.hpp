@@ -2,7 +2,6 @@
 #define WINDOW_H
 
 #include <QMainWindow>
-//#include "moc_window.cpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Window; }

@@ -40,4 +40,6 @@ void Data::printListOfFractal() {
 
     }
 
+    delete it;
+
 }

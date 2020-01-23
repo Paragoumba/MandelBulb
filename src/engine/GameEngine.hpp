@@ -19,6 +19,8 @@ public:
 
     void loop();
 
+    ~GameEngine();
+
 };
 
 #endif //PTUT_GAMEENGINE_HPP

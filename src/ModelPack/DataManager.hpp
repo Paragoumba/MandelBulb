@@ -14,7 +14,10 @@ private:
 
 public:
     explicit DataManager(const char* _path);
+
     nlohmann::json load(std::string& nomEquation);
+
+    ~DataManager();
 
 };
 

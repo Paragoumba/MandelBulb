@@ -42,3 +42,9 @@ nlohmann::json DataManager::load(std::string& nomEquation) {
     return equationJson;
 
 }
+
+DataManager::~DataManager() {
+
+    delete path;
+
+}

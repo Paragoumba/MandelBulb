@@ -6,7 +6,11 @@ Fractal::Fractal() {
 
 }
 
-Fractal::~Fractal() = default;
+Fractal::~Fractal() {
+
+    delete jsonManager;
+
+}
 
 Fractal::Fractal(std::string& e) {
 
