@@ -30,10 +30,10 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Window
+class UI_Window
 {
 public:
-    QWidget *centralwidget;
+    QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     QOpenGLWidget *openGLWidget;
     QGroupBox *groupBox_3;
@@ -66,16 +66,16 @@ public:
         if (Window->objectName().isEmpty())
             Window->setObjectName(QString::fromUtf8("Window"));
         Window->resize(650, 405);
-        centralwidget = new QWidget(Window);
-        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        horizontalLayout = new QHBoxLayout(centralwidget);
+        centralWidget = new QWidget(Window);
+        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        horizontalLayout = new QHBoxLayout(centralWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        openGLWidget = new QOpenGLWidget(centralwidget);
+        openGLWidget = new QOpenGLWidget(centralWidget);
         openGLWidget->setObjectName(QString::fromUtf8("openGLWidget"));
 
         horizontalLayout->addWidget(openGLWidget);
 
-        groupBox_3 = new QGroupBox(centralwidget);
+        groupBox_3 = new QGroupBox(centralWidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
         groupBox_3->setMaximumSize(QSize(350, 343));
         verticalLayout_2 = new QVBoxLayout(groupBox_3);
@@ -170,7 +170,7 @@ public:
 
         horizontalLayout->addWidget(groupBox_3);
 
-        Window->setCentralWidget(centralwidget);
+        Window->setCentralWidget(centralWidget);
         menubar = new QMenuBar(Window);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 650, 22));
@@ -215,7 +215,7 @@ public:
 };
 
 namespace Ui {
-    class Window: public Ui_Window {};
+    class Window: public UI_Window {};
 } // namespace Ui
 
 QT_END_NAMESPACE
