@@ -12,8 +12,8 @@
 #include "Texture.hpp"
 
 /**
- * \fn Texture(const char* path)
  *  load texture
+ *
  * @param path, the file
  */
 Texture::Texture(const char* path){
@@ -52,7 +52,6 @@ Texture::Texture(const char* path){
 }
 
 /**
- * \fn unsigned int getId(void)
  *  return the id of texture
  *
  * @return int, id of the texture
@@ -64,7 +63,6 @@ unsigned int Texture::getId() const {
 }
 
 /**
- * \fn int getWidth() const
  *  return the width of this texture
  *
  * @return int
@@ -76,7 +74,6 @@ int Texture::getWidth() const {
 }
 
 /**
- * \fn int getHeight() const
  *  return the height of this texture
  *
  * @return int
@@ -87,8 +84,8 @@ int Texture::getHeight() const {
 
 }
 /**
- * \fn ~Texture()
  *  Destructor of class Texture
+ *
  */
 Texture::~Texture(){
 

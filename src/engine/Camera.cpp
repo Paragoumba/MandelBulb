@@ -11,7 +11,6 @@
 #include "Camera.hpp"
 
 /**
- * \fn Camera
  * The default constructor of the Camera
  *
  */
@@ -19,7 +18,6 @@ Camera::Camera() : position(0.0f, 0.0f, 3.0f), rotation(0.0f){}
 
 
 /**
- * \fn getPosition
  * Return the current position of the Camera
  *
  * @return glm::vec3 position
@@ -31,7 +29,6 @@ glm::vec3 Camera::getPosition() const {
 }
 
 /**
- * \fn getRotation
  * Return the current rotation of the Camera
  *
  * @return glm::vec3 rotation
@@ -43,7 +40,6 @@ glm::vec3 Camera::getRotation() const {
 }
 
 /**
- * \fn setPosition
  * Define the position of the Camera
  *
  * @param x
@@ -59,7 +55,6 @@ void Camera::setPosition(float x, float y, float z){
 }
 
 /**
- * \fn setPosition
  * Define the rotation of the Camera
  *
  * @param x
@@ -75,7 +70,6 @@ void Camera::setRotation(float rotX, float rotY, float rotZ){
 }
 
 /**
- * \fn addPosition
  * add to the current position those parameter
  *
  * @param x
@@ -103,7 +97,6 @@ void Camera::addPosition(float x, float y, float z){
 }
 
 /**
- * \fn addPosition
  * add to the current rotation those parameter
  *
  * @param x

@@ -13,8 +13,7 @@
 #define FPS 60
 
 /**
- *\fn GameEngine
- *Constructor of GameEngine, Instantiate game, window
+ * Constructor of GameEngine, Instantiate game, window
  *
  */
 GameEngine::GameEngine() : game(), window(appName, 1920, 1080){
@@ -24,7 +23,6 @@ GameEngine::GameEngine() : game(), window(appName, 1920, 1080){
 }
 
 /**
- * \fn loop
  * Manage the main loop
  *
  */

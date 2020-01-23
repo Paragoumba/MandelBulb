@@ -13,7 +13,6 @@
 #include "Transformation.hpp"
 
 /**
- * \fn Window(const char* title, int width, int height)
  *  Constructor the class Window
  *
  * @param title, name of the window
@@ -79,7 +78,6 @@ Window::Window(const char* title, int width, int height){
 
 
 /**
- * \fn void swapBuffers(void)
  *  swap the buffers
  */
 void Window::swapBuffers(){
@@ -89,9 +87,7 @@ void Window::swapBuffers(){
 }
 
 /**
- * \fn bool shouldClose(void)
  *  complete
- *
  *
  * @return glfwWindowShouldClose
  */
@@ -102,7 +98,6 @@ bool Window::shouldClose() const {
 }
 
 /**
- * \fn int getKey(int keyCode) const
  *  give the key by the keyCode
  *
  * @param keyCode
@@ -115,7 +110,6 @@ int Window::getKey(int keyCode) const {
 }
 
 /**
- * \fn Resolution getSize(void) const
  *  give the resolution of this window
  *
  * @return the resolution
@@ -137,7 +131,6 @@ Color Window::getColor() const {
 }
 
 /**
- * \fn void setCursor(const char* path)
  *  define the cursor of this windows
  *
  * @param path name of cursor's file
@@ -166,9 +159,7 @@ void Window::setCursor(const char* path){
 }
 
 /**
- * \fn void setTitle(const char* title)
  * define the title of this window
- *
  *
  * @param title, the string
  */
@@ -190,7 +181,6 @@ void Window::setColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a){
 }
 
 /**
- * \fn void close(void)
  *  close this window
  *
  */
@@ -201,8 +191,8 @@ void Window::close(){
 }
 
 /**
- * \fn ~Window(void)
  *  Destructor of the class window
+ *
  */
 Window::~Window(){
 

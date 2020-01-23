@@ -11,7 +11,6 @@
 glm::mat4 Transformation::projectionMatrix;
 
 /**
- * \fn glm::mat4 getProjectionMatrix(void)
  *  return the projectionMatrix
  *
  * @return Matrix
@@ -23,7 +22,6 @@ glm::mat4 &Transformation::getProjectionMatrix(){
 
 }
 /**
- * \fn void setProjectionMatrix(float fov, float aspect, float zNear, float zFar)
  *  define the projection matrix
  *
  * @param fov,
@@ -40,7 +38,6 @@ void Transformation::setProjectionMatrix(float fov, float aspect, float zNear, f
 }
 
 /**
- * \fn void setProjectionMatrix(float fov, float aspect, float zNear, float zFar)
  *  define the projection matrix
  *
  * @param left
@@ -57,7 +54,6 @@ void Transformation::setProjectionMatrix(float left, float right, float bottom, 
 }
 
 /**
- * \fn glmgetModelMatrix(Object* object)
  * return the model of matrix
  *
  * @param object
@@ -80,7 +76,6 @@ glm::mat4 Transformation::getModelMatrix(Object* object){
 }
 
 /**
- * \fn glm::mat4 getViewMatrix(Camera& camera)
  *  return the matrix view
  *
  * @param camera

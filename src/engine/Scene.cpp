@@ -8,8 +8,8 @@
 #include "Scene.hpp"
 
 /**
- * \fn Scene()
  * Constructor of the class scene
+ *
  */
 Scene::Scene(){
 
@@ -142,7 +142,6 @@ Scene::Scene(){
 
 }
 /**
- * \fn void addMesh(MeshPtr& mesh)
  * Add mesh into the vector of meshes
  *
  * @param mesh
@@ -153,7 +152,6 @@ void Scene::addMesh(MeshPtr& mesh){
 
 }
 /**
- * \fn std::vector<MeshPtr> getMeshes() const
  * get the vector of meshes
  *
  * @return meshes
@@ -165,8 +163,8 @@ std::vector<MeshPtr> Scene::getMeshes() const {
 }
 
 /**
- * \fn MeshPtr getCube()const
  * Get the mesh of cube
+ *
  * @return
  */
 MeshPtr Scene::getCube() const {
@@ -175,7 +173,6 @@ MeshPtr Scene::getCube() const {
 
 }
 /**
- * \fn MeshPtr getSquare() const
  * get the mesh of square
  *
  * @return
