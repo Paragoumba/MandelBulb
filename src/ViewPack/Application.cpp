@@ -31,8 +31,4 @@ int Application::exec() {
 
 }
 
-Application::~Application() {
-
-    delete[] argv;
-
-}
+Application::~Application() = default;

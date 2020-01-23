@@ -1,6 +1,6 @@
 #include "Material.hpp"
 
-void Material::addTexture(Texture* texture){
+void Material::addTexture(Texture* texture) {
 
     if (textures.size() < 32){
 
@@ -8,8 +8,7 @@ void Material::addTexture(Texture* texture){
 
     } else {
 
-        //TODO: create exception to avoid throwing const char*
-        throw "Maximum 32 textures are supported.";
+        throw MaterialException("Maximum 32 textures are supported.");
 
     }
 

@@ -53,9 +53,4 @@ void GameEngine::loop(){
 
 }
 
-GameEngine::~GameEngine() {
-
-    delete appName;
-    delete separator;
-
-}
+GameEngine::~GameEngine() = default;

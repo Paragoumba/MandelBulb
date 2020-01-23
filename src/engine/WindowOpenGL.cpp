@@ -120,8 +120,6 @@ WindowOpenGL::~WindowOpenGL(){
 
     glfwTerminate();
 
-    delete handle;
-
 }
 
 void WindowOpenGL::setTitle(const char* title){
