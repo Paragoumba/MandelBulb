@@ -43,9 +43,7 @@ std::ostream& operator<<(std::ostream& o, glm::mat4 mat){
 
 }
 
-TEST(MandelBulb, TransformationTest){
-
-    std::cout << "- Testing Transformation::getViewMatrix -" << std::endl;
+TEST(Transformation, getViewMatrix){
 
     Camera camera;
 
@@ -54,7 +52,9 @@ TEST(MandelBulb, TransformationTest){
 
     ASSERT_TRUE(viewMatrix == correctViewMatrix);
 
-    std::cout << "- Testing Transformation::getModelMatrix -" << std::endl;
+}
+
+TEST(Transformation, getModelMatrix){
 
     Object model;
     glm::mat4 correctModelMatrix(1);
@@ -62,23 +62,22 @@ TEST(MandelBulb, TransformationTest){
 
     ASSERT_TRUE(modelMatrix == correctModelMatrix);
 
-    std::cout << "- Testing Transformation::setProjectionMatrix -" << std::endl;
-
-    glm::mat4 correctPerspectiveMatrix(1);
-    Transformation::setProjectionMatrix(60, 1920.0f / 1080, -1, 100);
-
 }
 
-TEST(MandelBulb, WindowTest){
+TEST(Transformation, setProjectionMatrix){
 
-    std::cout << "- Testing Window constructor -" << std::endl;
+    glm::mat4 correctPerspectiveMatrix(0);
 
-    try {
+    correctPerspectiveMatrix[0][0] = -0.0878174752;
+    correctPerspectiveMatrix[1][1] = -0.156119958;
+    correctPerspectiveMatrix[2][2] = -1.02020204;
+    correctPerspectiveMatrix[2][3] = -1;
+    correctPerspectiveMatrix[3][2] = -2.02020192;
 
-        Window window(nullptr, 1920, 1080);
+    Transformation::setProjectionMatrix(60, 1920.0f / 1080, 1, 100);
 
-        FAIL() << "Window should return an exception when title is null.";
+    glm::mat4 projectionMatrix = Transformation::getProjectionMatrix();
 
-    } catch (WindowException& e){}
+    ASSERT_TRUE(projectionMatrix == correctPerspectiveMatrix);
 
 }
