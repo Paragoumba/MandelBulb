@@ -1,5 +1,9 @@
 image: paragoumba/cpp-ci-cd-opengl:latest
 
+stages:
+  - tests
+  - deploy
+
 cache:
   paths:
     - /var/cache/apk
@@ -27,3 +31,11 @@ exe:
       - src/cmake-build-debug/MandelBulb
   only:
     - tags
+
+tests:
+  stage: tests
+  script:
+    - cmake -S . -B cmake-build-debug
+    - cd cmake-build-debug
+    - cmake --build . --target Tests
+    - ../tests/cmake-build-debug/Tests
