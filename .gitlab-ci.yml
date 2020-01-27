@@ -35,7 +35,7 @@ exe:
 tests:
   stage: tests
   script:
-    - man cmake | echo
+    - cmake --help
     - cmake -v
     - cmake -S . -B cmake-build-debug
     - cd cmake-build-debug
