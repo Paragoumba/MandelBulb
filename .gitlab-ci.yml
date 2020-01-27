@@ -36,6 +36,7 @@ tests:
   stage: tests
   script:
     - mkdir cmake-build-debug
+    - echo $PWD
     - cmake -S . -B cmake-build-debug
     - cd cmake-build-debug
     - cmake --build . --target Tests
