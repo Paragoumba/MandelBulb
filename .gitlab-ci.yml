@@ -35,9 +35,9 @@ exe:
 tests:
   stage: tests
   script:
-    - cmake --help
-    - cmake -v
-    - cmake -S . -B cmake-build-debug
+    - cmake --version
+    - mkdir cmake-build-debug
     - cd cmake-build-debug
+    - cmake ..
     - cmake --build . --target Tests
     - ../tests/cmake-build-debug/Tests
