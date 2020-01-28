@@ -9,8 +9,10 @@
 
 #include <iostream>
 #include <stb/stb_image.h>
+
 #include "Window.hpp"
 #include "Transformation.hpp"
+#include "exceptions/WindowException.hpp"
 
 /**
  *  Constructor the class Window
@@ -153,7 +155,8 @@ void Window::setCursor(const char* path){
 
     } else {
 
-        std::cerr << "Could not create cursor from image located at " << path << '.' << std::endl;
+        throw WindowException(
+                (std::string("Could not create cursor from image located at ") + path + '.').c_str());
 
     }
 }
