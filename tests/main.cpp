@@ -81,3 +81,17 @@ TEST(Transformation, setProjectionMatrix){
     ASSERT_TRUE(projectionMatrix == correctPerspectiveMatrix);
 
 }
+
+TEST(Window, setCursor){
+
+    Window window("test", 1, 1);
+
+    try {
+
+        window.setCursor("");
+
+        FAIL() << "Calling setCursor on Window with an invalid path should throw a WindowException.";
+
+    } catch (...){}
+
+}
