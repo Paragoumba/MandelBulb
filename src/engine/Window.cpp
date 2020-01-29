@@ -26,6 +26,8 @@ Window::Window(const char* title, int width, int height){
 
     if (title == nullptr){
 
+        std::cerr << "Argument title is null in Window constructor." << std::endl;
+        std::cerr << "Using default value (\"\") instead." << std::endl;
         title = "";
 
     }
@@ -44,8 +46,7 @@ Window::Window(const char* title, int width, int height){
 
         glfwTerminate();
 
-        std::cerr << "Failed to initialize GLAD." << std::endl;
-        exit(1);
+        throw WindowException("Failed to initialize GLAD.");
 
     }
 

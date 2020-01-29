@@ -19,12 +19,12 @@ int main(){
     } catch (const std::exception& e){
 
         std::cerr << e.what() << std::endl;
-        std::cerr << "Exiting due to a fatal unrecoverable error." << std::endl;
+        std::cerr << "Exiting due to a fatal and unrecoverable error." << std::endl;
         return EXIT_FAILURE;
 
     } catch (...){
 
-        std::cerr << "Exiting due to unknown fatal unrecoverable error." << std::endl;
+        std::cerr << "Exiting due to an unknown, fatal and unrecoverable error." << std::endl;
         return EXIT_FAILURE;
 
     }
