@@ -1,5 +1,5 @@
 /**
- * \author R.VIOLET, L.TESSON, D.OVEJERO, V.DUSSERVAIX
+ * \author R.VIOLLET, L.TESSON, D.OVEJERO, V.DUSSERVAIX
  * \version 0.1
  * \date 22 january 2020
  *
