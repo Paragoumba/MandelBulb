@@ -1,4 +1,4 @@
-image: paragoumba/cpp-ci-cd-opengl:1.2
+image: paragoumba/cpp-ci-cd-opengl
 
 stages:
   - tests
