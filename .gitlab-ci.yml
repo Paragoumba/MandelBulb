@@ -4,14 +4,9 @@ stages:
   - tests
   - deploy
 
-cache:
-  paths:
-    - /var/cache/apk
-
 pages:
   stage: deploy
   script:
-    - echo $PWD
     - doxygen
     - mv doc/html/ public/
   artifacts:
@@ -20,7 +15,7 @@ pages:
   only:
     - master
 
-exe:
+build:
   stage: deploy
   script:
     - cmake -S . -B cmake-build-debug
