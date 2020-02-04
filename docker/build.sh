@@ -5,8 +5,10 @@ function search(){
 
 }
 
-for value in stb glad KHR GL; do
-  dir=$(search $value)
+libs="stb glad KHR GL"
+
+for value in $libs; do
+  dir=$(search "$value")
   echo "$dir"
   if [[ ! -d "$dir" ]]; then
 	  echo "Required dependency $value isn't installed!"
@@ -18,6 +20,13 @@ done
 
 echo -e "-- Building image\n"
 docker build -t paragoumba/cpp-ci-cd-opengl . || { echo "Is Docker service running?" && exit 1; }
+
+echo -e "-- Removing temp files"
+for value in $libs; do
+  rm -r "$value"
+done
+
+echo "Done"
 echo -e "\nPush Image? O/n"
 
 read -r y
