@@ -145,20 +145,18 @@ void Window::setCursor(const char* path){
 
     cursorImage.pixels = stbi_load(path, &cursorImage.width, &cursorImage.height, nullptr, 0);
 
-    GLFWcursor* cursor = glfwCreateCursor(&cursorImage, 0, 0);
-
-    stbi_image_free(cursorImage.pixels);
-
-    if (cursor != nullptr){
-
-        glfwSetCursor(handle, cursor);
-
-    } else {
+    if (cursorImage.pixels == nullptr){
 
         throw WindowException(
                 (std::string("Could not create cursor from image located at ") + path + '.').c_str());
 
     }
+
+    GLFWcursor* cursor = glfwCreateCursor(&cursorImage, 0, 0);
+
+    glfwSetCursor(handle, cursor);
+    stbi_image_free(cursorImage.pixels);
+
 }
 
 /**
