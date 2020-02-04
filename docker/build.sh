@@ -9,7 +9,6 @@ libs="stb glad KHR GL"
 
 for value in $libs; do
   dir=$(search "$value")
-  echo "$dir"
   if [[ ! -d "$dir" ]]; then
 	  echo "Required dependency $value isn't installed!"
 	  exit 1
@@ -27,11 +26,11 @@ for value in $libs; do
 done
 
 echo "Done"
-echo -e "\nPush Image? O/n"
+echo -e "Push Image? O/n"
 
 read -r y
 
 if [[ "$y" = "O" || "$y" = "o" || "$y" = "" ]]; then
-	echo -e "\n-- Pushing image\n"
+	echo -e "-- Pushing image\n"
 	docker push paragoumba/cpp-ci-cd-opengl
 fi
