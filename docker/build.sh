@@ -1,52 +1,20 @@
 #!/bin/bash
-if [[ ! -d "/usr/include/gtest" ]]; then
-	echo "Required dependency gtest isn't installed!"
-	exit 1
-fi
+function search(){
 
-cp -r /usr/include/gtest .
+  whereis -b -B /usr/include /usr/local/include/ -f "$1" | cut -d' ' -f2
 
-if [[ ! -d "/usr/local/include/stb" ]]; then
-	echo "Required dependency stb isn't installed!"
-	exit 1
-fi
+}
 
-cp -r /usr/local/include/stb .
+for value in stb glad KHR GL; do
+  dir=$(search $value)
+  echo "$dir"
+  if [[ ! -d "$dir" ]]; then
+	  echo "Required dependency $value isn't installed!"
+	  exit 1
+  fi
 
-if [[ ! -d "/usr/include/glm" ]]; then
-	echo "Required dependency glm isn't installed!"
-	exit 1
-fi
-
-cp -r /usr/include/glm .
-
-if [[ ! -d "/usr/local/include/glad" ]]; then
-	echo "Required dependency glad isn't installed!"
-	exit 1	
-fi
-
-cp -r /usr/local/include/glad .
-
-if [[ ! -d "/usr/local/include/KHR" ]]; then
-	echo "Required dependency KHR isn't installed"
-	exit 1
-fi
-
-cp -r /usr/local/include/KHR .
-
-if [[ ! -d "/usr/include/GLFW" ]]; then
-	echo "Required dependency GLFW isn't installed!"
-	exit 1
-fi
-
-cp -r /usr/include/GLFW .
-
-if [[ ! -d "/usr/include/GL" ]]; then
-	echo "Required dependency GL isn't installed!"
-	exit 1
-fi
-
-cp -r /usr/include/GL .
+  cp -r "$dir" .
+done
 
 echo -e "-- Building image\n"
 docker build -t paragoumba/cpp-ci-cd-opengl . || { echo "Is Docker service running?" && exit 1; }
