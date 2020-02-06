@@ -1,13 +1,12 @@
-image: paragoumba/cpp-ci-cd-opengl:latest
+image: paragoumba/cpp-ci-cd-opengl
 
-cache:
-  paths:
-    - /var/cache/apk
+stages:
+  - tests
+  - deploy
 
 pages:
   stage: deploy
   script:
-    - echo $PWD
     - doxygen
     - mv doc/html/ public/
   artifacts:
@@ -16,14 +15,33 @@ pages:
   only:
     - master
 
-exe:
+build:
+  variables:
+    OUTPUT_FILE_NAME: mandelbulb-$CI_COMMIT_REF_NAME.tar.zst
   stage: deploy
   script:
-    - cmake -S . -B cmake-build-debug
-    - cd cmake-build-debug
-    - cmake --build . --target MandelBulb
+#    - cmake -S . -B cmake-build-debug
+#    - cd cmake-build-debug
+#    - cmake --build . --target MandelBulb
+    - cd src
+    - mkdir -p build/bin
+    - cp -r res/ build/
+    - g++ -o build/bin/MandelBulb main.cpp ../lib/glad.c engine/Shader.cpp engine/Transformation.cpp engine/Object.cpp engine/Camera.cpp engine/Renderer.cpp engine/GameEngine.cpp engine/Window.cpp engine/Game.cpp engine/Scene.cpp engine/Mesh.cpp engine/Material.cpp engine/Texture.cpp engine/exceptions/Exception.cpp -lglfw -lGL -ldl
+    - cd build
+    - tar -caf $OUTPUT_FILE_NAME *
   artifacts:
     paths:
-      - src/cmake-build-debug/MandelBulb
+      - src/build/$OUTPUT_FILE_NAME
   only:
     - tags
+
+tests:
+  stage: tests
+  script:
+#    - cmake -S . -B cmake-build-debug
+#    - cd cmake-build-debug
+#    - cmake --build . --target Tests
+#    - ../tests/cmake-build-debug/Tests
+    - cd tests
+    - g++ main.cpp ../lib/glad.c ../src/engine/Camera.cpp ../src/engine/Transformation.cpp ../src/engine/Object.cpp ../src/engine/Window.cpp ../src/engine/exceptions/Exception.cpp -o Tests -lgtest -lgtest_main -lglfw -ldl -lGL
+    - ./Tests
