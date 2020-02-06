@@ -30,8 +30,10 @@ build:
 tests:
   stage: tests
   script:
-    - cmake --version
-    - cmake -S . -B cmake-build-debug
-    - cd cmake-build-debug
-    - cmake --build . --target Tests
-    - ../tests/cmake-build-debug/Tests
+#    - cmake -S . -B cmake-build-debug
+#    - cd cmake-build-debug
+#    - cmake --build . --target Tests
+#    - ../tests/cmake-build-debug/Tests
+    - cd tests
+    - g++ main.cpp ../lib/glad.c ../src/engine/Camera.cpp ../src/engine/Transformation.cpp ../src/engine/Object.cpp ../src/engine/Window.cpp ../src/engine/exceptions/Exception.cpp -o Tests -lgtest -lgtest_main -lglfw -ldl -lGL
+    - ./Tests
