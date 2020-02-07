@@ -1,5 +1,5 @@
-#ifndef UI_WINDOW_H
-#define UI_WINDOW_H
+#ifndef UI_WINDOW_HPP
+#define UI_WINDOW_HPP
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -27,7 +27,10 @@ class UI_Window
 public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
+
+    /***** OpenGL Widget *****/
     QOpenGLWidget *openGLWidget;
+
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_4;
@@ -212,4 +215,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_WINDOW_H
+#endif // UI_WINDOW_HPP
