@@ -1,6 +1,6 @@
-FROM alpine:3.11.3
+FROM archlinux:latest
 
-RUN apk add --no-cache git g++ cmake make glfw-dev glm-dev gtest-dev doxygen graphviz
+RUN pacman -Sy --noconfirm git cmake make gcc glfw-x11 glm gtest doxygen graphviz
 
 WORKDIR /usr/include
 COPY /stb stb
