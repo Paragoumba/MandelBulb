@@ -1,5 +1,7 @@
 #include "Mesh.hpp"
 
+#include <glad/glad.h>
+
 Mesh::Mesh(const float* vertices, unsigned long verticesNumber, const float texCoords[], unsigned long texCoordsNumber,
         const unsigned int* indices, unsigned long indicesNumber) : Object(){
 

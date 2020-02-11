@@ -1,12 +1,13 @@
 #include <stb/stb_image.h>
+#include <glad/glad.h>
 
 #include "WindowOpenGL.hpp"
 
-WindowOpenGL::WindowOpenGL() : WindowOpenGL("MandelBulb", 1920, 1080) {}
+WindowOpenGL::WindowOpenGL(QWidget* parent) : WindowOpenGL("MandelBulb", 1920, 1080, parent) {}
 
-WindowOpenGL::WindowOpenGL(const char* title, int width, int height) {
+WindowOpenGL::WindowOpenGL(const char* title, int width, int height, QWidget* parent) : QOpenGLWidget(parent){
 
-    if (title == nullptr){
+    if (title == nullptr) {
 
         title = "MandelBulb";
 

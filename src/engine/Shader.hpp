@@ -7,7 +7,8 @@
 #include <iostream>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/mat4x4.hpp>
-#include <glad/glad.h>
+
+//#include <glad/glad.h>
 
 #include "exceptions/ShaderException.hpp"
 
@@ -15,7 +16,7 @@ class Shader {
 public:
     unsigned int ID;
 
-    Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
+    Shader(const char* vertexPath, const char* fragmentPath);
 
     void use();
 

@@ -10,7 +10,7 @@ int Application::exec() {
     Window w;
     w.show();
 
-    try {
+    /*try {
 
         GameEngine gameEngine;
 
@@ -25,7 +25,7 @@ int Application::exec() {
 
         std::cerr << "Exiting due to unknown fatal unrecoverable error." << std::endl;
 
-    }
+    }*/
 
     return a.exec();
 

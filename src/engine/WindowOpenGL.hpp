@@ -2,8 +2,11 @@
 #define PTUT_WINDOWOPENGL_HPP
 
 #include <iostream>
-#include <glad/glad.h>
+
+//#include <glad/glad.h>
+
 #include <GLFW/glfw3.h>
+#include <QtWidgets/QOpenGLWidget>
 
 #include "Transformation.hpp"
 
@@ -12,13 +15,13 @@ struct Resolution {
     int height;
 };
 
-class WindowOpenGL {
+class WindowOpenGL : public QOpenGLWidget {
 private:
     GLFWwindow* handle;
 
 public:
-    WindowOpenGL();
-    WindowOpenGL(const char* title, int width, int height);
+    explicit WindowOpenGL(QWidget* parent);
+    WindowOpenGL(const char* title, int width, int height, QWidget* parent = nullptr);
 
     void swapBuffers();
     [[nodiscard]] bool shouldClose() const;

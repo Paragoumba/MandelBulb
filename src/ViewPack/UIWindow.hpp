@@ -19,6 +19,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "../engine/WindowOpenGL.hpp"
 
 QT_BEGIN_NAMESPACE
 
@@ -65,7 +66,9 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         horizontalLayout = new QHBoxLayout(centralWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        openGLWidget = new QOpenGLWidget(centralWidget);
+
+        //openGLWidget = new QOpenGLWidget(centralWidget);
+        openGLWidget = new WindowOpenGL(centralWidget);
         openGLWidget->setObjectName(QString::fromUtf8("openGLWidget"));
 
         horizontalLayout->addWidget(openGLWidget);
@@ -180,6 +183,8 @@ public:
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuTools->menuAction());
+
+        this->openGLWidget->update();
 
         retranslateUi(Window);
 
