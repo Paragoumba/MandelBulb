@@ -11,14 +11,17 @@
 #include <memory>
 #include "Transformation.hpp"
 #include "Mesh.hpp"
+#include "Utils.hpp"
 
 /**
  * Constructor of Renderer
  *
  */
 Renderer::Renderer() :
-sceneShader("../res/shaders/scene_shader.vs", "../res/shaders/scene_shader.fs"),
-fractalShader("../res/shaders/mandel_raymarch.vs", "../res/shaders/mandel_raymarch.fs"){
+sceneShader(Utils::getPath("../res/shaders/scene_shader.vs").c_str(),
+        Utils::getPath("../res/shaders/scene_shader.fs").c_str()),
+fractalShader(Utils::getPath("../res/shaders/mandel_raymarch.vs").c_str(),
+        Utils::getPath("../res/shaders/mandel_raymarch.fs").c_str()){
 
     float vertices[] = {
             -1.0f, -1.0f, 0.0f,

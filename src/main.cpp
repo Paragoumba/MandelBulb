@@ -7,10 +7,13 @@
 #include <stb/stb_image.h>
 
 #include "engine/GameEngine.hpp"
+#include "engine/Utils.hpp"
 
-int main(){
+int main(int argc, char** argv){
 
     try {
+
+        Utils::setExePath(argv[0]);
 
         GameEngine gameEngine;
 

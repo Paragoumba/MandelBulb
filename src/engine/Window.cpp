@@ -13,6 +13,7 @@
 #include "Window.hpp"
 #include "Transformation.hpp"
 #include "exceptions/WindowException.hpp"
+#include "Utils.hpp"
 
 /**
  *  Constructor the class Window
@@ -75,7 +76,7 @@ Window::Window(const char* title, int width, int height){
 
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-    setCursor("../res/imgs/cursor.png");
+    setCursor(Utils::getPath("../res/imgs/cursor.png").c_str());
 
 }
 
