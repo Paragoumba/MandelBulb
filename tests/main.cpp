@@ -6,6 +6,7 @@
 #include "../src/engine/Transformation.hpp"
 #include "../src/engine/Window.hpp"
 #include "../src/engine/exceptions/WindowException.hpp"
+#include "../src/engine/Utils.hpp"
 
 bool operator==(glm::mat4 mat1, glm::mat4 mat2){
 
@@ -79,6 +80,24 @@ TEST(Transformation, setProjectionMatrix){
     glm::mat4 projectionMatrix = Transformation::getProjectionMatrix();
 
     ASSERT_TRUE(projectionMatrix == correctPerspectiveMatrix);
+
+}
+
+TEST(Utils, setExePath){
+
+    const char* p = "/test1/test2";
+
+    Utils::setExePath(p);
+
+    ASSERT_TRUE(strcmp(p, Utils::getExePath().c_str()) == 0);
+
+}
+
+TEST(Utils, getPath){
+
+    Utils::setExePath("/root/bin/exe");
+
+    ASSERT_TRUE(strcmp("/root/bin/res/tex.png", Utils::getPath("res/tex.png").c_str()) == 0);
 
 }
 
