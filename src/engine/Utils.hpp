@@ -8,6 +8,7 @@ public:
     Utils() = delete;
 
     static void setExePath(const char* path);
+    static std::filesystem::path getExePath();
     static std::string getPath(const char* path);
 
 private:
