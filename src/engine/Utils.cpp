@@ -18,8 +18,7 @@ std::filesystem::path Utils::getExePath(){
 
 std::string Utils::getPath(const char* path){
 
-    std::string filePath = std::string(exePath.parent_path().c_str())
-            + std::filesystem::path::preferred_separator + path;
+    std::string filePath = exePath.parent_path() / path;
 
     return filePath;
 
