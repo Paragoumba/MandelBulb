@@ -18,8 +18,6 @@
  *
  */
 Renderer::Renderer() :
-sceneShader(Utils::getPath("../res/shaders/scene_shader.vs").c_str(),
-        Utils::getPath("../res/shaders/scene_shader.fs").c_str()),
 fractalShader(Utils::getPath("../res/shaders/mandel_raymarch.vs").c_str(),
         Utils::getPath("../res/shaders/mandel_raymarch.fs").c_str()){
 
@@ -119,28 +117,4 @@ void Renderer::renderFractal(Window& window, Camera& camera, float lightAngle){
 
     fractal->render();
 
-}
-
-/**
- * Call the Shader to use it and render it
- *
- * @param scene
- * @param camera
- */
-void Renderer::renderScene(Scene& scene, Camera& camera){
-
-    sceneShader.use();
-
-    sceneShader.setMat4("view", Transformation::getViewMatrix(camera));
-    sceneShader.setMat4("projection", Transformation::getProjectionMatrix());
-
-    std::vector<MeshPtr> meshes = scene.getMeshes();
-
-    for (auto& mesh : meshes){
-
-        sceneShader.setMat4("model", Transformation::getModelMatrix(mesh.get()));
-
-        mesh->render();
-
-    }
 }

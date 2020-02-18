@@ -106,9 +106,6 @@ void Game::input(Window& window){
  */
 void Game::update(){
 
-    scene.getCube()->addRotation(0, 0.3f, 0);
-    scene.getSquare()->addRotation(0,0.3f,0);
-
 }
 
 /**
@@ -118,6 +115,5 @@ void Game::update(){
 void Game::render(Window& window){
 
     renderer.renderFractal(window, camera, lightAngle);
-    renderer.renderScene(scene, camera);
 
 }
