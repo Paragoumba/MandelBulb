@@ -96,5 +96,6 @@ fi
 
 if [[ "$run" = "y" ]]; then
   echo -e "-- Running image"
-  docker run -it $image:"$version"
+  mkdir -p "$PWD"/build
+  docker run -it --mount type=bind,source="$PWD"/build,target=/mnt/build $image:"$version"
 fi
