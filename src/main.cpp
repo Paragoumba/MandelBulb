@@ -9,7 +9,11 @@
 #include "engine/GameEngine.hpp"
 #include "engine/Utils.hpp"
 
+#include "engine/imguitest.hpp"
+
 int main(int argc, char** argv){
+
+    mainIMGUI(argc, argv);
 
     try {
 

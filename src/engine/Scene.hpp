@@ -32,7 +32,6 @@ public:
      */
     Scene();
     /**
-    /**
      * Add mesh into the vector of meshes
      * @param mesh
      */
