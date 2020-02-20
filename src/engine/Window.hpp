@@ -71,6 +71,7 @@ public:
      *
      * @param path name of cursor's file
      */
+    GLFWwindow* getHandle() const;
     void setCursor(const char* path);
     /**
     * define the title of this window

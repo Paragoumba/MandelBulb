@@ -13,8 +13,6 @@
 
 int main(int argc, char** argv){
 
-    mainIMGUI(argc, argv);
-
     try {
 
         Utils::setExePath(argv[0]);

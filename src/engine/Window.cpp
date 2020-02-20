@@ -134,6 +134,12 @@ Color Window::getColor() const {
 
 }
 
+GLFWwindow* Window::getHandle() const {
+
+    return this->handle;
+
+}
+
 /**
  *  define the cursor of this windows
  *
