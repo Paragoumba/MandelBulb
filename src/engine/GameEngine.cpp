@@ -12,6 +12,7 @@
 #include "../../lib/imgui/imgui.h"
 #include "../../lib/imgui/imgui_impl_glfw.h"
 #include "../../lib/imgui/imgui_impl_opengl3.h"
+#include "Renderer.hpp"
 
 #define FPS 60
 
@@ -66,7 +67,7 @@ void GameEngine::loop(){
 
     // Our state
     bool renderFractal = false;
-    bool hideMenu = false;
+    bool hideMenu = true;
     bool showExportMenu = false;
     char reA[128] = "1", imA[128] = "0", reC[128] = "0", imC[128] = "0";
     ImVec4 backgroundColor = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
