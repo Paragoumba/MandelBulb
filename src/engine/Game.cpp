@@ -8,6 +8,12 @@
  */
 #include "Game.hpp"
 
+Camera Game::getCamera() {
+
+    return camera;
+
+}
+
 /**
  * \fn init
  *

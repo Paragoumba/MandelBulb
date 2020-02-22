@@ -5,6 +5,7 @@
 #include "Scene.hpp"
 #include "Camera.hpp"
 #include "Window.hpp"
+#include "FractalParams.hpp"
 
 /**
  * \class Renderer
@@ -17,6 +18,8 @@ private:
     Shader fractalShader;
 
     MeshPtr fractal;
+
+    FractalParams *fractalParams;
 
 public:
     Renderer();

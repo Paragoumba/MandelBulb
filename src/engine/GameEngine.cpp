@@ -13,6 +13,7 @@
 #include "../../lib/imgui/imgui_impl_glfw.h"
 #include "../../lib/imgui/imgui_impl_opengl3.h"
 #include "Renderer.hpp"
+#include "FractalParams.hpp"
 
 #define FPS 60
 
@@ -66,6 +67,7 @@ void GameEngine::loop(){
     ImGui_ImplOpenGL3_Init(glsl_version);
 
     // Our state
+    FractalParams *fractalParams = FractalParams::getInstance(game.getCamera());
     bool renderFractal = false;
     bool hideMenu = true;
     bool showExportMenu = false;

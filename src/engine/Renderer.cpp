@@ -23,6 +23,8 @@ sceneShader(Utils::getPath("../res/shaders/scene_shader.vs").c_str(),
 fractalShader(Utils::getPath("../res/shaders/mandel_raymarch.vs").c_str(),
         Utils::getPath("../res/shaders/mandel_raymarch.fs").c_str()){
 
+    fractalParams = nullptr;
+
     float vertices[] = {
             -1.0f, -1.0f, 0.0f,
              1.0f, -1.0f, 0.0f,
@@ -51,71 +53,76 @@ fractalShader(Utils::getPath("../res/shaders/mandel_raymarch.vs").c_str(),
  */
 void Renderer::renderFractal(Window& window, Camera& camera, float lightAngle){
 
+    if (fractalParams == nullptr)
+        fractalParams = FractalParams::getInstance(camera);
+
+    fractalParams->setLightAngle(lightAngle);
+
     fractalShader.use();
 
-    fractalShader.setFloat("u_ambientIntensity", 1.00);
-    fractalShader.setFloat("u_bailLimit", 5.00);
-    fractalShader.setFloat("u_baseColorStrength", 0.50);
+    fractalShader.setFloat("u_ambientIntensity", fractalParams->getAmbientIntensity());
+    fractalShader.setFloat("u_bailLimit", fractalParams->getBailLimit());
+    fractalShader.setFloat("u_baseColorStrength", fractalParams->getBaseColorStrength());
 
-    Color color = window.getColor();
+    //Color color = window.getColor();
 
     //fractalShader.setVec3("u_bgColor", glm::vec3(0.80, 0.85, 1.00));
-    fractalShader.setVec3("u_bgColor", glm::vec3(color.r, color.g, color.b));
+    fractalShader.setVec3("u_bgColor", fractalParams->getBgColor());
 
-    fractalShader.setInt("u_boxFoldFactor", 0);
-    fractalShader.setFloat("u_boxFoldingLimit", 1.00);
-    fractalShader.setVec3("u_color0", glm::vec3(0.30, 0.50, 0.20));
-    fractalShader.setVec3("u_color1", glm::vec3(0.60, 0.20, 0.50));
-    fractalShader.setVec3("u_color2", glm::vec3(0.25, 0.70, 0.90));
-    fractalShader.setVec3("u_color3", glm::vec3(0.20, 0.45, 0.25));
-    fractalShader.setVec3("u_colorBase", glm::vec3(0.30, 0.60, 0.30));
-    fractalShader.setInt("u_derivativeBias", 1);
-    fractalShader.setFloat("u_diffuseIntensity", 1.00);
-    fractalShader.setVec3("u_eyePos", glm::vec3(0.00, 0.00, 3.00));
-    fractalShader.setInt("u_fractalIters", 1);
-    fractalShader.setFloat("u_fudgeFactor", 1.00);
-    fractalShader.setInt("u_gammaCorrection", 0);
-    fractalShader.setVec3("u_glowColor", glm::vec3(0.75, 0.90, 1.00));
-    fractalShader.setFloat("u_glowFactor", 1.00);
-    fractalShader.setInt("u_julia", 0);
-    fractalShader.setVec3("u_juliaC", glm::vec3(0.86, 0.23, -0.50));
+    fractalShader.setInt("u_boxFoldFactor", fractalParams->getBoxFoldFactor());
+    fractalShader.setFloat("u_boxFoldingLimit", fractalParams->getBoxFoldingLimit());
+    fractalShader.setVec3("u_color0", fractalParams->getColor0());
+    fractalShader.setVec3("u_color1", fractalParams->getColor1());
+    fractalShader.setVec3("u_color2", fractalParams->getColor2());
+    fractalShader.setVec3("u_color3", fractalParams->getColor3());
+    fractalShader.setVec3("u_colorBase", fractalParams->getColorBase());
+    fractalShader.setInt("u_derivativeBias", fractalParams->getDerivativeBias());
+    fractalShader.setFloat("u_diffuseIntensity", fractalParams->getDiffuseIntensity());
+    fractalShader.setVec3("u_eyePos", fractalParams->getEyePos());
+    fractalShader.setInt("u_fractalIters", fractalParams->getFractalIters());
+    fractalShader.setFloat("u_fudgeFactor", fractalParams->getFudgeFactor());
+    fractalShader.setInt("u_gammaCorrection", fractalParams->getGammaCorrection());
+    fractalShader.setVec3("u_glowColor", fractalParams->getGlowColor());
+    fractalShader.setFloat("u_glowFactor", fractalParams->getGlowFactor());
+    fractalShader.setInt("u_julia", fractalParams->getJulia());
+    fractalShader.setVec3("u_juliaC", fractalParams->getJuliaC());
 
     //fractalShader.setVec3("u_lightPos", glm::vec3(3.00, 3.00, 10.00));
-    fractalShader.setVec3("u_lightPos", glm::vec3(std::cos(lightAngle) * 10, 3.00, std::sin(lightAngle) * 10));
+    fractalShader.setVec3("u_lightPos", fractalParams->getLightPos());
 
-    fractalShader.setInt("u_lightSource", 1);
-    fractalShader.setInt("u_mandelBoxOn", 0);
-    fractalShader.setFloat("u_mandelBoxScale", 1.20);
-    fractalShader.setInt("u_mandelbulbOn", 1);
-    fractalShader.setFloat("u_maxRaySteps", 1000.00);
-    fractalShader.setFloat("u_minDistance", 1.00000E-05);
-    fractalShader.setFloat("u_noiseFactor", 0.50);
-    fractalShader.setVec4("u_orbitStrength", glm::vec4(-1.00, -1.80, -1.40, 1.30));
-    fractalShader.setFloat("u_otCycleIntensity", 5.00);
-    fractalShader.setFloat("u_otDist0to1", 0.30);
-    fractalShader.setFloat("u_otDist1to2", 1.00);
-    fractalShader.setFloat("u_otDist2to3", 0.40);
-    fractalShader.setFloat("u_otDist3to0", 0.20);
-    fractalShader.setFloat("u_otPaletteOffset", 0.00);
-    fractalShader.setFloat("u_phongShadingMixFactor", 1.00);
-    fractalShader.setFloat("u_power", 8);
-    fractalShader.setVec2("u_screenSize", glm::vec2(800.00, 640.00));
-    fractalShader.setFloat("u_shadowBrightness", 0.20);
-    fractalShader.setInt("u_shadowRayMinStepsTaken", 5);
-    fractalShader.setFloat("u_shininess", 32.00);
-    fractalShader.setInt("u_showBgGradient", 1);
-    fractalShader.setFloat("u_specularIntensity", 1.00);
-    fractalShader.setFloat("u_sphereFixedRadius", 2.00);
-    fractalShader.setInt("u_sphereFoldFactor", 0);
-    fractalShader.setFloat("u_sphereMinRadius", 0.01);
-    fractalShader.setInt("u_sphereMinTimeVariance", 0);
-    fractalShader.setInt("u_tetraFactor", 0);
-    fractalShader.setFloat("u_tetraScale", 1.00);
-    fractalShader.setFloat("u_time", 2.6703);
+    fractalShader.setInt("u_lightSource", fractalParams->getLightSource());
+    fractalShader.setInt("u_mandelBoxOn", fractalParams->getMandelBoxOn());
+    fractalShader.setFloat("u_mandelBoxScale", fractalParams->getMandelBoxScale());
+    fractalShader.setInt("u_mandelbulbOn", fractalParams->getMandelbulbOn());
+    fractalShader.setFloat("u_maxRaySteps", fractalParams->getMaxRaySteps());
+    fractalShader.setFloat("u_minDistance", fractalParams->getMinDistance());
+    fractalShader.setFloat("u_noiseFactor", fractalParams->getNoiseFactor());
+    fractalShader.setVec4("u_orbitStrength", fractalParams->getOrbitStrength());
+    fractalShader.setFloat("u_otCycleIntensity", fractalParams->getOtCycleIntensity());
+    fractalShader.setFloat("u_otDist0to1", fractalParams->getOtDist0to1());
+    fractalShader.setFloat("u_otDist1to2", fractalParams->getOtDist1to2());
+    fractalShader.setFloat("u_otDist2to3", fractalParams->getOtDist2to3());
+    fractalShader.setFloat("u_otDist3to0", fractalParams->getOtDist3to0());
+    fractalShader.setFloat("u_otPaletteOffset", fractalParams->getOtPaletteOffset());
+    fractalShader.setFloat("u_phongShadingMixFactor", fractalParams->getPhongShadingMixFactor());
+    fractalShader.setFloat("u_power", fractalParams->getPower());
+    fractalShader.setVec2("u_screenSize", fractalParams->getScreenSize());
+    fractalShader.setFloat("u_shadowBrightness", fractalParams->getShadowBrightness());
+    fractalShader.setInt("u_shadowRayMinStepsTaken", fractalParams->getShadowRayMinStepsTaken());
+    fractalShader.setFloat("u_shininess", fractalParams->getShininess());
+    fractalShader.setInt("u_showBgGradient", fractalParams->getShowBgGradient());
+    fractalShader.setFloat("u_specularIntensity", fractalParams->getSpecularIntensity());
+    fractalShader.setFloat("u_sphereFixedRadius", fractalParams->getSphereFixedRadius());
+    fractalShader.setInt("u_sphereFoldFactor", fractalParams->getSphereFoldFactor());
+    fractalShader.setFloat("u_sphereMinRadius", fractalParams->getSphereMinRadius());
+    fractalShader.setInt("u_sphereMinTimeVariance", fractalParams->getSphereMinTimeVariance());
+    fractalShader.setInt("u_tetraFactor", fractalParams->getTetraFactor());
+    fractalShader.setFloat("u_tetraScale", fractalParams->getTetraScale());
+    fractalShader.setFloat("u_time", fractalParams->getTime());
 
-    fractalShader.setFloat("u_nearPlane", 0.1f);
-    fractalShader.setFloat("u_farPlane", 100.0f);
-    fractalShader.setMat4("u_inverseVP", glm::inverse(Transformation::getViewMatrix(camera)) * glm::inverse(Transformation::getProjectionMatrix()));
+    fractalShader.setFloat("u_nearPlane", fractalParams->getNearPlane());
+    fractalShader.setFloat("u_farPlane", fractalParams->getFarPlane());
+    fractalShader.setMat4("u_inverseVP", fractalParams->getInverseVP());
 
     fractal->render();
 

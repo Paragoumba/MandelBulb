@@ -20,6 +20,8 @@ private:
     float lightAngle = 0;
 
 public:
+    Camera getCamera();
+
     void init();
     void input(Window& window);
     void update();
