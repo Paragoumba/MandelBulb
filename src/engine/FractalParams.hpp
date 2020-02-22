@@ -8,6 +8,10 @@
 
 class FractalParams{
 private:
+
+    static FractalParams* singleton;
+    explicit FractalParams(Camera);
+
     float ambientIntensity;
     float bailLimit;
     float baseColorStrength;
@@ -67,7 +71,9 @@ private:
 
 public:
 
-    explicit FractalParams(Camera);
+    FractalParams(const FractalParams&) = delete;
+    FractalParams& operator=(const FractalParams&) = delete;
+    static FractalParams* getInstance(Camera);
 
     float getAmbientIntensity();
     float getBailLimit();
