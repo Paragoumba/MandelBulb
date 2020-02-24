@@ -9,11 +9,10 @@
 #include <chrono>
 
 #include "GameEngine.hpp"
+#include "ParamsManager.hpp"
 #include "../../lib/imgui/imgui.h"
 #include "../../lib/imgui/imgui_impl_glfw.h"
 #include "../../lib/imgui/imgui_impl_opengl3.h"
-#include "Renderer.hpp"
-#include "FractalParams.hpp"
 
 #define FPS 60
 
@@ -31,7 +30,7 @@ GameEngine::GameEngine() : game(), window(appName, 1920, 1080){
  * Manage the main loop
  *
  */
-void GameEngine::loop(){
+void GameEngine::loop() {
 
     // Decide GL+GLSL versions
     #if __APPLE__
@@ -67,15 +66,11 @@ void GameEngine::loop(){
     ImGui_ImplOpenGL3_Init(glsl_version);
 
     // Our state
-    FractalParams *fractalParams = FractalParams::getInstance(game.getCamera());
-    bool renderFractal = false;
-    bool hideMenu = true;
-    bool showExportMenu = false;
-    char reA[128] = "1", imA[128] = "0", reC[128] = "0", imC[128] = "0";
-    ImVec4 backgroundColor = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+    ParamsManager *paramsManager = new ParamsManager(game.getCamera());
 
     while (!window.shouldClose()){
 
+        ImVec4 backgroundColor = paramsManager->getBackgroundColor();
         window.setColor(backgroundColor.x, backgroundColor.y, backgroundColor.z, backgroundColor.w);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -88,7 +83,7 @@ void GameEngine::loop(){
         }
         if (window.getKey(GLFW_KEY_F3) == GLFW_PRESS) {
 
-            hideMenu = false;
+            paramsManager->setHideMenu(false);
 
         }
 
@@ -97,30 +92,34 @@ void GameEngine::loop(){
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        if (!hideMenu) {
+        if (!paramsManager->getHideMenu()) {
 
             ImGui::Begin("Menu", nullptr, ImGuiWindowFlags_MenuBar);
 
             if (ImGui::BeginMenuBar()) {
                 if (ImGui::BeginMenu("File")) {
-                    ImGui::MenuItem("Export", NULL, &showExportMenu);
+                    ImGui::MenuItem("Export", NULL, &paramsManager->getShowExportMenu());
                     ImGui::EndMenu();
                 }
                 ImGui::EndMenuBar();
             }
 
             ImGui::Text("Equation: z_(n+1)=a*(z_n)^2+c");
+            char *reA = paramsManager->getReA(),
+                *imA = paramsManager->getImA(),
+                *reC = paramsManager->getReC(),
+                *imC = paramsManager->getImC();
             ImGui::InputText("Re(a)", reA, IM_ARRAYSIZE(reA));
             ImGui::InputText("Im(a)", imA, IM_ARRAYSIZE(imA));
             ImGui::InputText("Re(c)", reC, IM_ARRAYSIZE(reC));
             ImGui::InputText("Im(c)", imC, IM_ARRAYSIZE(imC));
 
-            ImGui::Checkbox("Render fractal", &renderFractal);
+            ImGui::Checkbox("Render fractal", &paramsManager->getRenderFractal());
 
-            ImGui::ColorEdit3("Background color", (float*)&backgroundColor);
+            ImGui::ColorEdit3("Background color", (float*)&paramsManager->getBackgroundColor());
 
             if (ImGui::Button("Hide menu"))
-                hideMenu = true;
+                paramsManager->setHideMenu(true);
 
             ImGui::End();
 
@@ -128,7 +127,7 @@ void GameEngine::loop(){
 
         game.input(window);
 
-        if (renderFractal) {
+        if (paramsManager->getRenderFractal()) {
 
             game.update();
             game.render(window);
