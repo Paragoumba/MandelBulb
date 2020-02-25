@@ -53,7 +53,6 @@ float ParamsManager::getShininess() const { return fractalParams->getShininess()
 int ParamsManager::getShowBgGradient() const { return fractalParams->getShowBgGradient(); }
 float ParamsManager::getSpecularIntensity() const { return fractalParams->getSpecularIntensity(); }
 float ParamsManager::getSphereFixedRadius() const { return fractalParams->getSphereFixedRadius(); }
-float ParamsManager::getSphereFoldFactor() const { return fractalParams->getSphereFoldFactor(); }
 float ParamsManager::getSphereMinRadius() const { return fractalParams->getSphereMinRadius(); }
 int ParamsManager::getSphereMinTimeVariance() const { return fractalParams->getSphereMinRadius(); }
 int ParamsManager::getTetraFactor() const { return fractalParams->getTetraFactor(); }
