@@ -67,7 +67,10 @@ void GameEngine::loop() {
 
     // Our state
     auto *paramsManager = new ParamsManager();
-    float *glowFactor, *lightAngle;
+    float glowFactor, lightPos[3], shadowBrightness, phongShadingMixFactor,
+        ambientIntensity, diffuseIntensity, specularIntensity, minDistance,
+        noiseFactor, shininess;
+    int lightSource, shadowRayMinStepsTaken, gammaCorrection;
     ImVec4 glowColor;
 
     while (!window.shouldClose()){
@@ -86,6 +89,16 @@ void GameEngine::loop() {
         if (window.getKey(GLFW_KEY_F3) == GLFW_PRESS) {
 
             paramsManager->setHideMenu(false);
+
+        }
+        if (window.getKey(GLFW_KEY_G) == GLFW_PRESS) {
+
+            paramsManager->setRenderFractal(true);
+
+        }
+        if (window.getKey(GLFW_KEY_H) == GLFW_PRESS) {
+
+            paramsManager->setRenderFractal(false);
 
         }
 
@@ -128,14 +141,16 @@ void GameEngine::loop() {
 
                     ImGui::EndTabItem();
                 }
+                //GRAPHICS---------------------------------------------------------------
                 if (ImGui::BeginTabItem("Graphics")) {
 
-                    ImGui::Text("Glow");
+                    //----GLOW-----------------------------------------------------------
+                    ImGui::Text("--- Glow ---");
 
-                    *glowFactor = paramsManager->getGlowFactor();
+                    glowFactor = paramsManager->getGlowFactor();
                     //TODO: find bounds
-                    ImGui::SliderFloat("Glow factor", glowFactor, 0.0f, 10.0f);
-                    paramsManager->setGlowFactor(*glowFactor);
+                    ImGui::SliderFloat("Glow factor", &glowFactor, 0.0f, 10.0f);
+                    paramsManager->setGlowFactor(glowFactor);
 
                     glm::vec3 c = paramsManager->getGlowColor();
                     glowColor.x = c.x;
@@ -146,22 +161,86 @@ void GameEngine::loop() {
 
                     ImGui::Separator();
 
-                    ImGui::Text("Shadow");
+                    //----SHADOW---------------------------------------------------------
+                    ImGui::Text("--- Shadow ---");
 
-                    *lightAngle = paramsManager->getLightAngle();
+                    lightSource = paramsManager->getLightSource();
                     //TODO: find bounds
-                    ImGui::SliderFloat("Light angle", lightAngle, 0.0f, 10.0f);
-                    paramsManager->setLightAngle(*lightAngle);
+                    ImGui::SliderInt("Light source", &lightSource, 0, 10);
+                    paramsManager->setLightSource(lightSource);
+
+                    shadowBrightness = paramsManager->getShadowBrightness();
+                    //TODO: find bounds
+                    ImGui::SliderFloat("Shadow brightness", &shadowBrightness, 0.0f, 1.0f);
+                    paramsManager->setShadowBrightness(shadowBrightness);
+
+                    shadowRayMinStepsTaken = paramsManager->getShadowRayMinStepsTaken();
+                    //TODO: find bounds
+                    ImGui::SliderInt("Shadow ray min steps taken", &shadowRayMinStepsTaken, 0, 10);
+                    paramsManager->setShadowRayMinStepsTaken(shadowRayMinStepsTaken);
 
                     ImGui::Separator();
 
+                    //----AMBIENT--------------------------------------------------------
                     ImGui::Text("Ambient");
+
+                    phongShadingMixFactor = paramsManager->getPhongShadingMixFactor();
+                    //TODO: find bounds
+                    ImGui::SliderFloat("Phong Shading Mix Factor", &phongShadingMixFactor, 0.0f, 10.0f);
+                    paramsManager->setPhongShadingMixFactor(phongShadingMixFactor);
+
+                    ambientIntensity = paramsManager->getAmbientIntensity();
+                    //TODO: find bounds
+                    ImGui::SliderFloat("Ambient intensity", &ambientIntensity, 0.0f, 10.0f);
+                    paramsManager->setAmbientIntensity(ambientIntensity);
+
+                    diffuseIntensity = paramsManager->getDiffuseIntensity();
+                    //TODO: find bounds
+                    ImGui::SliderFloat("Diffuse intensity", &diffuseIntensity, 0.0f, 10.0f);
+                    paramsManager->setDiffuseIntensity(diffuseIntensity);
+
+                    specularIntensity = paramsManager->getSpecularIntensity();
+                    //TODO: find bounds
+                    ImGui::SliderFloat("Specular intensity", &specularIntensity, 0.0f, 10.0f);
+                    paramsManager->setSpecularIntensity(specularIntensity);
+
                     ImGui::Separator();
 
+                    //----IMAGERENDER----------------------------------------------------
                     ImGui::Text("Image Render");
+
+                    gammaCorrection = paramsManager->getGammaCorrection();
+                    //TODO: find bounds
+                    ImGui::SliderInt("Gamma correction", &gammaCorrection, 0, 10);
+                    paramsManager->setGammaCorrection(gammaCorrection);
+
+                    //TODO: find why values change when rendering
+                    glm::vec3 l = paramsManager->getLightPos();
+                    lightPos[0] = l.x; lightPos[1] = l.y; lightPos[2] = l.z;
+                    ImGui::InputFloat("LightPos[x]", &lightPos[0]);
+                    ImGui::InputFloat("LightPos[y]", &lightPos[1]);
+                    ImGui::InputFloat("LightPos[z]", &lightPos[2]);
+                    paramsManager->setLightPos(glm::vec3(lightPos[0], lightPos[1], lightPos[2]));
+
+                    minDistance = paramsManager->getMinDistance();
+                    //TODO: find bounds
+                    ImGui::SliderFloat("Min distance", &minDistance, 0.0f, 1.0f);
+                    paramsManager->setMinDistance(minDistance);
+
+                    noiseFactor = paramsManager->getNoiseFactor();
+                    //TODO: find bounds
+                    ImGui::SliderFloat("Noise factor", &noiseFactor, 0.0f, 10.0f);
+                    paramsManager->setNoiseFactor(noiseFactor);
+
                     ImGui::Separator();
 
+                    //----BRIGHTNESS-----------------------------------------------------
                     ImGui::Text("Brightness");
+
+                    shininess = paramsManager->getShininess();
+                    //TODO: find bounds
+                    ImGui::SliderFloat("Shininess", &shininess, 0.0f, 100.0f);
+                    paramsManager->setShininess(shininess);
 
                     ImGui::EndTabItem();
                 }

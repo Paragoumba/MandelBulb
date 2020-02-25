@@ -135,7 +135,7 @@ void FractalParams::setJuliaC(glm::vec3 juliaC = (glm::vec3)(float)NULL) {
     this->juliaC = (juliaC == (glm::vec3)(float)NULL)?glm::vec3(0.86, 0.23, -0.50):juliaC;
 }
 void FractalParams::setLightPos(glm::vec3 lightPos = (glm::vec3)(float)NULL) {
-    this->lightPos = (lightPos == (glm::vec3)(float)NULL)?glm::vec3(std::cos(lightAngle) * 10, 3.00, std::sin(lightAngle) * 10):lightPos;
+    this->lightPos = (lightPos == (glm::vec3)(float)NULL)?glm::vec3(1.00, 3.00, 1.00):lightPos;
 }
 void FractalParams::setLightSource(int lightSource = (int)NULL) {
     this->lightSource = (lightSource == (int)NULL)?1:lightSource;

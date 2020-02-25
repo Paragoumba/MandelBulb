@@ -33,7 +33,6 @@ private:
     float glowFactor;
     int julia;
     glm::vec3 juliaC;
-    float lightAngle;
     glm::vec3 lightPos;
     int lightSource;
     int mandelBoxOn;
