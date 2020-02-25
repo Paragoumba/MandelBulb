@@ -66,7 +66,9 @@ void GameEngine::loop() {
     ImGui_ImplOpenGL3_Init(glsl_version);
 
     // Our state
-    auto* paramsManager = new ParamsManager();
+    auto *paramsManager = new ParamsManager();
+    float *glowFactor, *lightAngle;
+    ImVec4 glowColor;
 
     while (!window.shouldClose()){
 
@@ -129,9 +131,28 @@ void GameEngine::loop() {
                 if (ImGui::BeginTabItem("Graphics")) {
 
                     ImGui::Text("Glow");
+
+                    *glowFactor = paramsManager->getGlowFactor();
+                    //TODO: find bounds
+                    ImGui::SliderFloat("Glow factor", glowFactor, 0.0f, 10.0f);
+                    paramsManager->setGlowFactor(*glowFactor);
+
+                    glm::vec3 c = paramsManager->getGlowColor();
+                    glowColor.x = c.x;
+                    glowColor.y = c.y;
+                    glowColor.z = c.z;
+                    ImGui::ColorEdit3("Glow color", (float*)&glowColor);
+                    paramsManager->setGlowColor(glm::vec3(glowColor.x, glowColor.y, glowColor.z));
+
                     ImGui::Separator();
 
                     ImGui::Text("Shadow");
+
+                    *lightAngle = paramsManager->getLightAngle();
+                    //TODO: find bounds
+                    ImGui::SliderFloat("Light angle", lightAngle, 0.0f, 10.0f);
+                    paramsManager->setLightAngle(*lightAngle);
+
                     ImGui::Separator();
 
                     ImGui::Text("Ambient");
