@@ -19,7 +19,7 @@ private:
     ImVec4 backgroundColor;
 
 public:
-    ParamsManager(Camera);
+    ParamsManager();
 
     //GUI------------------------------------------------------------------
     bool& getRenderFractal();
@@ -202,8 +202,7 @@ public:
     void setTime(float);
     void setNearPlane(float);
     void setFarPlane(float);
-    void setCamera(Camera);
-    void setInverseVP(glm::mat4);
+    void setInverseVP(Camera& camera, glm::mat4);
     void setRenderFractal(bool);
     void setHideMenu(bool);
     void setShowExportMenu(bool);

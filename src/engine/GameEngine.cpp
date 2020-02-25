@@ -20,7 +20,7 @@
  * Constructor of GameEngine, Instantiate game, window
  *
  */
-GameEngine::GameEngine() : game(), window(appName, 1920, 1080) {
+GameEngine::GameEngine() : game(), window(appName, 1920, 1080){
 
     game.init();
 
@@ -53,7 +53,6 @@ void GameEngine::loop() {
     long waitingTimeNano = (long) (1.0 / FPS * 1'000'000'000.0);
     int i = 0;
     double start = glfwGetTime();
-    ParamsManager *paramsManager = new ParamsManager(game.getCamera());
 
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
@@ -66,7 +65,10 @@ void GameEngine::loop() {
     ImGui_ImplGlfw_InitForOpenGL(window.getHandle(), true);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
-    while (!window.shouldClose()) {
+    // Our state
+    auto* paramsManager = new ParamsManager();
+
+    while (!window.shouldClose()){
 
         ImVec4 backgroundColor = paramsManager->getBackgroundColor();
         window.setColor(backgroundColor.x, backgroundColor.y, backgroundColor.z, backgroundColor.w);
@@ -74,7 +76,7 @@ void GameEngine::loop() {
 
         auto loopStart = std::chrono::high_resolution_clock::now();
 
-        if (window.getKey(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        if (window.getKey(GLFW_KEY_ESCAPE) == GLFW_PRESS){
 
             window.close();
 
@@ -102,67 +104,29 @@ void GameEngine::loop() {
                 ImGui::EndMenuBar();
             }
 
-            if (ImGui::BeginTabBar("Settings")) {
-                if (ImGui::BeginTabItem("Main")) {
+            ImGui::Text("Equation: z_(n+1)=a*(z_n)^2+c");
+            char *reA = paramsManager->getReA(),
+                *imA = paramsManager->getImA(),
+                *reC = paramsManager->getReC(),
+                *imC = paramsManager->getImC();
+            ImGui::InputText("Re(a)", reA, IM_ARRAYSIZE(reA));
+            ImGui::InputText("Im(a)", imA, IM_ARRAYSIZE(imA));
+            ImGui::InputText("Re(c)", reC, IM_ARRAYSIZE(reC));
+            ImGui::InputText("Im(c)", imC, IM_ARRAYSIZE(imC));
 
-                    ImGui::Text("Equation: z_(n+1)=a*(z_n)^2+c");
-                    char *reA = paramsManager->getReA(),
-                            *imA = paramsManager->getImA(),
-                            *reC = paramsManager->getReC(),
-                            *imC = paramsManager->getImC();
-                    ImGui::InputText("Re(a)", reA, IM_ARRAYSIZE(reA));
-                    ImGui::InputText("Im(a)", imA, IM_ARRAYSIZE(imA));
-                    ImGui::InputText("Re(c)", reC, IM_ARRAYSIZE(reC));
-                    ImGui::InputText("Im(c)", imC, IM_ARRAYSIZE(imC));
+            ImGui::Checkbox("Render fractal", &paramsManager->getRenderFractal());
 
-                    ImGui::Checkbox("Render fractal", &paramsManager->getRenderFractal());
+            ImGui::ColorEdit3("Background color", (float*)&paramsManager->getBackgroundColor());
 
-                    ImGui::ColorEdit3("Background color", (float*)&paramsManager->getBackgroundColor());
-
-                    if (ImGui::Button("Hide menu"))
-                        paramsManager->setHideMenu(true);
-
-                    ImGui::EndTabItem();
-                }
-                if (ImGui::BeginTabItem("Graphics")) {
-
-                    ImGui::Text("Glow");
-                    ImGui::Separator();
-
-                    ImGui::Text("Shadow");
-                    ImGui::Separator();
-
-                    ImGui::Text("Ambient");
-                    ImGui::Separator();
-
-                    ImGui::Text("Brightness");
-
-                    ImGui::EndTabItem();
-                }
-                if (ImGui::BeginTabItem("Fractal")) {
-
-
-                    ImGui::EndTabItem();
-                }
-                if (ImGui::BeginTabItem("Math")) {
-
-
-                    ImGui::EndTabItem();
-                }
-                if (ImGui::BeginTabItem("Colors")) {
-
-
-                    ImGui::EndTabItem();
-                }
-                if (ImGui::BeginTabItem("Others")) {
-
-
-                    ImGui::EndTabItem();
-                }
-                ImGui::EndTabBar();
+            if(ImGui::Button("test")){
+                paramsManager->setNearPlane(paramsManager->getNearPlane() + 0.1);
             }
 
+            if (ImGui::Button("Hide menu"))
+                paramsManager->setHideMenu(true);
+
             ImGui::End();
+
         }
 
         game.input(window);

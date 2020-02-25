@@ -1,8 +1,8 @@
 #include "ParamsManager.hpp"
 
-ParamsManager::ParamsManager(Camera camera) {
+ParamsManager::ParamsManager() {
 
-    fractalParams = FractalParams::getInstance(camera);
+    fractalParams = FractalParams::getInstance();
     reset();
 
 }
@@ -125,8 +125,7 @@ void ParamsManager::setTetraScale(float tetraScale) { fractalParams->setTetraSca
 void ParamsManager::setTime(float time) { fractalParams->setTime(time); }
 void ParamsManager::setNearPlane(float nearPlane) { fractalParams->setNearPlane(nearPlane); }
 void ParamsManager::setFarPlane(float farPlane) { fractalParams->setFarPlane(farPlane); }
-void ParamsManager::setCamera(Camera camera) { fractalParams->setCamera(camera); }
-void ParamsManager::setInverseVP(glm::mat4 inverseVP) { fractalParams->setInverseVP(inverseVP); }
+void ParamsManager::setInverseVP(Camera& camera, glm::mat4 inverseVP = (glm::mat4)(const float)NULL) { fractalParams->setInverseVP(camera, inverseVP); }
 void ParamsManager::setRenderFractal(bool renderFractal = false) {
     this->renderFractal = renderFractal;
 }
