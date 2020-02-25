@@ -21,61 +21,104 @@ private:
 public:
     ParamsManager(Camera);
 
+    //GRAPHIC------------------------------------------------------------
+    //----GLOW-----------------------------------------------------------
+    float getGlowFactor() const;
+    glm::vec3 getGlowColor() const;
+    //----SHADOW---------------------------------------------------------
+    float getLightAngle() const;
+    int getLightSource() const;
+    //----AMBIANT--------------------------------------------------------
+    float getPhongShadingMixFactor() const;
     float getAmbientIntensity() const;
-    float getBailLimit() const;
-    float getBaseColorStrength() const;
+    float getDiffuseIntensity() const;
+    float getSpecularIntensity() const;
+    //-------------------------------------------------------------------
+
+    //----BRIGHTNESS-----------------------------------------------------
+    float getShininess() const;
+    //-------------------------------------------------------------------
+
+    //FRACTAL------------------------------------------------------------
+    int getMandelbulbOn() const;
+    int getJulia() const;
+    glm::vec3 getJuliaC() const;
+    //-------------------------------------------------------------------
+
+    //MATH---------------------------------------------------------------
+    int getFractalIters() const;
+    float getPower() const;
+    //----PRECISION------------------------------------------------------
+    float getMaxRaySteps() const;
+    //----AUTRE----------------------------------------------------------
+    float getSphereFoldFactor() const;
+    //-------------------------------------------------------------------
+
+    //COLOR---------------------------------------------------------------
     glm::vec3 getBgColor() const;
-    int getBoxFoldFactor() const;
-    float getBoxFoldingLimit() const;
     glm::vec3 getColor0() const;
     glm::vec3 getColor1() const;
     glm::vec3 getColor2() const;
     glm::vec3 getColor3() const;
     glm::vec3 getColorBase() const;
-    int getDerivativeBias() const;
-    float getDiffuseIntensity() const;
-    glm::vec3 getEyePos() const;
-    int getFractalIters() const;
-    float getFudgeFactor() const;
-    int getGammaCorrection() const;
-    glm::vec3 getGlowColor() const;
-    float getGlowFactor() const;
-    int getJulia() const;
-    glm::vec3 getJuliaC() const;
-    float getLightAngle() const;
-    glm::vec3 getLightPos() const;
-    int getLightSource() const;
+    //----STRENGTH---------------------------------------------------------
+    float getBaseColorStrength() const;
+    //---------------------------------------------------------------------
+
+    //BOX------------------------------------------------------------------
+    int getBoxFoldFactor() const;
+    float getBoxFoldingLimit() const;
     int getMandelBoxOn() const;
     float getMandelBoxScale() const;
-    int getMandelbulbOn() const;
-    float getMaxRaySteps() const;
+    //---------------------------------------------------------------------
+
+    //AUTRE----------------------------------------------------------------
+    float getBailLimit() const;
+    //---------------------------------------------------------------------
+
+
+    int getDerivativeBias() const;
+    glm::vec3 getEyePos() const;
+    float getFudgeFactor() const;
+
+    //IMAGE RENDERER ------------------------------------------------------
+    int getGammaCorrection() const;
+    glm::vec3 getLightPos() const;
     float getMinDistance() const;
     float getNoiseFactor() const;
+
+    //JSP
     glm::vec4 getOrbitStrength() const;
     float getOtCycleIntensity() const;
     float getOtDist0to1() const;
     float getOtDist1to2() const;
     float getOtDist2to3() const;
     float getOtDist3to0() const;
+
+
     float getOtPaletteOffset() const;
-    float getPhongShadingMixFactor() const;
-    float getPower() const;
     glm::vec2 getScreenSize() const;
+
+    //SHADOW ---------------------------------------------------------------
     float getShadowBrightness() const;
     int getShadowRayMinStepsTaken() const;
-    float getShininess() const;
+
+    //SPHERE MANAGER--------------------------------------------------------
     int getShowBgGradient() const;
-    float getSpecularIntensity() const;
     float getSphereFixedRadius() const;
-    int getSphereFoldFactor() const;
     float getSphereMinRadius() const;
     int getSphereMinTimeVariance() const;
     int getTetraFactor() const;
     float getTetraScale() const;
     float getTime() const;
+
+
     float getNearPlane() const;
     float getFarPlane() const;
     glm::mat4 getInverseVP() const;
+
+
+
     bool& getRenderFractal();
     bool& getHideMenu();
     bool& getShowExportMenu();

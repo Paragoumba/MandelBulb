@@ -130,6 +130,10 @@ void GameEngine::loop() {
 
             ImGui::ColorEdit3("Background color", (float*)&paramsManager->getBackgroundColor());
 
+            if(ImGui::Button("test")){
+                paramsManager->setNearPlane(paramsManager->getNearPlane() + 0.1);
+            }
+
             if (ImGui::Button("Hide menu"))
                 paramsManager->setHideMenu(true);
 

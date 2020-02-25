@@ -65,6 +65,9 @@ Window::Window(const char* title, int width, int height){
                 0.1f,
                 100.0f
         );
+
+        glViewport(0, 0, newWidth, newHeight);
+
     });
 
     Transformation::setProjectionMatrix(
@@ -156,7 +159,7 @@ void Window::setCursor(const char* path){
     if (cursorImage.pixels == nullptr){
 
         throw WindowException(
-                (std::string("Could not create cursor from image located at ") + path + '.').c_str());
+                (std::string("Could not create cursor from image located at '") + path + "'.").c_str());
 
     }
 
