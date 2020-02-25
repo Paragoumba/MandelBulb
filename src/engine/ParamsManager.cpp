@@ -29,7 +29,6 @@ glm::vec3 ParamsManager::getGlowColor() const { return fractalParams->getGlowCol
 float ParamsManager::getGlowFactor() const { return fractalParams->getGlowFactor(); }
 int ParamsManager::getJulia() const { return fractalParams->getJulia(); }
 glm::vec3 ParamsManager::getJuliaC() const { return fractalParams->getJuliaC(); }
-float ParamsManager::getLightAngle() const { return fractalParams->getLightAngle(); }
 glm::vec3 ParamsManager::getLightPos() const { return fractalParams->getLightPos(); }
 int ParamsManager::getLightSource() const { return fractalParams->getLightSource(); }
 int ParamsManager::getMandelBoxOn() const { return fractalParams->getMandelBoxOn(); }
@@ -92,7 +91,6 @@ void ParamsManager::setGlowColor(glm::vec3 glowColor) { fractalParams->setGlowCo
 void ParamsManager::setGlowFactor(float glowFactor) { fractalParams->setGlowFactor(glowFactor); }
 void ParamsManager::setJulia(int julia) { fractalParams->setJulia(julia); }
 void ParamsManager::setJuliaC(glm::vec3 juliaC) { fractalParams->setJuliaC(juliaC); }
-void ParamsManager::setLightAngle(float lightAngle) { fractalParams->setLightAngle(lightAngle); }
 void ParamsManager::setLightPos(glm::vec3 lightPos) { fractalParams->setLightPos(lightPos); }
 void ParamsManager::setLightSource(int lightSource) { fractalParams->setLightSource(lightSource); }
 void ParamsManager::setMandelBoxOn(int mandelBoxOn) { fractalParams->setMandelBoxOn(mandelBoxOn); }

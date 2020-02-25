@@ -15,7 +15,7 @@ private:
     Renderer renderer;
     Camera camera;
 
-    float lightAngle = 0;
+    float lightAngle = 1;
 
 public:
     Camera getCamera();

@@ -55,8 +55,7 @@ void Renderer::renderFractal(Window& window, Camera& camera, float lightAngle){
         fractalParams = FractalParams::getInstance();
 
     fractalParams->setInverseVP(camera);
-
-    fractalParams->setLightAngle(lightAngle);
+    fractalParams->setLightPos(glm::vec3(std::cos(lightAngle) * 10, 3.00, std::sin(lightAngle) * 10));
 
     fractalShader.use();
 
@@ -87,7 +86,6 @@ void Renderer::renderFractal(Window& window, Camera& camera, float lightAngle){
     fractalShader.setInt("u_julia", fractalParams->getJulia());
     fractalShader.setVec3("u_juliaC", fractalParams->getJuliaC());
 
-    //fractalShader.setVec3("u_lightPos", glm::vec3(3.00, 3.00, 10.00));
     fractalShader.setVec3("u_lightPos", fractalParams->getLightPos());
 
     fractalShader.setInt("u_lightSource", fractalParams->getLightSource());
