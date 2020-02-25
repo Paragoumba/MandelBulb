@@ -20,7 +20,7 @@
  * Constructor of GameEngine, Instantiate game, window
  *
  */
-GameEngine::GameEngine() : game(), window(appName, 1920, 1080){
+GameEngine::GameEngine() : game(), window(appName, 1920, 1080) {
 
     game.init();
 
@@ -53,6 +53,7 @@ void GameEngine::loop() {
     long waitingTimeNano = (long) (1.0 / FPS * 1'000'000'000.0);
     int i = 0;
     double start = glfwGetTime();
+    ParamsManager *paramsManager = new ParamsManager(game.getCamera());
 
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
@@ -65,10 +66,7 @@ void GameEngine::loop() {
     ImGui_ImplGlfw_InitForOpenGL(window.getHandle(), true);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
-    // Our state
-    ParamsManager *paramsManager = new ParamsManager(game.getCamera());
-
-    while (!window.shouldClose()){
+    while (!window.shouldClose()) {
 
         ImVec4 backgroundColor = paramsManager->getBackgroundColor();
         window.setColor(backgroundColor.x, backgroundColor.y, backgroundColor.z, backgroundColor.w);
@@ -76,7 +74,7 @@ void GameEngine::loop() {
 
         auto loopStart = std::chrono::high_resolution_clock::now();
 
-        if (window.getKey(GLFW_KEY_ESCAPE) == GLFW_PRESS){
+        if (window.getKey(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 
             window.close();
 
@@ -104,6 +102,20 @@ void GameEngine::loop() {
                 ImGui::EndMenuBar();
             }
 
+            if (ImGui::BeginTabBar("Settings")) {
+                if (ImGui::BeginTabItem("Graphics")) {
+
+
+                    ImGui::EndTabItem();
+                }
+                if (ImGui::BeginTabItem("Shader")) {
+
+
+                    ImGui::EndTabItem();
+                }
+                ImGui::EndTabBar();
+            }
+
             ImGui::Text("Equation: z_(n+1)=a*(z_n)^2+c");
             char *reA = paramsManager->getReA(),
                 *imA = paramsManager->getImA(),
@@ -122,7 +134,6 @@ void GameEngine::loop() {
                 paramsManager->setHideMenu(true);
 
             ImGui::End();
-
         }
 
         game.input(window);

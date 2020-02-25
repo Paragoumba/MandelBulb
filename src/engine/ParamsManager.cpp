@@ -7,6 +7,7 @@ ParamsManager::ParamsManager(Camera camera) {
 
 }
 
+
 float ParamsManager::getAmbientIntensity() const { return fractalParams->getAmbientIntensity(); }
 float ParamsManager::getBailLimit() const { return fractalParams->getBailLimit(); }
 float ParamsManager::getBaseColorStrength() const { return fractalParams->getBaseColorStrength(); }

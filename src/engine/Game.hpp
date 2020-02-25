@@ -9,7 +9,7 @@
 /**
  * \class Game
  *
- * In this class there are serval functions that can be used in order to managed the Game
+ * In this class there are several functions that can be used in order to manage the Game
  */
 class Game {
 private:
