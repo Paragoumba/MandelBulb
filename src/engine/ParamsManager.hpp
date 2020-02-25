@@ -80,30 +80,45 @@ public:
     int getDerivativeBias() const;
     glm::vec3 getEyePos() const;
     float getFudgeFactor() const;
+
+    //IMAGE RENDERER ------------------------------------------------------
     int getGammaCorrection() const;
     glm::vec3 getLightPos() const;
     float getMinDistance() const;
     float getNoiseFactor() const;
+
+    //JSP
     glm::vec4 getOrbitStrength() const;
     float getOtCycleIntensity() const;
     float getOtDist0to1() const;
     float getOtDist1to2() const;
     float getOtDist2to3() const;
     float getOtDist3to0() const;
+
+
     float getOtPaletteOffset() const;
     glm::vec2 getScreenSize() const;
+
+    //SHADOW ---------------------------------------------------------------
     float getShadowBrightness() const;
     int getShadowRayMinStepsTaken() const;
+
+    //SPHERE MANAGER--------------------------------------------------------
     int getShowBgGradient() const;
-    float getSphereFixedRadius() const;x
+    float getSphereFixedRadius() const;
     float getSphereMinRadius() const;
     int getSphereMinTimeVariance() const;
     int getTetraFactor() const;
     float getTetraScale() const;
     float getTime() const;
+
+
     float getNearPlane() const;
     float getFarPlane() const;
     glm::mat4 getInverseVP() const;
+
+
+
     bool& getRenderFractal();
     bool& getHideMenu();
     bool& getShowExportMenu();
