@@ -145,102 +145,113 @@ void GameEngine::loop() {
                 if (ImGui::BeginTabItem("Graphics")) {
 
                     //----GLOW-----------------------------------------------------------
-                    ImGui::Text("--- Glow ---");
+                    if (ImGui::TreeNode("Glow")) {
 
-                    glowFactor = paramsManager->getGlowFactor();
-                    //TODO: find bounds
-                    ImGui::SliderFloat("Glow factor", &glowFactor, 0.0f, 10.0f);
-                    paramsManager->setGlowFactor(glowFactor);
+                        glowFactor = paramsManager->getGlowFactor();
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Glow factor", &glowFactor, 0.0f, 10.0f);
+                        paramsManager->setGlowFactor(glowFactor);
 
-                    glm::vec3 c = paramsManager->getGlowColor();
-                    glowColor.x = c.x;
-                    glowColor.y = c.y;
-                    glowColor.z = c.z;
-                    ImGui::ColorEdit3("Glow color", (float*)&glowColor);
-                    paramsManager->setGlowColor(glm::vec3(glowColor.x, glowColor.y, glowColor.z));
+                        glm::vec3 c = paramsManager->getGlowColor();
+                        glowColor.x = c.x;
+                        glowColor.y = c.y;
+                        glowColor.z = c.z;
+                        ImGui::ColorEdit3("Glow color", (float*)&glowColor);
+                        paramsManager->setGlowColor(glm::vec3(glowColor.x, glowColor.y, glowColor.z));
 
-                    ImGui::Separator();
+                        ImGui::Separator();
 
+                        ImGui::TreePop();
+                    }
                     //----SHADOW---------------------------------------------------------
-                    ImGui::Text("--- Shadow ---");
+                    if (ImGui::TreeNode("Shadow")) {
 
-                    lightSource = paramsManager->getLightSource();
-                    //TODO: find bounds
-                    ImGui::SliderInt("Light source", &lightSource, 0, 10);
-                    paramsManager->setLightSource(lightSource);
+                        lightSource = paramsManager->getLightSource();
+                        //TODO: find bounds
+                        ImGui::SliderInt("Light source", &lightSource, 0, 10);
+                        paramsManager->setLightSource(lightSource);
 
-                    shadowBrightness = paramsManager->getShadowBrightness();
-                    //TODO: find bounds
-                    ImGui::SliderFloat("Shadow brightness", &shadowBrightness, 0.0f, 1.0f);
-                    paramsManager->setShadowBrightness(shadowBrightness);
+                        shadowBrightness = paramsManager->getShadowBrightness();
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Shadow brightness", &shadowBrightness, 0.0f, 1.0f);
+                        paramsManager->setShadowBrightness(shadowBrightness);
 
-                    shadowRayMinStepsTaken = paramsManager->getShadowRayMinStepsTaken();
-                    //TODO: find bounds
-                    ImGui::SliderInt("Shadow ray min steps taken", &shadowRayMinStepsTaken, 0, 10);
-                    paramsManager->setShadowRayMinStepsTaken(shadowRayMinStepsTaken);
+                        shadowRayMinStepsTaken = paramsManager->getShadowRayMinStepsTaken();
+                        //TODO: find bounds
+                        ImGui::SliderInt("Shadow ray min steps taken", &shadowRayMinStepsTaken, 0, 10);
+                        paramsManager->setShadowRayMinStepsTaken(shadowRayMinStepsTaken);
 
-                    ImGui::Separator();
+                        ImGui::Separator();
 
+                        ImGui::TreePop();
+                    }
                     //----AMBIENT--------------------------------------------------------
-                    ImGui::Text("Ambient");
+                    if (ImGui::TreeNode("Ambient")) {
 
-                    phongShadingMixFactor = paramsManager->getPhongShadingMixFactor();
-                    //TODO: find bounds
-                    ImGui::SliderFloat("Phong Shading Mix Factor", &phongShadingMixFactor, 0.0f, 10.0f);
-                    paramsManager->setPhongShadingMixFactor(phongShadingMixFactor);
+                        phongShadingMixFactor = paramsManager->getPhongShadingMixFactor();
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Phong Shading Mix Factor", &phongShadingMixFactor, 0.0f, 10.0f);
+                        paramsManager->setPhongShadingMixFactor(phongShadingMixFactor);
 
-                    ambientIntensity = paramsManager->getAmbientIntensity();
-                    //TODO: find bounds
-                    ImGui::SliderFloat("Ambient intensity", &ambientIntensity, 0.0f, 10.0f);
-                    paramsManager->setAmbientIntensity(ambientIntensity);
+                        ambientIntensity = paramsManager->getAmbientIntensity();
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Ambient intensity", &ambientIntensity, 0.0f, 10.0f);
+                        paramsManager->setAmbientIntensity(ambientIntensity);
 
-                    diffuseIntensity = paramsManager->getDiffuseIntensity();
-                    //TODO: find bounds
-                    ImGui::SliderFloat("Diffuse intensity", &diffuseIntensity, 0.0f, 10.0f);
-                    paramsManager->setDiffuseIntensity(diffuseIntensity);
+                        diffuseIntensity = paramsManager->getDiffuseIntensity();
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Diffuse intensity", &diffuseIntensity, 0.0f, 10.0f);
+                        paramsManager->setDiffuseIntensity(diffuseIntensity);
 
-                    specularIntensity = paramsManager->getSpecularIntensity();
-                    //TODO: find bounds
-                    ImGui::SliderFloat("Specular intensity", &specularIntensity, 0.0f, 10.0f);
-                    paramsManager->setSpecularIntensity(specularIntensity);
+                        specularIntensity = paramsManager->getSpecularIntensity();
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Specular intensity", &specularIntensity, 0.0f, 10.0f);
+                        paramsManager->setSpecularIntensity(specularIntensity);
 
-                    ImGui::Separator();
+                        ImGui::Separator();
 
+                        ImGui::TreePop();
+                    }
                     //----IMAGERENDER----------------------------------------------------
-                    ImGui::Text("Image Render");
+                    if (ImGui::TreeNode("Image Render")) {
 
-                    gammaCorrection = paramsManager->getGammaCorrection();
-                    //TODO: find bounds
-                    ImGui::SliderInt("Gamma correction", &gammaCorrection, 0, 10);
-                    paramsManager->setGammaCorrection(gammaCorrection);
+                        gammaCorrection = paramsManager->getGammaCorrection();
+                        //TODO: find bounds
+                        ImGui::SliderInt("Gamma correction", &gammaCorrection, 0, 10);
+                        paramsManager->setGammaCorrection(gammaCorrection);
 
-                    //TODO: find why values change when rendering
-                    glm::vec3 l = paramsManager->getLightPos();
-                    lightPos[0] = l.x; lightPos[1] = l.y; lightPos[2] = l.z;
-                    ImGui::InputFloat("LightPos[x]", &lightPos[0]);
-                    ImGui::InputFloat("LightPos[y]", &lightPos[1]);
-                    ImGui::InputFloat("LightPos[z]", &lightPos[2]);
-                    paramsManager->setLightPos(glm::vec3(lightPos[0], lightPos[1], lightPos[2]));
+                        //TODO: find why values change when rendering
+                        glm::vec3 l = paramsManager->getLightPos();
+                        lightPos[0] = l.x; lightPos[1] = l.y; lightPos[2] = l.z;
+                        ImGui::InputFloat("LightPos[x]", &lightPos[0]);
+                        ImGui::InputFloat("LightPos[y]", &lightPos[1]);
+                        ImGui::InputFloat("LightPos[z]", &lightPos[2]);
+                        paramsManager->setLightPos(glm::vec3(lightPos[0], lightPos[1], lightPos[2]));
 
-                    minDistance = paramsManager->getMinDistance();
-                    //TODO: find bounds
-                    ImGui::SliderFloat("Min distance", &minDistance, 0.0f, 1.0f);
-                    paramsManager->setMinDistance(minDistance);
+                        minDistance = paramsManager->getMinDistance();
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Min distance", &minDistance, 0.0f, 1.0f);
+                        paramsManager->setMinDistance(minDistance);
 
-                    noiseFactor = paramsManager->getNoiseFactor();
-                    //TODO: find bounds
-                    ImGui::SliderFloat("Noise factor", &noiseFactor, 0.0f, 10.0f);
-                    paramsManager->setNoiseFactor(noiseFactor);
+                        noiseFactor = paramsManager->getNoiseFactor();
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Noise factor", &noiseFactor, 0.0f, 10.0f);
+                        paramsManager->setNoiseFactor(noiseFactor);
 
-                    ImGui::Separator();
+                        ImGui::Separator();
 
+                        ImGui::TreePop();
+                    }
                     //----BRIGHTNESS-----------------------------------------------------
-                    ImGui::Text("Brightness");
+                    if (ImGui::TreeNode("Brightness")) {
 
-                    shininess = paramsManager->getShininess();
-                    //TODO: find bounds
-                    ImGui::SliderFloat("Shininess", &shininess, 0.0f, 100.0f);
-                    paramsManager->setShininess(shininess);
+                        shininess = paramsManager->getShininess();
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Shininess", &shininess, 0.0f, 100.0f);
+                        paramsManager->setShininess(shininess);
+
+                        ImGui::TreePop();
+                    }
 
                     ImGui::EndTabItem();
                 }
