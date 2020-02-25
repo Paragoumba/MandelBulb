@@ -95,7 +95,6 @@ public:
     float getGlowFactor();
     int getJulia();
     glm::vec3 getJuliaC();
-    float getLightAngle();
     glm::vec3 getLightPos();
     int getLightSource();
     int getMandelBoxOn();
@@ -153,7 +152,6 @@ public:
     void setGlowFactor(float);
     void setJulia(int);
     void setJuliaC(glm::vec3);
-    void setLightAngle(float);
     void setLightPos(glm::vec3);
     void setLightSource(int);
     void setMandelBoxOn(int);

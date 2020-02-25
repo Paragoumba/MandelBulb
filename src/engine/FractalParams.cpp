@@ -37,7 +37,6 @@ glm::vec3 FractalParams::getGlowColor() { return glowColor; }
 float FractalParams::getGlowFactor() { return glowFactor; }
 int FractalParams::getJulia() { return julia; }
 glm::vec3 FractalParams::getJuliaC() { return juliaC; }
-float FractalParams::getLightAngle() { return lightAngle; }
 glm::vec3 FractalParams::getLightPos() { return lightPos; }
 int FractalParams::getLightSource() { return lightSource; }
 int FractalParams::getMandelBoxOn() { return mandelBoxOn; }
@@ -134,9 +133,6 @@ void FractalParams::setJulia(int julia = (int)NULL) {
 }
 void FractalParams::setJuliaC(glm::vec3 juliaC = (glm::vec3)(float)NULL) {
     this->juliaC = (juliaC == (glm::vec3)(float)NULL)?glm::vec3(0.86, 0.23, -0.50):juliaC;
-}
-void FractalParams::setLightAngle(float lightAngle = (float)NULL) {
-    this->lightAngle = (lightAngle == (float)NULL)?0:lightAngle;
 }
 void FractalParams::setLightPos(glm::vec3 lightPos = (glm::vec3)(float)NULL) {
     this->lightPos = (lightPos == (glm::vec3)(float)NULL)?glm::vec3(std::cos(lightAngle) * 10, 3.00, std::sin(lightAngle) * 10):lightPos;
@@ -261,7 +257,6 @@ void FractalParams::reset() {
     setGlowFactor();
     setJulia();
     setJuliaC();
-    setLightAngle();
     setLightPos();
     setLightSource();
     setMandelBoxOn();

@@ -37,7 +37,6 @@ public:
     float getGlowFactor() const;
     glm::vec3 getGlowColor() const;
     //----SHADOW---------------------------------------------------------
-    float getLightAngle() const;
     int getLightSource() const;
     float getShadowBrightness() const;
     int getShadowRayMinStepsTaken() const;
@@ -134,7 +133,6 @@ public:
     void setGlowFactor(float);
     void setJulia(int);
     void setJuliaC(glm::vec3);
-    void setLightAngle(float);
     void setLightPos(glm::vec3);
     void setLightSource(int);
     void setMandelBoxOn(int);
