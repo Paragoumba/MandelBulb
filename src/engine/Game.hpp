@@ -2,7 +2,6 @@
 #define PTUT_GAME_HPP
 
 #include "Shader.hpp"
-#include "Scene.hpp"
 #include "Renderer.hpp"
 #include "Window.hpp"
 
@@ -14,7 +13,6 @@
 class Game {
 private:
     Renderer renderer;
-    Scene scene;
     Camera camera;
 
     float lightAngle = 0;

@@ -156,7 +156,7 @@ void Window::setCursor(const char* path){
     if (cursorImage.pixels == nullptr){
 
         throw WindowException(
-                (std::string("Could not create cursor from image located at ") + path + '.').c_str());
+                (std::string("Could not create cursor from image located at '") + path + "'.").c_str());
 
     }
 
