@@ -103,39 +103,64 @@ void GameEngine::loop() {
             }
 
             if (ImGui::BeginTabBar("Settings")) {
+                if (ImGui::BeginTabItem("Main")) {
+
+                    ImGui::Text("Equation: z_(n+1)=a*(z_n)^2+c");
+                    char *reA = paramsManager->getReA(),
+                            *imA = paramsManager->getImA(),
+                            *reC = paramsManager->getReC(),
+                            *imC = paramsManager->getImC();
+                    ImGui::InputText("Re(a)", reA, IM_ARRAYSIZE(reA));
+                    ImGui::InputText("Im(a)", imA, IM_ARRAYSIZE(imA));
+                    ImGui::InputText("Re(c)", reC, IM_ARRAYSIZE(reC));
+                    ImGui::InputText("Im(c)", imC, IM_ARRAYSIZE(imC));
+
+                    ImGui::Checkbox("Render fractal", &paramsManager->getRenderFractal());
+
+                    ImGui::ColorEdit3("Background color", (float*)&paramsManager->getBackgroundColor());
+
+                    if (ImGui::Button("Hide menu"))
+                        paramsManager->setHideMenu(true);
+
+                    ImGui::EndTabItem();
+                }
                 if (ImGui::BeginTabItem("Graphics")) {
+
+                    ImGui::Text("Glow");
+                    ImGui::Separator();
+
+                    ImGui::Text("Shadow");
+                    ImGui::Separator();
+
+                    ImGui::Text("Ambient");
+                    ImGui::Separator();
+
+                    ImGui::Text("Brightness");
+
+                    ImGui::EndTabItem();
+                }
+                if (ImGui::BeginTabItem("Fractal")) {
 
 
                     ImGui::EndTabItem();
                 }
-                if (ImGui::BeginTabItem("Shader")) {
+                if (ImGui::BeginTabItem("Math")) {
+
+
+                    ImGui::EndTabItem();
+                }
+                if (ImGui::BeginTabItem("Colors")) {
+
+
+                    ImGui::EndTabItem();
+                }
+                if (ImGui::BeginTabItem("Others")) {
 
 
                     ImGui::EndTabItem();
                 }
                 ImGui::EndTabBar();
             }
-
-            ImGui::Text("Equation: z_(n+1)=a*(z_n)^2+c");
-            char *reA = paramsManager->getReA(),
-                *imA = paramsManager->getImA(),
-                *reC = paramsManager->getReC(),
-                *imC = paramsManager->getImC();
-            ImGui::InputText("Re(a)", reA, IM_ARRAYSIZE(reA));
-            ImGui::InputText("Im(a)", imA, IM_ARRAYSIZE(imA));
-            ImGui::InputText("Re(c)", reC, IM_ARRAYSIZE(reC));
-            ImGui::InputText("Im(c)", imC, IM_ARRAYSIZE(imC));
-
-            ImGui::Checkbox("Render fractal", &paramsManager->getRenderFractal());
-
-            ImGui::ColorEdit3("Background color", (float*)&paramsManager->getBackgroundColor());
-
-            if(ImGui::Button("test")){
-                paramsManager->setNearPlane(paramsManager->getNearPlane() + 0.1);
-            }
-
-            if (ImGui::Button("Hide menu"))
-                paramsManager->setHideMenu(true);
 
             ImGui::End();
         }

@@ -33,8 +33,6 @@ public:
     float getAmbientIntensity() const;
     float getDiffuseIntensity() const;
     float getSpecularIntensity() const;
-    //-------------------------------------------------------------------
-
     //----BRIGHTNESS-----------------------------------------------------
     float getShininess() const;
     //-------------------------------------------------------------------
