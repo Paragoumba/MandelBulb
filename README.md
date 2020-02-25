@@ -2,6 +2,8 @@
 MandelBulb is a software that renders fractals in 3D by raymarching
 them.
 
+![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/Paragoumba/mandelbulb)
+
 ## Dependencies
 ### MandelBulb:
 - [GLFW][1]
