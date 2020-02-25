@@ -135,6 +135,7 @@ void GameEngine::loop() {
 
         if (paramsManager->getRenderFractal()) {
 
+            paramsManager->setBgColor(glm::vec3(backgroundColor.x, backgroundColor.y, backgroundColor.z));
             game.update();
             game.render(window);
 
