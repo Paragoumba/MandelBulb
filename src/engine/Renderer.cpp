@@ -52,7 +52,9 @@ fractalShader(Utils::getPath("../res/shaders/mandel_raymarch.vs").c_str(),
 void Renderer::renderFractal(Window& window, Camera& camera, float lightAngle){
 
     if (fractalParams == nullptr)
-        fractalParams = FractalParams::getInstance(camera);
+        fractalParams = FractalParams::getInstance();
+
+    fractalParams->setInverseVP(camera);
 
     fractalParams->setLightAngle(lightAngle);
 

@@ -10,7 +10,7 @@ class FractalParams{
 private:
 
     static FractalParams* singleton;
-    explicit FractalParams(Camera);
+    explicit FractalParams();
 
     float ambientIntensity;
     float bailLimit;
@@ -66,14 +66,13 @@ private:
     float time;
     float nearPlane;
     float farPlane;
-    Camera camera;
     glm::mat4 inverseVP;
 
 public:
 
     FractalParams(const FractalParams&) = delete;
     FractalParams& operator=(const FractalParams&) = delete;
-    static FractalParams* getInstance(Camera);
+    static FractalParams* getInstance();
 
     float getAmbientIntensity();
     float getBailLimit();
@@ -187,8 +186,7 @@ public:
     void setTime(float);
     void setNearPlane(float);
     void setFarPlane(float);
-    void setCamera(Camera);
-    void setInverseVP(glm::mat4);
+    void setInverseVP(Camera& camera, glm::mat4 = (glm::mat4)(const float)NULL);
 
     ~FractalParams() = default;
 

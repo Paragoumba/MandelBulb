@@ -2,17 +2,16 @@
 
 FractalParams *FractalParams::singleton = nullptr;
 
-FractalParams::FractalParams(Camera camera) {
+FractalParams::FractalParams() {
 
-    setCamera(camera);
     reset();
 
 }
 
-FractalParams* FractalParams::getInstance(Camera camera) {
+FractalParams* FractalParams::getInstance() {
 
     if (!singleton)
-        singleton = new FractalParams(camera);
+        singleton = new FractalParams();
     return singleton;
 
 }
@@ -235,10 +234,7 @@ void FractalParams::setNearPlane(float nearPlane = (float)NULL) {
 void FractalParams::setFarPlane(float farPlane = (float)NULL) {
     this->farPlane = (farPlane == (float)NULL)?100.0f:farPlane;
 }
-void FractalParams::setCamera(Camera camera) {
-    this->camera = camera;
-}
-void FractalParams::setInverseVP(glm::mat4 inverseVP = (glm::mat4)(const float)NULL) {
+void FractalParams::setInverseVP(Camera& camera, glm::mat4 inverseVP) {
     this->inverseVP = (inverseVP == (glm::mat4)(const float)NULL)?glm::inverse(Transformation::getViewMatrix(camera)) * glm::inverse(Transformation::getProjectionMatrix()):inverseVP;
 }
 
@@ -298,6 +294,5 @@ void FractalParams::reset() {
     setTime();
     setNearPlane();
     setFarPlane();
-    setInverseVP();
 
 }

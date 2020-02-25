@@ -66,7 +66,7 @@ void GameEngine::loop() {
     ImGui_ImplOpenGL3_Init(glsl_version);
 
     // Our state
-    ParamsManager *paramsManager = new ParamsManager(game.getCamera());
+    auto* paramsManager = new ParamsManager();
 
     while (!window.shouldClose()){
 
