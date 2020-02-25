@@ -95,7 +95,7 @@ public:
     float getShadowBrightness() const;
     int getShadowRayMinStepsTaken() const;
     int getShowBgGradient() const;
-    float getSphereFixedRadius() const;x
+    float getSphereFixedRadius() const;
     float getSphereMinRadius() const;
     int getSphereMinTimeVariance() const;
     int getTetraFactor() const;
