@@ -104,26 +104,79 @@ void GameEngine::loop() {
                 ImGui::EndMenuBar();
             }
 
-            ImGui::Text("Equation: z_(n+1)=a*(z_n)^2+c");
-            char *reA = paramsManager->getReA(),
-                *imA = paramsManager->getImA(),
-                *reC = paramsManager->getReC(),
-                *imC = paramsManager->getImC();
-            ImGui::InputText("Re(a)", reA, IM_ARRAYSIZE(reA));
-            ImGui::InputText("Im(a)", imA, IM_ARRAYSIZE(imA));
-            ImGui::InputText("Re(c)", reC, IM_ARRAYSIZE(reC));
-            ImGui::InputText("Im(c)", imC, IM_ARRAYSIZE(imC));
+            if (ImGui::BeginTabBar("Settings")) {
+                if (ImGui::BeginTabItem("GUI")) {
 
-            ImGui::Checkbox("Render fractal", &paramsManager->getRenderFractal());
+                    ImGui::Text("Equation: z_(n+1)=a*(z_n)^2+c");
+                    char *reA = paramsManager->getReA(),
+                            *imA = paramsManager->getImA(),
+                            *reC = paramsManager->getReC(),
+                            *imC = paramsManager->getImC();
+                    ImGui::InputText("Re(a)", reA, IM_ARRAYSIZE(reA));
+                    ImGui::InputText("Im(a)", imA, IM_ARRAYSIZE(imA));
+                    ImGui::InputText("Re(c)", reC, IM_ARRAYSIZE(reC));
+                    ImGui::InputText("Im(c)", imC, IM_ARRAYSIZE(imC));
 
-            ImGui::ColorEdit3("Background color", (float*)&paramsManager->getBackgroundColor());
+                    ImGui::Checkbox("Render fractal", &paramsManager->getRenderFractal());
 
-            if(ImGui::Button("test")){
-                paramsManager->setNearPlane(paramsManager->getNearPlane() + 0.1);
+                    ImGui::ColorEdit3("Background color", (float*)&paramsManager->getBackgroundColor());
+
+                    if (ImGui::Button("Hide menu"))
+                        paramsManager->setHideMenu(true);
+
+                    ImGui::EndTabItem();
+                }
+                if (ImGui::BeginTabItem("Graphics")) {
+
+                    ImGui::Text("Glow");
+                    ImGui::Separator();
+
+                    ImGui::Text("Shadow");
+                    ImGui::Separator();
+
+                    ImGui::Text("Ambient");
+                    ImGui::Separator();
+
+                    ImGui::Text("Image Render");
+                    ImGui::Separator();
+
+                    ImGui::Text("Brightness");
+
+                    ImGui::EndTabItem();
+                }
+                if (ImGui::BeginTabItem("Math")) {
+
+                    ImGui::Text("Precision");
+                    ImGui::Separator();
+
+                    ImGui::Text("Fractal");
+                    ImGui::Separator();
+
+                    ImGui::Text("Others");
+
+                    ImGui::EndTabItem();
+                }
+                if (ImGui::BeginTabItem("Colors")) {
+
+                    ImGui::Text("Colors");
+                    ImGui::Separator();
+
+                    ImGui::Text("Strength");
+
+                    ImGui::EndTabItem();
+                }
+                if (ImGui::BeginTabItem("Others")) {
+
+                    ImGui::Text("Others");
+                    ImGui::Separator();
+
+                    ImGui::Text("Box");
+
+                    ImGui::EndTabItem();
+                }
+
+                ImGui::EndTabBar();
             }
-
-            if (ImGui::Button("Hide menu"))
-                paramsManager->setHideMenu(true);
 
             ImGui::End();
 
