@@ -140,14 +140,14 @@ void FractalParams::setLightPos(glm::vec3 lightPos = (glm::vec3)(float)NULL) {
 void FractalParams::setLightSource(int lightSource = (int)NULL) {
     this->lightSource = (lightSource == (int)NULL)?1:lightSource;
 }
-void FractalParams::setMandelBoxOn(int mandelBoxOn = (int)NULL) {
-    this->mandelBoxOn = (mandelBoxOn == (int)NULL)?0:mandelBoxOn;
+void FractalParams::setMandelBoxOn(int mandelBoxOn = (bool)true) {
+    this->mandelBoxOn = mandelBoxOn;
 }
 void FractalParams::setMandelBoxScale(float mandelBoxScale = (float)NULL) {
     this->mandelBoxScale = (mandelBoxScale == (float)NULL)?1.2f:mandelBoxScale;
 }
-void FractalParams::setMandelbulbOn(int mandelbulbOn = (int)NULL) {
-    this->mandelbulbOn = (mandelbulbOn == (int)NULL)?1:mandelbulbOn;
+void FractalParams::setMandelbulbOn(int mandelbulbOn = (int)true) {
+    this->mandelbulbOn = mandelbulbOn;
 }
 void FractalParams::setMaxRaySteps(float maxRaySteps = (float)NULL) {
     this->maxRaySteps = (maxRaySteps == (float)NULL)?1000.0f:maxRaySteps;
@@ -197,8 +197,8 @@ void FractalParams::setShadowRayMinStepsTaken(int shadowRayMinStepsTaken = (int)
 void FractalParams::setShininess(float shininess = (float)NULL) {
     this->shininess = (shininess == (float)NULL)?32.0f:shininess;
 }
-void FractalParams::setShowBgGradient(int showBgGradient = (int)NULL) {
-    this->showBgGradient = (showBgGradient == (int)NULL)?1:showBgGradient;
+void FractalParams::setShowBgGradient(int showBgGradient = (int)true) {
+    this->showBgGradient = showBgGradient;
 }
 void FractalParams::setSpecularIntensity(float specularIntensity = (float)NULL) {
     this->specularIntensity = (specularIntensity == (float)NULL)?1.0f:specularIntensity;
