@@ -1,0 +1,20 @@
+[Desktop Entry]
+Comment[fr_FR]=Logiciel de rendu de MandelBulb
+Comment[en_US]=MandelBulb Renderer
+Comment=MandelBulb Renderer
+Exec=/opt/mandelbulb/bin/MandelBulb
+GenericName[en_US]=
+GenericName=
+Icon=mandelbulb
+MimeType=
+Name[en_US]=MandelBulb
+Name=MandelBulb
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

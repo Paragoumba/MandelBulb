@@ -24,7 +24,8 @@ build:
     - cmake --build cmake-build-debug --target MandelBulb
     - mkdir src/cmake-build-debug/bin
     - mv src/cmake-build-debug/MandelBulb src/cmake-build-debug/bin/
-    - tar caf $OUTPUT_FILE -C src/cmake-build-debug/ bin ../res/
+    - chmod u+x install.sh
+    - tar caf $OUTPUT_FILE -C src/cmake-build-debug/ bin ../res/ ../../MandelBulb.desktop ../../install.sh ../../res/mandelbulb-logo-nt150.png
   artifacts:
     paths:
       - $OUTPUT_FILE
