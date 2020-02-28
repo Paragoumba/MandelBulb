@@ -208,8 +208,7 @@ void GameEngine::loop() {
                         paramsManager->setDiffuseIntensity(diffuseIntensity);
 
                         specularIntensity = paramsManager->getSpecularIntensity();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Specular intensity", &specularIntensity, 0.0f, 10.0f);
+                        ImGui::SliderFloat("Specular intensity", &specularIntensity, 0.0f, 7.0f);
                         paramsManager->setSpecularIntensity(specularIntensity);
 
                         ImGui::Separator();
