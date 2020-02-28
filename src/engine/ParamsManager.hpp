@@ -9,13 +9,13 @@ private:
     FractalParams *fractalParams;
 
     /*****MAIN MENU*****/
-    bool renderFractal;
-    bool hideMenu;
-    bool showExportMenu;
-    char reA[8];
-    char imA[8];
-    char reC[8];
-    char imC[8];
+    bool renderFractal{};
+    bool hideMenu{};
+    bool showExportMenu{};
+    char reA[8]{};
+    char imA[8]{};
+    char reC[8]{};
+    char imC[8]{};
     ImVec4 backgroundColor;
 
 public:
@@ -32,6 +32,7 @@ public:
     ImVec4& getBackgroundColor();
     //-------------------------------------------------------------------
 
+    // TODO Fix warnings
     //----GLOW-----------------------------------------------------------
     float getGlowFactor() const;
     glm::vec3 getGlowColor() const;

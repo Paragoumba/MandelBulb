@@ -2,13 +2,13 @@
 
 FractalParams *FractalParams::singleton = nullptr;
 
-FractalParams::FractalParams() {
+FractalParams::FractalParams(){
 
     reset();
 
 }
 
-FractalParams* FractalParams::getInstance() {
+FractalParams* FractalParams::getInstance(){
 
     if (!singleton)
         singleton = new FractalParams();
@@ -71,6 +71,7 @@ float FractalParams::getNearPlane() { return nearPlane; }
 float FractalParams::getFarPlane() { return farPlane; }
 glm::mat4 FractalParams::getInverseVP() { return inverseVP; }
 
+// TODO Fix warnings
 void FractalParams::setAmbientIntensity(float ambientIntensity = (float)NULL) {
     this->ambientIntensity = (ambientIntensity == (float)NULL)?1.0f:ambientIntensity;
 }
