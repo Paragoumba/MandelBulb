@@ -204,8 +204,7 @@ void GameEngine::loop() {
                         paramsManager->setAmbientIntensity(ambientIntensity);
 
                         diffuseIntensity = paramsManager->getDiffuseIntensity();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Diffuse intensity", &diffuseIntensity, 0.0f, 10.0f);
+                        ImGui::SliderFloat("Diffuse intensity", &diffuseIntensity, 0.0f, 7.0f);
                         paramsManager->setDiffuseIntensity(diffuseIntensity);
 
                         specularIntensity = paramsManager->getSpecularIntensity();
