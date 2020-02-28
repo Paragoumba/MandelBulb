@@ -357,7 +357,6 @@ void GameEngine::loop() {
                     }
                     //----OTHERS---------------------------------------------------------
                     if (ImGui::TreeNode("Others")) {
-
                         sphereFoldFactor = paramsManager->getSphereFoldFactor();
                         std::cout << sphereFoldFactor;
                         //TODO: find bounds
@@ -379,14 +378,6 @@ void GameEngine::loop() {
 
                     //----COLORS---------------------------------------------------------
                     if(ImGui::TreeNode("Colors")) {
-
-                        glm::vec3 b = paramsManager->getBgColor();
-                        bgColor.x = b.x;
-                        bgColor.y = b.y;
-                        bgColor.z = b.z;
-                        ImGui::ColorEdit3("Background color", (float*)&bgColor);
-                        //TODO: find why it is not working
-                        paramsManager->setBgColor(glm::vec3(bgColor.x, bgColor.y, bgColor.z));
 
                         glm::vec3 c0 = paramsManager->getColor0();
                         color0.x = c0.x;
