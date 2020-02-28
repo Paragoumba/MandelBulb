@@ -232,8 +232,7 @@ void GameEngine::loop() {
                         paramsManager->setLightPos(glm::vec3(lightPos[0], lightPos[1], lightPos[2]));
 
                         minDistance = paramsManager->getMinDistance();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Min distance", &minDistance, 0.0f, 1.0f);
+                        ImGui::SliderFloat("Min distance", &minDistance, 0.0f, 0.3f);
                         paramsManager->setMinDistance(minDistance);
 
                         noiseFactor = paramsManager->getNoiseFactor();
