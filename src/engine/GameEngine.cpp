@@ -236,8 +236,7 @@ void GameEngine::loop() {
                         paramsManager->setMinDistance(minDistance);
 
                         noiseFactor = paramsManager->getNoiseFactor();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Noise factor", &noiseFactor, 0.0f, 10.0f);
+                        ImGui::SliderFloat("Noise factor", &noiseFactor, 0.0f, 30.0f);
                         paramsManager->setNoiseFactor(noiseFactor);
 
                         ImGui::Separator();
@@ -248,7 +247,7 @@ void GameEngine::loop() {
                     if (ImGui::TreeNode("Brightness")) {
 
                         shininess = paramsManager->getShininess();
-                        //TODO: find bounds
+                        //TODO: find bounds strange [0;10]
                         ImGui::SliderFloat("Shininess", &shininess, 0.0f, 100.0f);
                         paramsManager->setShininess(shininess);
 
@@ -272,7 +271,7 @@ void GameEngine::loop() {
 
                         power = paramsManager->getPower();
                         //TODO: find bounds
-                        ImGui::SliderFloat("Power", &power, 0.0f, 16.0f);
+                        ImGui::SliderFloat("Power", &power, -16.0f, 16.0f);
                         paramsManager->setPower(power);
 
                         ImGui::Separator();
@@ -284,7 +283,6 @@ void GameEngine::loop() {
                     if (ImGui::TreeNode("Precision")) {
 
                         maxRaySteps = paramsManager->getMaxRaySteps();
-                        //TODO: find bounds
                         ImGui::SliderFloat("Max ray steps", &maxRaySteps, 0.0f, 2000.0f);
                         paramsManager->setMaxRaySteps(maxRaySteps);
 
