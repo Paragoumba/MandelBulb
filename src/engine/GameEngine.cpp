@@ -120,7 +120,7 @@ void GameEngine::loop() {
 
             if (ImGui::BeginMenuBar()) {
                 if (ImGui::BeginMenu("File")) {
-                    ImGui::MenuItem("Export", NULL, &paramsManager->getShowExportMenu());
+                    ImGui::MenuItem("Export", nullptr, &paramsManager->getShowExportMenu());
                     ImGui::EndMenu();
                 }
                 ImGui::EndMenuBar();
@@ -134,6 +134,8 @@ void GameEngine::loop() {
                             *imA = paramsManager->getImA(),
                             *reC = paramsManager->getReC(),
                             *imC = paramsManager->getImC();
+
+                    // TODO Fix IM_ARRAYSIZE usage
                     ImGui::InputText("Re(a)", reA, IM_ARRAYSIZE(reA));
                     ImGui::InputText("Im(a)", imA, IM_ARRAYSIZE(imA));
                     ImGui::InputText("Re(c)", reC, IM_ARRAYSIZE(reC));
@@ -361,6 +363,7 @@ void GameEngine::loop() {
                         std::cout << sphereFoldFactor;
                         //TODO: find bounds
                         ImGui::SliderFloat("Sphere fold factor", &sphereFoldFactor, 0.0f, 10.0f);
+                        // TODO Fix conversion
                         paramsManager->setSphereFoldFactor(sphereFoldFactor);
 
                         ImGui::Separator();

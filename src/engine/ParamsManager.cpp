@@ -1,12 +1,11 @@
 #include "ParamsManager.hpp"
 
-ParamsManager::ParamsManager() {
+ParamsManager::ParamsManager(){
 
     fractalParams = FractalParams::getInstance();
     reset();
 
 }
-
 
 float ParamsManager::getAmbientIntensity() const { return fractalParams->getAmbientIntensity(); }
 float ParamsManager::getBailLimit() const { return fractalParams->getBailLimit(); }
@@ -54,6 +53,7 @@ int ParamsManager::getShowBgGradient() const { return fractalParams->getShowBgGr
 float ParamsManager::getSpecularIntensity() const { return fractalParams->getSpecularIntensity(); }
 float ParamsManager::getSphereFixedRadius() const { return fractalParams->getSphereFixedRadius(); }
 float ParamsManager::getSphereMinRadius() const { return fractalParams->getSphereMinRadius(); }
+// TODO Fix conversion
 int ParamsManager::getSphereMinTimeVariance() const { return fractalParams->getSphereMinRadius(); }
 int ParamsManager::getTetraFactor() const { return fractalParams->getTetraFactor(); }
 float ParamsManager::getTetraScale() const { return fractalParams->getTetraScale(); }
@@ -134,20 +134,20 @@ void ParamsManager::setHideMenu(bool hideMenu = true) {
 void ParamsManager::setShowExportMenu(bool showExportMenu = false) {
     this->showExportMenu = showExportMenu;
 }
-void ParamsManager::setReA(const char* reA = (const char*)NULL) {
-    if (reA == (const char*)NULL) strcpy(this->reA, "1");
+void ParamsManager::setReA(const char* reA = (const char*)nullptr) {
+    if (reA == (const char*)nullptr) strcpy(this->reA, "1");
     else strcpy(this->reA, reA);
 }
-void ParamsManager::setImA(const char* imA = (const char*)NULL) {
-    if (imA == (const char*)NULL) strcpy(this->imA, "0");
+void ParamsManager::setImA(const char* imA = (const char*)nullptr) {
+    if (imA == (const char*)nullptr) strcpy(this->imA, "0");
     else strcpy(this->imA, imA);
 }
-void ParamsManager::setReC(const char* reC = (const char*)NULL) {
-    if (reC == (const char*)NULL) strcpy(this->reC, "0");
+void ParamsManager::setReC(const char* reC = (const char*)nullptr) {
+    if (reC == (const char*)nullptr) strcpy(this->reC, "0");
     else strcpy(this->reC, reC);
 }
-void ParamsManager::setImC(const char* imC = (const char*)NULL) {
-    if (imC == (const char*)NULL) strcpy(this->imC, "0");
+void ParamsManager::setImC(const char* imC = (const char*)nullptr) {
+    if (imC == (const char*)nullptr) strcpy(this->imC, "0");
     else strcpy(this->imC, imC);
 }
 void ParamsManager::setBackgroundColor(ImVec4 backgroundColor = ImVec4(0.45f, 0.55f, 0.60f, 1.00f)) {
