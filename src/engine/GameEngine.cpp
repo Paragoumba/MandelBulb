@@ -200,8 +200,7 @@ void GameEngine::loop() {
                         paramsManager->setPhongShadingMixFactor(phongShadingMixFactor);
 
                         ambientIntensity = paramsManager->getAmbientIntensity();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Ambient intensity", &ambientIntensity, 0.0f, 10.0f);
+                        ImGui::SliderFloat("Ambient intensity", &ambientIntensity, 0.0f, 20.0f);
                         paramsManager->setAmbientIntensity(ambientIntensity);
 
                         diffuseIntensity = paramsManager->getDiffuseIntensity();
