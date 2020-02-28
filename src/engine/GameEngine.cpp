@@ -180,8 +180,7 @@ void GameEngine::loop() {
                         paramsManager->setLightSource(lightSource);
 
                         shadowBrightness = paramsManager->getShadowBrightness();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Shadow brightness", &shadowBrightness, 0.0f, 1.0f);
+                        ImGui::SliderFloat("Shadow brightness", &shadowBrightness, 0.0f, 3.0f);
                         paramsManager->setShadowBrightness(shadowBrightness);
 
                         shadowRayMinStepsTaken = paramsManager->getShadowRayMinStepsTaken();
