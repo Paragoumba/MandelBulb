@@ -157,8 +157,7 @@ void GameEngine::loop() {
                     if (ImGui::TreeNode("Glow")) {
 
                         glowFactor = paramsManager->getGlowFactor();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Glow factor", &glowFactor, 0.0f, 10.0f);
+                        ImGui::SliderFloat("Glow factor", &glowFactor, 0.0f, 6.0f);
                         paramsManager->setGlowFactor(glowFactor);
 
                         glm::vec3 c = paramsManager->getGlowColor();
@@ -309,7 +308,7 @@ void GameEngine::loop() {
                         ImGui::SliderFloat("Sphere min radius", &sphereMinRadius, 0.0f, 0.5f);
                         paramsManager->setSphereMinRadius(sphereMinRadius);
 
-                        //TODO: find why it is not working
+                        //TODO: find why it is not working => sphereMinTimeVariance must be a bool with a checkBox
                         sphereMinTimeVariance = paramsManager->getSphereMinTimeVariance();
                         ImGui::InputInt("Sphere min time variance", &sphereMinTimeVariance);
                         paramsManager->setSphereMinTimeVariance(sphereMinTimeVariance);
