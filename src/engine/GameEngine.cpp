@@ -184,7 +184,7 @@ void GameEngine::loop() {
                         paramsManager->setShadowBrightness(shadowBrightness);
 
                         shadowRayMinStepsTaken = paramsManager->getShadowRayMinStepsTaken();
-                        //TODO: find bounds
+                        //TODO: find bounds seems good like that
                         ImGui::SliderInt("Shadow ray min steps taken", &shadowRayMinStepsTaken, 0, 10);
                         paramsManager->setShadowRayMinStepsTaken(shadowRayMinStepsTaken);
 
@@ -196,8 +196,7 @@ void GameEngine::loop() {
                     if (ImGui::TreeNode("Ambient")) {
 
                         phongShadingMixFactor = paramsManager->getPhongShadingMixFactor();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Phong Shading Mix Factor", &phongShadingMixFactor, 0.0f, 10.0f);
+                        ImGui::SliderFloat("Phong Shading Mix Factor", &phongShadingMixFactor, 0.0f, 18.0f);
                         paramsManager->setPhongShadingMixFactor(phongShadingMixFactor);
 
                         ambientIntensity = paramsManager->getAmbientIntensity();
