@@ -358,8 +358,8 @@ void GameEngine::loop() {
                     //----OTHERS---------------------------------------------------------
                     if (ImGui::TreeNode("Others")) {
 
-                        //TODO: find why it is not working (linker command failed)
-                        //sphereFoldFactor = paramsManager->getSphereFoldFactor();
+                        sphereFoldFactor = paramsManager->getSphereFoldFactor();
+                        std::cout << sphereFoldFactor;
                         //TODO: find bounds
                         ImGui::SliderFloat("Sphere fold factor", &sphereFoldFactor, 0.0f, 10.0f);
                         paramsManager->setSphereFoldFactor(sphereFoldFactor);

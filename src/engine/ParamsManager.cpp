@@ -69,6 +69,7 @@ char* ParamsManager::getImA() { return imA; }
 char* ParamsManager::getReC() { return reC; }
 char* ParamsManager::getImC() { return imC; }
 ImVec4& ParamsManager::getBackgroundColor() { return backgroundColor; }
+float ParamsManager::getSphereFoldFactor() const { return fractalParams->getSphereFoldFactor(); }
 
 void ParamsManager::setAmbientIntensity(float ambientIntensity) { fractalParams->setAmbientIntensity(ambientIntensity); }
 void ParamsManager::setBailLimit(float bailLimit) { fractalParams->setBailLimit(bailLimit); }
@@ -165,3 +166,5 @@ void ParamsManager::reset() {
     setBackgroundColor();
 
 }
+
+
