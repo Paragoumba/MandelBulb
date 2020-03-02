@@ -21,6 +21,7 @@ public:
     GameEngine();
 
     void loop();
+    void exportSettings();
 };
 
 #endif //PTUT_GAMEENGINE_HPP

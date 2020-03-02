@@ -2,6 +2,7 @@
 #define PTUT_PARAMSMANAGER_HPP
 
 #include "FractalParams.hpp"
+#include <nlohmann/json.hpp>
 #include "../../lib/imgui/imgui.h"
 
 class ParamsManager {
@@ -112,6 +113,8 @@ public:
     //-------------------------------------------------------------------
 
     void reset();
+    void importSettings(std::string);
+    void exportSettings(std::string);
 
     void setAmbientIntensity(float);
     void setBailLimit(float);

@@ -78,7 +78,7 @@ void GameEngine::loop() {
     int lightSource, shadowRayMinStepsTaken, gammaCorrection, fractalIters,
         sphereMinTimeVariance, tetraFactor, derivativeBias, boxFoldFactor;
     bool showBgGradient, mandelbulbOn, julia, mandelBoxOn;
-    ImVec4 glowColor, bgColor, color0, color1, color2, color3, colorBase;
+    ImVec4 glowColor, color0, color1, color2, color3, colorBase;
 
     while (!window.shouldClose()){
 
@@ -120,7 +120,8 @@ void GameEngine::loop() {
 
             if (ImGui::BeginMenuBar()) {
                 if (ImGui::BeginMenu("File")) {
-                    ImGui::MenuItem("Export", nullptr, &paramsManager->getShowExportMenu());
+                    ImGui::MenuItem("Export settings", nullptr, &paramsManager->getShowExportMenu());
+                    //ImGui::MenuItem("Import settings", nullptr, NULL);
                     ImGui::EndMenu();
                 }
                 ImGui::EndMenuBar();
