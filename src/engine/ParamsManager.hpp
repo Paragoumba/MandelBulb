@@ -12,6 +12,7 @@ private:
     /*****MAIN MENU*****/
     bool renderFractal{};
     bool hideMenu{};
+    bool showScreenshotMenu{};
     bool showExportMenu{};
     bool showImportMenu{};
     char reA[8]{};
@@ -26,6 +27,7 @@ public:
     //GUI----------------------------------------------------------------
     bool& getRenderFractal();
     bool& getHideMenu();
+    bool& getShowScreenshotMenu();
     bool& getShowExportMenu();
     bool& getShowImportMenu();
     char* getReA();
@@ -174,6 +176,7 @@ public:
     void setInverseVP(Camera& camera, glm::mat4);
     void setRenderFractal(bool);
     void setHideMenu(bool);
+    void setShowScreenshotMenu(bool);
     void setShowExportMenu(bool);
     void setShowImportMenu(bool);
     void setReA(const char*);

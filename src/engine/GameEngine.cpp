@@ -79,7 +79,8 @@ void GameEngine::loop() {
         sphereFoldFactor;
     bool showBgGradient, mandelbulbOn, julia, mandelBoxOn;
     ImVec4 glowColor, color0, color1, color2, color3, colorBase;
-    char pathExport[256] = "test.json", pathImport[256] = "test.json";
+    char pathExport[256] = "test.json", pathImport[256] = "test.json",
+        pathScreenshot[256] = "screenshot.png";
 
     while (!window.shouldClose()){
 
@@ -96,7 +97,7 @@ void GameEngine::loop() {
         }
         if (window.getKey(GLFW_KEY_F2) == GLFW_PRESS) {
 
-            window.takeScreenshot("screenshot.png");
+            paramsManager->setShowScreenshotMenu(true);
 
         }
         if (window.getKey(GLFW_KEY_F3) == GLFW_PRESS) {
@@ -143,6 +144,19 @@ void GameEngine::loop() {
                     paramsManager->setShowImportMenu(false);
                 } catch (const char*& e) {
                     std::cerr << e << std::endl;
+                }
+            }
+            ImGui::End();
+        }
+
+        if (paramsManager->getShowScreenshotMenu()) {
+            ImGui::Begin("Screenshot menu");
+            ImGui::InputText("File name (path)", pathScreenshot, IM_ARRAYSIZE(pathScreenshot));
+            if (ImGui::Button("Take screenshot")) {
+                if (window.takeScreenshot(pathScreenshot)) {
+                    paramsManager->setShowScreenshotMenu(false);
+                } else {
+                    std::cerr << "An error occured while taking screenshot" << std::endl;
                 }
             }
             ImGui::End();

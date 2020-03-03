@@ -64,6 +64,7 @@ float ParamsManager::getFarPlane() const { return fractalParams->getFarPlane(); 
 glm::mat4 ParamsManager::getInverseVP() const { return fractalParams->getInverseVP(); }
 bool& ParamsManager::getRenderFractal() { return renderFractal; }
 bool& ParamsManager::getHideMenu() { return hideMenu; }
+bool& ParamsManager::getShowScreenshotMenu() { return showScreenshotMenu; }
 bool& ParamsManager::getShowExportMenu() { return showExportMenu; }
 bool& ParamsManager::getShowImportMenu() { return showImportMenu; }
 char* ParamsManager::getReA() { return reA; }
@@ -133,6 +134,9 @@ void ParamsManager::setRenderFractal(bool renderFractal = false) {
 void ParamsManager::setHideMenu(bool hideMenu = true) {
     this->hideMenu = hideMenu;
 }
+void ParamsManager::setShowScreenshotMenu(bool showScreenshotMenu = false) {
+    this->showScreenshotMenu = showScreenshotMenu;
+}
 void ParamsManager::setShowExportMenu(bool showExportMenu = false) {
     this->showExportMenu = showExportMenu;
 }
@@ -163,6 +167,7 @@ void ParamsManager::reset() {
 
     setRenderFractal();
     setHideMenu();
+    setShowScreenshotMenu();
     setShowExportMenu();
     setShowImportMenu();
     setReA();
