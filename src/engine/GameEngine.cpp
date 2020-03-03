@@ -132,6 +132,9 @@ void GameEngine::loop() {
                     std::cerr << e << std::endl;
                 }
             }
+            ImGui::SameLine();
+            if (ImGui::Button("Cancel"))
+                paramsManager->setShowExportMenu(false);
             ImGui::End();
         }
 
@@ -146,6 +149,9 @@ void GameEngine::loop() {
                     std::cerr << e << std::endl;
                 }
             }
+            ImGui::SameLine();
+            if (ImGui::Button("Cancel"))
+                paramsManager->setShowImportMenu(false);
             ImGui::End();
         }
 
@@ -159,6 +165,9 @@ void GameEngine::loop() {
                     std::cerr << "An error occured while taking screenshot" << std::endl;
                 }
             }
+            ImGui::SameLine();
+            if (ImGui::Button("Cancel"))
+                paramsManager->setShowScreenshotMenu(false);
             ImGui::End();
         }
 
