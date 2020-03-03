@@ -127,6 +127,5 @@ void Game::update(){
 void Game::render(Window& window){
 
     renderer.renderFractal(window, camera, lightAngle);
-    renderer.takeScreenshot("screenshot.png");
 
 }

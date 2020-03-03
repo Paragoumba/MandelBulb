@@ -25,6 +25,8 @@ public:
     int takeScreenshot(const char*);
 
     void renderFractal(Window& window, Camera& camera, float lightAngle);
+
+    ~Renderer();
 };
 
 #endif //PTUT_RENDERER_HPP

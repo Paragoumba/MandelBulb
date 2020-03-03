@@ -153,3 +153,9 @@ void Renderer::renderFractal(Window& window, Camera& camera, float lightAngle){
     fractal->render();
 
 }
+
+Renderer::~Renderer() {
+
+    delete fractalParams;
+
+}

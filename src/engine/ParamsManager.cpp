@@ -370,3 +370,9 @@ void ParamsManager::exportSettings(std::string path) noexcept(false) {
     }
 
 }
+
+ParamsManager::~ParamsManager() {
+
+    delete fractalParams;
+
+}

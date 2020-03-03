@@ -657,3 +657,7 @@ int GameEngine::takeScreenshot(const char* path) {
     return game.takeScreenshot(path);
 
 }
+
+GameEngine::~GameEngine() {
+
+}

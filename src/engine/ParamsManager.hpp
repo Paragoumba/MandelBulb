@@ -185,7 +185,7 @@ public:
     void setImC(const char*);
     void setBackgroundColor(ImVec4);
 
-    ~ParamsManager() = default;
+    ~ParamsManager();
 
 };
 
