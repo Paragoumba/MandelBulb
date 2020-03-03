@@ -14,6 +14,12 @@ Camera Game::getCamera() {
 
 }
 
+int Game::takeScreenshot(const char* path) {
+
+    return renderer.takeScreenshot(path);
+
+}
+
 /**
  * \fn init
  *
@@ -121,5 +127,6 @@ void Game::update(){
 void Game::render(Window& window){
 
     renderer.renderFractal(window, camera, lightAngle);
+    renderer.takeScreenshot("screenshot.png");
 
 }

@@ -9,8 +9,8 @@
 
 #include <iostream>
 #include <stb/stb_image.h>
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb/stb_image_write.h"
+//#define STB_IMAGE_WRITE_IMPLEMENTATION
+//#include "stb/stb_image_write.h"
 
 #include "Window.hpp"
 #include "Transformation.hpp"
@@ -201,33 +201,6 @@ void Window::setColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a){
 void Window::close(){
 
     glfwSetWindowShouldClose(handle, true);
-
-}
-
-//TODO: find why rendered fractal isn't part of the screenshot
-int Window::takeScreenshot(const char* path) {
-
-    GLint viewport[4];
-    glGetIntegerv(GL_VIEWPORT, viewport);
-
-    int x = viewport[0];
-    int y = viewport[1];
-    int width = viewport[2];
-    int height = viewport[3];
-
-    char *data = (char*) malloc((size_t) (width * height * 3)); // 3 components (R, G, B)
-
-    if (!data)
-        return 0;
-
-    glPixelStorei(GL_PACK_ALIGNMENT, 1);
-    glReadPixels(x, y, width, height, GL_RGB, GL_UNSIGNED_BYTE, data);
-
-    int saved = stbi_write_png(path, width, height, 3, data, 0);
-
-    free(data);
-
-    return saved;
 
 }
 

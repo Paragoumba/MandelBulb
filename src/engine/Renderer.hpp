@@ -22,6 +22,8 @@ private:
 public:
     Renderer();
 
+    int takeScreenshot(const char*);
+
     void renderFractal(Window& window, Camera& camera, float lightAngle);
 };
 

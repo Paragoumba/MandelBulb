@@ -19,6 +19,7 @@ private:
 
 public:
     Camera getCamera();
+    int takeScreenshot(const char*);
 
     void init();
     void input(Window& window);

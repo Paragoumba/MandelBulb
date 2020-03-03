@@ -101,6 +101,9 @@ void GameEngine::loop() {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
+        /*******************/
+        /*      TOOLS      */
+        /*******************/
         if (paramsManager->getShowExportMenu()) {
             ImGui::Begin("Export menu");
             ImGui::InputText("File name (path)", pathExport, IM_ARRAYSIZE(pathExport));
@@ -139,7 +142,7 @@ void GameEngine::loop() {
             ImGui::Begin("Screenshot menu");
             ImGui::InputText("File name (path)", pathScreenshot, IM_ARRAYSIZE(pathScreenshot));
             if (ImGui::Button("Take screenshot")) {
-                if (window.takeScreenshot(pathScreenshot)) {
+                if (takeScreenshot(pathScreenshot)) {
                     paramsManager->setShowScreenshotMenu(false);
                 } else {
                     std::cerr << "An error occured while taking screenshot" << std::endl;
@@ -151,6 +154,9 @@ void GameEngine::loop() {
             ImGui::End();
         }
 
+        /*******************/
+        /*    MAIN MENU    */
+        /*******************/
         if (!paramsManager->getHideMenu()) {
 
             ImGui::Begin("Menu", nullptr, ImGuiWindowFlags_MenuBar);
@@ -643,5 +649,11 @@ void GameEngine::loop() {
         ++i;
 
     }
+
+}
+
+int GameEngine::takeScreenshot(const char* path) {
+
+    return game.takeScreenshot(path);
 
 }
