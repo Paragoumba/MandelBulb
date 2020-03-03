@@ -7,5 +7,6 @@ COPY /stb stb
 COPY /glad glad
 COPY /KHR KHR
 COPY /GL GL
+COPY /nlohmann nlohmann
 
 WORKDIR /

@@ -54,7 +54,7 @@ while true; do
 done
 
 if [[ "$build" = "y" ]]; then
-  libs="stb glad KHR GL"
+  libs="stb glad KHR GL nlohmann"
 
   for value in $libs; do
     dir=$(search "$value")
