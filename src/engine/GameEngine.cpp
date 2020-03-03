@@ -94,6 +94,11 @@ void GameEngine::loop() {
             window.close();
 
         }
+        if (window.getKey(GLFW_KEY_F2) == GLFW_PRESS) {
+
+            window.takeScreenshot("screenshot.png");
+
+        }
         if (window.getKey(GLFW_KEY_F3) == GLFW_PRESS) {
 
             paramsManager->setHideMenu(false);

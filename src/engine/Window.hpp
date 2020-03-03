@@ -86,6 +86,9 @@ public:
     * close this window
     */
     void close();
+
+    int takeScreenshot(const char*);
+
     /**
      *  Destructor of the class window
     */
