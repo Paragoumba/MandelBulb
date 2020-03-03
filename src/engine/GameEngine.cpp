@@ -70,15 +70,16 @@ void GameEngine::loop() {
     float glowFactor, lightPos[3], shadowBrightness, phongShadingMixFactor,
         ambientIntensity, diffuseIntensity, specularIntensity, minDistance,
         noiseFactor, shininess, power, maxRaySteps, sphereFixedRadius,
-        sphereMinRadius, tetraScale, time, sphereFoldFactor, juliaC[3],
-        baseColorStrength, bailLimit,orbitStrength[4], otCycleIntensity,
-        otDist0to1, otDist1to2, otDist2to3, otDist3to0, otPaletteOffset,
-        screenSize[2], nearPlane, farPlane, eyePos[3], fudgeFactor,
-        boxFoldingLimit, mandelBoxScale;
+        sphereMinRadius, tetraScale, time, juliaC[3], baseColorStrength,
+        bailLimit,orbitStrength[4], otCycleIntensity, otDist0to1, otDist1to2,
+        otDist2to3, otDist3to0, otPaletteOffset, screenSize[2], nearPlane,
+        farPlane, eyePos[3], fudgeFactor, boxFoldingLimit, mandelBoxScale;
     int lightSource, shadowRayMinStepsTaken, gammaCorrection, fractalIters,
-        sphereMinTimeVariance, tetraFactor, derivativeBias, boxFoldFactor;
+        sphereMinTimeVariance, tetraFactor, derivativeBias, boxFoldFactor,
+        sphereFoldFactor;
     bool showBgGradient, mandelbulbOn, julia, mandelBoxOn;
     ImVec4 glowColor, color0, color1, color2, color3, colorBase;
+    char pathExport[256] = "test.json", pathImport[256] = "test.json";
 
     while (!window.shouldClose()){
 
@@ -114,14 +115,44 @@ void GameEngine::loop() {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
+        if (paramsManager->getShowExportMenu()) {
+            ImGui::Begin("Export menu");
+            ImGui::InputText("File name (path)", pathExport, IM_ARRAYSIZE(pathExport));
+            if (ImGui::Button("Export")) {
+                try {
+                    paramsManager->exportSettings(pathExport);
+                    paramsManager->setShowExportMenu(false);
+                } catch (const char*& e) {
+                    std::cerr << e << std::endl;
+                }
+            }
+            ImGui::End();
+        }
+
+        if (paramsManager->getShowImportMenu()) {
+            ImGui::Begin("Import menu");
+            ImGui::InputText("File name (path)", pathImport, IM_ARRAYSIZE(pathImport));
+            if (ImGui::Button("Import")) {
+                try {
+                    paramsManager->importSettings(pathImport);
+                    paramsManager->setShowImportMenu(false);
+                } catch (const char*& e) {
+                    std::cerr << e << std::endl;
+                }
+            }
+            ImGui::End();
+        }
+
         if (!paramsManager->getHideMenu()) {
 
             ImGui::Begin("Menu", nullptr, ImGuiWindowFlags_MenuBar);
 
             if (ImGui::BeginMenuBar()) {
                 if (ImGui::BeginMenu("File")) {
-                    ImGui::MenuItem("Export settings", nullptr, &paramsManager->getShowExportMenu());
-                    //ImGui::MenuItem("Import settings", nullptr, NULL);
+                    //TODO: create shortcut
+                    ImGui::MenuItem("Export settings", "CTRL+E", &paramsManager->getShowExportMenu());
+                    //TODO: create shortcut
+                    ImGui::MenuItem("Import settings", "CTRL+I", &paramsManager->getShowImportMenu());
                     ImGui::EndMenu();
                 }
                 ImGui::EndMenuBar();
@@ -351,11 +382,10 @@ void GameEngine::loop() {
                     }
                     //----OTHERS---------------------------------------------------------
                     if (ImGui::TreeNode("Others")) {
+
                         sphereFoldFactor = paramsManager->getSphereFoldFactor();
-                        std::cout << sphereFoldFactor;
                         //TODO: find bounds
-                        ImGui::SliderFloat("Sphere fold factor", &sphereFoldFactor, 0.0f, 10.0f);
-                        // TODO Fix conversion
+                        ImGui::SliderInt("Sphere fold factor", &sphereFoldFactor, 0, 10);
                         paramsManager->setSphereFoldFactor(sphereFoldFactor);
 
                         ImGui::Separator();

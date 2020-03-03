@@ -13,6 +13,7 @@ private:
     bool renderFractal{};
     bool hideMenu{};
     bool showExportMenu{};
+    bool showImportMenu{};
     char reA[8]{};
     char imA[8]{};
     char reC[8]{};
@@ -26,6 +27,7 @@ public:
     bool& getRenderFractal();
     bool& getHideMenu();
     bool& getShowExportMenu();
+    bool& getShowImportMenu();
     char* getReA();
     char* getImA();
     char* getReC();
@@ -73,7 +75,7 @@ public:
     int getJulia() const;
     glm::vec3 getJuliaC() const;
     //----OTHERS---------------------------------------------------------
-    float getSphereFoldFactor() const;
+    int getSphereFoldFactor() const;
     //-------------------------------------------------------------------
 
     //COLORS-------------------------------------------------------------
@@ -113,8 +115,8 @@ public:
     //-------------------------------------------------------------------
 
     void reset();
-    void importSettings(std::string);
-    void exportSettings(std::string);
+    void importSettings(std::string) noexcept(false);
+    void exportSettings(std::string) noexcept(false);
 
     void setAmbientIntensity(float);
     void setBailLimit(float);
@@ -173,6 +175,7 @@ public:
     void setRenderFractal(bool);
     void setHideMenu(bool);
     void setShowExportMenu(bool);
+    void setShowImportMenu(bool);
     void setReA(const char*);
     void setImA(const char*);
     void setReC(const char*);
