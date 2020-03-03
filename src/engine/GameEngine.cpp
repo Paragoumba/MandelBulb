@@ -90,31 +90,11 @@ void GameEngine::loop() {
 
         auto loopStart = std::chrono::high_resolution_clock::now();
 
-        if (window.getKey(GLFW_KEY_ESCAPE) == GLFW_PRESS){
-
-            window.close();
-
-        }
-        if (window.getKey(GLFW_KEY_F2) == GLFW_PRESS) {
-
-            paramsManager->setShowScreenshotMenu(true);
-
-        }
-        if (window.getKey(GLFW_KEY_F3) == GLFW_PRESS) {
-
-            paramsManager->setHideMenu(false);
-
-        }
-        if (window.getKey(GLFW_KEY_G) == GLFW_PRESS) {
-
-            paramsManager->setRenderFractal(true);
-
-        }
-        if (window.getKey(GLFW_KEY_H) == GLFW_PRESS) {
-
-            paramsManager->setRenderFractal(false);
-
-        }
+        if (window.getKey(GLFW_KEY_ESCAPE) == GLFW_PRESS)   window.close();
+        if (window.getKey(GLFW_KEY_F2) == GLFW_PRESS)       paramsManager->setShowScreenshotMenu(true);
+        if (window.getKey(GLFW_KEY_F3) == GLFW_PRESS)       paramsManager->setHideMenu(false);
+        if (window.getKey(GLFW_KEY_G) == GLFW_PRESS)        paramsManager->setRenderFractal(true);
+        if (window.getKey(GLFW_KEY_H) == GLFW_PRESS)        paramsManager->setRenderFractal(false);
 
         // Start the Dear ImGui frame
         ImGui_ImplOpenGL3_NewFrame();
@@ -174,6 +154,9 @@ void GameEngine::loop() {
         if (!paramsManager->getHideMenu()) {
 
             ImGui::Begin("Menu", nullptr, ImGuiWindowFlags_MenuBar);
+
+            ImGui::SetWindowPos(ImVec2(60,80), ImGuiCond_FirstUseEver);
+            ImGui::SetWindowSize(ImVec2(600,400), ImGuiCond_FirstUseEver);
 
             if (ImGui::BeginMenuBar()) {
                 if (ImGui::BeginMenu("File")) {
