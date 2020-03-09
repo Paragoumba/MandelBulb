@@ -14,6 +14,12 @@ Camera Game::getCamera() {
 
 }
 
+int Game::takeScreenshot(const char* path) {
+
+    return renderer.takeScreenshot(path);
+
+}
+
 /**
  * \fn init
  *

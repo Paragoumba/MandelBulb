@@ -86,6 +86,7 @@ public:
     * close this window
     */
     void close();
+
     /**
      *  Destructor of the class window
     */

@@ -1,3 +1,5 @@
+#include <iostream>
+#include <fstream>
 #include "ParamsManager.hpp"
 
 ParamsManager::ParamsManager(){
@@ -53,8 +55,7 @@ int ParamsManager::getShowBgGradient() const { return fractalParams->getShowBgGr
 float ParamsManager::getSpecularIntensity() const { return fractalParams->getSpecularIntensity(); }
 float ParamsManager::getSphereFixedRadius() const { return fractalParams->getSphereFixedRadius(); }
 float ParamsManager::getSphereMinRadius() const { return fractalParams->getSphereMinRadius(); }
-// TODO Fix conversion
-int ParamsManager::getSphereMinTimeVariance() const { return fractalParams->getSphereMinRadius(); }
+int ParamsManager::getSphereMinTimeVariance() const { return fractalParams->getSphereMinTimeVariance(); }
 int ParamsManager::getTetraFactor() const { return fractalParams->getTetraFactor(); }
 float ParamsManager::getTetraScale() const { return fractalParams->getTetraScale(); }
 float ParamsManager::getTime() const { return fractalParams->getTime(); }
@@ -63,13 +64,15 @@ float ParamsManager::getFarPlane() const { return fractalParams->getFarPlane(); 
 glm::mat4 ParamsManager::getInverseVP() const { return fractalParams->getInverseVP(); }
 bool& ParamsManager::getRenderFractal() { return renderFractal; }
 bool& ParamsManager::getHideMenu() { return hideMenu; }
+bool& ParamsManager::getShowScreenshotMenu() { return showScreenshotMenu; }
 bool& ParamsManager::getShowExportMenu() { return showExportMenu; }
+bool& ParamsManager::getShowImportMenu() { return showImportMenu; }
 char* ParamsManager::getReA() { return reA; }
 char* ParamsManager::getImA() { return imA; }
 char* ParamsManager::getReC() { return reC; }
 char* ParamsManager::getImC() { return imC; }
 ImVec4& ParamsManager::getBackgroundColor() { return backgroundColor; }
-float ParamsManager::getSphereFoldFactor() const { return fractalParams->getSphereFoldFactor(); }
+int ParamsManager::getSphereFoldFactor() const { return fractalParams->getSphereFoldFactor(); }
 
 void ParamsManager::setAmbientIntensity(float ambientIntensity) { fractalParams->setAmbientIntensity(ambientIntensity); }
 void ParamsManager::setBailLimit(float bailLimit) { fractalParams->setBailLimit(bailLimit); }
@@ -131,8 +134,14 @@ void ParamsManager::setRenderFractal(bool renderFractal = false) {
 void ParamsManager::setHideMenu(bool hideMenu = true) {
     this->hideMenu = hideMenu;
 }
+void ParamsManager::setShowScreenshotMenu(bool showScreenshotMenu = false) {
+    this->showScreenshotMenu = showScreenshotMenu;
+}
 void ParamsManager::setShowExportMenu(bool showExportMenu = false) {
     this->showExportMenu = showExportMenu;
+}
+void ParamsManager::setShowImportMenu(bool showImportMenu = false) {
+    this->showImportMenu = showImportMenu;
 }
 void ParamsManager::setReA(const char* reA = (const char*)nullptr) {
     if (reA == (const char*)nullptr) strcpy(this->reA, "1");
@@ -158,7 +167,9 @@ void ParamsManager::reset() {
 
     setRenderFractal();
     setHideMenu();
+    setShowScreenshotMenu();
     setShowExportMenu();
+    setShowImportMenu();
     setReA();
     setImA();
     setReC();
@@ -167,4 +178,201 @@ void ParamsManager::reset() {
 
 }
 
+void ParamsManager::importSettings(std::string path) noexcept(false) {
 
+    try {
+
+        std::ifstream i(path);
+        nlohmann::json j;
+        i >> j;
+        i.close();
+
+        setBailLimit((float) j["bailLimit"]);
+        setBaseColorStrength((float) j["baseColorStrength"]);
+        setBgColor(glm::vec3(j["bgColor"]["x"], j["bgColor"]["y"], j["bgColor"]["z"]));
+        setBoxFoldFactor((int) j["boxFoldFactor"]);
+        setBoxFoldingLimit((float) j["boxFoldingLimit"]);
+        setColor0(glm::vec3(j["color0"]["x"], j["color0"]["y"], j["color0"]["z"]));
+        setColor1(glm::vec3(j["color1"]["x"], j["color1"]["y"], j["color1"]["z"]));
+        setColor2(glm::vec3(j["color2"]["x"], j["color2"]["y"], j["color2"]["z"]));
+        setColor3(glm::vec3(j["color3"]["x"], j["color3"]["y"], j["color3"]["z"]));
+        setColorBase(glm::vec3(j["colorBase"]["x"], j["colorBase"]["y"], j["colorBase"]["z"]));
+        setDerivativeBias((int) j["derivativeBias"]);
+        setDiffuseIntensity((float) j["diffuseIntensity"]);
+        setEyePos(glm::vec3(j["eyePos"]["x"], j["eyePos"]["y"], j["eyePos"]["z"]));
+        setFractalIters((int) j["fractalIters"]);
+        setFudgeFactor((float) j["fudgeFactor"]);
+        setGammaCorrection((int) j["gammaCorrection"]);
+        setGlowColor(glm::vec3(j["glowColor"]["x"], j["glowColor"]["y"], j["glowColor"]["z"]));
+        setGlowFactor((float) j["glowFactor"]);
+        setJulia((int) j["julia"]);
+        setJuliaC(glm::vec3(j["juliaC"]["x"], j["juliaC"]["y"], j["juliaC"]["z"]));
+        setLightPos(glm::vec3(j["lightPos"]["x"], j["lightPos"]["y"], j["lightPos"]["z"]));
+        setLightSource((int) j["lightSource"]);
+        setMandelBoxOn((int) j["mandelBoxOn"]);
+        setMandelBoxScale((float) j["mandelBoxScale"]);
+        setMandelbulbOn((int) j["mandelbulbOn"]);
+        setMaxRaySteps((float) j["maxRaySteps"]);
+        setMinDistance((float) j["minDistance"]);
+        setNoiseFactor((float) j["noiseFactor"]);
+        setOrbitStrength(glm::vec4(j["orbitStrength"]["x"], j["orbitStrength"]["y"], j["orbitStrength"]["z"], j["orbitStrength"]["w"]));
+        setOtCycleIntensity((float) j["otCycleIntensity"]);
+        setOtDist0to1((float) j["otDist0To1"]);
+        setOtDist1to2((float) j["otDist1To2"]);
+        setOtDist2to3((float) j["otDist2To3"]);
+        setOtDist3to0((float) j["otDist3To0"]);
+        setOtPaletteOffset((float) j["otPaletteOffset"]);
+        setPhongShadingMixFactor((float) j["phongShadingMixFactor"]);
+        setPower((float) j["power"]);
+        setScreenSize(glm::vec2(j["screenSize"]["x"], j["screenSize"]["y"]));
+        setShadowBrightness((float) j["shadowBrightness"]);
+        setShadowRayMinStepsTaken((int) j["shadowRayMinStepsTaken"]);
+        setShininess((float) j["shininess"]);
+        setShowBgGradient((int) j["showBgGradient"]);
+        setSpecularIntensity((float) j["specularIntensity"]);
+        setSphereFixedRadius((float) j["sphereFixedRadius"]);
+        setSphereFoldFactor((int) j["sphereFoldFactor"]);
+        setSphereMinRadius((float) j["sphereMinRadius"]);
+        setSphereMinTimeVariance((int) j["sphereMinTimeVariance"]);
+        setTetraFactor((int) j["tetraFactor"]);
+        setTetraScale((float) j["tetraScale"]);
+        setTime((float) j["time"]);
+        setNearPlane((float) j["nearPlane"]);
+        setFarPlane((float) j["farPlane"]);
+        setRenderFractal((bool) j["renderFractal"]);
+        std::string t(j["reA"]);
+        setReA(t.c_str());
+        t = std::string(j["imA"]);
+        setImA(t.c_str());
+        t = std::string(j["reC"]);
+        setReC(t.c_str());
+        t = std::string(j["imC"]);
+        setImC(t.c_str());
+        setBackgroundColor(ImVec4(j["backgroundColor"]["x"], j["backgroundColor"]["y"], j["backgroundColor"]["z"], j["backgroundColor"]["w"]));
+
+    } catch(...) {
+        throw "An error occured while importing settings";
+    }
+
+}
+
+void ParamsManager::exportSettings(std::string path) noexcept(false) {
+
+    try {
+
+        nlohmann::json j;
+
+        j["bailLimit"] = getBailLimit();
+        j["baseColorStrength"] = getBaseColorStrength();
+        glm::vec3 t3 = getBgColor();
+        j["bgColor"]["x"] = t3.x;
+        j["bgColor"]["y"] = t3.y;
+        j["bgColor"]["z"] = t3.z;
+        j["boxFoldFactor"] = getBoxFoldFactor();
+        j["boxFoldingLimit"] = getBoxFoldingLimit();
+        t3 = getColor0();
+        j["color0"]["x"] = t3.x;
+        j["color0"]["y"] = t3.y;
+        j["color0"]["z"] = t3.z;
+        t3 = getColor1();
+        j["color1"]["x"] = t3.x;
+        j["color1"]["y"] = t3.y;
+        j["color1"]["z"] = t3.z;
+        t3 = getColor2();
+        j["color2"]["x"] = t3.x;
+        j["color2"]["y"] = t3.y;
+        j["color2"]["z"] = t3.z;
+        t3 = getColor3();
+        j["color3"]["x"] = t3.x;
+        j["color3"]["y"] = t3.y;
+        j["color3"]["z"] = t3.z;
+        t3 = getColorBase();
+        j["colorBase"]["x"] = t3.x;
+        j["colorBase"]["y"] = t3.y;
+        j["colorBase"]["z"] = t3.z;
+        j["derivativeBias"] = getDerivativeBias();
+        j["diffuseIntensity"] = getDiffuseIntensity();
+        t3 = getEyePos();
+        j["eyePos"]["x"] = t3.x;
+        j["eyePos"]["y"] = t3.y;
+        j["eyePos"]["z"] = t3.z;
+        j["fractalIters"] = getFractalIters();
+        j["fudgeFactor"] = getFudgeFactor();
+        j["gammaCorrection"] = getGammaCorrection();
+        t3 = getGlowColor();
+        j["glowColor"]["x"] = t3.x;
+        j["glowColor"]["y"] = t3.y;
+        j["glowColor"]["z"] = t3.z;
+        j["glowFactor"] = getGlowFactor();
+        j["julia"] = getJulia();
+        t3 = getJuliaC();
+        j["juliaC"]["x"] = t3.x;
+        j["juliaC"]["y"] = t3.y;
+        j["juliaC"]["z"] = t3.z;
+        t3 = getLightPos();
+        j["lightPos"]["x"] = t3.x;
+        j["lightPos"]["y"] = t3.y;
+        j["lightPos"]["z"] = t3.z;
+        j["lightSource"] = getLightSource();
+        j["mandelBoxOn"] = getMandelBoxOn();
+        j["mandelBoxScale"] = getMandelBoxScale();
+        j["mandelbulbOn"] = getMandelbulbOn();
+        j["maxRaySteps"] = getMaxRaySteps();
+        j["minDistance"] = getMinDistance();
+        j["noiseFactor"] = getNoiseFactor();
+        glm::vec4 t4 = getOrbitStrength();
+        j["orbitStrength"]["x"] = t4.x;
+        j["orbitStrength"]["y"] = t4.y;
+        j["orbitStrength"]["z"] = t4.z;
+        j["orbitStrength"]["w"] = t4.w;
+        j["otCycleIntensity"] = getOtCycleIntensity();
+        j["otDist0To1"] = getOtDist0to1();
+        j["otDist1To2"] = getOtDist1to2();
+        j["otDist2To3"] = getOtDist2to3();
+        j["otDist3To0"] = getOtDist3to0();
+        j["otPaletteOffset"] = getOtPaletteOffset();
+        j["phongShadingMixFactor"] = getPhongShadingMixFactor();
+        j["power"] = getPower();
+        glm::vec2 t2 = getScreenSize();
+        j["screenSize"]["x"] = t2.x;
+        j["screenSize"]["y"] = t2.y;
+        j["shadowBrightness"] = getShadowBrightness();
+        j["shadowRayMinStepsTaken"] = getShadowRayMinStepsTaken();
+        j["shininess"] = getShininess();
+        j["showBgGradient"] = getShowBgGradient();
+        j["specularIntensity"] = getSpecularIntensity();
+        j["sphereFixedRadius"] = getSphereFixedRadius();
+        j["sphereFoldFactor"] = getSphereFoldFactor();
+        j["sphereMinRadius"] = getSphereMinRadius();
+        j["sphereMinTimeVariance"] = getSphereMinTimeVariance();
+        j["tetraFactor"] = getTetraFactor();
+        j["tetraScale"] = getTetraScale();
+        j["time"] = getTime();
+        j["nearPlane"] = getNearPlane();
+        j["farPlane"] = getFarPlane();
+        j["renderFractal"] = getRenderFractal();
+        j["reA"] = getReA();
+        j["imA"] = getImA();
+        j["reC"] = getReC();
+        j["imC"] = getImC();
+        ImVec4 v4 = getBackgroundColor();
+        j["backgroundColor"]["x"] = v4.x;
+        j["backgroundColor"]["y"] = v4.y;
+        j["backgroundColor"]["z"] = v4.z;
+        j["backgroundColor"]["w"] = v4.w;
+
+        std::ofstream o(path);
+        o << j << std::endl;
+        o.close();
+
+    }  catch(...)  {
+        throw "An error occured while exporting settings";
+    }
+
+}
+
+ParamsManager::~ParamsManager() {
+
+    delete fractalParams;
+
+}

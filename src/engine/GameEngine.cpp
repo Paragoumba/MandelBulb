@@ -70,15 +70,17 @@ void GameEngine::loop() {
     float glowFactor, lightPos[3], shadowBrightness, phongShadingMixFactor,
         ambientIntensity, diffuseIntensity, specularIntensity, minDistance,
         noiseFactor, shininess, power, maxRaySteps, sphereFixedRadius,
-        sphereMinRadius, tetraScale, time, sphereFoldFactor, juliaC[3],
-        baseColorStrength, bailLimit,orbitStrength[4], otCycleIntensity,
-        otDist0to1, otDist1to2, otDist2to3, otDist3to0, otPaletteOffset,
-        screenSize[2], nearPlane, farPlane, eyePos[3], fudgeFactor,
-        boxFoldingLimit, mandelBoxScale;
+        sphereMinRadius, tetraScale, time, juliaC[3], baseColorStrength,
+        bailLimit,orbitStrength[4], otCycleIntensity, otDist0to1, otDist1to2,
+        otDist2to3, otDist3to0, otPaletteOffset, screenSize[2], nearPlane,
+        farPlane, eyePos[3], fudgeFactor, boxFoldingLimit, mandelBoxScale;
     int lightSource, shadowRayMinStepsTaken, gammaCorrection, fractalIters,
-        sphereMinTimeVariance, tetraFactor, derivativeBias, boxFoldFactor;
+        sphereMinTimeVariance, tetraFactor, derivativeBias, boxFoldFactor,
+        sphereFoldFactor;
     bool showBgGradient, mandelbulbOn, julia, mandelBoxOn;
-    ImVec4 glowColor, bgColor, color0, color1, color2, color3, colorBase;
+    ImVec4 glowColor, color0, color1, color2, color3, colorBase;
+    char pathExport[256] = "test.json", pathImport[256] = "test.json",
+        pathScreenshot[256] = "screenshot.png";
 
     while (!window.shouldClose()){
 
@@ -88,39 +90,86 @@ void GameEngine::loop() {
 
         auto loopStart = std::chrono::high_resolution_clock::now();
 
-        if (window.getKey(GLFW_KEY_ESCAPE) == GLFW_PRESS){
-
-            window.close();
-
-        }
-        if (window.getKey(GLFW_KEY_F3) == GLFW_PRESS) {
-
-            paramsManager->setHideMenu(false);
-
-        }
-        if (window.getKey(GLFW_KEY_G) == GLFW_PRESS) {
-
-            paramsManager->setRenderFractal(true);
-
-        }
-        if (window.getKey(GLFW_KEY_H) == GLFW_PRESS) {
-
-            paramsManager->setRenderFractal(false);
-
-        }
+        if (window.getKey(GLFW_KEY_ESCAPE) == GLFW_PRESS)   window.close();
+        if (window.getKey(GLFW_KEY_F2) == GLFW_PRESS)       paramsManager->setShowScreenshotMenu(true);
+        if (window.getKey(GLFW_KEY_F3) == GLFW_PRESS)       paramsManager->setHideMenu(false);
+        if (window.getKey(GLFW_KEY_G) == GLFW_PRESS)        paramsManager->setRenderFractal(true);
+        if (window.getKey(GLFW_KEY_H) == GLFW_PRESS)        paramsManager->setRenderFractal(false);
 
         // Start the Dear ImGui frame
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
+        /*******************/
+        /*      TOOLS      */
+        /*******************/
+        if (paramsManager->getShowExportMenu()) {
+            ImGui::Begin("Export menu");
+            ImGui::InputText("File name (path)", pathExport, IM_ARRAYSIZE(pathExport));
+            if (ImGui::Button("Export")) {
+                try {
+                    paramsManager->exportSettings(pathExport);
+                    paramsManager->setShowExportMenu(false);
+                } catch (const char*& e) {
+                    std::cerr << e << std::endl;
+                }
+            }
+            ImGui::SameLine();
+            if (ImGui::Button("Cancel"))
+                paramsManager->setShowExportMenu(false);
+            ImGui::End();
+        }
+
+        if (paramsManager->getShowImportMenu()) {
+            ImGui::Begin("Import menu");
+            ImGui::InputText("File name (path)", pathImport, IM_ARRAYSIZE(pathImport));
+            if (ImGui::Button("Import")) {
+                try {
+                    paramsManager->importSettings(pathImport);
+                    paramsManager->setShowImportMenu(false);
+                } catch (const char*& e) {
+                    std::cerr << e << std::endl;
+                }
+            }
+            ImGui::SameLine();
+            if (ImGui::Button("Cancel"))
+                paramsManager->setShowImportMenu(false);
+            ImGui::End();
+        }
+
+        if (paramsManager->getShowScreenshotMenu()) {
+            ImGui::Begin("Screenshot menu");
+            ImGui::InputText("File name (path)", pathScreenshot, IM_ARRAYSIZE(pathScreenshot));
+            if (ImGui::Button("Take screenshot")) {
+                if (takeScreenshot(pathScreenshot)) {
+                    paramsManager->setShowScreenshotMenu(false);
+                } else {
+                    std::cerr << "An error occured while taking screenshot" << std::endl;
+                }
+            }
+            ImGui::SameLine();
+            if (ImGui::Button("Cancel"))
+                paramsManager->setShowScreenshotMenu(false);
+            ImGui::End();
+        }
+
+        /*******************/
+        /*    MAIN MENU    */
+        /*******************/
         if (!paramsManager->getHideMenu()) {
 
             ImGui::Begin("Menu", nullptr, ImGuiWindowFlags_MenuBar);
 
+            ImGui::SetWindowPos(ImVec2(60,80), ImGuiCond_FirstUseEver);
+            ImGui::SetWindowSize(ImVec2(600,400), ImGuiCond_FirstUseEver);
+
             if (ImGui::BeginMenuBar()) {
                 if (ImGui::BeginMenu("File")) {
-                    ImGui::MenuItem("Export", nullptr, &paramsManager->getShowExportMenu());
+                    //TODO: create shortcut
+                    ImGui::MenuItem("Export settings", "CTRL+E", &paramsManager->getShowExportMenu());
+                    //TODO: create shortcut
+                    ImGui::MenuItem("Import settings", "CTRL+I", &paramsManager->getShowImportMenu());
                     ImGui::EndMenu();
                 }
                 ImGui::EndMenuBar();
@@ -291,11 +340,13 @@ void GameEngine::loop() {
                         paramsManager->setShowBgGradient((int)showBgGradient);
 
                         sphereFixedRadius = paramsManager->getSphereFixedRadius();
-                        ImGui::SliderFloat("Sphere fixed radius", &sphereFixedRadius, 0.0f, 500.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Sphere fixed radius", &sphereFixedRadius, 0.0f, 10.0f);
                         paramsManager->setSphereFixedRadius(sphereFixedRadius);
 
                         sphereMinRadius = paramsManager->getSphereMinRadius();
-                        ImGui::SliderFloat("Sphere min radius", &sphereMinRadius, 0.0f, 20.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Sphere min radius", &sphereMinRadius, 0.0f, 0.5f);
                         paramsManager->setSphereMinRadius(sphereMinRadius);
 
                         //TODO: find why it is not working => sphereMinTimeVariance must be a bool with a checkBox
@@ -304,14 +355,17 @@ void GameEngine::loop() {
                         paramsManager->setSphereMinTimeVariance(sphereMinTimeVariance);
 
                         tetraFactor = paramsManager->getTetraFactor();
+                        //TODO: find bounds
                         ImGui::SliderInt("Tetra factor", &tetraFactor, 0, 10);
                         paramsManager->setTetraFactor(tetraFactor);
 
                         tetraScale  = paramsManager->getTetraScale();
+                        //TODO: find bounds
                         ImGui::SliderFloat("Tetra scale", &tetraScale, 0.0f, 10.0f);
                         paramsManager->setTetraScale(tetraScale);
 
                         time = paramsManager->getTime();
+                        //TODO: find bounds
                         ImGui::SliderFloat("Time", &time, 0.0f, 10.0f);
                         paramsManager->setTime(time);
 
@@ -345,10 +399,10 @@ void GameEngine::loop() {
                     }
                     //----OTHERS---------------------------------------------------------
                     if (ImGui::TreeNode("Others")) {
+
                         sphereFoldFactor = paramsManager->getSphereFoldFactor();
-                        std::cout << sphereFoldFactor;
-                        ImGui::SliderFloat("Sphere fold factor", &sphereFoldFactor, 0.0f, 45.0f);
-                        // TODO Fix conversion
+                        //TODO: find bounds
+                        ImGui::SliderInt("Sphere fold factor", &sphereFoldFactor, 0, 10);
                         paramsManager->setSphereFoldFactor(sphereFoldFactor);
 
                         ImGui::Separator();
@@ -411,7 +465,8 @@ void GameEngine::loop() {
                     if (ImGui::TreeNode("Strength")) {
 
                         baseColorStrength = paramsManager->getBaseColorStrength();
-                        ImGui::SliderFloat("Base color strength", &baseColorStrength, 0.0f, 1.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Base color strength", &baseColorStrength, 0.0f, 0.1f);
                         paramsManager->setBaseColorStrength(baseColorStrength);
 
                         ImGui::Separator();
@@ -431,7 +486,8 @@ void GameEngine::loop() {
                     if (ImGui::TreeNode("Others")) {
 
                         bailLimit = paramsManager->getBailLimit();
-                        ImGui::SliderFloat("Bail limit", &bailLimit, 1.0f, 2.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Bail limit", &bailLimit, 0.0f, 10.0f);
                         paramsManager->setBailLimit(bailLimit);
 
                         glm::vec4 o = paramsManager->getOrbitStrength();
@@ -439,6 +495,7 @@ void GameEngine::loop() {
                         orbitStrength[1] = o.y;
                         orbitStrength[2] = o.z;
                         orbitStrength[3] = o.w;
+                        //TODO: find bounds
                         ImGui::SliderFloat("Orbit Strength[x]", &orbitStrength[0], 0.0f, 5.0f);
                         ImGui::SliderFloat("Orbit Strength[y]", &orbitStrength[1], 0.0f, 5.0f);
                         ImGui::SliderFloat("Orbit Strength[z]", &orbitStrength[2], 0.0f, 5.0f);
@@ -446,48 +503,58 @@ void GameEngine::loop() {
                         paramsManager->setOrbitStrength(glm::vec4(orbitStrength[0], orbitStrength[1], orbitStrength[2], orbitStrength[3]));
 
                         otCycleIntensity = paramsManager->getOtCycleIntensity();
-                        ImGui::SliderFloat("OT Cycle Intensity", &otCycleIntensity, 0.0f, 20.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("OT Cycle Intensity", &otCycleIntensity, 0.0f, 10.0f);
                         paramsManager->setOtCycleIntensity(otCycleIntensity);
 
                         otDist0to1 = paramsManager->getOtDist0to1();
-                        ImGui::SliderFloat("OT Dist 0 to 1", &otDist0to1, 0.0f, 20.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("OT Dist 0 to 1", &otDist0to1, 0.0f, 1.0f);
                         paramsManager->setOtDist0to1(otDist0to1);
 
                         otDist1to2 = paramsManager->getOtDist1to2();
-                        ImGui::SliderFloat("OT Dist 1 to 2", &otDist1to2, 0.0f, 20.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("OT Dist 1 to 2", &otDist1to2, 0.0f, 1.0f);
                         paramsManager->setOtDist1to2(otDist1to2);
 
                         otDist2to3 = paramsManager->getOtDist2to3();
-                        ImGui::SliderFloat("OT Dist 2 to 3", &otDist2to3, 0.0f, 20.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("OT Dist 2 to 3", &otDist2to3, 0.0f, 1.0f);
                         paramsManager->setOtDist2to3(otDist2to3);
 
                         otDist3to0 = paramsManager->getOtDist3to0();
-                        ImGui::SliderFloat("OT Dist 3 to 0", &otDist3to0, 0.0f, 20.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("OT Dist 3 to 0", &otDist3to0, 0.0f, 1.0f);
                         paramsManager->setOtDist3to0(otDist3to0);
 
                         otPaletteOffset = paramsManager->getOtPaletteOffset();
-                        ImGui::SliderFloat("OT Palette Offset", &otPaletteOffset, 0.0f, 100.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("OT Palette Offset", &otPaletteOffset, 0.0f, 1.0f);
                         paramsManager->setOtPaletteOffset(otPaletteOffset);
 
                         glm::vec2 s = paramsManager->getScreenSize();
                         screenSize[0] = s.x;
                         screenSize[1] = s.y;
+                        //TODO: find use
                         ImGui::SliderFloat("Screen size[0]", &screenSize[0], 0.0f, 2000.0f);
                         ImGui::SliderFloat("Screen size[1]", &screenSize[1], 0.0f, 2000.0f);
                         paramsManager->setScreenSize(glm::vec2(screenSize[0], screenSize[1]));
 
                         nearPlane = paramsManager->getNearPlane();
-                        ImGui::SliderFloat("Near plane", &nearPlane, 0.0f, 1.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Near plane", &nearPlane, 0.0f, 100.0f);
                         paramsManager->setNearPlane(nearPlane);
 
                         farPlane = paramsManager->getFarPlane();
-                        ImGui::SliderFloat("Far plane", &farPlane, 1.0f, 100.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Far plane", &farPlane, 0.0f, 100.0f);
                         paramsManager->setFarPlane(farPlane);
 
                         //TODO: find usage of inverseVP
 
                         derivativeBias = paramsManager->getDerivativeBias();
-                        ImGui::SliderInt("Derivative bias", &derivativeBias, 0, 200);
+                        //TODO: find bounds
+                        ImGui::SliderInt("Derivative bias", &derivativeBias, 0, 10);
                         paramsManager->setDerivativeBias(derivativeBias);
 
                         glm::vec3 e = paramsManager->getEyePos();
@@ -501,7 +568,8 @@ void GameEngine::loop() {
                         paramsManager->setEyePos(glm::vec3(eyePos[0], eyePos[1], eyePos[2]));
 
                         fudgeFactor = paramsManager->getFudgeFactor();
-                        ImGui::SliderFloat("Fudge factor", &fudgeFactor, 0.0f, 50.0f);
+                        //TODO: find bounds
+                        ImGui::SliderFloat("Fudge factor", &fudgeFactor, 0.0f, 10.0f);
                         paramsManager->setFudgeFactor(fudgeFactor);
 
                         ImGui::Separator();
@@ -513,10 +581,12 @@ void GameEngine::loop() {
                     if (ImGui::TreeNode("Box")) {
 
                         boxFoldFactor = paramsManager->getBoxFoldFactor();
-                        ImGui::SliderInt("Box fold factor", &boxFoldFactor, 0, 50);
+                        //TODO: find bounds
+                        ImGui::SliderInt("Box fold factor", &boxFoldFactor, 0, 10);
                         paramsManager->setBoxFoldFactor(boxFoldFactor);
 
                         boxFoldingLimit = paramsManager->getBoxFoldingLimit();
+                        //TODO: find bounds
                         ImGui::SliderFloat("Box folding limit", &boxFoldingLimit, 0.0f, 10.0f);
                         paramsManager->setBoxFoldingLimit(boxFoldingLimit);
 
@@ -525,6 +595,7 @@ void GameEngine::loop() {
                         paramsManager->setMandelBoxOn((int)mandelBoxOn);
 
                         mandelBoxScale = paramsManager->getMandelBoxScale();
+                        //TODO: find bounds
                         ImGui::SliderFloat("MandelBox scale", &mandelBoxScale, 0.0f, 5.0f);
                         paramsManager->setMandelBoxScale(mandelBoxScale);
 
@@ -578,5 +649,15 @@ void GameEngine::loop() {
         ++i;
 
     }
+
+}
+
+int GameEngine::takeScreenshot(const char* path) {
+
+    return game.takeScreenshot(path);
+
+}
+
+GameEngine::~GameEngine() {
 
 }

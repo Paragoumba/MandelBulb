@@ -2,6 +2,7 @@
 #define PTUT_PARAMSMANAGER_HPP
 
 #include "FractalParams.hpp"
+#include <nlohmann/json.hpp>
 #include "../../lib/imgui/imgui.h"
 
 class ParamsManager {
@@ -11,7 +12,9 @@ private:
     /*****MAIN MENU*****/
     bool renderFractal{};
     bool hideMenu{};
+    bool showScreenshotMenu{};
     bool showExportMenu{};
+    bool showImportMenu{};
     char reA[8]{};
     char imA[8]{};
     char reC[8]{};
@@ -24,7 +27,9 @@ public:
     //GUI----------------------------------------------------------------
     bool& getRenderFractal();
     bool& getHideMenu();
+    bool& getShowScreenshotMenu();
     bool& getShowExportMenu();
+    bool& getShowImportMenu();
     char* getReA();
     char* getImA();
     char* getReC();
@@ -72,7 +77,7 @@ public:
     int getJulia() const;
     glm::vec3 getJuliaC() const;
     //----OTHERS---------------------------------------------------------
-    float getSphereFoldFactor() const;
+    int getSphereFoldFactor() const;
     //-------------------------------------------------------------------
 
     //COLORS-------------------------------------------------------------
@@ -112,6 +117,8 @@ public:
     //-------------------------------------------------------------------
 
     void reset();
+    void importSettings(std::string) noexcept(false);
+    void exportSettings(std::string) noexcept(false);
 
     void setAmbientIntensity(float);
     void setBailLimit(float);
@@ -169,14 +176,16 @@ public:
     void setInverseVP(Camera& camera, glm::mat4);
     void setRenderFractal(bool);
     void setHideMenu(bool);
+    void setShowScreenshotMenu(bool);
     void setShowExportMenu(bool);
+    void setShowImportMenu(bool);
     void setReA(const char*);
     void setImA(const char*);
     void setReC(const char*);
     void setImC(const char*);
     void setBackgroundColor(ImVec4);
 
-    ~ParamsManager() = default;
+    ~ParamsManager();
 
 };
 

@@ -292,3 +292,9 @@ void FractalParams::reset() {
     setFarPlane();
 
 }
+
+FractalParams::~FractalParams() {
+
+    delete singleton;
+
+}
