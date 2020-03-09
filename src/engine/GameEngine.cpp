@@ -291,13 +291,11 @@ void GameEngine::loop() {
                         paramsManager->setShowBgGradient((int)showBgGradient);
 
                         sphereFixedRadius = paramsManager->getSphereFixedRadius();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Sphere fixed radius", &sphereFixedRadius, 0.0f, 10.0f);
+                        ImGui::SliderFloat("Sphere fixed radius", &sphereFixedRadius, 0.0f, 500.0f);
                         paramsManager->setSphereFixedRadius(sphereFixedRadius);
 
                         sphereMinRadius = paramsManager->getSphereMinRadius();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Sphere min radius", &sphereMinRadius, 0.0f, 0.5f);
+                        ImGui::SliderFloat("Sphere min radius", &sphereMinRadius, 0.0f, 20.0f);
                         paramsManager->setSphereMinRadius(sphereMinRadius);
 
                         //TODO: find why it is not working => sphereMinTimeVariance must be a bool with a checkBox
@@ -306,17 +304,14 @@ void GameEngine::loop() {
                         paramsManager->setSphereMinTimeVariance(sphereMinTimeVariance);
 
                         tetraFactor = paramsManager->getTetraFactor();
-                        //TODO: find bounds
                         ImGui::SliderInt("Tetra factor", &tetraFactor, 0, 10);
                         paramsManager->setTetraFactor(tetraFactor);
 
                         tetraScale  = paramsManager->getTetraScale();
-                        //TODO: find bounds
                         ImGui::SliderFloat("Tetra scale", &tetraScale, 0.0f, 10.0f);
                         paramsManager->setTetraScale(tetraScale);
 
                         time = paramsManager->getTime();
-                        //TODO: find bounds
                         ImGui::SliderFloat("Time", &time, 0.0f, 10.0f);
                         paramsManager->setTime(time);
 
@@ -352,8 +347,7 @@ void GameEngine::loop() {
                     if (ImGui::TreeNode("Others")) {
                         sphereFoldFactor = paramsManager->getSphereFoldFactor();
                         std::cout << sphereFoldFactor;
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Sphere fold factor", &sphereFoldFactor, 0.0f, 10.0f);
+                        ImGui::SliderFloat("Sphere fold factor", &sphereFoldFactor, 0.0f, 45.0f);
                         // TODO Fix conversion
                         paramsManager->setSphereFoldFactor(sphereFoldFactor);
 
@@ -417,8 +411,7 @@ void GameEngine::loop() {
                     if (ImGui::TreeNode("Strength")) {
 
                         baseColorStrength = paramsManager->getBaseColorStrength();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Base color strength", &baseColorStrength, 0.0f, 0.1f);
+                        ImGui::SliderFloat("Base color strength", &baseColorStrength, 0.0f, 1.0f);
                         paramsManager->setBaseColorStrength(baseColorStrength);
 
                         ImGui::Separator();
@@ -438,8 +431,7 @@ void GameEngine::loop() {
                     if (ImGui::TreeNode("Others")) {
 
                         bailLimit = paramsManager->getBailLimit();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Bail limit", &bailLimit, 0.0f, 10.0f);
+                        ImGui::SliderFloat("Bail limit", &bailLimit, 1.0f, 2.0f);
                         paramsManager->setBailLimit(bailLimit);
 
                         glm::vec4 o = paramsManager->getOrbitStrength();
@@ -447,7 +439,6 @@ void GameEngine::loop() {
                         orbitStrength[1] = o.y;
                         orbitStrength[2] = o.z;
                         orbitStrength[3] = o.w;
-                        //TODO: find bounds
                         ImGui::SliderFloat("Orbit Strength[x]", &orbitStrength[0], 0.0f, 5.0f);
                         ImGui::SliderFloat("Orbit Strength[y]", &orbitStrength[1], 0.0f, 5.0f);
                         ImGui::SliderFloat("Orbit Strength[z]", &orbitStrength[2], 0.0f, 5.0f);
@@ -455,58 +446,48 @@ void GameEngine::loop() {
                         paramsManager->setOrbitStrength(glm::vec4(orbitStrength[0], orbitStrength[1], orbitStrength[2], orbitStrength[3]));
 
                         otCycleIntensity = paramsManager->getOtCycleIntensity();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("OT Cycle Intensity", &otCycleIntensity, 0.0f, 10.0f);
+                        ImGui::SliderFloat("OT Cycle Intensity", &otCycleIntensity, 0.0f, 20.0f);
                         paramsManager->setOtCycleIntensity(otCycleIntensity);
 
                         otDist0to1 = paramsManager->getOtDist0to1();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("OT Dist 0 to 1", &otDist0to1, 0.0f, 1.0f);
+                        ImGui::SliderFloat("OT Dist 0 to 1", &otDist0to1, 0.0f, 20.0f);
                         paramsManager->setOtDist0to1(otDist0to1);
 
                         otDist1to2 = paramsManager->getOtDist1to2();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("OT Dist 1 to 2", &otDist1to2, 0.0f, 1.0f);
+                        ImGui::SliderFloat("OT Dist 1 to 2", &otDist1to2, 0.0f, 20.0f);
                         paramsManager->setOtDist1to2(otDist1to2);
 
                         otDist2to3 = paramsManager->getOtDist2to3();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("OT Dist 2 to 3", &otDist2to3, 0.0f, 1.0f);
+                        ImGui::SliderFloat("OT Dist 2 to 3", &otDist2to3, 0.0f, 20.0f);
                         paramsManager->setOtDist2to3(otDist2to3);
 
                         otDist3to0 = paramsManager->getOtDist3to0();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("OT Dist 3 to 0", &otDist3to0, 0.0f, 1.0f);
+                        ImGui::SliderFloat("OT Dist 3 to 0", &otDist3to0, 0.0f, 20.0f);
                         paramsManager->setOtDist3to0(otDist3to0);
 
                         otPaletteOffset = paramsManager->getOtPaletteOffset();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("OT Palette Offset", &otPaletteOffset, 0.0f, 1.0f);
+                        ImGui::SliderFloat("OT Palette Offset", &otPaletteOffset, 0.0f, 100.0f);
                         paramsManager->setOtPaletteOffset(otPaletteOffset);
 
                         glm::vec2 s = paramsManager->getScreenSize();
                         screenSize[0] = s.x;
                         screenSize[1] = s.y;
-                        //TODO: find use
                         ImGui::SliderFloat("Screen size[0]", &screenSize[0], 0.0f, 2000.0f);
                         ImGui::SliderFloat("Screen size[1]", &screenSize[1], 0.0f, 2000.0f);
                         paramsManager->setScreenSize(glm::vec2(screenSize[0], screenSize[1]));
 
                         nearPlane = paramsManager->getNearPlane();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Near plane", &nearPlane, 0.0f, 100.0f);
+                        ImGui::SliderFloat("Near plane", &nearPlane, 0.0f, 1.0f);
                         paramsManager->setNearPlane(nearPlane);
 
                         farPlane = paramsManager->getFarPlane();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Far plane", &farPlane, 0.0f, 100.0f);
+                        ImGui::SliderFloat("Far plane", &farPlane, 1.0f, 100.0f);
                         paramsManager->setFarPlane(farPlane);
 
                         //TODO: find usage of inverseVP
 
                         derivativeBias = paramsManager->getDerivativeBias();
-                        //TODO: find bounds
-                        ImGui::SliderInt("Derivative bias", &derivativeBias, 0, 10);
+                        ImGui::SliderInt("Derivative bias", &derivativeBias, 0, 200);
                         paramsManager->setDerivativeBias(derivativeBias);
 
                         glm::vec3 e = paramsManager->getEyePos();
@@ -520,8 +501,7 @@ void GameEngine::loop() {
                         paramsManager->setEyePos(glm::vec3(eyePos[0], eyePos[1], eyePos[2]));
 
                         fudgeFactor = paramsManager->getFudgeFactor();
-                        //TODO: find bounds
-                        ImGui::SliderFloat("Fudge factor", &fudgeFactor, 0.0f, 10.0f);
+                        ImGui::SliderFloat("Fudge factor", &fudgeFactor, 0.0f, 50.0f);
                         paramsManager->setFudgeFactor(fudgeFactor);
 
                         ImGui::Separator();
@@ -533,12 +513,10 @@ void GameEngine::loop() {
                     if (ImGui::TreeNode("Box")) {
 
                         boxFoldFactor = paramsManager->getBoxFoldFactor();
-                        //TODO: find bounds
-                        ImGui::SliderInt("Box fold factor", &boxFoldFactor, 0, 10);
+                        ImGui::SliderInt("Box fold factor", &boxFoldFactor, 0, 50);
                         paramsManager->setBoxFoldFactor(boxFoldFactor);
 
                         boxFoldingLimit = paramsManager->getBoxFoldingLimit();
-                        //TODO: find bounds
                         ImGui::SliderFloat("Box folding limit", &boxFoldingLimit, 0.0f, 10.0f);
                         paramsManager->setBoxFoldingLimit(boxFoldingLimit);
 
@@ -547,7 +525,6 @@ void GameEngine::loop() {
                         paramsManager->setMandelBoxOn((int)mandelBoxOn);
 
                         mandelBoxScale = paramsManager->getMandelBoxScale();
-                        //TODO: find bounds
                         ImGui::SliderFloat("MandelBox scale", &mandelBoxScale, 0.0f, 5.0f);
                         paramsManager->setMandelBoxScale(mandelBoxScale);
 
