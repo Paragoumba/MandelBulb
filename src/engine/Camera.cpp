@@ -54,20 +54,6 @@ void Camera::setPosition(float x, float y, float z){
 
 }
 
-/**
- * Define the rotation of the Camera
- *
- * @param x
- * @param y
- * @param z
- */
-void Camera::setRotation(float rotX, float rotY, float rotZ){
-
-    rotation.x = rotX;
-    rotation.y = rotY;
-    rotation.z = rotZ;
-
-}
 
 /**
  * add to the current position those parameter
