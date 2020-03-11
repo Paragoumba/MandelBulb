@@ -72,23 +72,23 @@ float FractalParams::getFarPlane() { return farPlane; }
 glm::mat4 FractalParams::getInverseVP() { return inverseVP; }
 
 // TODO Fix warnings
-void FractalParams::setAmbientIntensity(float ambientIntensity = (float)NULL) {
-    this->ambientIntensity = (ambientIntensity == (float)NULL)?1.0f:ambientIntensity;
+void FractalParams::setAmbientIntensity(float ambientIntensity = (float)NULL) { //Slider
+    this->ambientIntensity = ambientIntensity;
 }
-void FractalParams::setBailLimit(float bailLimit = (float)NULL) {
-    this->bailLimit = (bailLimit == (float)NULL)?5.0f:bailLimit;
+void FractalParams::setBailLimit(float bailLimit = (float)NULL) { //Slider
+    this->bailLimit = bailLimit;
 }
-void FractalParams::setBaseColorStrength(float baseColorStrength = (float)NULL) {
-    this->baseColorStrength = (baseColorStrength == (float)NULL)?.5f:baseColorStrength;
+void FractalParams::setBaseColorStrength(float baseColorStrength = (float)NULL) { //Slider
+    this->baseColorStrength = baseColorStrength;
 }
 void FractalParams::setBgColor(glm::vec3 bgColor = (glm::vec3)(float)NULL) {
     this->bgColor = (bgColor == (glm::vec3)(float)NULL)?glm::vec3(119, 41, 83):bgColor;
 }
-void FractalParams::setBoxFoldFactor(int boxFoldFactor = (int)NULL) {
-    this->boxFoldFactor = (boxFoldFactor == (int)NULL)?0:boxFoldFactor;
+void FractalParams::setBoxFoldFactor(int boxFoldFactor = (int)NULL) { // Slider
+    this->boxFoldFactor = boxFoldFactor;
 }
-void FractalParams::setBoxFoldingLimit(float boxFoldingLimit = (float)NULL) {
-    this->boxFoldingLimit = (boxFoldingLimit == (float)NULL)?1.0f:boxFoldingLimit;
+void FractalParams::setBoxFoldingLimit(float boxFoldingLimit = (float)NULL) { //Slider
+    this->boxFoldingLimit = boxFoldingLimit;
 }
 void FractalParams::setColor0(glm::vec3 color0 = (glm::vec3)(float)NULL) {
     this->color0 = (color0 == (glm::vec3)(float)NULL)?glm::vec3(0.30, 0.50, 0.20):color0;
@@ -105,29 +105,29 @@ void FractalParams::setColor3(glm::vec3 color3 = (glm::vec3)(float)NULL) {
 void FractalParams::setColorBase(glm::vec3 colorBase = (glm::vec3)(float)NULL) {
     this->colorBase = (colorBase == (glm::vec3)(float)NULL)?glm::vec3(0.30, 0.60, 0.30):colorBase;
 }
-void FractalParams::setDerivativeBias(int derivativeBias = (int)NULL) {
-    this->derivativeBias = (derivativeBias == (int)NULL)?1:derivativeBias;
+void FractalParams::setDerivativeBias(int derivativeBias = (int)NULL) { //Slider
+    this->derivativeBias = derivativeBias;
 }
-void FractalParams::setDiffuseIntensity(float diffuseIntensity = (float)NULL) {
-    this->diffuseIntensity = (diffuseIntensity == (float)NULL)?1.0f:diffuseIntensity;
+void FractalParams::setDiffuseIntensity(float diffuseIntensity = (float)NULL) { //Slider
+    this->diffuseIntensity = diffuseIntensity;
 }
 void FractalParams::setEyePos(glm::vec3 eyePos = (glm::vec3)(float)NULL) {
     this->eyePos = (eyePos == (glm::vec3)(float)NULL)?glm::vec3(0.00, 0.00, 3.00):eyePos;
 }
-void FractalParams::setFractalIters(int fractalIters = (int)NULL) {
-    this->fractalIters = (fractalIters == (int)NULL)?1:fractalIters;
+void FractalParams::setFractalIters(int fractalIters = (int)NULL) { //Slider
+    this->fractalIters = fractalIters;
 }
-void FractalParams::setFudgeFactor(float fudgeFactor = (float)NULL) {
-    this->fudgeFactor = (fudgeFactor == (float)NULL)?1.0f:fudgeFactor;
+void FractalParams::setFudgeFactor(float fudgeFactor = (float)NULL) { //Slider
+    this->fudgeFactor = fudgeFactor;
 }
-void FractalParams::setGammaCorrection(int gammaCorrection = (int)NULL) {
-    this->gammaCorrection = (gammaCorrection == (int)NULL)?0:gammaCorrection;
+void FractalParams::setGammaCorrection(int gammaCorrection = (int)NULL) { //Slider
+    this->gammaCorrection = gammaCorrection;
 }
 void FractalParams::setGlowColor(glm::vec3 glowColor = (glm::vec3)(float)NULL) {
     this->glowColor = (glowColor == (glm::vec3)(float)NULL)?glm::vec3(0.75, 0.90, 1.00):glowColor;
 }
-void FractalParams::setGlowFactor(float glowFactor = (float)NULL) {
-    this->glowFactor = (glowFactor == (float)NULL)?1.0f:glowFactor;
+void FractalParams::setGlowFactor(float glowFactor = (float)NULL) { //Slider
+    this->glowFactor = glowFactor;
 }
 void FractalParams::setJulia(int julia = (int)NULL) {
     this->julia = (julia == (int)NULL)?0:julia;
@@ -138,92 +138,92 @@ void FractalParams::setJuliaC(glm::vec3 juliaC = (glm::vec3)(float)NULL) {
 void FractalParams::setLightPos(glm::vec3 lightPos = (glm::vec3)(float)NULL) {
     this->lightPos = (lightPos == (glm::vec3)(float)NULL)?glm::vec3(1.00, 3.00, 1.00):lightPos;
 }
-void FractalParams::setLightSource(int lightSource = (int)NULL) {
-    this->lightSource = (lightSource == (int)NULL)?1:lightSource;
+void FractalParams::setLightSource(int lightSource = (int)NULL) { //Slider
+    this->lightSource = lightSource;
 }
 void FractalParams::setMandelBoxOn(int mandelBoxOn = (bool)true) {
     this->mandelBoxOn = mandelBoxOn;
 }
-void FractalParams::setMandelBoxScale(float mandelBoxScale = (float)NULL) {
-    this->mandelBoxScale = (mandelBoxScale == (float)NULL)?1.2f:mandelBoxScale;
+void FractalParams::setMandelBoxScale(float mandelBoxScale = (float)NULL) { // Slider
+    this->mandelBoxScale = (mandelBoxScale == (float)NULL)?0.1f:mandelBoxScale;
 }
 void FractalParams::setMandelbulbOn(int mandelbulbOn = (int)true) {
     this->mandelbulbOn = mandelbulbOn;
 }
-void FractalParams::setMaxRaySteps(float maxRaySteps = (float)NULL) {
-    this->maxRaySteps = (maxRaySteps == (float)NULL)?1000.0f:maxRaySteps;
+void FractalParams::setMaxRaySteps(float maxRaySteps = (float)NULL) { //Slider
+    this->maxRaySteps = maxRaySteps;
 }
-void FractalParams::setMinDistance(float minDistance = (float)NULL) {
-    this->minDistance = (minDistance == (float)NULL)?1.00000E-05:minDistance;
+void FractalParams::setMinDistance(float minDistance = (float)NULL) { //Slider
+    this->minDistance = minDistance;
 }
-void FractalParams::setNoiseFactor(float noiseFactor = (float)NULL) {
-    this->noiseFactor = (noiseFactor == (float)NULL)?0.5f:noiseFactor;
+void FractalParams::setNoiseFactor(float noiseFactor = (float)NULL) { //Slider
+    this->noiseFactor = noiseFactor;
 }
 void FractalParams::setOrbitStrength(glm::vec4 orbitStrength = (glm::vec4)(float)NULL) {
     this->orbitStrength = (orbitStrength == (glm::vec4)(float)NULL)?glm::vec4(-1.00, -1.80, -1.40, 1.30):orbitStrength;
 }
-void FractalParams::setOtCycleIntensity(float otCycleIntensity = (float)NULL) {
-    this->otCycleIntensity = (otCycleIntensity == (float)NULL)?5.0f:otCycleIntensity;
+void FractalParams::setOtCycleIntensity(float otCycleIntensity = (float)NULL) { //Slider
+    this->otCycleIntensity = otCycleIntensity;
 }
-void FractalParams::setOtDist0to1(float otDist0to1 = (float)NULL) {
-    this->otDist0to1 = (otDist0to1 == (float)NULL)?0.3f:otDist0to1;
+void FractalParams::setOtDist0to1(float otDist0to1 = (float)NULL) { //Slider
+    this->otDist0to1 = otDist0to1;
 }
-void FractalParams::setOtDist1to2(float otDist1to2 = (float)NULL) {
-    this->otDist1to2 = (otDist1to2 == (float)NULL)?1.0f:otDist1to2;
+void FractalParams::setOtDist1to2(float otDist1to2 = (float)NULL) { //Slider
+    this->otDist1to2 = otDist1to2;
 }
-void FractalParams::setOtDist2to3(float otDist2to3 = (float)NULL) {
-    this->otDist2to3 = (otDist2to3 == (float)NULL)?0.4f:otDist2to3;
+void FractalParams::setOtDist2to3(float otDist2to3 = (float)NULL) { //Slider
+    this->otDist2to3 = otDist2to3;
 }
-void FractalParams::setOtDist3to0(float otDist3to0 = (float)NULL) {
-    this->otDist3to0 = (otDist3to0 == (float)NULL)?0.2f:otDist3to0;
+void FractalParams::setOtDist3to0(float otDist3to0 = (float)NULL) { //Slider
+    this->otDist3to0 = otDist3to0;
 }
-void FractalParams::setOtPaletteOffset(float otPaletteOffset = (float)NULL) {
-    this->otPaletteOffset = (otPaletteOffset == (float)NULL)?0.0f:otPaletteOffset;
+void FractalParams::setOtPaletteOffset(float otPaletteOffset = (float)NULL) { // Slider
+    this->otPaletteOffset = otPaletteOffset;
 }
-void FractalParams::setPhongShadingMixFactor(float phongShadingMixFactor = (float)NULL) {
-    this->phongShadingMixFactor = (phongShadingMixFactor == (float)NULL)?1.0f:phongShadingMixFactor;
+void FractalParams::setPhongShadingMixFactor(float phongShadingMixFactor = (float)NULL) { //Slider
+    this->phongShadingMixFactor = phongShadingMixFactor;
 }
-void FractalParams::setPower(float power = (float)NULL) {
-    this->power = (power == (float)NULL)?8.0f:power;
+void FractalParams::setPower(float power = (float)NULL) { //Slider
+    this->power = power;
 }
 void FractalParams::setScreenSize(glm::vec2 screenSize = (glm::vec2)(float)NULL) {
     this->screenSize = (screenSize == (glm::vec2)(float)NULL)?glm::vec2(800.00, 640.00):screenSize;
 }
-void FractalParams::setShadowBrightness(float shadowBrightness = (float)NULL) {
-    this->shadowBrightness = (shadowBrightness == (float)NULL)?0.2f:shadowBrightness;
+void FractalParams::setShadowBrightness(float shadowBrightness = (float)NULL) { //Slider
+    this->shadowBrightness = shadowBrightness;
 }
-void FractalParams::setShadowRayMinStepsTaken(int shadowRayMinStepsTaken = (int)NULL) {
-    this->shadowRayMinStepsTaken = (shadowRayMinStepsTaken == (int)NULL)?5:shadowRayMinStepsTaken;
+void FractalParams::setShadowRayMinStepsTaken(int shadowRayMinStepsTaken = (int)NULL) { //Slider
+    this->shadowRayMinStepsTaken = shadowRayMinStepsTaken;
 }
-void FractalParams::setShininess(float shininess = (float)NULL) {
-    this->shininess = (shininess == (float)NULL)?32.0f:shininess;
+void FractalParams::setShininess(float shininess = (float)NULL) { //Slider
+    this->shininess = shininess;
 }
 void FractalParams::setShowBgGradient(int showBgGradient = (int)true) {
     this->showBgGradient = showBgGradient;
 }
-void FractalParams::setSpecularIntensity(float specularIntensity = (float)NULL) {
-    this->specularIntensity = (specularIntensity == (float)NULL)?1.0f:specularIntensity;
+void FractalParams::setSpecularIntensity(float specularIntensity = (float)NULL) { //Slider
+    this->specularIntensity = specularIntensity;
 }
-void FractalParams::setSphereFixedRadius(float sphereFixedRadius = (float)NULL) {
-    this->sphereFixedRadius = (sphereFixedRadius == (float)NULL)?2.0f:sphereFixedRadius;
+void FractalParams::setSphereFixedRadius(float sphereFixedRadius = (float)NULL) { //Slider
+    this->sphereFixedRadius = sphereFixedRadius;
 }
-void FractalParams::setSphereFoldFactor(int sphereFoldFactor = (int)NULL) {
-    this->sphereFoldFactor = (sphereFoldFactor == (int)NULL)?0:sphereFoldFactor;
+void FractalParams::setSphereFoldFactor(int sphereFoldFactor = (int)NULL) { //Slider
+    this->sphereFoldFactor = sphereFoldFactor;
 }
-void FractalParams::setSphereMinRadius(float sphereMinRadius = (float)NULL) {
-    this->sphereMinRadius = (sphereMinRadius == (float)NULL)?0.01f:sphereMinRadius;
+void FractalParams::setSphereMinRadius(float sphereMinRadius = (float)NULL) { //Slider
+    this->sphereMinRadius = sphereMinRadius;
 }
 void FractalParams::setSphereMinTimeVariance(int sphereMinTimeVariance = (int)NULL) {
     this->sphereMinTimeVariance = (sphereMinTimeVariance == (int)NULL)?0:sphereMinTimeVariance;
 }
-void FractalParams::setTetraFactor(int tetraFactor = (int)NULL) {
-    this->tetraFactor = (tetraFactor == (int)NULL)?0:tetraFactor;
+void FractalParams::setTetraFactor(int tetraFactor = (int)NULL) { //Slider
+    this->tetraFactor = tetraFactor;
 }
-void FractalParams::setTetraScale(float tetraScale = (float)NULL) {
-    this->tetraScale = (tetraScale == (float)NULL)?1.0f:tetraScale;
+void FractalParams::setTetraScale(float tetraScale = (float)NULL) { //Slider
+    this->tetraScale = tetraScale;
 }
-void FractalParams::setTime(float time = (float)NULL) {
-    this->time = (time == (float)NULL)?2.6703f:time;
+void FractalParams::setTime(float time = (float)NULL) { //Slider
+    this->time = time;
 }
 void FractalParams::setNearPlane(float nearPlane = (float)NULL) {
     this->nearPlane = (nearPlane == (float)NULL)?0.1f:nearPlane;
@@ -237,59 +237,59 @@ void FractalParams::setInverseVP(Camera& camera, glm::mat4 inverseVP) {
 
 void FractalParams::reset() {
 
-    setAmbientIntensity();
-    setBailLimit();
-    setBaseColorStrength();
+    setAmbientIntensity(1.0f);
+    setBailLimit(5.0f);
+    setBaseColorStrength(.5f);
     setBgColor();
-    setBoxFoldFactor();
-    setBoxFoldingLimit();
+    setBoxFoldFactor(0);
+    setBoxFoldingLimit(1.0f);
     setColor0();
     setColor1();
     setColor2();
     setColor3();
     setColorBase();
-    setDerivativeBias();
-    setDiffuseIntensity();
+    setDerivativeBias(1);
+    setDiffuseIntensity(1.0f);
     setEyePos();
-    setFractalIters();
-    setFudgeFactor();
-    setGammaCorrection();
+    setFractalIters(1);
+    setFudgeFactor(1.0f);
+    setGammaCorrection(0);
     setGlowColor();
-    setGlowFactor();
-    setJulia();
+    setGlowFactor(1.0f);
+    setJulia(0);
     setJuliaC();
     setLightPos();
-    setLightSource();
+    setLightSource(1);
     setMandelBoxOn();
-    setMandelBoxScale();
+    setMandelBoxScale(1.2f);
     setMandelbulbOn();
-    setMaxRaySteps();
-    setMinDistance();
-    setNoiseFactor();
+    setMaxRaySteps(1000.0f);
+    setMinDistance(1.00000E-05);
+    setNoiseFactor(0.5f);
     setOrbitStrength();
-    setOtCycleIntensity();
-    setOtDist0to1();
-    setOtDist1to2();
-    setOtDist2to3();
-    setOtDist3to0();
-    setOtPaletteOffset();
-    setPhongShadingMixFactor();
-    setPower();
+    setOtCycleIntensity(5.0f);
+    setOtDist0to1(0.3f);
+    setOtDist1to2(1.0f);
+    setOtDist2to3(0.4f);
+    setOtDist3to0(0.2f);
+    setOtPaletteOffset(0.0f);
+    setPhongShadingMixFactor(1.0f);
+    setPower(8.0f);
     setScreenSize();
-    setShadowBrightness();
-    setShadowRayMinStepsTaken();
-    setShininess();
+    setShadowBrightness(0.2f);
+    setShadowRayMinStepsTaken(5);
+    setShininess(32.0f);
     setShowBgGradient();
-    setSpecularIntensity();
-    setSphereFixedRadius();
-    setSphereFoldFactor();
-    setSphereMinRadius();
-    setSphereMinTimeVariance();
-    setTetraFactor();
-    setTetraScale();
-    setTime();
-    setNearPlane();
-    setFarPlane();
+    setSpecularIntensity(1.0f);
+    setSphereFixedRadius(2.0f);
+    setSphereFoldFactor(0);
+    setSphereMinRadius(0.01f);
+    setSphereMinTimeVariance(0);
+    setTetraFactor(0);
+    setTetraScale(1.0f);
+    setTime(2.6703f);
+    setNearPlane(0.1f);
+    setFarPlane(100.0f);
 
 }
 
