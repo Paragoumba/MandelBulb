@@ -82,6 +82,8 @@ void GameEngine::loop() {
     char pathExport[256] = "test.json", pathImport[256] = "test.json",
         pathScreenshot[256] = "screenshot.png";
 
+    bool saveNextFrame = false;
+
     while (!window.shouldClose()){
 
         ImVec4 backgroundColor = paramsManager->getBackgroundColor();
@@ -141,12 +143,10 @@ void GameEngine::loop() {
         if (paramsManager->getShowScreenshotMenu()) {
             ImGui::Begin("Screenshot menu");
             ImGui::InputText("File name (path)", pathScreenshot, IM_ARRAYSIZE(pathScreenshot));
-            if (ImGui::Button("Take screenshot")) {
-                if (takeScreenshot(pathScreenshot)) {
-                    paramsManager->setShowScreenshotMenu(false);
-                } else {
-                    std::cerr << "An error occured while taking screenshot" << std::endl;
-                }
+            if (ImGui::Button("Take screenshot")){
+
+                saveNextFrame = true;
+
             }
             ImGui::SameLine();
             if (ImGui::Button("Cancel"))
@@ -645,6 +645,21 @@ void GameEngine::loop() {
 
         window.swapBuffers();
         glfwPollEvents();
+
+        if (saveNextFrame){
+            if (takeScreenshot(pathScreenshot)){
+
+                paramsManager->setShowScreenshotMenu(false);
+
+            } else {
+
+                std::cerr << "An error occured while taking screenshot" << std::endl;
+
+            }
+
+            saveNextFrame = false;
+
+        }
 
         ++i;
 
