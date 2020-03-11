@@ -10,11 +10,6 @@ void Utils::setExePath(const char* path){
 
 }
 
-std::filesystem::path Utils::getExePath(){
-
-    return exePath;
-
-}
 
 std::string Utils::getPath(const char* path){
 

@@ -11,24 +11,6 @@
 #include "Material.hpp"
 #include "exceptions/Exception.hpp"
 
-/**
- * addTexture
- * Add a texture in the vector that contain all the texture
- *
- * @param texture
- */
-void Material::addTexture(Texture* texture){
-
-    if (textures.size() < 32){
-
-        textures.push_back(texture);
-
-    } else {
-
-        throw Exception("Maximum 32 textures are supported.");
-
-    }
-}
 
 /**
  * apply the texture to objects

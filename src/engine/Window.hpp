@@ -58,20 +58,13 @@ public:
      * @return
      */
     [[nodiscard]] int getKey(int keyCode) const;
-    /**
-     *  give the resolution of this window
-     *
-     * @return the resolution
-     */
-    [[nodiscard]] Resolution getSize() const;
 
-    [[nodiscard]] Color getColor() const;
     /**
      *  define the cursor of this windows
      *
      * @param path name of cursor's file
      */
-    GLFWwindow* getHandle() const;
+    [[nodiscard]] GLFWwindow* getHandle() const;
     void setCursor(const char* path);
     /**
     * define the title of this window

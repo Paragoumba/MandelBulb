@@ -61,7 +61,6 @@ float ParamsManager::getTetraScale() const { return fractalParams->getTetraScale
 float ParamsManager::getTime() const { return fractalParams->getTime(); }
 float ParamsManager::getNearPlane() const { return fractalParams->getNearPlane(); }
 float ParamsManager::getFarPlane() const { return fractalParams->getFarPlane(); }
-glm::mat4 ParamsManager::getInverseVP() const { return fractalParams->getInverseVP(); }
 bool& ParamsManager::getRenderFractal() { return renderFractal; }
 bool& ParamsManager::getHideMenu() { return hideMenu; }
 bool& ParamsManager::getShowScreenshotMenu() { return showScreenshotMenu; }
@@ -127,40 +126,39 @@ void ParamsManager::setTetraScale(float tetraScale) { fractalParams->setTetraSca
 void ParamsManager::setTime(float time) { fractalParams->setTime(time); }
 void ParamsManager::setNearPlane(float nearPlane) { fractalParams->setNearPlane(nearPlane); }
 void ParamsManager::setFarPlane(float farPlane) { fractalParams->setFarPlane(farPlane); }
-void ParamsManager::setInverseVP(Camera& camera, glm::mat4 inverseVP = (glm::mat4)(const float)NULL) { fractalParams->setInverseVP(camera, inverseVP); }
-void ParamsManager::setRenderFractal(bool renderFractal = false) {
-    this->renderFractal = renderFractal;
+void ParamsManager::setRenderFractal(bool _renderFractal = false) {
+    this->renderFractal = _renderFractal;
 }
-void ParamsManager::setHideMenu(bool hideMenu = true) {
-    this->hideMenu = hideMenu;
+void ParamsManager::setHideMenu(bool _hideMenu = true) {
+    this->hideMenu = _hideMenu;
 }
-void ParamsManager::setShowScreenshotMenu(bool showScreenshotMenu = false) {
-    this->showScreenshotMenu = showScreenshotMenu;
+void ParamsManager::setShowScreenshotMenu(bool _showScreenshotMenu = false) {
+    this->showScreenshotMenu = _showScreenshotMenu;
 }
-void ParamsManager::setShowExportMenu(bool showExportMenu = false) {
-    this->showExportMenu = showExportMenu;
+void ParamsManager::setShowExportMenu(bool _showExportMenu = false) {
+    this->showExportMenu = _showExportMenu;
 }
-void ParamsManager::setShowImportMenu(bool showImportMenu = false) {
-    this->showImportMenu = showImportMenu;
+void ParamsManager::setShowImportMenu(bool _showImportMenu = false) {
+    this->showImportMenu = _showImportMenu;
 }
-void ParamsManager::setReA(const char* reA = (const char*)nullptr) {
-    if (reA == (const char*)nullptr) strcpy(this->reA, "1");
-    else strcpy(this->reA, reA);
+void ParamsManager::setReA(const char* _reA = (const char*)nullptr) {
+    if (_reA == (const char*)nullptr) strcpy(this->reA, "1");
+    else strcpy(this->reA, _reA);
 }
-void ParamsManager::setImA(const char* imA = (const char*)nullptr) {
-    if (imA == (const char*)nullptr) strcpy(this->imA, "0");
-    else strcpy(this->imA, imA);
+void ParamsManager::setImA(const char* _imA = (const char*)nullptr) {
+    if (_imA == (const char*)nullptr) strcpy(this->imA, "0");
+    else strcpy(this->imA, _imA);
 }
-void ParamsManager::setReC(const char* reC = (const char*)nullptr) {
-    if (reC == (const char*)nullptr) strcpy(this->reC, "0");
-    else strcpy(this->reC, reC);
+void ParamsManager::setReC(const char* _reC = (const char*)nullptr) {
+    if (_reC == (const char*)nullptr) strcpy(this->reC, "0");
+    else strcpy(this->reC, _reC);
 }
-void ParamsManager::setImC(const char* imC = (const char*)nullptr) {
-    if (imC == (const char*)nullptr) strcpy(this->imC, "0");
-    else strcpy(this->imC, imC);
+void ParamsManager::setImC(const char* _imC = (const char*)nullptr) {
+    if (_imC == (const char*)nullptr) strcpy(this->imC, "0");
+    else strcpy(this->imC, _imC);
 }
-void ParamsManager::setBackgroundColor(ImVec4 backgroundColor = ImVec4(0.45f, 0.55f, 0.60f, 1.00f)) {
-    this->backgroundColor = backgroundColor;
+void ParamsManager::setBackgroundColor(ImVec4 _backgroundColor = ImVec4(0.45f, 0.55f, 0.60f, 1.00f)) {
+    this->backgroundColor = _backgroundColor;
 }
 
 void ParamsManager::reset() {
@@ -178,7 +176,7 @@ void ParamsManager::reset() {
 
 }
 
-void ParamsManager::importSettings(std::string path) noexcept(false) {
+void ParamsManager::importSettings(const std::string& path) noexcept(false) {
 
     try {
 

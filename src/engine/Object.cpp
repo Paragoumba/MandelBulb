@@ -14,33 +14,10 @@
  */
 Object::Object() : position(0, 0, 0), rotation(0, 0, 0), scale(1, 1, 1){}
 
-glm::vec3 Object::getPosition() const {
 
-    return position;
 
-}
 
-/**
- * return the current rotation of the object
- *
- * @return glm::vec3 rotation
- */
-glm::vec3 Object::getRotation() const {
 
-    return rotation;
-
-}
-
-/**
- * return the current scale of the object
- *
- * @return glm::vec3 scale
- */
-glm::vec3 Object::getScale() const {
-
-    return scale;
-
-}
 
 /**
  * Set the position of the object to the parameters value
@@ -57,58 +34,5 @@ void Object::setPosition(float x, float y, float z){
 
 }
 
-/**
- * Set the rotation of the object to the parameters value
- *
- * @param rotX
- * @param rotY
- * @param rotZ
- */
-void Object::setRotation(float rotX, float rotY, float rotZ){
 
-    rotation.x = rotX;
-    rotation.y = rotY;
-    rotation.z = rotZ;
 
-}
-
-/**
- * Set the general scale of the object to the parameter value
- *
- * @param _scale
- */
-void Object::setScale(float _scale){
-
-    scale.x = scale.y = scale.z = _scale;
-
-}
-
-/**
- * Set the scale of the object on each axis to the parameters value
- *
- * @param scaleX
- * @param scaleY
- * @param scaleZ
- */
-void Object::setScale(float scaleX, float scaleY, float scaleZ){
-
-    scale.x = scaleX;
-    scale.y = scaleY;
-    scale.z = scaleZ;
-
-}
-
-/**
- * Increase the current rotation from the parameters value
- *
- * @param rotX
- * @param rotY
- * @param rotZ
- */
-void Object::addRotation(float rotX, float rotY, float rotZ){
-
-    rotation.x += rotX;
-    rotation.y += rotY;
-    rotation.z += rotZ;
-
-}

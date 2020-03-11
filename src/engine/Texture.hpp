@@ -30,16 +30,6 @@ public:
      */
     [[nodiscard]] unsigned int getId() const;
     /**
-     *  return the width of this texture
-     * @return
-     */
-    [[nodiscard]] int getWidth() const;
-    /**
-     * return the height of this texture
-     * @return
-     */
-    [[nodiscard]] int getHeight() const;
-    /**
      *  Destructor of class Texture
        */
     ~Texture();

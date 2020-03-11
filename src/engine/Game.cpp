@@ -8,12 +8,6 @@
  */
 #include "Game.hpp"
 
-Camera Game::getCamera() {
-
-    return camera;
-
-}
-
 int Game::takeScreenshot(const char* path) {
 
     return renderer.takeScreenshot(path);

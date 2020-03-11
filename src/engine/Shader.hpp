@@ -31,12 +31,6 @@ public:
      */
     void use();
     /**
-     * Set the boolean
-     * @param name
-     * @param value
-     */
-    void setBool(const char* name, bool value);
-    /**
      * Set the integer
      * @param name
      * @param value

@@ -63,27 +63,6 @@ unsigned int Texture::getId() const {
 }
 
 /**
- *  return the width of this texture
- *
- * @return int
- */
-int Texture::getWidth() const {
-
-    return width;
-
-}
-
-/**
- *  return the height of this texture
- *
- * @return int
- */
-int Texture::getHeight() const {
-
-    return height;
-
-}
-/**
  *  Destructor of class Texture
  *
  */

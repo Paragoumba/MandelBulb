@@ -26,8 +26,6 @@ public:
 
     void render() const;
 
-    void setMaterial(MaterialPtr _material);
-
     ~Mesh();
 };
 

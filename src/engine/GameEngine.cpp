@@ -14,6 +14,8 @@
 #include "../../lib/imgui/imgui_impl_glfw.h"
 #include "../../lib/imgui/imgui_impl_opengl3.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wsizeof-pointer-div"
 #define FPS 60
 
 /**
@@ -620,7 +622,7 @@ void GameEngine::loop() {
         if (paramsManager->getRenderFractal()) {
 
             paramsManager->setBgColor(glm::vec3(backgroundColor.x, backgroundColor.y, backgroundColor.z));
-            game.update();
+            Game::update();
             game.render(window);
 
         }
@@ -658,6 +660,5 @@ int GameEngine::takeScreenshot(const char* path) {
 
 }
 
-GameEngine::~GameEngine() {
-
-}
+GameEngine::~GameEngine() = default;
+#pragma clang diagnostic pop

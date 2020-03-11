@@ -7,7 +7,6 @@
  * In this class there are serval functions that can be used in order to managed mesh
  */
 #include <glad/glad.h>
-#include <utility>
 
 #include "Mesh.hpp"
 
@@ -72,16 +71,7 @@ void Mesh::render() const {
 
 }
 
-/**
- * Select the material to use
- *
- * @param _material
- */
-void Mesh::setMaterial(MaterialPtr _material){
 
-    material = std::move(_material);
-
-}
 
 /**
  * Destructor of Mesh

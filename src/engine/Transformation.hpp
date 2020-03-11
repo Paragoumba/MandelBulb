@@ -33,23 +33,6 @@ public:
      */
     static void setProjectionMatrix(float fov, float aspect, float zNear, float zFar);
     /**
-     * return the projectionMatrix
-     *
-     * @param left
-     * @param right
-     * @param bottom
-     * @param top
-     * @param zNear
-     * @param zFar
-     */
-    static void setProjectionMatrix(float left, float right, float bottom, float top, float zNear, float zFar);
-    /**
-     * return the model of matrix
-     * @param object
-     * @return
-     */
-    static glm::mat4 getModelMatrix(Object* object);
-    /**
      * return the matrix view
      * @param camera
      * @return

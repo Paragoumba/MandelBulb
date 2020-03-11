@@ -16,7 +16,6 @@ private:
     std::vector<Texture*> textures;
 
 public:
-    void addTexture(Texture* texture);
     void use();
 
     ~Material();

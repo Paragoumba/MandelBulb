@@ -18,12 +18,10 @@ private:
     float lightAngle = 1;
 
 public:
-    Camera getCamera();
     int takeScreenshot(const char*);
-
     void init();
     void input(Window& window);
-    void update();
+    static void update();
     void render(Window& window);
 };
 

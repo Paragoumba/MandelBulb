@@ -118,26 +118,6 @@ int Window::getKey(int keyCode) const {
 
 }
 
-/**
- *  give the resolution of this window
- *
- * @return the resolution
- */
-Resolution Window::getSize() const {
-
-    Resolution resolution{};
-
-    glfwGetFramebufferSize(handle, &resolution.width, &resolution.height);
-
-    return resolution;
-
-}
-
-Color Window::getColor() const {
-
-    return color;
-
-}
 
 GLFWwindow* Window::getHandle() const {
 

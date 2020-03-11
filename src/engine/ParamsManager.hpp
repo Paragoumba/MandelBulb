@@ -39,85 +39,84 @@ public:
 
     // TODO Fix warnings
     //----GLOW-----------------------------------------------------------
-    float getGlowFactor() const;
-    glm::vec3 getGlowColor() const;
+    [[nodiscard]] float getGlowFactor() const;
+    [[nodiscard]] glm::vec3 getGlowColor() const;
     //----SHADOW---------------------------------------------------------
-    int getLightSource() const;
-    float getShadowBrightness() const;
-    int getShadowRayMinStepsTaken() const;
+    [[nodiscard]] int getLightSource() const;
+    [[nodiscard]] float getShadowBrightness() const;
+    [[nodiscard]] int getShadowRayMinStepsTaken() const;
     //----AMBIENT--------------------------------------------------------
-    float getPhongShadingMixFactor() const;
-    float getAmbientIntensity() const;
-    float getDiffuseIntensity() const;
-    float getSpecularIntensity() const;
+    [[nodiscard]] float getPhongShadingMixFactor() const;
+    [[nodiscard]] float getAmbientIntensity() const;
+    [[nodiscard]] float getDiffuseIntensity() const;
+    [[nodiscard]] float getSpecularIntensity() const;
     //----IMAGERENDER----------------------------------------------------
-    int getGammaCorrection() const;
-    glm::vec3 getLightPos() const;
-    float getMinDistance() const;
-    float getNoiseFactor() const;
+    [[nodiscard]] int getGammaCorrection() const;
+    [[nodiscard]] glm::vec3 getLightPos() const;
+    [[nodiscard]] float getMinDistance() const;
+    [[nodiscard]] float getNoiseFactor() const;
     //----BRIGHTNESS-----------------------------------------------------
-    float getShininess() const;
+    [[nodiscard]] float getShininess() const;
     //-------------------------------------------------------------------
 
     //MATH---------------------------------------------------------------
     //----MATH-----------------------------------------------------------
-    int getFractalIters() const;
-    float getPower() const;
+    [[nodiscard]] int getFractalIters() const;
+    [[nodiscard]] float getPower() const;
     //----PRECISION------------------------------------------------------
-    float getMaxRaySteps() const;
-    int getShowBgGradient() const;
-    float getSphereFixedRadius() const;
-    float getSphereMinRadius() const;
-    int getSphereMinTimeVariance() const;
-    int getTetraFactor() const;
-    float getTetraScale() const;
-    float getTime() const;
+    [[nodiscard]] float getMaxRaySteps() const;
+    [[nodiscard]] int getShowBgGradient() const;
+    [[nodiscard]] float getSphereFixedRadius() const;
+    [[nodiscard]] float getSphereMinRadius() const;
+    [[nodiscard]] int getSphereMinTimeVariance() const;
+    [[nodiscard]] int getTetraFactor() const;
+    [[nodiscard]] float getTetraScale() const;
+    [[nodiscard]] float getTime() const;
     //----FRACTAL--------------------------------------------------------
-    int getMandelbulbOn() const;
-    int getJulia() const;
-    glm::vec3 getJuliaC() const;
+    [[nodiscard]] int getMandelbulbOn() const;
+    [[nodiscard]] int getJulia() const;
+    [[nodiscard]] glm::vec3 getJuliaC() const;
     //----OTHERS---------------------------------------------------------
-    int getSphereFoldFactor() const;
+    [[nodiscard]] int getSphereFoldFactor() const;
     //-------------------------------------------------------------------
 
     //COLORS-------------------------------------------------------------
     //----COLORS---------------------------------------------------------
-    glm::vec3 getBgColor() const;
-    glm::vec3 getColor0() const;
-    glm::vec3 getColor1() const;
-    glm::vec3 getColor2() const;
-    glm::vec3 getColor3() const;
-    glm::vec3 getColorBase() const;
+    [[nodiscard]] glm::vec3 getBgColor() const;
+    [[nodiscard]] glm::vec3 getColor0() const;
+    [[nodiscard]] glm::vec3 getColor1() const;
+    [[nodiscard]] glm::vec3 getColor2() const;
+    [[nodiscard]] glm::vec3 getColor3() const;
+    [[nodiscard]] glm::vec3 getColorBase() const;
     //----STRENGTH-------------------------------------------------------
-    float getBaseColorStrength() const;
+    [[nodiscard]] float getBaseColorStrength() const;
     //-------------------------------------------------------------------
 
     //OTHERS-------------------------------------------------------------
     //----OTHERS---------------------------------------------------------
-    float getBailLimit() const;
-    glm::vec4 getOrbitStrength() const;
-    float getOtCycleIntensity() const;
-    float getOtDist0to1() const;
-    float getOtDist1to2() const;
-    float getOtDist2to3() const;
-    float getOtDist3to0() const;
-    float getOtPaletteOffset() const;
-    glm::vec2 getScreenSize() const;
-    float getNearPlane() const;
-    float getFarPlane() const;
-    glm::mat4 getInverseVP() const;
-    int getDerivativeBias() const;
-    glm::vec3 getEyePos() const;
-    float getFudgeFactor() const;
+    [[nodiscard]] float getBailLimit() const;
+    [[nodiscard]] glm::vec4 getOrbitStrength() const;
+    [[nodiscard]] float getOtCycleIntensity() const;
+    [[nodiscard]] float getOtDist0to1() const;
+    [[nodiscard]] float getOtDist1to2() const;
+    [[nodiscard]] float getOtDist2to3() const;
+    [[nodiscard]] float getOtDist3to0() const;
+    [[nodiscard]] float getOtPaletteOffset() const;
+    [[nodiscard]] glm::vec2 getScreenSize() const;
+    [[nodiscard]] float getNearPlane() const;
+    [[nodiscard]] float getFarPlane() const;
+    [[nodiscard]] int getDerivativeBias() const;
+    [[nodiscard]] glm::vec3 getEyePos() const;
+    [[nodiscard]] float getFudgeFactor() const;
     //----BOX------------------------------------------------------------
-    int getBoxFoldFactor() const;
-    float getBoxFoldingLimit() const;
-    int getMandelBoxOn() const;
-    float getMandelBoxScale() const;
+    [[nodiscard]] int getBoxFoldFactor() const;
+    [[nodiscard]] float getBoxFoldingLimit() const;
+    [[nodiscard]] int getMandelBoxOn() const;
+    [[nodiscard]] float getMandelBoxScale() const;
     //-------------------------------------------------------------------
 
     void reset();
-    void importSettings(std::string) noexcept(false);
+    void importSettings(const std::string&) noexcept(false);
     void exportSettings(std::string) noexcept(false);
 
     void setAmbientIntensity(float);
@@ -173,7 +172,6 @@ public:
     void setTime(float);
     void setNearPlane(float);
     void setFarPlane(float);
-    void setInverseVP(Camera& camera, glm::mat4);
     void setRenderFractal(bool);
     void setHideMenu(bool);
     void setShowScreenshotMenu(bool);

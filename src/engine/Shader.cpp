@@ -95,17 +95,7 @@ void Shader::use(){
     glUseProgram(ID);
 
 }
-/**
- *  define the bool
- *
- * @param name
- * @param value
- */
-void Shader::setBool(const char* name, bool value){
 
-    glUniform1i(glGetUniformLocation(ID, name), (int) value);
-
-}
 /**
  * Set int
  *
