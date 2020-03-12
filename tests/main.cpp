@@ -55,16 +55,6 @@ TEST(Transformation, getViewMatrix){
 
 }
 
-TEST(Transformation, getModelMatrix){
-
-    Object model;
-    glm::mat4 correctModelMatrix(1);
-    glm::mat4 modelMatrix = Transformation::getModelMatrix(&model);
-
-    ASSERT_TRUE(modelMatrix == correctModelMatrix);
-
-}
-
 TEST(Transformation, setProjectionMatrix){
 
     glm::mat4 correctPerspectiveMatrix(0);
