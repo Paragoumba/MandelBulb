@@ -12,6 +12,8 @@
 #include "Transformation.hpp"
 #include "Mesh.hpp"
 #include "Utils.hpp"
+
+#define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb/stb_image_write.h"
 
 /**
