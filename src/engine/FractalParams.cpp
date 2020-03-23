@@ -144,7 +144,7 @@ void FractalParams::setMandelBoxOn(int _mandelBoxOn = (bool)false) {
     this->mandelBoxOn = _mandelBoxOn;
 }
 void FractalParams::setMandelBoxScale(float _mandelBoxScale = 1.2f) {
-    this->mandelBoxScale = _mandelBoxScale; //0.1f before
+    this->mandelBoxScale = _mandelBoxScale;
 }
 void FractalParams::setMandelbulbOn(int _mandelbulbOn = (int)true) {
     this->mandelbulbOn = _mandelbulbOn;
