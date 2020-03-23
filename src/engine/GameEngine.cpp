@@ -81,7 +81,7 @@ void GameEngine::loop() {
         sphereFoldFactor;
     bool showBgGradient, mandelbulbOn, julia, mandelBoxOn;
     ImVec4 glowColor, color0, color1, color2, color3, colorBase;
-    char pathExport[256] = "test.json", pathImport[256] = "test.json",
+    char pathExport[256] = "default.json", pathImport[256] = "default.json",
         pathScreenshot[256] = "screenshot.png";
 
     bool saveNextFrame = false, switchF3 = false, switchExport = false,
