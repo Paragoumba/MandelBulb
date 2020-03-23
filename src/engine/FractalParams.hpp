@@ -185,7 +185,7 @@ public:
     void setFarPlane(float);
     void setInverseVP(Camera& camera, glm::mat4 = (glm::mat4)(const float)NULL);
 
-    ~FractalParams();
+    ~FractalParams() = default;
 
 };
 

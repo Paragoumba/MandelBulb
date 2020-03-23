@@ -163,10 +163,8 @@ void GameEngine::loop() {
         if (paramsManager->getShowScreenshotMenu()) {
             ImGui::Begin("Screenshot menu");
             ImGui::InputText("File name (path)", pathScreenshot, IM_ARRAYSIZE(pathScreenshot));
-            if (ImGui::Button("Take screenshot")){
-
+            if (ImGui::Button("Take screenshot")) {
                 saveNextFrame = true;
-
             }
             ImGui::SameLine();
             if (ImGui::Button("Cancel"))
@@ -196,24 +194,12 @@ void GameEngine::loop() {
             if (ImGui::BeginTabBar("Settings")) {
                 if (ImGui::BeginTabItem("GUI")) {
 
-                    ImGui::Text("Equation: z_(n+1)=a*(z_n)^2+c");
-                    char *reA = paramsManager->getReA(),
-                            *imA = paramsManager->getImA(),
-                            *reC = paramsManager->getReC(),
-                            *imC = paramsManager->getImC();
-
-                    // TODO Fix IM_ARRAYSIZE usage
-                    ImGui::InputText("Re(a)", reA, IM_ARRAYSIZE(reA));
-                    ImGui::InputText("Im(a)", imA, IM_ARRAYSIZE(imA));
-                    ImGui::InputText("Re(c)", reC, IM_ARRAYSIZE(reC));
-                    ImGui::InputText("Im(c)", imC, IM_ARRAYSIZE(imC));
-
                     ImGui::Checkbox("Render fractal", &paramsManager->getRenderFractal());
 
                     ImGui::ColorEdit3("Background color", (float*)&paramsManager->getBackgroundColor());
 
-                    if (ImGui::Button("Hide menu"))
-                        paramsManager->setHideMenu(true);
+                    if (ImGui::Button("Reset parameters"))
+                        paramsManager->reset();
 
                     ImGui::EndTabItem();
                 }
@@ -251,7 +237,6 @@ void GameEngine::loop() {
                         paramsManager->setShadowBrightness(shadowBrightness);
 
                         shadowRayMinStepsTaken = paramsManager->getShadowRayMinStepsTaken();
-                        //TODO: find bounds seems good like that
                         ImGui::SliderInt("Shadow ray min steps taken", &shadowRayMinStepsTaken, 0, 10);
                         paramsManager->setShadowRayMinStepsTaken(shadowRayMinStepsTaken);
 
@@ -367,7 +352,6 @@ void GameEngine::loop() {
                         ImGui::SliderFloat("Sphere min radius", &sphereMinRadius, 0.0f, 0.5f);
                         paramsManager->setSphereMinRadius(sphereMinRadius);
 
-                        //TODO: find why it is not working => sphereMinTimeVariance must be a bool with a checkBox
                         sphereMinTimeVariance = paramsManager->getSphereMinTimeVariance();
                         ImGui::InputInt("Sphere min time variance", &sphereMinTimeVariance);
                         paramsManager->setSphereMinTimeVariance(sphereMinTimeVariance);
@@ -484,7 +468,7 @@ void GameEngine::loop() {
 
                         baseColorStrength = paramsManager->getBaseColorStrength();
                         //TODO: find bounds
-                        ImGui::SliderFloat("Base color strength", &baseColorStrength, 0.0f, 0.1f);
+                        ImGui::SliderFloat("Base color strength", &baseColorStrength, 0.0f, 1.0f);
                         paramsManager->setBaseColorStrength(baseColorStrength);
 
                         ImGui::Separator();
@@ -567,8 +551,6 @@ void GameEngine::loop() {
                         //TODO: find bounds
                         ImGui::SliderFloat("Far plane", &farPlane, 0.0f, 100.0f);
                         paramsManager->setFarPlane(farPlane);
-
-                        //TODO: find usage of inverseVP
 
                         derivativeBias = paramsManager->getDerivativeBias();
                         //TODO: find bounds
