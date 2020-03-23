@@ -84,7 +84,8 @@ void GameEngine::loop() {
     char pathExport[256] = "test.json", pathImport[256] = "test.json",
         pathScreenshot[256] = "screenshot.png";
 
-    bool saveNextFrame = false;
+    bool saveNextFrame = false, switchF3 = false, switchExport = false,
+        switchImport = false;
 
     while (!window.shouldClose()){
 
@@ -96,9 +97,26 @@ void GameEngine::loop() {
 
         if (window.getKey(GLFW_KEY_ESCAPE) == GLFW_PRESS)   window.close();
         if (window.getKey(GLFW_KEY_F2) == GLFW_PRESS)       paramsManager->setShowScreenshotMenu(true);
-        if (window.getKey(GLFW_KEY_F3) == GLFW_PRESS)       paramsManager->setHideMenu(false);
+        if (window.getKey(GLFW_KEY_F3) == GLFW_PRESS) {
+            if (!switchF3) {
+                paramsManager->setHideMenu(!paramsManager->getHideMenu());
+                switchF3 = true;
+            }
+        } else switchF3 = false;
         if (window.getKey(GLFW_KEY_G) == GLFW_PRESS)        paramsManager->setRenderFractal(true);
         if (window.getKey(GLFW_KEY_H) == GLFW_PRESS)        paramsManager->setRenderFractal(false);
+        if ((window.getKey(GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS || window.getKey(GLFW_KEY_RIGHT_CONTROL) == GLFW_PRESS) && window.getKey(GLFW_KEY_E) == GLFW_PRESS) {
+            if (!switchExport) {
+                paramsManager->setShowExportMenu(!paramsManager->getShowExportMenu());
+                switchExport = true;
+            }
+        } else switchExport = false;
+        if ((window.getKey(GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS || window.getKey(GLFW_KEY_RIGHT_CONTROL) == GLFW_PRESS) && window.getKey(GLFW_KEY_I) == GLFW_PRESS) {
+            if (!switchImport) {
+                paramsManager->setShowImportMenu(!paramsManager->getShowImportMenu());
+                switchImport = true;
+            }
+        } else switchImport = false;
 
         // Start the Dear ImGui frame
         ImGui_ImplOpenGL3_NewFrame();
@@ -168,9 +186,7 @@ void GameEngine::loop() {
 
             if (ImGui::BeginMenuBar()) {
                 if (ImGui::BeginMenu("File")) {
-                    //TODO: create shortcut
                     ImGui::MenuItem("Export settings", "CTRL+E", &paramsManager->getShowExportMenu());
-                    //TODO: create shortcut
                     ImGui::MenuItem("Import settings", "CTRL+I", &paramsManager->getShowImportMenu());
                     ImGui::EndMenu();
                 }
